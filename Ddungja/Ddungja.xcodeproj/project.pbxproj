@@ -19,6 +19,7 @@
 		759A65AD2A403BA900E6AD07 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 759A65AC2A403BA900E6AD07 /* KakaoSDKCommon */; };
 		759A65AF2A403BA900E6AD07 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 759A65AE2A403BA900E6AD07 /* KakaoSDKUser */; };
 		759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */; };
+		759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +51,9 @@
 		759A65982A4037E700E6AD07 /* DdungjaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaUITests.swift; sourceTree = "<group>"; };
 		759A659A2A4037E700E6AD07 /* DdungjaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		759A65B02A403E3800E6AD07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		759A65B12A403F2B00E6AD07 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakakoAuthViewModel.swift; sourceTree = "<group>"; };
+		759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		759A65BE2A417DB000E6AD07 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +108,14 @@
 		759A657C2A4037E500E6AD07 /* Ddungja */ = {
 			isa = PBXGroup;
 			children = (
+				759A65B92A417C4900E6AD07 /* Extension */,
 				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A657D2A4037E500E6AD07 /* DdungjaApp.swift */,
 				759A657F2A4037E500E6AD07 /* LoginView.swift */,
 				759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */,
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
-				759A65B12A403F2B00E6AD07 /* Config.xcconfig */,
+				759A65BE2A417DB000E6AD07 /* Config.xcconfig */,
 			);
 			path = Ddungja;
 			sourceTree = "<group>";
@@ -140,6 +143,14 @@
 				759A659A2A4037E700E6AD07 /* DdungjaUITestsLaunchTests.swift */,
 			);
 			path = DdungjaUITests;
+			sourceTree = "<group>";
+		};
+		759A65B92A417C4900E6AD07 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 				759A65802A4037E500E6AD07 /* LoginView.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
+				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +334,6 @@
 /* Begin XCBuildConfiguration section */
 		759A659C2A4037E700E6AD07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 759A65B12A403F2B00E6AD07 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -383,7 +394,6 @@
 		};
 		759A659D2A4037E700E6AD07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 759A65B12A403F2B00E6AD07 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -438,7 +448,6 @@
 		};
 		759A659F2A4037E700E6AD07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 759A65B12A403F2B00E6AD07 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,7 +478,6 @@
 		};
 		759A65A02A4037E700E6AD07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 759A65B12A403F2B00E6AD07 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
