@@ -108,22 +108,11 @@
 		7535115E2A41D9B6008B0101 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				7535115F2A41D9BF008B0101 /* Network */,
+				755462572A44B11900598268 /* APIs */,
+				755462552A44B0C900598268 /* DTO+Mapping */,
+				755462542A44AEF500598268 /* DataStore */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		7535115F2A41D9BF008B0101 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				7554624D2A44984700598268 /* SignUpDTO */,
-				753511602A41DA2E008B0101 /* LoginAPI.swift */,
-				753511A52A430785008B0101 /* LoginAPIProvider.swift */,
-				753511A72A43427C008B0101 /* LoginDTO.swift */,
-				755462452A446A1B00598268 /* SignUpAPI.swift */,
-				755462492A447ECF00598268 /* SignUpProvider.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
@@ -134,6 +123,33 @@
 				755462522A4498DA00598268 /* UserInfoDTO.swift */,
 			);
 			path = SignUpDTO;
+			sourceTree = "<group>";
+		};
+		755462542A44AEF500598268 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				753511A52A430785008B0101 /* LoginAPIProvider.swift */,
+				755462492A447ECF00598268 /* SignUpProvider.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		755462552A44B0C900598268 /* DTO+Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				753511A72A43427C008B0101 /* LoginDTO.swift */,
+				7554624D2A44984700598268 /* SignUpDTO */,
+			);
+			path = "DTO+Mapping";
+			sourceTree = "<group>";
+		};
+		755462572A44B11900598268 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				753511602A41DA2E008B0101 /* LoginAPI.swift */,
+				755462452A446A1B00598268 /* SignUpAPI.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 		759A65712A4037E500E6AD07 = {
@@ -161,11 +177,11 @@
 			children = (
 				7535115E2A41D9B6008B0101 /* Data */,
 				759A65B92A417C4900E6AD07 /* Extension */,
-				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A657D2A4037E500E6AD07 /* DdungjaApp.swift */,
 				759A657F2A4037E500E6AD07 /* LoginView.swift */,
 				759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */,
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
+				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
 				759A65BE2A417DB000E6AD07 /* Config.xcconfig */,
 			);
