@@ -11,7 +11,7 @@ import CombineMoya
 import Combine
 
 
-class LoginAPIProvider {
+final class LoginAPIProvider {
     let moyaProvider: MoyaProvider<LoginAPI>
     
     init(moyaProvider: MoyaProvider<LoginAPI> = .init()) {

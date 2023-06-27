@@ -10,7 +10,7 @@ import Moya
 import CombineMoya
 import Combine
 
-class SignUpProvider {
+final class SignUpProvider {
     let moyaProvider: MoyaProvider<SignUpAPI>
     
     init(moyaProvider: MoyaProvider<SignUpAPI> = .init()) {
