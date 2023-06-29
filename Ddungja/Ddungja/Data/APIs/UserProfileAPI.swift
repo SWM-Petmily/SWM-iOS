@@ -8,6 +8,24 @@
 import Foundation
 import Moya
 
+struct UserInfo: Encodable {
+    let profileImageId: Int
+    let job: String
+    let environment: String
+    let people: Int
+    let comment: String
+    let color: String
+    let openTalk: String
+    let region: String
+    let isExperience: Bool
+    let experiences: [ExperienceForRequest]
+}
+
+struct ExperienceForRequest: Encodable {
+    let species: String
+    let period: Int
+}
+
 enum UserProfileAPI {
     case detail(userId: String)
     case register(userInfo: UserInfo)
