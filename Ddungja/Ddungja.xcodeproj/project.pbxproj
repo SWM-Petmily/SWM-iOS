@@ -17,6 +17,7 @@
 		7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB42A4C24C40019A986 /* ProfileDetailDTO.swift */; };
 		7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */; };
 		7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */; };
+		7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDDE2A51A52C0019A986 /* UserProfileView.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554624E2A44987D00598268 /* CertificationNumberDTO.swift */; };
@@ -67,6 +68,7 @@
 		7546BDB42A4C24C40019A986 /* ProfileDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailDTO.swift; sourceTree = "<group>"; };
 		7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterDTO.swift; sourceTree = "<group>"; };
 		7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPIProvider.swift; sourceTree = "<group>"; };
+		7546BDDE2A51A52C0019A986 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		7554624E2A44987D00598268 /* CertificationNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberDTO.swift; sourceTree = "<group>"; };
@@ -142,6 +144,38 @@
 				7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */,
 			);
 			path = UserProfileDTO;
+			sourceTree = "<group>";
+		};
+		7546BDDA2A51A42F0019A986 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				7546BDDB2A51A4400019A986 /* UserProfiles */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
+		7546BDDB2A51A4400019A986 /* UserProfiles */ = {
+			isa = PBXGroup;
+			children = (
+				7546BDDD2A51A45F0019A986 /* ViewModels */,
+				7546BDDC2A51A4590019A986 /* Views */,
+			);
+			path = UserProfiles;
+			sourceTree = "<group>";
+		};
+		7546BDDC2A51A4590019A986 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7546BDDE2A51A52C0019A986 /* UserProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7546BDDD2A51A45F0019A986 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
@@ -233,6 +267,7 @@
 		759A657C2A4037E500E6AD07 /* Ddungja */ = {
 			isa = PBXGroup;
 			children = (
+				7546BDDA2A51A42F0019A986 /* Presentations */,
 				755462582A44B20300598268 /* Domain */,
 				7535115E2A41D9B6008B0101 /* Data */,
 				759A65B92A417C4900E6AD07 /* Extension */,
@@ -429,6 +464,7 @@
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
+				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
 				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
