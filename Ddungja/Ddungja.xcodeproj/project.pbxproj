@@ -69,6 +69,7 @@
 		7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterDTO.swift; sourceTree = "<group>"; };
 		7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPIProvider.swift; sourceTree = "<group>"; };
 		7546BDDE2A51A52C0019A986 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		7546BDE22A524D190019A986 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		7554624E2A44987D00598268 /* CertificationNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberDTO.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		759A65B02A403E3800E6AD07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakakoAuthViewModel.swift; sourceTree = "<group>"; };
 		759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		759A65BE2A417DB000E6AD07 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,17 +267,17 @@
 		759A657C2A4037E500E6AD07 /* Ddungja */ = {
 			isa = PBXGroup;
 			children = (
-				7546BDDA2A51A42F0019A986 /* Presentations */,
 				755462582A44B20300598268 /* Domain */,
 				7535115E2A41D9B6008B0101 /* Data */,
 				759A65B92A417C4900E6AD07 /* Extension */,
+				7546BDDA2A51A42F0019A986 /* Presentations */,
 				759A657D2A4037E500E6AD07 /* DdungjaApp.swift */,
 				759A657F2A4037E500E6AD07 /* LoginView.swift */,
 				759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */,
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
 				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
-				759A65BE2A417DB000E6AD07 /* Config.xcconfig */,
+				7546BDE22A524D190019A986 /* Config.xcconfig */,
 			);
 			path = Ddungja;
 			sourceTree = "<group>";
@@ -517,7 +517,7 @@
 /* Begin XCBuildConfiguration section */
 		759A659C2A4037E700E6AD07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 759A65BE2A417DB000E6AD07 /* Config.xcconfig */;
+			baseConfigurationReference = 7546BDE22A524D190019A986 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -578,7 +578,7 @@
 		};
 		759A659D2A4037E700E6AD07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 759A65BE2A417DB000E6AD07 /* Config.xcconfig */;
+			baseConfigurationReference = 7546BDE22A524D190019A986 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
