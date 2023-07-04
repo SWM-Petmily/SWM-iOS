@@ -52,22 +52,22 @@ extension UserProfileView {
                     .frame(width: 50, height: 50)
             }
             
-            VStack(spacing: 4) {
-                HStack(spacing: 7) {
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(alignment: .center, spacing: 7) {
                     Text("아롱")
-                        .font(.system(size: 18))
+                        .applyTitle(color: .mainTextColor)
                         .bold()
                     ZStack {
                         RoundedRectangle(cornerRadius: 25, style: .continuous)
                             .stroke(Color.gray, lineWidth: 1)
-                            .frame(width: 53, height: 28)
+                            .frame(width: 53, height: 25)
                         
                         Text("직장인")
-                            .font(.system(size: 14))
+                            .applySubtitle(color: .disabledTextColor)
                     }
                 }
                 Text("대한민국, 서울")
-                    .font(.system(size: 14))
+                    .applySubtitle(color: .disabledTextColor)
                 
             }
         }
@@ -76,7 +76,7 @@ extension UserProfileView {
     
     private var basicInfoTitle: some View {
         Text("기본정보")
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
     
@@ -90,10 +90,9 @@ extension UserProfileView {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 경험")
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 14))
+                        .applySubtitle(color: .disabledTextColor)
                     Text("있음")
-                        .font(.system(size: 16))
+                        .applyInner(color: .mainTextColor)
                 }
                 .padding()
             }
@@ -106,10 +105,9 @@ extension UserProfileView {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 종")
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 14))
+                        .applySubtitle(color: .disabledTextColor)
                     Text("푸들")
-                        .font(.system(size: 16))
+                        .applyInner(color: .mainTextColor)
                 }
                 .padding()
             }
@@ -122,10 +120,9 @@ extension UserProfileView {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("주거환경")
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 14))
+                        .applySubtitle(color: .disabledTextColor)
                     Text("아파트")
-                        .font(.system(size: 16))
+                        .applyInner(color: .mainTextColor)
                 }
                 .padding()
             }
@@ -138,10 +135,9 @@ extension UserProfileView {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("함께하는 사람 수")
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 14))
+                        .applySubtitle(color: .disabledTextColor)
                     Text("3명")
-                        .font(.system(size: 16))
+                        .applyInner(color: .mainTextColor)
                 }
                 .padding()
             }
@@ -151,7 +147,7 @@ extension UserProfileView {
     
     private var willAndLinkTitle: some View {
         Text("각오 및 링크")
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
     
@@ -167,11 +163,10 @@ extension UserProfileView {
             
             VStack(alignment: .leading, spacing: 10) {
                 Text("키울 수 있는 각오")
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 14))
+                    .applySubtitle(color: .disabledTextColor)
             
                 Text("내용을 적어주세요")
-                    .font(.system(size: 16))
+                    .applyInner(color: .mainTextColor)
             }
             .padding()
         }
@@ -187,11 +182,10 @@ extension UserProfileView {
             
             VStack(alignment: .leading, spacing: 10) {
                 Text("오픈 카톡방 링크")
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 14))
+                    .applySubtitle(color: .disabledTextColor)
             
                 Text("https://open.kakaotalk/o/gfVqxt6c")
-                    .font(.system(size: 16))
+                    .applyInner(color: .mainTextColor)
             }
             .padding()
         }
