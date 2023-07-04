@@ -23,7 +23,7 @@ struct LoginView: View {
                 Text("카카오 로그인")
             }
             List {
-                NavigationLink("프로필", destination: UserProfileView())
+                NavigationLink("프로필", destination: EditProfile())
                     .toolbarRole(.editor)
                     .navigationTitle("프로필")
             }

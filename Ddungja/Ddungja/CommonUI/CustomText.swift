@@ -21,14 +21,14 @@ struct CustomText: ViewModifier {
 extension Text {
     //Default Font Size -> 17
     func applyTitle(color: CustomColor) -> some View {
-        self.modifier(CustomText(color: color.customValue, font: .headline))
+        self.modifier(CustomText(color: Color(color.customValue), font: .headline))
     }
     //Default Font Size -> 16
     func applyInner(color: CustomColor) -> some View {
-        self.modifier(CustomText(color: color.customValue, font: .callout))
+        self.modifier(CustomText(color: Color(color.customValue), font: .callout))
     }
     //Default Font Size -> 13
     func applySubtitle(color: CustomColor) -> some View {
-        self.modifier(CustomText(color: color.customValue, font: .footnote))
+        self.modifier(CustomText(color: Color(color.customValue), font: .footnote))
     }
 }

@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+extension Color {
+    static let mainText = Color("MainTextColor")
+    static let main = Color("MainColor")
+    static let mainBackground = Color("MainBackgroundColor")
+    static let sub = Color("SubColor")
+    static let disabledText = Color("DisabledTextColor")
+    static let buttonBackground = Color("ButtonBackgroundColor")
+    static let activeText = Color("ActiveTextColor")
+}
+
 enum CustomColor: String {
     case mainTextColor
     case mainColor
@@ -16,22 +26,40 @@ enum CustomColor: String {
     case buttonBackgroundColor
     case activeTextColor
     
-    var customValue: Color {
+//    var customValue: Color {
+//        switch self {
+//        case .mainTextColor:
+//            return Color("MainTextColor")
+//        case .mainColor:
+//            return Color("MainColor")
+//        case .mainBackgroundColor:
+//            return Color("MainBackgroundColor")
+//        case .subColor:
+//            return Color("SubColor")
+//        case .disabledTextColor:
+//            return Color("DisabledTextColor")
+//        case .buttonBackgroundColor:
+//            return Color("ButtonBackgroundColor")
+//        case .activeTextColor:
+//            return Color("ActiveTextColor")
+//        }
+//    }
+    var customValue: String {
         switch self {
         case .mainTextColor:
-            return Color("MainTextColor")
+            return "MainTextColor"
         case .mainColor:
-            return Color("MainColor")
+            return "MainColor"
         case .mainBackgroundColor:
-            return Color("MainBackgroundColor")
+            return "MainBackgroundColor"
         case .subColor:
-            return Color("SubColor")
+            return "SubColor"
         case .disabledTextColor:
-            return Color("DisabledTextColor")
+            return "DisabledTextColor"
         case .buttonBackgroundColor:
-            return Color("ButtonBackgroundColor")
+            return "ButtonBackgroundColor"
         case .activeTextColor:
-            return Color("ActiveTextColor")
+            return "ActiveTextColor"
         }
     }
 }

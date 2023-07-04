@@ -119,7 +119,7 @@ extension EditProfile {
                 Text("학생")
                     .applyInner(color: buttonNumber == 1 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(buttonNumber == 1 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(buttonNumber == 1 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
@@ -129,7 +129,7 @@ extension EditProfile {
                 Text("무직")
                     .applyInner(color: buttonNumber == 2 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(buttonNumber == 2 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(buttonNumber == 2 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
 
@@ -140,7 +140,7 @@ extension EditProfile {
                 Text("직장인")
                     .applyInner(color: buttonNumber == 3 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(buttonNumber == 3 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(buttonNumber == 3 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -159,7 +159,7 @@ extension EditProfile {
                 Text("있음")
                     .applyInner(color: experienceNumber == 1 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(experienceNumber == 1 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(experienceNumber == 1 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
@@ -169,7 +169,7 @@ extension EditProfile {
                 Text("없음")
                     .applyInner(color: experienceNumber == 2 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(experienceNumber == 2 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(experienceNumber == 2 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -193,7 +193,7 @@ extension EditProfile {
                 Text("원룸")
                     .applyInner(color: houseNumber == 1 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 1 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(houseNumber == 1 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
@@ -203,7 +203,7 @@ extension EditProfile {
                 Text("아파트")
                     .applyInner(color: houseNumber == 2 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 2 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(houseNumber == 2 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
@@ -213,7 +213,7 @@ extension EditProfile {
                 Text("오피스텔\n빌라")
                     .applyInner(color: houseNumber == 3 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 3 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(houseNumber == 3 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
@@ -223,7 +223,7 @@ extension EditProfile {
                 Text("단독주택")
                     .applyInner(color: houseNumber == 4 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 4 ? Color("SubColor") : Color("MainBackgroundColor"))
+                    .background(houseNumber == 4 ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -242,17 +242,17 @@ extension EditProfile {
                 Text("-")
                     .applyInner(color: .disabledTextColor)
                     .frame(width: 54, height: 54)
-                    .background(Color("MainBackgroundColor"))
+                    .background(Color.mainBackground)
                     .cornerRadius(10)
             }
             
             ZStack {
                 Rectangle()
-                    .fill(Color("MainBackgroundColor"))
+                    .fill(Color.mainBackground)
                     
                     
                 Text("\(person)")
-                    .background(Color("MainBackgroundColor"))
+                    .background(Color.mainBackground)
             }
             .frame(height: 54)
             .cornerRadius(10)
@@ -263,7 +263,7 @@ extension EditProfile {
                 Text("+")
                     .applyInner(color: .disabledTextColor)
                     .frame(width: 54, height: 54)
-                    .background(Color("MainBackgroundColor"))
+                    .background(Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -279,7 +279,7 @@ extension EditProfile {
             TextField("진정성 있는 각오를 작성해주세요", text: $willString, axis: .vertical)
                 .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                 .padding()
-                .background(Color("MainBackgroundColor"))
+                .background(Color.mainBackground)
                 .cornerRadius(10)
         }
     }
@@ -296,7 +296,7 @@ extension EditProfile {
                 .frame(height: 30)
                 .font(.system(size: 22))
                 .padding()
-                .background(Color("MainBackgroundColor"))
+                .background(Color.mainBackground)
                 .cornerRadius(10)
         }
     }
