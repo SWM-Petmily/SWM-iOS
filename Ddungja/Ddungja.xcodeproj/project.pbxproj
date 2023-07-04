@@ -30,6 +30,7 @@
 		755462622A44B40000598268 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462612A44B40000598268 /* SignUpRepository.swift */; };
 		75618C712A54065B005FA31A /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C702A54065B005FA31A /* CustomText.swift */; };
 		75618C762A5424F2005FA31A /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C752A5424F2005FA31A /* CustomColor.swift */; };
+		75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */; };
 		759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657D2A4037E500E6AD07 /* DdungjaApp.swift */; };
 		759A65802A4037E500E6AD07 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657F2A4037E500E6AD07 /* LoginView.swift */; };
 		759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759A65812A4037E700E6AD07 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		755462612A44B40000598268 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		75618C702A54065B005FA31A /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		75618C752A5424F2005FA31A /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLazyVGrid.swift; sourceTree = "<group>"; };
 		759A657A2A4037E500E6AD07 /* Ddungja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ddungja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759A657D2A4037E500E6AD07 /* DdungjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaApp.swift; sourceTree = "<group>"; };
 		759A657F2A4037E500E6AD07 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				75618C702A54065B005FA31A /* CustomText.swift */,
 				75618C752A5424F2005FA31A /* CustomColor.swift */,
+				75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			files = (
 				759A65802A4037E500E6AD07 /* LoginView.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
+				75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,

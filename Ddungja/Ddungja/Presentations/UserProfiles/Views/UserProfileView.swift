@@ -10,10 +10,6 @@ import SwiftUI
 struct UserProfileView: View {
     
     @State var input = ""
-    private let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10),
-    ]
     
     var body: some View {
         
@@ -81,7 +77,7 @@ extension UserProfileView {
     }
     
     private var basicInfoGrid: some View {
-        LazyVGrid(columns: columns, spacing: 10) {
+        CustomLazyVGrid(col: 2, spacing: 10) {
             ZStack(alignment: .leading) {
                 Rectangle()
                     .fill(.white)

@@ -16,24 +16,6 @@ struct EditProfile: View {
     @State private var willString = ""
     @State private var kakaoLinkString = ""
     
-    private let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10),
-    ]
-    
-    private let experienceColumns: [GridItem] = [
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10)
-    ]
-    
-    private let houseColumns: [GridItem] = [
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10),
-    ]
-    
     var body: some View {
         
         ScrollView {
@@ -130,7 +112,7 @@ extension EditProfile {
     }
     
     private var personStatusButton: some View {
-        LazyVGrid(columns: columns){
+        CustomLazyVGrid(col: 3, spacing: 10) {
             Button {
                 buttonNumber = 1
             } label: {
@@ -170,7 +152,7 @@ extension EditProfile {
     }
     
     private var experienceButton: some View {
-        LazyVGrid(columns: experienceColumns) {
+        CustomLazyVGrid(col: 2, spacing: 10) {
             Button {
                 experienceNumber = 1
             } label: {
@@ -204,7 +186,7 @@ extension EditProfile {
     }
     
     private var houseButton: some View {
-        LazyVGrid(columns: houseColumns) {
+        CustomLazyVGrid(col: 4, spacing: 10) {
             Button {
                 houseNumber = 1
             } label: {
