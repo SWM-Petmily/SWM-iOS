@@ -82,8 +82,7 @@ extension EditProfile {
     private var profileImageView: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("프로필 사진")
-                .foregroundColor(Color.gray)
-                .font(.system(size: 14))
+                .applySubtitle(color: .mainTextColor)
             
             HStack {
                 ZStack {
@@ -127,8 +126,7 @@ extension EditProfile {
     
     private var personStatusTitle: some View {
         Text("신분")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var personStatusButton: some View {
@@ -137,9 +135,9 @@ extension EditProfile {
                 buttonNumber = 1
             } label: {
                 Text("학생")
+                    .applyInner(color: buttonNumber == 1 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(buttonNumber == 1 ? .gray : .orange)
-                    .background(buttonNumber == 1 ? .orange : .gray)
+                    .background(buttonNumber == 1 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
             
@@ -147,9 +145,9 @@ extension EditProfile {
                 buttonNumber = 2
             } label: {
                 Text("무직")
+                    .applyInner(color: buttonNumber == 2 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(buttonNumber == 2 ? .gray : .orange)
-                    .background(buttonNumber == 2 ? .orange : .gray)
+                    .background(buttonNumber == 2 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
 
@@ -158,9 +156,9 @@ extension EditProfile {
                 buttonNumber = 3
             } label: {
                 Text("직장인")
+                    .applyInner(color: buttonNumber == 3 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(buttonNumber == 3 ? .gray : .orange)
-                    .background(buttonNumber == 3 ? .orange : .gray)
+                    .background(buttonNumber == 3 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
         }
@@ -168,8 +166,7 @@ extension EditProfile {
     
     private var experienceTitle: some View {
         Text("반려동물 경험")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var experienceButton: some View {
@@ -178,9 +175,9 @@ extension EditProfile {
                 experienceNumber = 1
             } label: {
                 Text("있음")
+                    .applyInner(color: experienceNumber == 1 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(experienceNumber == 1 ? .gray : .orange)
-                    .background(experienceNumber == 1 ? .orange : .gray)
+                    .background(experienceNumber == 1 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
             
@@ -188,9 +185,9 @@ extension EditProfile {
                 experienceNumber = 2
             } label: {
                 Text("없음")
+                    .applyInner(color: experienceNumber == 2 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(experienceNumber == 2 ? .gray : .orange)
-                    .background(experienceNumber == 2 ? .orange : .gray)
+                    .background(experienceNumber == 2 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
         }
@@ -198,14 +195,12 @@ extension EditProfile {
     
     private var selectSpeciesTitle: some View {
         Text("반려동물 종을 선택해주세요")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var houseTitle: some View {
         Text("주거환경")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var houseButton: some View {
@@ -214,9 +209,9 @@ extension EditProfile {
                 houseNumber = 1
             } label: {
                 Text("원룸")
+                    .applyInner(color: houseNumber == 1 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(houseNumber == 1 ? .gray : .orange)
-                    .background(houseNumber == 1 ? .orange : .gray)
+                    .background(houseNumber == 1 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
             
@@ -224,9 +219,9 @@ extension EditProfile {
                 houseNumber = 2
             } label: {
                 Text("아파트")
+                    .applyInner(color: houseNumber == 2 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(houseNumber == 2 ? .gray : .orange)
-                    .background(houseNumber == 2 ? .orange : .gray)
+                    .background(houseNumber == 2 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
             
@@ -234,9 +229,9 @@ extension EditProfile {
                 houseNumber = 3
             } label: {
                 Text("오피스텔\n빌라")
+                    .applyInner(color: houseNumber == 3 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(houseNumber == 3 ? .gray : .orange)
-                    .background(houseNumber == 3 ? .orange : .gray)
+                    .background(houseNumber == 3 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
             
@@ -244,9 +239,9 @@ extension EditProfile {
                 houseNumber = 4
             } label: {
                 Text("단독주택")
+                    .applyInner(color: houseNumber == 4 ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .foregroundColor(houseNumber == 4 ? .gray : .orange)
-                    .background(houseNumber == 4 ? .orange : .gray)
+                    .background(houseNumber == 4 ? Color("SubColor") : Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
         }
@@ -254,8 +249,7 @@ extension EditProfile {
     
     private var personTitle: some View {
         Text("함께 거주하는 인원")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var personButton: some View {
@@ -264,19 +258,19 @@ extension EditProfile {
                 if(person >= 1) { person -= 1 }
             } label: {
                 Text("-")
+                    .applyInner(color: .disabledTextColor)
                     .frame(width: 54, height: 54)
-                    .foregroundColor(experienceNumber == 2 ? .gray : .orange)
-                    .background(experienceNumber == 2 ? .orange : .gray)
+                    .background(Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
             
             ZStack {
                 Rectangle()
-                    .fill(.gray)
+                    .fill(Color("MainBackgroundColor"))
                     
                     
                 Text("\(person)")
-                    .background(.gray)
+                    .background(Color("MainBackgroundColor"))
             }
             .frame(height: 54)
             .cornerRadius(10)
@@ -285,9 +279,9 @@ extension EditProfile {
                 person += 1
             } label: {
                 Text("+")
+                    .applyInner(color: .disabledTextColor)
                     .frame(width: 54, height: 54)
-                    .foregroundColor(experienceNumber == 2 ? .gray : .orange)
-                    .background(experienceNumber == 2 ? .orange : .gray)
+                    .background(Color("MainBackgroundColor"))
                     .cornerRadius(10)
             }
         }
@@ -295,8 +289,7 @@ extension EditProfile {
     
     private var willTitle: some View {
         Text("키울 수 있는 각오")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var willTextfield: some View {
@@ -304,15 +297,14 @@ extension EditProfile {
             TextField("진정성 있는 각오를 작성해주세요", text: $willString, axis: .vertical)
                 .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                 .padding()
-                .background(Color.gray)
+                .background(Color("MainBackgroundColor"))
                 .cornerRadius(10)
         }
     }
     
     private var openKakaoLink: some View {
         Text("오픈 카톡방 링크")
-            .foregroundColor(Color.gray)
-            .font(.system(size: 14))
+            .applySubtitle(color: .mainTextColor)
     }
     
     private var openKakaoTextfield: some View {
@@ -322,7 +314,7 @@ extension EditProfile {
                 .frame(height: 30)
                 .font(.system(size: 22))
                 .padding()
-                .background(Color.gray)
+                .background(Color("MainBackgroundColor"))
                 .cornerRadius(10)
         }
     }
