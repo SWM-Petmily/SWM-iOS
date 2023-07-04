@@ -18,6 +18,7 @@
 		7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */; };
 		7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */; };
 		7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDDE2A51A52C0019A986 /* UserProfileView.swift */; };
+		7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDE32A52B60D0019A986 /* EditProfile.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554624E2A44987D00598268 /* CertificationNumberDTO.swift */; };
@@ -70,6 +71,7 @@
 		7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPIProvider.swift; sourceTree = "<group>"; };
 		7546BDDE2A51A52C0019A986 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		7546BDE22A524D190019A986 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		7546BDE32A52B60D0019A986 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		7554624E2A44987D00598268 /* CertificationNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberDTO.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				7546BDDE2A51A52C0019A986 /* UserProfileView.swift */,
+				7546BDE32A52B60D0019A986 /* EditProfile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
+				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
 				753511A82A43427C008B0101 /* LoginDTO.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
