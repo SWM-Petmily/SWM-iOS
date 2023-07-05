@@ -18,6 +18,19 @@ struct ProfileVO {
     let user: UserVO
     let profileImage: ProfileImageVO
     let experiences: [FeedExperiencesVO]
+    
+    init(job: String, environment: String, people: Int, comment: String, openTalk: String, region: String, isExperience: Bool, user: UserVO, profileImage: ProfileImageVO, experiences: [FeedExperiencesVO]) {
+        self.job = job
+        self.environment = environment
+        self.people = people
+        self.comment = comment
+        self.openTalk = openTalk
+        self.region = region
+        self.isExperience = isExperience
+        self.user = user
+        self.profileImage = profileImage
+        self.experiences = experiences
+    }
 }
 
 struct UserVO {
@@ -27,14 +40,33 @@ struct UserVO {
     let phone: String
     let provider: String
     let profile: Bool
+    
+    init(email: String, nickname: String, birth: String, phone: String, provider: String, profile: Bool) {
+        self.email = email
+        self.nickname = nickname
+        self.birth = birth
+        self.phone = phone
+        self.provider = provider
+        self.profile = profile
+    }
 }
 
 struct ProfileImageVO {
     let url: String
+    
+    init(url: String) {
+        self.url = url
+    }
 }
 
 struct FeedExperiencesVO {
     let id: Int
     let species: String
     let period: Int
+    
+    init(id: Int, species: String, period: Int) {
+        self.id = id
+        self.species = species
+        self.period = period
+    }
 }
