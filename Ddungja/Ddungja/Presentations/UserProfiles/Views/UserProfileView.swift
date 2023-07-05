@@ -12,25 +12,29 @@ struct UserProfileView: View {
     @State var input = ""
     
     var body: some View {
-        
-        VStack(spacing: 20) {
-            userTitle
-            
-            basicInfoTitle
-            basicInfoGrid
-            
-            willAndLinkTitle
-            willTextField
-            openChatLink
-            
-            Spacer()
+        NavigationView {
+            VStack(spacing: 20) {
+                userTitle
+                
+                basicInfoTitle
+                basicInfoGrid
+                
+                willAndLinkTitle
+                willTextField
+                openChatLink
+                
+                Spacer()
+            }
+            .padding()
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("프로필")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Text("수정하기")
-                    .foregroundColor(Color.orange)
+                NavigationLink(destination: EditProfile()) {
+                    Text("수정하기")
+                        .applyInner(color: .mainColor)
+                }
             }
         }
     }
