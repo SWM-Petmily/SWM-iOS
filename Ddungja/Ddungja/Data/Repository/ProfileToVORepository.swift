@@ -10,9 +10,9 @@ import Moya
 
 final class ProfileToVORepository: ProfileRepository {
     
-    let dataSource: UserProfileAPIProvider
+    let dataSource: UserProfileDataSourceInterface
     
-    init(dataSource: UserProfileAPIProvider) {
+    init(dataSource: UserProfileDataSourceInterface) {
         self.dataSource = dataSource
     }
     

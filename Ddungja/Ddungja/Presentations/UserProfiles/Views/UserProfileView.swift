@@ -11,6 +11,11 @@ struct UserProfileView: View {
     
     @State var input = ""
     
+    var viewModel: UserProfileViewModel
+    
+    init(viewModel: UserProfileViewModel) {
+        self.viewModel = viewModel
+    }
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -192,8 +197,8 @@ extension UserProfileView {
     }
 }
 
-struct UserProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserProfileView()
-    }
-}
+//struct UserProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserProfileView()
+//    }
+//}

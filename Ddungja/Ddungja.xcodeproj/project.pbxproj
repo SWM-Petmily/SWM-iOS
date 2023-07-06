@@ -50,6 +50,11 @@
 		75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */; };
 		75FB2FCA2A565E4F00E4DDE8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */; };
 		75FB2FCD2A56B08F00E4DDE8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 75FB2FCC2A56B08F00E4DDE8 /* Swinject */; };
+		75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD02A56B59F00E4DDE8 /* DependencyInjector.swift */; };
+		75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD22A56B9F700E4DDE8 /* DataAssembly.swift */; };
+		75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD42A56BEE500E4DDE8 /* DomainAssembly.swift */; };
+		75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD62A56C07E00E4DDE8 /* PresentationAssembly.swift */; };
+		75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +116,11 @@
 		75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
 		75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileToVORepository.swift; sourceTree = "<group>"; };
 		75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileViewModel.swift; path = Ddungja/Data/Repository/UserProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
+		75FB2FD02A56B59F00E4DDE8 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		75FB2FD22A56B9F700E4DDE8 /* DataAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssembly.swift; sourceTree = "<group>"; };
+		75FB2FD42A56BEE500E4DDE8 /* DomainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainAssembly.swift; sourceTree = "<group>"; };
+		75FB2FD62A56C07E00E4DDE8 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
+		75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewResolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,12 +305,12 @@
 		759A657C2A4037E500E6AD07 /* Ddungja */ = {
 			isa = PBXGroup;
 			children = (
+				75FB2FCE2A56B4BB00E4DDE8 /* App */,
 				75618C6F2A54063C005FA31A /* CommonUI */,
 				755462582A44B20300598268 /* Domain */,
 				7535115E2A41D9B6008B0101 /* Data */,
 				759A65B92A417C4900E6AD07 /* Extension */,
 				7546BDDA2A51A42F0019A986 /* Presentations */,
-				759A657D2A4037E500E6AD07 /* DdungjaApp.swift */,
 				759A657F2A4037E500E6AD07 /* LoginView.swift */,
 				759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */,
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
@@ -366,6 +376,27 @@
 				75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		75FB2FCE2A56B4BB00E4DDE8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				75FB2FCF2A56B57100E4DDE8 /* DI */,
+				759A657D2A4037E500E6AD07 /* DdungjaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		75FB2FCF2A56B57100E4DDE8 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				75FB2FD02A56B59F00E4DDE8 /* DependencyInjector.swift */,
+				75FB2FD22A56B9F700E4DDE8 /* DataAssembly.swift */,
+				75FB2FD42A56BEE500E4DDE8 /* DomainAssembly.swift */,
+				75FB2FD62A56C07E00E4DDE8 /* PresentationAssembly.swift */,
+				75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,20 +546,25 @@
 				759A65802A4037E500E6AD07 /* LoginView.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
 				75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */,
+				75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
+				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
+				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
 				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
+				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
+				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,

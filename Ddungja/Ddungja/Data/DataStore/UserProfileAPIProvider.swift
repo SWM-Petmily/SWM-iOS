@@ -10,7 +10,11 @@ import Moya
 import CombineMoya
 import Combine
 
-final class UserProfileAPIProvider {
+protocol UserProfileDataSourceInterface {
+    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, MoyaError>
+}
+    
+final class UserProfileAPIProvider: UserProfileDataSourceInterface {
     let moyaProvider: MoyaProvider<UserProfileAPI>
     
     init(moyaProvider: MoyaProvider<UserProfileAPI> = .init()) {

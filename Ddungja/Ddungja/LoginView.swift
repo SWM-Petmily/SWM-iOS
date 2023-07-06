@@ -22,12 +22,6 @@ struct LoginView: View {
             } label: {
                 Text("카카오 로그인")
             }
-            NavigationView {
-                List {
-                    NavigationLink("프로필", destination: UserProfileView())
-                        .toolbarRole(.editor)
-                }
-            }
         }
         .padding()
     }

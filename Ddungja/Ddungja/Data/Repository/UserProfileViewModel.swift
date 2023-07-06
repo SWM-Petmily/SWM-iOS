@@ -8,23 +8,18 @@
 import Foundation
 import Combine
 
-protocol UserProfileViewModelInterface {
-    func getProfile()
-}
-
 final class UserProfileViewModel: ObservableObject {
-    private let profileUsecase: ProfileUsecase
+    private let profileUsecase: ProfileUsecaseInterface
     private var cancellabels = Set<AnyCancellable>()
     @Published var profile: ProfileVO?
     
-    init(profileUsecase: ProfileUsecase) {
+    init(profileUsecase: ProfileUsecaseInterface) {
         self.profileUsecase = profileUsecase
         getProfile()
     }
     
     func getProfile() {
         profileUsecase.getUserProfile()
-//            .deb
             .sink { errpr in
                 print("Cheeck \(errpr)")
             } receiveValue: { profileVo in

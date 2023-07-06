@@ -14,9 +14,9 @@ protocol ProfileUsecaseInterface {
 
 final class ProfileUsecase: ProfileUsecaseInterface {
     
-    let repository: ProfileToVORepository
+    let repository: ProfileRepository
     
-    init(repository: ProfileToVORepository) {
+    init(repository: ProfileRepository) {
         self.repository = repository
     }
     
