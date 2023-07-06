@@ -49,6 +49,7 @@
 		75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */; };
 		75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */; };
 		75FB2FCA2A565E4F00E4DDE8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */; };
+		75FB2FCD2A56B08F00E4DDE8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 75FB2FCC2A56B08F00E4DDE8 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 			files = (
 				759A65AF2A403BA900E6AD07 /* KakaoSDKUser in Frameworks */,
 				759A65A92A403BA900E6AD07 /* KakaoSDK in Frameworks */,
+				75FB2FCD2A56B08F00E4DDE8 /* Swinject in Frameworks */,
 				7535115D2A41D7E8008B0101 /* Moya in Frameworks */,
 				759A65AD2A403BA900E6AD07 /* KakaoSDKCommon in Frameworks */,
 				7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */,
@@ -389,6 +391,7 @@
 				759A65AE2A403BA900E6AD07 /* KakaoSDKUser */,
 				7535115A2A41D7E8008B0101 /* CombineMoya */,
 				7535115C2A41D7E8008B0101 /* Moya */,
+				75FB2FCC2A56B08F00E4DDE8 /* Swinject */,
 			);
 			productName = Ddungja;
 			productReference = 759A657A2A4037E500E6AD07 /* Ddungja.app */;
@@ -465,6 +468,7 @@
 			packageReferences = (
 				759A65A72A403BA900E6AD07 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				753511592A41D7E8008B0101 /* XCRemoteSwiftPackageReference "Moya" */,
+				75FB2FCB2A56B08F00E4DDE8 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 759A657B2A4037E500E6AD07 /* Products */;
 			projectDirPath = "";
@@ -885,6 +889,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		75FB2FCB2A56B08F00E4DDE8 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -917,6 +929,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 759A65A72A403BA900E6AD07 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		75FB2FCC2A56B08F00E4DDE8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75FB2FCB2A56B08F00E4DDE8 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
