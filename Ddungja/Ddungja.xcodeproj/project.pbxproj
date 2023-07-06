@@ -48,6 +48,7 @@
 		75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */; };
 		75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */; };
 		75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */; };
+		75FB2FCA2A565E4F00E4DDE8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
 		75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileToVORepository.swift; sourceTree = "<group>"; };
+		75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileViewModel.swift; path = Ddungja/Data/Repository/UserProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		7546BDDB2A51A4400019A986 /* UserProfiles */ = {
 			isa = PBXGroup;
 			children = (
+				75FB2FC82A565E2E00E4DDE8 /* ViewModels */,
 				7546BDDC2A51A4590019A986 /* Views */,
 			);
 			path = UserProfiles;
@@ -355,6 +358,14 @@
 			path = Usecase;
 			sourceTree = "<group>";
 		};
+		75FB2FC82A565E2E00E4DDE8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				75FB2FC92A565E4F00E4DDE8 /* UserProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -527,6 +538,7 @@
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
 				7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */,
+				75FB2FCA2A565E4F00E4DDE8 /* UserProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

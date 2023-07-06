@@ -12,7 +12,6 @@ struct ProfileDetailDTO: Decodable {
     let environment: String
     let people: Int
     let comment: String
-    let color: String
     let openTalk: String
     let region: String
     let isExperience: Bool

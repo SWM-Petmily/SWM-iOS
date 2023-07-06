@@ -40,7 +40,7 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
     var path: String {
         switch self {
         case let .detail(userId):
-            return "users/\(userId)"
+            return "users/profile/\(userId)"
             
         case .register, .modify:
             return "users"
