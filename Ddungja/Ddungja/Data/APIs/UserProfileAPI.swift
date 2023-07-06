@@ -34,7 +34,7 @@ enum UserProfileAPI {
 
 extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "http://13.124.162.76")!
     }
     
     var path: String {

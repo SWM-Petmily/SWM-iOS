@@ -35,7 +35,21 @@ struct ProfileImage: Decodable {
 }
 
 struct Experience: Decodable {
-    let id: Int?
-    let species: String?
-    let period: Int?
+    let id: Int
+    let species: String
+    let period: Int
+}
+
+extension ProfileDetailDTO {
+    func toDomain() -> ProfileVO {
+        let nickname = user.nickname
+        var experiencesArray = [(id: Int, species: String, period: Int)]()
+        for experience in experiences {
+            let id = experience.id
+            let species = experience.species
+            let period = experience.period
+            experiencesArray.append((id: id, species: species, period: period))
+        }
+        return ProfileVO(job: job, environment: environment, people: people, comment: comment, openTalk: openTalk, region: region, isExperience: isExperience, nickname: nickname,profileImage: profileImage.url, experiences: experiencesArray)
+    }
 }

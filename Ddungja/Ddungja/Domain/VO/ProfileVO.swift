@@ -15,11 +15,11 @@ struct ProfileVO {
     let openTalk: String
     let region: String
     let isExperience: Bool
-    let user: UserVO
-    let profileImage: ProfileImageVO
-    let experiences: [FeedExperiencesVO]
-    
-    init(job: String, environment: String, people: Int, comment: String, openTalk: String, region: String, isExperience: Bool, user: UserVO, profileImage: ProfileImageVO, experiences: [FeedExperiencesVO]) {
+    let nickname: String
+    let profileImage: String
+    let experiences: [(id: Int, species: String, period: Int)]
+
+    init(job: String, environment: String, people: Int, comment: String, openTalk: String, region: String, isExperience: Bool, nickname: String, profileImage: String, experiences: [(id: Int, species: String, period: Int)]) {
         self.job = job
         self.environment = environment
         self.people = people
@@ -27,7 +27,7 @@ struct ProfileVO {
         self.openTalk = openTalk
         self.region = region
         self.isExperience = isExperience
-        self.user = user
+        self.nickname = nickname
         self.profileImage = profileImage
         self.experiences = experiences
     }

@@ -17,4 +17,9 @@ final class UserProfileAPIProvider {
         self.moyaProvider = moyaProvider
     }
     
+    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, MoyaError> {
+        return moyaProvider.requestPublisher(.detail(userId: "1"))
+            .map(ProfileDetailDTO.self)
+            .eraseToAnyPublisher()
+    }
 }

@@ -45,6 +45,9 @@
 		759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */; };
 		759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */; };
 		75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */; };
+		75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */; };
+		75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */; };
+		75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		75FB2FBD2A55B46600E4DDE8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVO.swift; sourceTree = "<group>"; };
+		75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
+		75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileToVORepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +230,7 @@
 		755462582A44B20300598268 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				75FB2FC32A5644E700E4DDE8 /* Usecase */,
 				75FB2FBE2A55B49100E4DDE8 /* VO */,
 				755462592A44B20E00598268 /* RepositoryProtocol */,
 			);
@@ -235,6 +242,7 @@
 			children = (
 				7554625F2A44B3E100598268 /* LoginRepository.swift */,
 				755462612A44B40000598268 /* SignUpRepository.swift */,
+				75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */,
 			);
 			path = RepositoryProtocol;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			children = (
 				7554625B2A44B23600598268 /* LoginToVORepository.swift */,
 				7554625D2A44B24100598268 /* SignUpToVORepository.swift */,
+				75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -336,6 +345,14 @@
 				75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */,
 			);
 			path = VO;
+			sourceTree = "<group>";
+		};
+		75FB2FC32A5644E700E4DDE8 /* Usecase */ = {
+			isa = PBXGroup;
+			children = (
+				75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */,
+			);
+			path = Usecase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,10 +516,13 @@
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
+				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
 				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
 				753511A82A43427C008B0101 /* LoginDTO.swift in Sources */,
+				75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */,
+				75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
