@@ -55,6 +55,7 @@
 		75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD42A56BEE500E4DDE8 /* DomainAssembly.swift */; };
 		75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD62A56C07E00E4DDE8 /* PresentationAssembly.swift */; };
 		75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */; };
+		75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		75FB2FD42A56BEE500E4DDE8 /* DomainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainAssembly.swift; sourceTree = "<group>"; };
 		75FB2FD62A56C07E00E4DDE8 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
 		75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewResolver.swift; sourceTree = "<group>"; };
+		75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */,
+				75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */,
 				75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
+				75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */,
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
 				7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */,

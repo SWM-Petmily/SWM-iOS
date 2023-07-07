@@ -18,7 +18,7 @@ final class UserProfileViewModel: ObservableObject {
         getProfile()
     }
     
-    func getProfile() {
+    private func getProfile() {
         profileUsecase.getUserProfile()
             .sink { errpr in
                 print("Cheeck \(errpr)")
@@ -26,8 +26,6 @@ final class UserProfileViewModel: ObservableObject {
                 print(profileVo)
                 self.profile = profileVo
             }
-            .store(in: &cancellabels)
-
-            
+            .store(in: &cancellabels)        
     }
 }
