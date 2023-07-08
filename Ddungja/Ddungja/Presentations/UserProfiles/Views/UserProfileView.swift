@@ -40,7 +40,7 @@ struct UserProfileView: View {
         .navigationTitle("프로필")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-          U      NavigationLink(destination: EditProfile()) {
+                NavigationLink(destination: EditProfile()) {
                     Text("수정하기")
                         .applyInner(color: .mainColor)
                 }
