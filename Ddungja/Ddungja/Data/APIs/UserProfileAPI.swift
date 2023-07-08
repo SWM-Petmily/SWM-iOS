@@ -29,7 +29,7 @@ struct ExperienceForRequest: Encodable {
 enum UserProfileAPI {
     case detail(userId: String)
     case register(userInfo: UserInfo)
-    case modify(userInfo: UserInfo)
+    case modify(userInfo: ProfileEditReqiestDTO)
 }
 
 extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
