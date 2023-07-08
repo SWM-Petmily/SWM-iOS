@@ -11,11 +11,15 @@ struct UserProfileView: View {
     
     @State var input = ""
     
-    var viewModel: UserProfileViewModel
+    private var viewModel: UserProfileViewModel
+    private var profile: ProfileVO? {
+        viewModel.profile
+    }
     
     init(viewModel: UserProfileViewModel) {
         self.viewModel = viewModel
     }
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -36,7 +40,7 @@ struct UserProfileView: View {
         .navigationTitle("프로필")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: EditProfile()) {
+          U      NavigationLink(destination: EditProfile()) {
                     Text("수정하기")
                         .applyInner(color: .mainColor)
                 }
@@ -59,7 +63,7 @@ extension UserProfileView {
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .center, spacing: 7) {
-                    Text("아롱")
+                    Text(viewModel.profile?.nickname ?? "아롱")
                         .applyTitle(color: .mainTextColor)
                         .bold()
                     ZStack {
@@ -67,11 +71,11 @@ extension UserProfileView {
                             .stroke(Color.gray, lineWidth: 1)
                             .frame(width: 53, height: 25)
                         
-                        Text("직장인")
+                        Text(viewModel.profile?.job ?? "---")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
-                Text("대한민국, 서울")
+                Text("대한민국, \(profile?.region ?? "서울")")
                     .applySubtitle(color: .disabledTextColor)
                 
             }
@@ -96,7 +100,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 경험")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("있음")
+                    Text((profile?.isExperience ?? false) ? "있음" : "없음")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -111,7 +115,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 종")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("푸들")
+                    Text(profile?.experiences[0].species ?? "-")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -126,7 +130,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("주거환경")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("아파트")
+                    Text(profile?.environment ?? "-")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -141,7 +145,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("함께하는 사람 수")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("3명")
+                    Text("\(profile?.people ?? 0) 명")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -170,7 +174,7 @@ extension UserProfileView {
                 Text("키울 수 있는 각오")
                     .applySubtitle(color: .disabledTextColor)
             
-                Text("내용을 적어주세요")
+                Text(profile?.comment ?? "내용을 적어주세요")
                     .applyInner(color: .mainTextColor)
             }
             .padding()
@@ -189,7 +193,7 @@ extension UserProfileView {
                 Text("오픈 카톡방 링크")
                     .applySubtitle(color: .disabledTextColor)
             
-                Text("https://open.kakaotalk/o/gfVqxt6c")
+                Text(profile?.openTalk ?? "-")
                     .applyInner(color: .mainTextColor)
             }
             .padding()
