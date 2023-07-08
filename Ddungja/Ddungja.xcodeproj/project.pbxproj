@@ -56,6 +56,7 @@
 		75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */; };
 		75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */; };
 		75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FE22A59783400E4DDE8 /* UserProfileViewModel.swift */; };
+		75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		75FB2FD82A56C36200E4DDE8 /* ViewResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewResolver.swift; sourceTree = "<group>"; };
 		75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVO.swift; sourceTree = "<group>"; };
 		75FB2FE22A59783400E4DDE8 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			children = (
 				7546BDDE2A51A52C0019A986 /* UserProfileView.swift */,
 				7546BDE32A52B60D0019A986 /* EditProfile.swift */,
+				75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
+				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
 				75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
