@@ -26,6 +26,6 @@ final class UserProfileViewModel: ObservableObject {
                 print(profileVo)
                 self.profile = profileVo
             }
-            .store(in: &cancellabels)        
+            .store(in: &cancellabels)
     }
 }
