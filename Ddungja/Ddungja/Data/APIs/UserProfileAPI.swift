@@ -34,7 +34,7 @@ enum UserProfileAPI {
 
 extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
     var baseURL: URL {
-        return URL(string: "http://13.124.162.76")!
+        return URL(string: "http://15.165.191.21")!
     }
     
     var path: String {
@@ -43,7 +43,7 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
             return "users/profile/\(userId)"
             
         case .register, .modify:
-            return "users"
+            return "users/profile"
         }
     }
     
@@ -74,12 +74,7 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
             }
             
         case let .modify(userInfo):
-            do {
-                let jsonData = try JSONEncoder().encode(userInfo)
-                return .requestJSONEncodable(jsonData)
-            } catch {
-                return .requestPlain
-            }
+            return .requestJSONEncodable(userInfo)
         }
     }
     
