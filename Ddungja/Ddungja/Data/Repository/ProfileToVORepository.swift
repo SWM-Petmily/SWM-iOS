@@ -19,4 +19,8 @@ final class ProfileToVORepository: ProfileRepository {
     func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError> {
         return dataSource.getUserProfile().map { $0.toDomain() }.eraseToAnyPublisher()
     }
+    
+    func putEditUserProfile(VO: ProfileEditVO) {
+        dataSource.putEditUserProfile(profile: VO)
+    }
 }
