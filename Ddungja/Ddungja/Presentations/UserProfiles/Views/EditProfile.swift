@@ -9,19 +9,38 @@ import SwiftUI
 
 struct EditProfile: View {
     
-    @State private var buttonNumber = 1
-    @State private var experienceNumber = 1
-    @State private var houseNumber = 1
+    @State private var imageNumer: ImageStatus = .bulldog
+    @State private var jobStatus: EmploymentStatus
+    @State private var experienceNumber: ExperienceStatus
+    @State private var houseNumber: HouseStatus
     @State private var person = 1
-    @State private var willString = ""
-    @State private var kakaoLinkString = ""
+    @State private var willString: String
+    @State private var kakaoLinkString: String
+    @State var tset = false
+    @State var experienceArray: [ExperienceRow]
+        
+    var viewModel: UserProfileViewModel
+    
+    init(viewModel: UserProfileViewModel) {
+        self.viewModel = viewModel
+        
+        jobStatus = viewModel.changeToJobStatus(viewModel.profile.job)
+        experienceNumber = viewModel.changeToExperience(viewModel.profile.isExperience)
+        houseNumber = viewModel.changeToHomeStatus(viewModel.profile.environment)
+        person = viewModel.profile.people
+        willString = viewModel.profile.comment
+        kakaoLinkString = viewModel.profile.openTalk
+        
+        experienceArray = viewModel.profile.experiences.map { experience in
+            ExperienceRow(id: experience.id, species: experience.species, year: String(experience.period / 12), month: String(experience.period % 12))
+        }
+    }
     
     var body: some View {
         
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Group {
-//                    profileImageTitle
                     profileImageView
                     
                     personStatusTitle
@@ -31,10 +50,12 @@ struct EditProfile: View {
                     experienceButton
                 }
                 
-                if(experienceNumber == 1) {
+                if(experienceNumber == .yes) {
                     selectSpeciesTitle
-                    Rectangle()
-                        .frame(width: 200, height: 200)
+                    
+                    ForEach(experienceArray.indices, id: \.self) { index in
+                        experienceArray[index]
+                    }
                 }
                 
                 Group {
@@ -69,38 +90,69 @@ extension EditProfile {
             HStack {
                 ZStack {
                     Circle()
-                        .fill(.gray)
-                        .frame(width: 68, height: 68)
-                    Image("bulldog")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                }
-                
-                ZStack {
-                    Circle()
                         .fill(.yellow)
                         .frame(width: 68, height: 68)
+                        .overlay(
+                            imageNumer.rawValue == 1 ?
+                            Circle().stroke(Color.orange,lineWidth: 2) :
+                                Circle().stroke(Color.orange,lineWidth: 0)
+                        )
+                    Image("bulldog")
+                        .resizable()
+                        .frame(width: 50, height: 50, alignment: .center)
+                }
+                .onTapGesture {
+                    imageNumer = .bulldog
+                }
+                ZStack {
+                    Circle()
+                        .fill(.gray)
+                        .frame(width: 68, height: 68)
+                        .overlay(
+                            imageNumer.rawValue == 2 ?
+                            Circle().stroke(Color.orange,lineWidth: 2) :
+                                Circle().stroke(Color.orange,lineWidth: 0)
+                        )
                     Image("dog1")
                         .resizable()
                         .frame(width: 50, height: 50)
+                }
+                .onTapGesture {
+                    imageNumer = .dog1
                 }
                 
                 ZStack {
                     Circle()
                         .fill(.cyan)
                         .frame(width: 68, height: 68)
+                        .overlay(
+                            imageNumer.rawValue == 3 ?
+                            Circle().stroke(Color.orange,lineWidth: 2) :
+                                Circle().stroke(Color.orange,lineWidth: 0)
+                        )
                     Image("dog2")
                         .resizable()
                         .frame(width: 50, height: 50)
+                }
+                .onTapGesture {
+                    imageNumer = .dog2
                 }
                 
                 ZStack {
                     Circle()
                         .fill(.orange)
                         .frame(width: 68, height: 68)
+                        .overlay(
+                            imageNumer.rawValue == 4 ?
+                            Circle().stroke(Color.orange,lineWidth: 2) :
+                                Circle().stroke(Color.orange,lineWidth: 0)
+                        )
                     Image("poodle")
                         .resizable()
                         .frame(width: 50, height: 50)
+                }
+                .onTapGesture {
+                    imageNumer = .poodle
                 }
             }
         }
@@ -114,33 +166,33 @@ extension EditProfile {
     private var personStatusButton: some View {
         CustomLazyVGrid(col: 3, spacing: 10) {
             Button {
-                buttonNumber = 1
+                jobStatus = .student
             } label: {
                 Text("학생")
-                    .applyInner(color: buttonNumber == 1 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: jobStatus == .student ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(buttonNumber == 1 ? Color.sub : Color.mainBackground)
+                    .background(jobStatus == .student ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
             Button {
-                buttonNumber = 2
+                jobStatus = .unemployed
             } label: {
                 Text("무직")
-                    .applyInner(color: buttonNumber == 2 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: jobStatus == .unemployed ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(buttonNumber == 2 ? Color.sub : Color.mainBackground)
+                    .background(jobStatus == .unemployed ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
 
             
             Button {
-                buttonNumber = 3
+                jobStatus = .employed
             } label: {
                 Text("직장인")
-                    .applyInner(color: buttonNumber == 3 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: jobStatus == .employed ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(buttonNumber == 3 ? Color.sub : Color.mainBackground)
+                    .background(jobStatus == .employed ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -154,22 +206,22 @@ extension EditProfile {
     private var experienceButton: some View {
         CustomLazyVGrid(col: 2, spacing: 10) {
             Button {
-                experienceNumber = 1
+                experienceNumber = .yes
             } label: {
                 Text("있음")
-                    .applyInner(color: experienceNumber == 1 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: experienceNumber == .yes ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(experienceNumber == 1 ? Color.sub : Color.mainBackground)
+                    .background(experienceNumber == .yes ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
             Button {
-                experienceNumber = 2
+                experienceNumber = .no
             } label: {
                 Text("없음")
-                    .applyInner(color: experienceNumber == 2 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: experienceNumber == .no ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(experienceNumber == 2 ? Color.sub : Color.mainBackground)
+                    .background(experienceNumber == .no ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -188,42 +240,42 @@ extension EditProfile {
     private var houseButton: some View {
         CustomLazyVGrid(col: 4, spacing: 10) {
             Button {
-                houseNumber = 1
+                houseNumber = .oneRoom
             } label: {
                 Text("원룸")
-                    .applyInner(color: houseNumber == 1 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: houseNumber == .oneRoom ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 1 ? Color.sub : Color.mainBackground)
+                    .background(houseNumber == .oneRoom ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
             Button {
-                houseNumber = 2
+                houseNumber = .apart
             } label: {
                 Text("아파트")
-                    .applyInner(color: houseNumber == 2 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: houseNumber == .apart ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 2 ? Color.sub : Color.mainBackground)
+                    .background(houseNumber == .apart ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
             Button {
-                houseNumber = 3
+                houseNumber = .op
             } label: {
                 Text("오피스텔\n빌라")
-                    .applyInner(color: houseNumber == 3 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: houseNumber == .op ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 3 ? Color.sub : Color.mainBackground)
+                    .background(houseNumber == .op ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
             
             Button {
-                houseNumber = 4
+                houseNumber = .house
             } label: {
                 Text("단독주택")
-                    .applyInner(color: houseNumber == 4 ? .activeTextColor : .disabledTextColor)
+                    .applyInner(color: houseNumber == .house ? .activeTextColor : .disabledTextColor)
                     .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == 4 ? Color.sub : Color.mainBackground)
+                    .background(houseNumber == .house ? Color.sub : Color.mainBackground)
                     .cornerRadius(10)
             }
         }
@@ -309,7 +361,8 @@ extension EditProfile {
         }
         .frame(height: 52)
         .frame(maxWidth: .infinity)
-        .background(Color.orange)
+        .background(willString.isEmpty || kakaoLinkString.isEmpty ? Color.gray : Color.orange)
+        .disabled(willString.isEmpty || kakaoLinkString.isEmpty)
         .cornerRadius(14)
         .padding(.trailing)
         .padding(.bottom)

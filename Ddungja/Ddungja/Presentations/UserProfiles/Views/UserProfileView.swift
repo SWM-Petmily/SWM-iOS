@@ -11,8 +11,8 @@ struct UserProfileView: View {
     
     @State var input = ""
     
-    private var viewModel: UserProfileViewModel
-    private var profile: ProfileVO? {
+    @ObservedObject var viewModel: UserProfileViewModel
+    private var profile: ProfileVO {
         viewModel.profile
     }
     
@@ -40,7 +40,7 @@ struct UserProfileView: View {
         .navigationTitle("프로필")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: EditProfile()) {
+                NavigationLink(destination: EditProfile(viewModel: viewModel)) {
                     Text("수정하기")
                         .applyInner(color: .mainColor)
                 }
@@ -56,14 +56,14 @@ extension UserProfileView {
                 Circle()
                     .fill(.gray)
                     .frame(width: 68, height: 68)
-                Image("bulldog")
+                Image(profile.profileImage)
                     .resizable()
                     .frame(width: 50, height: 50)
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .center, spacing: 7) {
-                    Text(viewModel.profile?.nickname ?? "아롱")
+                    Text(viewModel.profile.nickname)
                         .applyTitle(color: .mainTextColor)
                         .bold()
                     ZStack {
@@ -71,11 +71,11 @@ extension UserProfileView {
                             .stroke(Color.gray, lineWidth: 1)
                             .frame(width: 53, height: 25)
                         
-                        Text(viewModel.profile?.job ?? "---")
+                        Text(viewModel.profile.job)
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
-                Text("대한민국, \(profile?.region ?? "서울")")
+                Text("대한민국, \(profile.region)")
                     .applySubtitle(color: .disabledTextColor)
                 
             }
@@ -100,7 +100,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 경험")
                         .applySubtitle(color: .disabledTextColor)
-                    Text((profile?.isExperience ?? false) ? "있음" : "없음")
+                    Text((profile.isExperience) ? "있음" : "없음")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -115,7 +115,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 종")
                         .applySubtitle(color: .disabledTextColor)
-                    Text(profile?.experiences[0].species ?? "-")
+                    Text(profile.experiences.first?.species ?? "-")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -130,7 +130,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("주거환경")
                         .applySubtitle(color: .disabledTextColor)
-                    Text(profile?.environment ?? "-")
+                    Text(profile.environment)
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -145,7 +145,7 @@ extension UserProfileView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("함께하는 사람 수")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("\(profile?.people ?? 0) 명")
+                    Text("\(profile.people) 명")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -174,7 +174,7 @@ extension UserProfileView {
                 Text("키울 수 있는 각오")
                     .applySubtitle(color: .disabledTextColor)
             
-                Text(profile?.comment ?? "내용을 적어주세요")
+                Text(profile.comment)
                     .applyInner(color: .mainTextColor)
             }
             .padding()
@@ -193,8 +193,9 @@ extension UserProfileView {
                 Text("오픈 카톡방 링크")
                     .applySubtitle(color: .disabledTextColor)
             
-                Text(profile?.openTalk ?? "-")
+                Text(profile.openTalk)
                     .applyInner(color: .mainTextColor)
+                    .lineLimit(1)
             }
             .padding()
         }
