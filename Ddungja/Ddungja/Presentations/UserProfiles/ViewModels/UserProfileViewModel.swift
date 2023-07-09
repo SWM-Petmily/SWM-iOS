@@ -52,6 +52,7 @@ final class UserProfileViewModel: ObservableObject {
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellabels = Set<AnyCancellable>()
     @Published var profile: ProfileVO
+    @Published var experienceArray = [(id: UUID, species: String, period: Int)]()
     
     init(profileUsecase: ProfileUsecaseInterface) {
         self.profileUsecase = profileUsecase
@@ -70,6 +71,12 @@ final class UserProfileViewModel: ObservableObject {
             .store(in: &cancellabels)
     }
     
+    private func makeExperienceArray() {
+        for v in profile.experiences {
+            experienceArray.append((id: UUID(),species: v.species, period: v.period))
+        }
+    }
+
     func putEditProfile(_ profile: ProfileEditVO) -> Bool {
         profileUsecase.putEditUserProfile(profile: profile)
         

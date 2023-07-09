@@ -17,9 +17,8 @@ struct EditProfile: View {
     @State private var willString: String
     @State private var kakaoLinkString: String
     @State var tset = false
-    @State var experienceArray: [ExperienceRow]
         
-    var viewModel: UserProfileViewModel
+    @ObservedObject var viewModel: UserProfileViewModel
     
     init(viewModel: UserProfileViewModel) {
         self.viewModel = viewModel
@@ -30,10 +29,6 @@ struct EditProfile: View {
         person = viewModel.profile.people
         willString = viewModel.profile.comment
         kakaoLinkString = viewModel.profile.openTalk
-        
-        experienceArray = viewModel.profile.experiences.map { experience in
-            ExperienceRow(id: experience.id, species: experience.species, year: String(experience.period / 12), month: String(experience.period % 12))
-        }
     }
     
     var body: some View {
@@ -53,9 +48,21 @@ struct EditProfile: View {
                 if(experienceNumber == .yes) {
                     selectSpeciesTitle
                     
-                    ForEach(experienceArray.indices, id: \.self) { index in
-                        experienceArray[index]
+                    LazyVStack {
+                        ForEach(viewModel.experienceArray.indices, id: \.self) { index in
+                            ExperienceRow(id: viewModel.experienceArray[index].id, species: viewModel.experienceArray[index].species, year: String(viewModel.experienceArray[index].period / 12), month: String(viewModel.experienceArray[index].period % 12), viewModel: viewModel).id(UUID())
+                        }
                     }
+                    
+                    Button {
+                        viewModel.experienceArray.append((id: UUID(), species: "", period: 0))
+                    } label: {
+                        Text("추가")
+                    }
+                    .frame(height: 52)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.orange)
+                    .cornerRadius(14)
                 }
                 
                 Group {
@@ -348,6 +355,7 @@ extension EditProfile {
                 .frame(height: 30)
                 .font(.system(size: 22))
                 .padding()
+                .lineLimit(1)
                 .background(Color.mainBackground)
                 .cornerRadius(10)
         }
