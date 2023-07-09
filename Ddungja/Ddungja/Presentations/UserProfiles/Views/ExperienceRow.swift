@@ -9,14 +9,28 @@ import SwiftUI
 
 struct ExperienceRow: View {
     
-    @State var dog = ""
-    @State var year = ""
-    @State var month = ""
+    let id: Int
+    @State var species: String
+    @State var year: String
+    @State var month: String
+    
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("반려동물 종")
-                .applySubtitle(color: .mainTextColor)
-            
+            HStack {
+                Text("반려동물 종")
+                    .applySubtitle(color: .mainTextColor)
+                
+                Spacer()
+                    
+                Button {
+                    
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.headline)
+                }
+                .padding()
+            }
             HStack {
                 ZStack {
                     Rectangle()
@@ -26,7 +40,7 @@ struct ExperienceRow: View {
                         .frame(maxWidth: .infinity)
                     
                     HStack {
-                        TextField("", text: $dog)
+                        TextField("", text: $species)
                             
                         Spacer()
                         
@@ -82,8 +96,8 @@ struct ExperienceRow: View {
     }
 }
 
-struct ExperienceRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ExperienceRow()
-    }
-}
+//struct ExperienceRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExperienceRow()
+//    }
+//}
