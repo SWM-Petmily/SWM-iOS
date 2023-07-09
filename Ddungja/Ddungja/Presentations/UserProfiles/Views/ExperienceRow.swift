@@ -26,8 +26,10 @@ struct ExperienceRow: View {
                 Spacer()
                     
                 Button {
-                    if let index = viewModel.experienceArray.firstIndex(where: { $0.id == id }) {
-                        viewModel.experienceArray.remove(at: index)
+                    withAnimation {
+                        if let index = viewModel.experienceArray.firstIndex(where: { $0.id == id }) {
+                            viewModel.experienceArray.remove(at: index)
+                        }
                     }
                 } label: {
                     Image(systemName: "xmark")

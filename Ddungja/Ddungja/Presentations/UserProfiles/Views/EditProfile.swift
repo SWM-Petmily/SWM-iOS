@@ -52,16 +52,20 @@ struct EditProfile: View {
                         ForEach(viewModel.experienceArray.indices, id: \.self) { index in
                             ExperienceRow(id: viewModel.experienceArray[index].id, species: viewModel.experienceArray[index].species, year: String(viewModel.experienceArray[index].period / 12), month: String(viewModel.experienceArray[index].period % 12), viewModel: viewModel).id(UUID())
                         }
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
                     Button {
-                        viewModel.experienceArray.append((id: UUID(), species: "", period: 0))
+                        withAnimation {
+                            viewModel.experienceArray.append((id: UUID(), species: "", period: 0))
+                        }
                     } label: {
                         Text("추가")
+                            .applyInner(color: .white)
+                            .frame(height: 52)
+                            .frame(maxWidth: .infinity)
                     }
-                    .frame(height: 52)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.orange)
+                    .background(Color.main)
                     .cornerRadius(14)
                 }
                 
