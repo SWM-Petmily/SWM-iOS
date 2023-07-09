@@ -344,6 +344,7 @@ extension EditProfile {
                 .padding()
                 .background(Color.mainBackground)
                 .cornerRadius(10)
+                .onTapGesture { endTextEditing() }
         }
     }
     
@@ -362,6 +363,7 @@ extension EditProfile {
                 .lineLimit(1)
                 .background(Color.mainBackground)
                 .cornerRadius(10)
+                .onTapGesture { endTextEditing() }
         }
     }
     
