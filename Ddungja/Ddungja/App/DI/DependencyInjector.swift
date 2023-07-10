@@ -1,0 +1,42 @@
+//
+//  DependencyInjector.swift
+//  Ddungja
+//
+//  Created by 오승기 on 2023/07/06.
+//
+
+import Swinject
+
+protocol DependencyAssemblable {
+    func assemble(_ assemblyList: [Assembly])
+    func register<T>(_ serviceType: T.Type, _ object: T)
+}
+
+public protocol DependencyResolvable {
+    func resolve<T>(_ serviceType: T.Type) -> T
+}
+
+typealias Injector = DependencyAssemblable & DependencyResolvable
+
+final class DependencyInjector: Injector {
+    private let container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
+    
+    func assemble(_ assemblyList: [Assembly]) {
+        assemblyList.forEach {
+            $0.assemble(container: container)
+        }
+    }
+    
+    func register<T>(_ serviceType: T.Type, _ object: T) {
+        container.register(serviceType) { _ in object }
+    }
+    
+    func resolve<T>(_ serviceType: T.Type) -> T {
+        container.resolve(serviceType)!
+    }
+}
+

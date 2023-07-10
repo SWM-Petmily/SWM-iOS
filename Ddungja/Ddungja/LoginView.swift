@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var kakaoAuthVM = KakakoAuthViewModel()
-    
+    @State private var showDetailView = false
     let loginStatusInfo: (Bool) -> String = { isLoggedIn in
         return isLoggedIn ? "로그인 상태" : "로그아웃 상태"
     }
@@ -22,7 +22,6 @@ struct LoginView: View {
             } label: {
                 Text("카카오 로그인")
             }
-
         }
         .padding()
     }
