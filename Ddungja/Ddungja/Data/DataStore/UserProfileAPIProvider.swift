@@ -12,7 +12,7 @@ import Combine
 
 protocol UserProfileDataSourceInterface {
     func getUserProfile() -> AnyPublisher<ProfileDetailDTO, MoyaError>
-    func putEditUserProfile(profile: ProfileEditVO)
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, MoyaError>
 }
     
 final class UserProfileAPIProvider: UserProfileDataSourceInterface {
@@ -29,11 +29,10 @@ final class UserProfileAPIProvider: UserProfileDataSourceInterface {
             .map(ProfileDetailDTO.self)
     }
     
-    func putEditUserProfile(profile: ProfileEditVO) {
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, MoyaError> {
         let profileDTO = profile.toData(profile: profile)
         
-        moyaProvider.requestPublisher(.modify(userInfo: profileDTO))
-            .retry(3)
+        return moyaProvider.requestPublisher(.modify(userInfo: profileDTO))
             .eraseToAnyPublisher()
             .map(ProfileRegisterDTO.self)
     }

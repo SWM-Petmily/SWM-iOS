@@ -16,8 +16,9 @@ struct EditProfile: View {
     @State private var person = 1
     @State private var willString: String
     @State private var kakaoLinkString: String
-    @State var tset = false
-        
+    
+    @State private var isShowSheet = false
+    
     @ObservedObject var viewModel: UserProfileViewModel
     
     init(viewModel: UserProfileViewModel) {
@@ -355,7 +356,7 @@ extension EditProfile {
     
     private var openKakaoTextfield: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-            TextField("링크를 붙여주세요", text: $kakaoLinkString, axis: .vertical)
+            TextField("링크를 붙여주세요", text: $kakaoLinkString, axis: .horizontal)
                 .frame(maxWidth: .infinity,alignment: .center)
                 .frame(height: 30)
                 .font(.system(size: 22))
@@ -369,13 +370,38 @@ extension EditProfile {
     
     private var registerButton: some View {
         Button {
+            isShowSheet = true
             //모달 sheet올리기
+            viewModel.putEditProfile(ProfileEditVO(job: jobStatus.rawValue, environment: "집", people: person, comment: viewModel.profile.comment, openTalk: viewModel.profile.openTalk, region: viewModel.profile.region, isExperience: true, profileImageId: 1, experiences: []))
+            
+            if viewModel.isShowModal {
+                
+                print("성공모달")
+                viewModel.profile = ProfileVO(job: jobStatus.rawValue,
+                                              environment: houseNumber.rawValue,
+                                              people: person,
+                                              comment: willString,
+                                              openTalk: kakaoLinkString,
+                                              region: viewModel.profile.region,
+                                              isExperience: experienceNumber.description,
+                                              nickname: "seunggi",
+                                              profileImage: imageNumer.description,
+                                              experiences: [(id: 1, species: viewModel.experienceArray[0].species, period: 1)])
+            } else {
+                print("실패모달")
+            }
+            
         } label: {
             Text("등록")
+                .applyInner(color: willString.isEmpty || kakaoLinkString.isEmpty ? .disabledTextColor : .white)
+                .frame(height: 52)
+                .frame(maxWidth: .infinity)
         }
-        .frame(height: 52)
-        .frame(maxWidth: .infinity)
-        .background(willString.isEmpty || kakaoLinkString.isEmpty ? Color.gray : Color.orange)
+        .sheet(isPresented: $isShowSheet, content: {
+            ModalView(isSuccess: viewModel.isShowModal)
+                .presentationDetents([.height(200)])
+        })
+        .background(willString.isEmpty || kakaoLinkString.isEmpty ? Color.buttonBackground : Color.main)
         .disabled(willString.isEmpty || kakaoLinkString.isEmpty)
         .cornerRadius(14)
         .padding(.trailing)

@@ -50,9 +50,10 @@ enum HouseStatus: String {
 
 final class UserProfileViewModel: ObservableObject {
     private let profileUsecase: ProfileUsecaseInterface
-    private var cancellabels = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     @Published var profile: ProfileVO
     @Published var experienceArray = [(id: UUID, species: String, period: Int)]()
+    @Published var isShowModal = false
     
     init(profileUsecase: ProfileUsecaseInterface) {
         self.profileUsecase = profileUsecase
@@ -68,7 +69,7 @@ final class UserProfileViewModel: ObservableObject {
                 print(profileVo)
                 self.profile = profileVo
             }
-            .store(in: &cancellabels)
+            .store(in: &cancellables)
     }
     
     private func makeExperienceArray() {
@@ -77,10 +78,16 @@ final class UserProfileViewModel: ObservableObject {
         }
     }
 
-    func putEditProfile(_ profile: ProfileEditVO) -> Bool {
-        profileUsecase.putEditUserProfile(profile: profile)
+    func putEditProfile(_ profile: ProfileEditVO) {
         
-        return true
+        profileUsecase.putEditUserProfile(profile: profile)
+            .sink { error in
+                print(error)
+            } receiveValue: { value in
+                if value != -1 {
+                    self.isShowModal = true
+                }
+            }.store(in: &cancellables)
     }
     
     func changeToJobStatus(_ job: String) -> EmploymentStatus {

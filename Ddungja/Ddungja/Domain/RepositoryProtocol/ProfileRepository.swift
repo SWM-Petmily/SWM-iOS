@@ -10,5 +10,5 @@ import Moya
 
 protocol ProfileRepository {
     func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError>
-    func putEditUserProfile(VO: ProfileEditVO)
+    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, MoyaError>
 }

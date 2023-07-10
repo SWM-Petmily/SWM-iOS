@@ -10,7 +10,7 @@ import Moya
 
 protocol ProfileUsecaseInterface {
     func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError>
-    func putEditUserProfile(profile: ProfileEditVO)
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, MoyaError>
 }
 
 final class ProfileUsecase: ProfileUsecaseInterface {
@@ -25,7 +25,7 @@ final class ProfileUsecase: ProfileUsecaseInterface {
         return repository.getUserProfile()
     }
     
-    func putEditUserProfile(profile: ProfileEditVO)  {
-        repository.putEditUserProfile(VO: profile)
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, MoyaError>  {
+        return repository.putEditUserProfile(VO: profile)
     }
 }

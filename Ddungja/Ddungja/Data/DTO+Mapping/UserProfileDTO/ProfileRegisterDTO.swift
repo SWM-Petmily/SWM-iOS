@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProfileRegisterDTO: Decodable {
-    let profileId: Int
+    let profileId: Int?
 }
 
 struct ProfileEditReqiestDTO: Encodable {
@@ -27,4 +27,13 @@ struct Experiences: Encodable {
     let id: Int
     let species: String
     let period: Int
+}
+
+extension ProfileRegisterDTO {
+    func toDomain() -> Int {
+        guard let id = profileId else {
+            return -1
+        }
+        return id
+    }
 }
