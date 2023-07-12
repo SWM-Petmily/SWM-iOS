@@ -187,6 +187,10 @@
 		7546BDDA2A51A42F0019A986 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				759228D62A5E723100603FF4 /* Register */,
+				759228D52A5E721700603FF4 /* Interest */,
+				759228D42A5E720E00603FF4 /* Home */,
+				759228D12A5E573800603FF4 /* TabBar */,
 				7546BDDB2A51A4400019A986 /* UserProfiles */,
 			);
 			path = Presentations;
