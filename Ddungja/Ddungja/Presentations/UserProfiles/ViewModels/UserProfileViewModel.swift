@@ -49,13 +49,15 @@ enum HouseStatus: String {
 }
 
 final class UserProfileViewModel: ObservableObject {
+    private var coordinator: CoordinatorProtocol
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     @Published var profile: ProfileVO
     @Published var experienceArray = [(id: UUID, species: String, period: Int)]()
     @Published var isShowModal = false
     
-    init(profileUsecase: ProfileUsecaseInterface) {
+    init(coordinator: CoordinatorProtocol, profileUsecase: ProfileUsecaseInterface) {
+        self.coordinator = coordinator
         self.profileUsecase = profileUsecase
 //        getProfile()
         profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImage: "bulldog", experiences: [(id: 1, species: "불독", period: 16), (id: 2, species: "푸들", period: 13), (id: 3, species: "기타", period: 11)])
@@ -77,7 +79,14 @@ final class UserProfileViewModel: ObservableObject {
             experienceArray.append((id: UUID(),species: v.species, period: v.period))
         }
     }
-
+    
+    func moveToEditProfile() {
+        coordinator.push(.editProfile)
+    }
+    
+    func pop() {
+        coordinator.pop()
+    }
     func putEditProfile(_ profile: ProfileEditVO) {
         
         profileUsecase.putEditUserProfile(profile: profile)

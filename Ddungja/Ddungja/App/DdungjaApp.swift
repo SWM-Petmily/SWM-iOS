@@ -44,12 +44,13 @@ struct DdungjaApp: App {
 //                LoginView()
 //                    .navigationBarHidden(true)
 //            }
-            NavigationView {
-                List {
-                    NavigationLink("프로필", destination: UserProfileView(viewModel: injector.resolve(UserProfileViewModel.self)))
-                        .toolbarRole(.editor)
-                }
-            }
+            DdungjaTabView(coordinator: Coordinator.instance, viewResolver: viewResolver)
+//            NavigationView {
+//                List {
+//                    NavigationLink("프로필", destination: UserProfileView(viewModel: injector.resolve(UserProfileViewModel.self)))
+//                        .toolbarRole(.editor)
+//                }
+//            }
         }
     }
 }

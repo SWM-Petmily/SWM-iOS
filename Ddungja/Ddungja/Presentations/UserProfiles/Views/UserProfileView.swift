@@ -38,12 +38,20 @@ struct UserProfileView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .navigationTitle("프로필")
+        .navigationBarBackButtonHidden(true)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("마이페이지")
+                    .onTapGesture {
+                        viewModel.pop()
+                    }
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: EditProfile(viewModel: viewModel)) {
-                    Text("수정하기")
-                        .applyInner(color: .mainColor)
-                }
+                Text("수정하기")
+                    .applyInner(color: .mainColor)
+                    .onTapGesture {
+                        viewModel.moveToEditProfile()
+                    }
             }
         }
     }

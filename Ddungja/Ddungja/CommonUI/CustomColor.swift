@@ -15,7 +15,8 @@ extension Color {
     static let disabledText = Color("DisabledTextColor")
     static let buttonBackground = Color("ButtonBackgroundColor")
     static let activeText = Color("ActiveTextColor")
-    static let white = Color("White")
+    static let white = Color("WhiteColor")
+    static let tabBar = Color("TabBarColor")
 }
 
 enum CustomColor: String {
@@ -27,6 +28,7 @@ enum CustomColor: String {
     case buttonBackgroundColor
     case activeTextColor
     case white
+    case tabBar
 
     var customValue: String {
         switch self {
@@ -46,6 +48,8 @@ enum CustomColor: String {
             return "ActiveTextColor"
         case .white:
             return "WhiteColor"
+        case .tabBar:
+            return "TabBarColor"
         }
     }
 }

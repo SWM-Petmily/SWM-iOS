@@ -84,6 +84,7 @@ struct EditProfile: View {
                     openKakaoTextfield
                 }
             }
+            .navigationTitle("프로필 작성")
             .navigationBarTitleDisplayMode(.inline)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
@@ -407,11 +408,5 @@ extension EditProfile {
         .padding(.trailing)
         .padding(.bottom)
         .padding(.leading)
-    }
-}
-
-struct EditProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfile()
     }
 }
