@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MyPageVIew: View {
+    @ObservedObject private(set) var viewModel: MyPageViewModel
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -70,6 +72,9 @@ struct MyPageVIew: View {
                                 Image(systemName: "plus")
                                     .foregroundColor(.main)
                                     .padding()
+                            }
+                            .onTapGesture {
+                                viewModel.moveToUserProfileView()
                             }
                         }
                     }
@@ -205,11 +210,5 @@ struct MyPageVIew: View {
                 }
             }
         }
-    }
-}
-
-struct MyPageVIew_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageVIew()
     }
 }

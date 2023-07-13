@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct DdungjaTabView: View {
+    private var coordinator: CoordinatorProtocol
     private let viewResolver: ViewResolverProtocol
     @State private var navigationPath = NavigationPath()
     
-    init(viewResolver: ViewResolverProtocol) {
+    init(coordinator: CoordinatorProtocol, viewResolver: ViewResolverProtocol) {
+        self.coordinator = coordinator
         self.viewResolver = viewResolver
     }
     
@@ -41,8 +43,8 @@ struct DdungjaTabView: View {
                             .environment(\.symbolVariants, .none)
                         Text("등록")
                     }
-                
-                viewResolver.resolveView(UserProfileView.self)
+
+                viewResolver.resolveView(MyPageVIew.self)
                     .tabItem {
                         Image(systemName: "person.circle")
                             .environment(\.symbolVariants, .none)
@@ -50,6 +52,12 @@ struct DdungjaTabView: View {
                     }
             }
             .tint(Color.main)
+            .navigationDestination(for: Page.self) { page in
+                page.getView(coordinator: coordinator, viewResolver: viewResolver)
+            }
+        }
+        .onReceive(coordinator.pathPublisher) { navigationPath in
+            self.navigationPath = navigationPath
         }
     }
 }
