@@ -31,6 +31,11 @@
 		75618C712A54065B005FA31A /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C702A54065B005FA31A /* CustomText.swift */; };
 		75618C762A5424F2005FA31A /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C752A5424F2005FA31A /* CustomColor.swift */; };
 		75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */; };
+		759228D32A5E575000603FF4 /* DdungjaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D22A5E575000603FF4 /* DdungjaTabView.swift */; };
+		759228D82A5E724100603FF4 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D72A5E724100603FF4 /* RegisterView.swift */; };
+		759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D92A5E724E00603FF4 /* InterestView.swift */; };
+		759228DC2A5E725700603FF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228DB2A5E725700603FF4 /* HomeView.swift */; };
+		759228DF2A5E8F3F00603FF4 /* MyPageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228DE2A5E8F3F00603FF4 /* MyPageVIew.swift */; };
 		759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657D2A4037E500E6AD07 /* DdungjaApp.swift */; };
 		759A65802A4037E500E6AD07 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657F2A4037E500E6AD07 /* LoginView.swift */; };
 		759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759A65812A4037E700E6AD07 /* Assets.xcassets */; };
