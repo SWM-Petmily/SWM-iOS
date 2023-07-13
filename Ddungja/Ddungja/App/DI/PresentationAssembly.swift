@@ -12,12 +12,21 @@ struct PresentationAssembly: Assembly {
     func assemble(container: Container) {
         container.register(UserProfileViewModel.self) { resolver in
             let useCase = resolver.resolve(ProfileUsecaseInterface.self)!
-            return UserProfileViewModel(profileUsecase: useCase)
+            return UserProfileViewModel(coordinator: Coordinator.instance, profileUsecase: useCase)
         }
         
         container.register(UserProfileView.self) { resolver in
-            let homeViewModel = resolver.resolve(UserProfileViewModel.self)!
-            return UserProfileView(viewModel: homeViewModel)
+            let userProfileViewModel = resolver.resolve(UserProfileViewModel.self)!
+            return UserProfileView(viewModel: userProfileViewModel)
+        }
+        
+        container.register(EditProfile.self) { resolver in
+            let userProfileViemodel = resolver.resolve(UserProfileViewModel.self)!
+            return EditProfile(viewModel: userProfileViemodel)
+        }
+        
+        container.register(MyPageVIew.self) { resolver in
+            return MyPageVIew(viewModel: MyPageViewModel(coordinator: Coordinator.instance))
         }
     }
 }

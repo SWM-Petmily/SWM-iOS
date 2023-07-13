@@ -44,7 +44,7 @@ struct DdungjaApp: App {
 //                LoginView()
 //                    .navigationBarHidden(true)
 //            }
-            DdungjaTabView(viewResolver: viewResolver)
+            DdungjaTabView(coordinator: Coordinator.instance, viewResolver: viewResolver)
 //            NavigationView {
 //                List {
 //                    NavigationLink("프로필", destination: UserProfileView(viewModel: injector.resolve(UserProfileViewModel.self)))
