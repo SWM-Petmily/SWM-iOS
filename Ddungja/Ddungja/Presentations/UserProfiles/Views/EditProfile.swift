@@ -410,9 +410,3 @@ extension EditProfile {
         .padding(.leading)
     }
 }
-
-struct EditProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfile()
-    }
-}
