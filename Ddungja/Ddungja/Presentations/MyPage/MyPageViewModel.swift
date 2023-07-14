@@ -17,4 +17,8 @@ final class MyPageViewModel: ObservableObject {
     func moveToUserProfileView() {
         coordinator.push(.userProfileView)
     }
+    
+    func moveToMyPostsView() {
+        coordinator.push(.myPosts)
+    }
 }

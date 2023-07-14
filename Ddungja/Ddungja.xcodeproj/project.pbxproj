@@ -39,8 +39,7 @@
 		759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228E02A5FDE6200603FF4 /* MyPageViewModel.swift */; };
 		759228E42A5FF0E600603FF4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228E32A5FF0E600603FF4 /* Coordinator.swift */; };
 		759228E72A5FF29C00603FF4 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228E62A5FF29C00603FF4 /* Page.swift */; };
-		759228EA2A60133000603FF4 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228E92A60133000603FF4 /* MyPostsView.swift */; };
-		759228EC2A60137200603FF4 /* MyPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228EB2A60137200603FF4 /* MyPostsViewModel.swift */; };
+		759228F22A6138C400603FF4 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228F12A6138C400603FF4 /* MyPostsView.swift */; };
 		759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657D2A4037E500E6AD07 /* DdungjaApp.swift */; };
 		759A65802A4037E500E6AD07 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657F2A4037E500E6AD07 /* LoginView.swift */; };
 		759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759A65812A4037E700E6AD07 /* Assets.xcassets */; };
@@ -119,8 +118,8 @@
 		759228E02A5FDE6200603FF4 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		759228E32A5FF0E600603FF4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		759228E62A5FF29C00603FF4 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		759228E92A60133000603FF4 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
-		759228EB2A60137200603FF4 /* MyPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsViewModel.swift; sourceTree = "<group>"; };
+		759228EE2A61389600603FF4 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		759228F12A6138C400603FF4 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 		759A657A2A4037E500E6AD07 /* Ddungja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ddungja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759A657D2A4037E500E6AD07 /* DdungjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaApp.swift; sourceTree = "<group>"; };
 		759A657F2A4037E500E6AD07 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 		759A65B02A403E3800E6AD07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		759A65B22A40574E00E6AD07 /* KakakoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakakoAuthViewModel.swift; sourceTree = "<group>"; };
 		759A65BC2A417C6E00E6AD07 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		75FB2FBD2A55B46600E4DDE8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVO.swift; sourceTree = "<group>"; };
 		75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
@@ -207,7 +205,7 @@
 		7546BDDA2A51A42F0019A986 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
-				759228E82A60131F00603FF4 /* MyPosts */,
+				759228F02A6138AB00603FF4 /* MyPosts */,
 				759228E52A5FF28700603FF4 /* Coordinator */,
 				759228DD2A5E8F1900603FF4 /* MyPage */,
 				759228D62A5E723100603FF4 /* Register */,
@@ -377,11 +375,10 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		759228E82A60131F00603FF4 /* MyPosts */ = {
+		759228F02A6138AB00603FF4 /* MyPosts */ = {
 			isa = PBXGroup;
 			children = (
-				759228E92A60133000603FF4 /* MyPostsView.swift */,
-				759228EB2A60137200603FF4 /* MyPostsViewModel.swift */,
+				759228F12A6138C400603FF4 /* MyPostsView.swift */,
 			);
 			path = MyPosts;
 			sourceTree = "<group>";
@@ -420,7 +417,7 @@
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
 				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
-				75FB2FBD2A55B46600E4DDE8 /* Config.xcconfig */,
+				759228EE2A61389600603FF4 /* Config.xcconfig */,
 			);
 			path = Ddungja;
 			sourceTree = "<group>";
@@ -650,7 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				759A65802A4037E500E6AD07 /* LoginView.swift in Sources */,
-				759228EA2A60133000603FF4 /* MyPostsView.swift in Sources */,
+				759228F22A6138C400603FF4 /* MyPostsView.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
 				759228E72A5FF29C00603FF4 /* Page.swift in Sources */,
 				759228E42A5FF0E600603FF4 /* Coordinator.swift in Sources */,
@@ -675,7 +672,6 @@
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
-				759228EC2A60137200603FF4 /* MyPostsViewModel.swift in Sources */,
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
@@ -737,7 +733,6 @@
 /* Begin XCBuildConfiguration section */
 		759A659C2A4037E700E6AD07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75FB2FBD2A55B46600E4DDE8 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -798,7 +793,6 @@
 		};
 		759A659D2A4037E700E6AD07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75FB2FBD2A55B46600E4DDE8 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

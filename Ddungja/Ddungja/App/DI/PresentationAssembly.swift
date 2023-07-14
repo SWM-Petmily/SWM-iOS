@@ -28,5 +28,9 @@ struct PresentationAssembly: Assembly {
         container.register(MyPageVIew.self) { resolver in
             return MyPageVIew(viewModel: MyPageViewModel(coordinator: Coordinator.instance))
         }
+        
+        container.register(MyPostsView.self) { resolver in
+            return MyPostsView()
+        }
     }
 }
