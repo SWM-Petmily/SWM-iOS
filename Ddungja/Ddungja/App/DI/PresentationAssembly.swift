@@ -30,7 +30,7 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(MyPostsView.self) { resolver in
-            return MyPostsView()
+            return MyPostsView(viewModel: MyPostsViewModel(coordinator: Coordinator.instance))
         }
     }
 }
