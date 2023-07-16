@@ -14,9 +14,18 @@ struct DataAssembly: Assembly {
             return UserProfileAPIProvider()
         }
         
+        container.register(MyPostsDataSourceInterface.self) { _ in
+            return MyPostsAPIProvider()
+        }
+        
         container.register(ProfileRepository.self) { resolver in
             let dataSource = resolver.resolve(UserProfileDataSourceInterface.self)!
             return ProfileToVORepository(dataSource: dataSource)
+        }
+        
+        container.register(MyPostsRepositoryInterface.self) { resolver in
+            let myPostsDataSourceInterface = resolver.resolve(MyPostsDataSourceInterface.self)!
+            return MyPostsRepository(dataSource: myPostsDataSourceInterface)
         }
     }
 }
