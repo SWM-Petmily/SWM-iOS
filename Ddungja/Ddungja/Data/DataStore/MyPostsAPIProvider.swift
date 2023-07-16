@@ -26,6 +26,8 @@ final class MyPostsAPIProvider: MyPostsDataSourceInterface {
     func getMyEditPosts(_ status: String, _ page: Int) {
         moyaProvider.requestPublisher(.myEditPosts(status: status, page: page))
             .retry(3)
+            .eraseToAnyPublisher()
+            .map(MyEditPostsDTO.self)
             .sink { error in
                 print(error)
             } receiveValue: { resoponse in
