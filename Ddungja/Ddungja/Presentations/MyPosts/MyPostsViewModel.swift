@@ -9,9 +9,13 @@ import Foundation
 
 final class MyPostsViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
+    private let myPostsUsecase: MyPostsUsecaseInterface
     
-    init(coordinator: CoordinatorProtocol) {
+    init(coordinator: CoordinatorProtocol, myPostsUsecase: MyPostsUsecaseInterface) {
         self.coordinator = coordinator
+        self.myPostsUsecase = myPostsUsecase
+    func getMyEditPosts(_ status: String, _ page: Int) {
+        myPostsUsecase.getMyEditPosts(status, page)
     }
     
     func pop() {
