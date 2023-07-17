@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */; };
 		7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115A2A41D7E8008B0101 /* CombineMoya */; };
 		7535115D2A41D7E8008B0101 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115C2A41D7E8008B0101 /* Moya */; };
 		753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511602A41DA2E008B0101 /* LoginAPI.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsRowVIew.swift; sourceTree = "<group>"; };
 		753511602A41DA2E008B0101 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		753511A52A430785008B0101 /* LoginAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIProvider.swift; sourceTree = "<group>"; };
 		753511A72A43427C008B0101 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			children = (
 				759228F12A6138C400603FF4 /* MyPostsView.swift */,
 				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
+				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
 			);
 			path = MyPosts;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
 				7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */,
+				75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

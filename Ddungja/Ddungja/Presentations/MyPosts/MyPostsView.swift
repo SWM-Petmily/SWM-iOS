@@ -7,8 +7,39 @@
 
 import SwiftUI
 
+class RefreshControlHelper {
+    
+    //MARK: Properties
+    var parentContentView : MyPostsView?
+    var refreshControl : UIRefreshControl?
+    
+    @objc func didRefresh(){
+        guard let parentContentView = parentContentView,
+              let refreshControl = refreshControl else {
+            return
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            parentContentView.viewModel.refreshActionSubject.send()
+            refreshControl.endRefreshing()
+        }
+    }
+}
+
+struct MyBottomProgressView: View {
+    var body : some View {
+        ProgressView()
+            .progressViewStyle(
+                CircularProgressViewStyle(tint: Color.init(#colorLiteral(red: 1, green: 0.5433388929, blue: 0, alpha: 1)))
+            ).scaleEffect(1.7, anchor: .center)
+    }
+}
+
+
+
 struct MyPostsView: View {
-    @ObservedObject private(set) var viewModel: MyPostsViewModel
+    @StateObject var viewModel: MyPostsViewModel
+    private let refreshControlHelper = RefreshControlHelper()
     
     var body: some View {
         
@@ -65,100 +96,11 @@ struct MyPostsView: View {
         .padding()
         
         ScrollView {
-            VStack {
-                HStack {
-                    Image("bulldog")
-                        .frame(width: 90, height: 90)
-                        .cornerRadius(6)
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Image(systemName: "message")
-                                    .foregroundColor(.mainText)
-                                Text("10")
-                                    .applySubtitle(color: .mainTextColor)
-                                Image(systemName: "heart")
-                                    .foregroundColor(.mainText)
-                                Text("10")
-                                    .applySubtitle(color: .mainTextColor)
-                            }
-                            Spacer()
-                            Text("사모예드")
-                                .applyInner(color: .mainTextColor)
-                            Text("아롱")
-                                .applyInner(color: .mainTextColor)
-                        }
-                        Spacer()
-                        
-                        VStack {
-                            Text("작성일 2023.03.31")
-                                .applySubtitle(color: .mainTextColor)
-                            
-                            Spacer()
-                            
-                            ZStack(alignment: .leading) {
-                                Rectangle()
-                                    .fill(.white)
-                                    .frame(height: 30)
-                                    .frame(width: 80)
-                                    .cornerRadius(6)
-                                
-                                Button {
-                                    
-                                } label: {
-                                    Text("수정")
-                                        .applyInner(color: .mainColor)
-                                        .frame(height: 30)
-                                        .frame(width: 80)
-                                        .cornerRadius(6)
-                                }
-                            }
-                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 0)
-                        }
-                        .padding(.trailing)
+            ForEach(viewModel.myEditPosts, id: \.postId) { info in
+                MyPostsRowVIew(myPost: info)
+                    .onAppear{
+                        fetchMoreData(info)
                     }
-                }
-                ZStack {
-                    Rectangle()
-                        .fill(Color.buttonBackground)
-                        .frame(height: 40)
-                        .frame(maxWidth: .infinity)
-                        .cornerRadius(5)
-                    
-                    HStack() {
-                        
-                        HStack(alignment: .center) {
-                            Text("지역")
-                            Text("서울")
-                        }
-                        .padding()
-                        
-                        Divider()
-                            .frame(width: 1, height: 35)
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("나이")
-                            Text("10개월")
-                        }
-                        .padding()
-
-                        Divider()
-                            .frame(width: 1, height: 35)
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("성별")
-                            Text("남아")
-                        }
-                        .padding()
-                        
-                        
-                    }
-                        
-                }
-                .padding()
             }
         }
         .navigationTitle("작성한 분양글")
@@ -172,15 +114,35 @@ struct MyPostsView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 15) {
-                    Image(systemName: "text.justify.left")
                     Image(systemName: "magnifyingglass")
                     Image(systemName: "bell")
                 }
             }
-
         }
         .onAppear {
             viewModel.getMyEditPosts()
         }
+        
+        if viewModel.isLoading {
+            MyBottomProgressView()
+        }
+    }
+}
+
+extension MyPostsView {
+    private func fetchMoreData(_ myPost: PostsInfoVO){
+        if self.viewModel.myEditPosts.last == myPost {
+            viewModel
+                .fetchMoreActionSubject.send()
+        }
+    }
+    
+    private func configureRefreshControl(_ tableView: UITableView){
+        let myRefresh = UIRefreshControl()
+        myRefresh.tintColor = #colorLiteral(red: 1, green: 0.5433388929, blue: 0, alpha: 1)
+        refreshControlHelper.refreshControl = myRefresh
+        refreshControlHelper.parentContentView = self
+        myRefresh.addTarget(refreshControlHelper, action: #selector(RefreshControlHelper.didRefresh), for: .valueChanged)
+        tableView.refreshControl = myRefresh
     }
 }

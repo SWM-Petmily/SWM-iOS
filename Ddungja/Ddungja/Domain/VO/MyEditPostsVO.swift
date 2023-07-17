@@ -28,3 +28,9 @@ struct PostsInfoVO {
 struct PageInfoVO {
     let pageNumber: Int
 }
+
+extension PostsInfoVO: Equatable {
+    static func == (lhs: PostsInfoVO, rhs: PostsInfoVO) -> Bool {
+        return lhs.postId == rhs.postId
+    }
+}
