@@ -5,8 +5,8 @@
 //  Created by 오승기 on 2023/07/15.
 //
 
-import Foundation
-
+import Combine
+import Moya
 
 final class MyPostsRepository: MyPostsRepositoryInterface {
     let dataSource: MyPostsDataSourceInterface
@@ -15,7 +15,9 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
         self.dataSource = dataSource
     }
     
-    func getMyEditPosts(_ status: String, _ page: Int) {
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, MoyaError> {
         return dataSource.getMyEditPosts(status, page)
+            .map { $0.toEditPostsVO() }
+            .eraseToAnyPublisher()
     }
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 struct MyEditPostsDTO: Decodable {
-    let content: [PostsInfo]
-    let pageable: PageInfo
+    let content: [PostsInfo]?
+    let pageable: PageInfo?
 }
 
 struct PostsInfo: Decodable {
@@ -27,5 +27,20 @@ struct PostsInfo: Decodable {
 
 struct PageInfo: Decodable {
     let pageNumber: Int
-    let pageSize: Int
+}
+
+extension MyEditPostsDTO {
+    func toEditPostsVO() -> MyEditPostsVO {
+        guard let contents = content, let page = pageable else {
+            return MyEditPostsVO(content: [], pageable: PageInfo(pageNumber: 0))
+        }
+        
+        var postInfoVO: [PostsInfoVO] = []
+        for content in contents {
+            let imageURL = URL(string: content.thumbnailImage)!
+            postInfoVO.append(PostsInfoVO(postId: content.postId, name: content.name, thumbnailImage: imageURL, subCategory: content.subCategory, region: content.region, gender: content.gender, birth: content.birth, like: content.like, createdDate: content.createdDate, status: content.status))
+        }
+        
+        return MyEditPostsVO(content: postInfoVO, pageable: PageInfo(pageNumber: page.pageNumber))
+    }
 }

@@ -11,7 +11,7 @@ import CombineMoya
 import Combine
 
 protocol MyPostsDataSourceInterface {
-    func getMyEditPosts(_ status: String, _ page: Int)
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, MoyaError>
 }
 
 
@@ -23,19 +23,10 @@ final class MyPostsAPIProvider: MyPostsDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getMyEditPosts(_ status: String, _ page: Int) {
-        moyaProvider.requestPublisher(.myEditPosts(status: status, page: page))
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, MoyaError> {
+        return moyaProvider.requestPublisher(.myEditPosts(status: status, page: page))
             .retry(3)
             .eraseToAnyPublisher()
             .map(MyEditPostsDTO.self)
-            .sink { error in
-                print(error)
-            } receiveValue: { resoponse in
-                print(resoponse)
-            }
-            .store(in: &cancellabe)
-
-//            .eraseToAnyPublisher()
-            
     }
 }

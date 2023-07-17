@@ -19,8 +19,6 @@ struct DdungjaTabView: View {
     
     public var body: some View {
         NavigationStack(path: $navigationPath) {
-            
-            
             TabView {
                 HomeView()
                     .tabItem {
