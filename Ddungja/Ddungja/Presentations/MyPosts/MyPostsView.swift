@@ -179,5 +179,8 @@ struct MyPostsView: View {
             }
 
         }
+        .onAppear {
+            viewModel.getMyEditPosts()
+        }
     }
 }
