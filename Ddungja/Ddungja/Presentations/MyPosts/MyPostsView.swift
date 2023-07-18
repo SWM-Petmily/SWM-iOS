@@ -7,39 +7,8 @@
 
 import SwiftUI
 
-class RefreshControlHelper {
-    
-    //MARK: Properties
-    var parentContentView : MyPostsView?
-    var refreshControl : UIRefreshControl?
-    
-    @objc func didRefresh(){
-        guard let parentContentView = parentContentView,
-              let refreshControl = refreshControl else {
-            return
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            parentContentView.viewModel.refreshActionSubject.send()
-            refreshControl.endRefreshing()
-        }
-    }
-}
-
-struct MyBottomProgressView: View {
-    var body : some View {
-        ProgressView()
-            .progressViewStyle(
-                CircularProgressViewStyle(tint: Color.init(#colorLiteral(red: 1, green: 0.5433388929, blue: 0, alpha: 1)))
-            ).scaleEffect(1.7, anchor: .center)
-    }
-}
-
-
-
 struct MyPostsView: View {
     @StateObject var viewModel: MyPostsViewModel
-    private let refreshControlHelper = RefreshControlHelper()
     
     var body: some View {
         
@@ -96,11 +65,13 @@ struct MyPostsView: View {
         .padding()
         
         ScrollView {
-            ForEach(viewModel.myEditPosts, id: \.postId) { info in
-                MyPostsRowVIew(myPost: info)
-                    .onAppear{
-                        fetchMoreData(info)
-                    }
+            LazyVStack {
+                ForEach(viewModel.myEditPosts, id: \.postId) { info in
+                    MyPostsRowVIew(myPost: info)
+                        .onAppear{
+                            fetchMoreData(info)
+                        }
+                }
             }
         }
         .navigationTitle("작성한 분양글")
@@ -120,11 +91,7 @@ struct MyPostsView: View {
             }
         }
         .onAppear {
-            viewModel.getMyEditPosts()
-        }
-        
-        if viewModel.isLoading {
-            MyBottomProgressView()
+            viewModel.getMyEditPosts(viewModel.status)
         }
     }
 }
@@ -135,14 +102,5 @@ extension MyPostsView {
             viewModel
                 .fetchMoreActionSubject.send()
         }
-    }
-    
-    private func configureRefreshControl(_ tableView: UITableView){
-        let myRefresh = UIRefreshControl()
-        myRefresh.tintColor = #colorLiteral(red: 1, green: 0.5433388929, blue: 0, alpha: 1)
-        refreshControlHelper.refreshControl = myRefresh
-        refreshControlHelper.parentContentView = self
-        myRefresh.addTarget(refreshControlHelper, action: #selector(RefreshControlHelper.didRefresh), for: .valueChanged)
-        tableView.refreshControl = myRefresh
     }
 }

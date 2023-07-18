@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class MyPostsViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
@@ -15,8 +16,9 @@ final class MyPostsViewModel: ObservableObject {
     
     @Published var myEditPosts = [PostsInfoVO]()
     @Published var pageInfo = 0
-    @Published var status = "ALL"
-    @Published var isLoading = false
+    @Published var totalPage = 0
+    @Published var status = "SAVE"
+    @State private var isLoading = false
     
     var refreshActionSubject = PassthroughSubject<(), Never>()
     var fetchMoreActionSubject = PassthroughSubject<(), Never>()
@@ -24,12 +26,6 @@ final class MyPostsViewModel: ObservableObject {
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyPostsUsecaseInterface) {
         self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
-        
-        refreshActionSubject.sink{ [weak self] _ in
-            guard let self = self else { return }
-            self.getMyEditPosts()
-        }
-        .store(in: &cancellables)
         
         fetchMoreActionSubject.sink{ [weak self] _ in
             guard let self = self else { return }
@@ -40,27 +36,29 @@ final class MyPostsViewModel: ObservableObject {
         .store(in: &cancellables)
     }
     
-    func getMyEditPosts(_ status: String = "SAVE", _ page: Int = 1) {
+    func getMyEditPosts(_ status: String, _ page: Int = 1) {
         myPostsUsecase.getMyEditPosts(status, page)
             .sink { error in
                 print(error)
             } receiveValue: { vo in
                 self.myEditPosts = vo.content
-                print(self.myEditPosts)
+                self.pageInfo = vo.pageable.pageNumber + 1
+                self.totalPage = vo.totalPage
             }
             .store(in: &cancellables)
     }
     
     func fetchMoreMyEditPosts() {
-        self.isLoading = true
-        let pageToLoad = pageInfo + 1
-        myPostsUsecase.getMyEditPosts(status, pageToLoad)
+        if(pageInfo == totalPage) { return }
+        let next = pageInfo + 1
+        myPostsUsecase.getMyEditPosts(status, next)
             .sink { completion in
                 print(completion)
                 self.isLoading = false
             } receiveValue: { vo in
                 self.myEditPosts += vo.content
-                self.pageInfo = vo.pageable.pageNumber
+                self.pageInfo = vo.pageable.pageNumber + 1
+                self.totalPage = vo.totalPage
             }
             .store(in: &cancellables)
 
