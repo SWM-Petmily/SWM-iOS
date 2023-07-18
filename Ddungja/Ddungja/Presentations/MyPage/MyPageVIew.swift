@@ -150,6 +150,9 @@ struct MyPageVIew: View {
                             Text("내가 작성한 게시글")
                                 .applyInner(color: .mainTextColor)
                         }
+                        .onTapGesture {
+                            viewModel.moveToMyPostsView()
+                        }
                         
                         HStack {
                             Image(systemName: "pencil")

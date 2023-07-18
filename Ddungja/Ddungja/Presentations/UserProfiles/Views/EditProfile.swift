@@ -85,7 +85,16 @@ struct EditProfile: View {
                 }
             }
             .navigationTitle("프로필 작성")
+            .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("프로필")
+                        .onTapGesture {
+                            viewModel.pop()
+                        }
+                }
+            }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
