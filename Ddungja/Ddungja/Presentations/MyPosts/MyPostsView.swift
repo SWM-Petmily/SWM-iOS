@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum ButtonState: String {
+    case all = ""
+    case save = "SAVE"
+    case complete = "COMPLETE"
+}
+
 struct MyPostsView: View {
     @StateObject var viewModel: MyPostsViewModel
     
@@ -16,48 +22,65 @@ struct MyPostsView: View {
             HStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .strokeBorder(Color.main)
-                        .frame(height: 33)
-                        .frame(maxWidth: .infinity)
-                        .background(.white)
+                        .strokeBorder(viewModel.status == ButtonState.all.rawValue ? Color.main : .buttonBackground)
+                        .background(viewModel.status == ButtonState.all.rawValue ? .white : .buttonBackground)
+                        .cornerRadius(15)
                     
                     Button {
-                        
+                        viewModel.status = ButtonState.all.rawValue
+                        viewModel.getMyEditPosts(viewModel.status)
                     } label: {
                         Text("전체")
-                            .bold()
-                            .applyInner(color: .mainColor)
+                            .bold(viewModel.status == ButtonState.all.rawValue)
+                            .applyInner(
+                                color:
+                                    viewModel.status == ButtonState.all.rawValue ? .mainColor : .disabledTextColor
+                            )
                     }
                 }
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .fill(Color.buttonBackground)
-                        .frame(height: 33)
-                        .frame(maxWidth: .infinity)
+                        .strokeBorder(viewModel.status == ButtonState.save.rawValue ? Color.main : .buttonBackground)
+                        .background(viewModel.status == ButtonState.save.rawValue ? .white : .buttonBackground)
+                        .cornerRadius(15)
+
                     Button {
-                        
+                        viewModel.status = ButtonState.save.rawValue
+                        viewModel.getMyEditPosts(viewModel.status)
                     } label: {
                         Text("분양중")
-                            .applyInner(color: .disabledTextColor)
+                            .bold(viewModel.status == ButtonState.save.rawValue)
+                            .applyInner(
+                                color:
+                                    viewModel.status == ButtonState.save.rawValue ? .mainColor : .disabledTextColor
+                            )
                     }
-                    
                 }
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .fill(Color.buttonBackground)
-                        .frame(height: 33)
-                        .frame(maxWidth: .infinity)
+                        .strokeBorder(viewModel.status == ButtonState.complete.rawValue ? Color.main : .buttonBackground)
+                        .background(viewModel.status == ButtonState.complete.rawValue ? .white : .buttonBackground)
+                        .cornerRadius(15)
+
                     Button {
-                        
+                        viewModel.status = ButtonState.complete.rawValue
+                        viewModel.getMyEditPosts(viewModel.status)
                     } label: {
                         Text("분양완료")
-                            .applyInner(color: .disabledTextColor)
+                            .bold(viewModel.status == ButtonState.complete.rawValue)
+                            .applyInner(
+                                color:
+                                    viewModel.status == ButtonState.complete.rawValue ? .mainColor : .disabledTextColor
+                            )
                     }
-                    
                 }
                 Spacer()
             }
+            .frame(height: 33)
+            .frame(maxWidth: .infinity)
+            
             Text("분양중")
                 .applyInner(color: .mainTextColor)
                 .bold()
@@ -69,6 +92,7 @@ struct MyPostsView: View {
                 ForEach(viewModel.myEditPosts, id: \.postId) { info in
                     MyPostsRowVIew(myPost: info)
                         .onAppear{
+                            print(info)
                             fetchMoreData(info)
                         }
                 }
@@ -102,5 +126,15 @@ extension MyPostsView {
             viewModel
                 .fetchMoreActionSubject.send()
         }
+    }
+}
+
+extension MyPostsView {
+    private func buttonColor(_ state: ButtonState) -> CustomColor {
+        
+        
+        
+        // .disabledTextColor
+        return .mainColor
     }
 }
