@@ -10,6 +10,7 @@ import Foundation
 struct MyEditPostsDTO: Decodable {
     let content: [PostsInfo]?
     let pageable: PageInfo?
+    let totalPages: Int?
 }
 
 struct PostsInfo: Decodable {
@@ -31,8 +32,8 @@ struct PageInfo: Decodable {
 
 extension MyEditPostsDTO {
     func toEditPostsVO() -> MyEditPostsVO {
-        guard let contents = content, let page = pageable else {
-            return MyEditPostsVO(content: [], pageable: PageInfo(pageNumber: 0))
+        guard let contents = content, let page = pageable, let totalPage = totalPages else {
+            return MyEditPostsVO(content: [], pageable: PageInfo(pageNumber: 0), totalPage: 0)
         }
         
         var postInfoVO: [PostsInfoVO] = []
@@ -41,6 +42,6 @@ extension MyEditPostsDTO {
             postInfoVO.append(PostsInfoVO(postId: content.postId, name: content.name, thumbnailImage: imageURL, subCategory: content.subCategory, region: content.region, gender: content.gender, birth: content.birth, like: content.like, createdDate: content.createdDate, status: content.status))
         }
         
-        return MyEditPostsVO(content: postInfoVO, pageable: PageInfo(pageNumber: page.pageNumber))
+        return MyEditPostsVO(content: postInfoVO, pageable: PageInfo(pageNumber: page.pageNumber), totalPage: totalPage)
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 struct MyEditPostsVO {
     let content: [PostsInfoVO]
     let pageable: PageInfo
+    let totalPage: Int
 }
 
 struct PostsInfoVO {
