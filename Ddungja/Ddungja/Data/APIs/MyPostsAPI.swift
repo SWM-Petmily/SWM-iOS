@@ -11,6 +11,7 @@ import Moya
 
 enum MyPostsAPI {
     case myEditPosts(status: String, page: Int)
+    case myApplyPosts(status: String, page: Int)
 }
 
 extension MyPostsAPI: TargetType {
@@ -22,12 +23,15 @@ extension MyPostsAPI: TargetType {
         switch self {
         case .myEditPosts:
             return "posts/user"
+            
+        case .myApplyPosts:
+            return "users/apply"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .myEditPosts:
+        case .myEditPosts, .myApplyPosts:
             return .get
         }
     }
@@ -36,6 +40,9 @@ extension MyPostsAPI: TargetType {
         switch self {
         case let .myEditPosts(status, page):
             return .requestParameters(parameters: ["status": status, "page": page], encoding: URLEncoding.queryString)
+            
+        case let .myApplyPosts(status, page):
+            return .requestParameters(parameters: ["approval": status, "page": page], encoding: URLEncoding.queryString)
         }
     }
     

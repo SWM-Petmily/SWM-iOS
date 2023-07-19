@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */; };
+		75154E422A66AE0A0083261A /* MyApplyPostsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E412A66AE0A0083261A /* MyApplyPostsDTO.swift */; };
+		75154E442A66D0140083261A /* MyApplyPostsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E432A66D0140083261A /* MyApplyPostsVO.swift */; };
+		75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */; };
+		75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */; };
+		75154E4E2A66DE940083261A /* MyApplyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E4D2A66DE940083261A /* MyApplyPostsView.swift */; };
 		7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115A2A41D7E8008B0101 /* CombineMoya */; };
 		7535115D2A41D7E8008B0101 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115C2A41D7E8008B0101 /* Moya */; };
 		753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511602A41DA2E008B0101 /* LoginAPI.swift */; };
@@ -98,6 +103,11 @@
 
 /* Begin PBXFileReference section */
 		75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsRowVIew.swift; sourceTree = "<group>"; };
+		75154E412A66AE0A0083261A /* MyApplyPostsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsDTO.swift; sourceTree = "<group>"; };
+		75154E432A66D0140083261A /* MyApplyPostsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsVO.swift; sourceTree = "<group>"; };
+		75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsViewModel.swift; sourceTree = "<group>"; };
+		75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsUsecase.swift; sourceTree = "<group>"; };
+		75154E4D2A66DE940083261A /* MyApplyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsView.swift; sourceTree = "<group>"; };
 		753511602A41DA2E008B0101 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		753511A52A430785008B0101 /* LoginAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIProvider.swift; sourceTree = "<group>"; };
 		753511A72A43427C008B0101 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
@@ -199,6 +209,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75154E452A66D7010083261A /* ApplyPosts */ = {
+			isa = PBXGroup;
+			children = (
+				75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */,
+				75154E4D2A66DE940083261A /* MyApplyPostsView.swift */,
+			);
+			path = ApplyPosts;
+			sourceTree = "<group>";
+		};
 		7535115E2A41D9B6008B0101 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +302,7 @@
 				753511A72A43427C008B0101 /* LoginDTO.swift */,
 				7554624D2A44984700598268 /* SignUpDTO */,
 				759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */,
+				75154E412A66AE0A0083261A /* MyApplyPostsDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -401,6 +421,7 @@
 		759228F02A6138AB00603FF4 /* MyPosts */ = {
 			isa = PBXGroup;
 			children = (
+				75154E452A66D7010083261A /* ApplyPosts */,
 				759228F12A6138C400603FF4 /* MyPostsView.swift */,
 				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
 				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
@@ -486,6 +507,7 @@
 				75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */,
 				75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */,
 				759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */,
+				75154E432A66D0140083261A /* MyApplyPostsVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -495,6 +517,7 @@
 			children = (
 				75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */,
 				759228F72A62D81400603FF4 /* MyPostsUsecase.swift */,
+				75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -684,10 +707,12 @@
 				759228FE2A62E1F500603FF4 /* MyPostsAPIProvider.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
+				75154E4E2A66DE940083261A /* MyApplyPostsView.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
+				75154E422A66AE0A0083261A /* MyApplyPostsDTO.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
@@ -697,6 +722,7 @@
 				759228F82A62D81400603FF4 /* MyPostsUsecase.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
+				75154E442A66D0140083261A /* MyApplyPostsVO.swift in Sources */,
 				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
@@ -707,6 +733,7 @@
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabView.swift in Sources */,
+				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
@@ -716,6 +743,7 @@
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
 				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
+				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
 				759228D82A5E724100603FF4 /* RegisterView.swift in Sources */,
 				759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */,
 				753511A82A43427C008B0101 /* LoginDTO.swift in Sources */,

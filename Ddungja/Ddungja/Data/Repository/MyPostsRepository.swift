@@ -20,4 +20,10 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .map { $0.toEditPostsVO() }
             .eraseToAnyPublisher()
     }
+    
+    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, Moya.MoyaError> {
+        return dataSource.getMyApplyPosts(status, page)
+            .map { $0.toApplyPostsVO() }
+            .eraseToAnyPublisher()
+    }
 }
