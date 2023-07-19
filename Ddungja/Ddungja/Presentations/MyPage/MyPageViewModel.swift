@@ -21,4 +21,8 @@ final class MyPageViewModel: ObservableObject {
     func moveToMyPostsView() {
         coordinator.push(.myPosts)
     }
+    
+    func moveToMyApplyPostsView() {
+        coordinator.push(.myApplyPosts)
+    }
 }

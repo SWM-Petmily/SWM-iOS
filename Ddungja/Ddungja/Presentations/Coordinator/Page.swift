@@ -12,6 +12,7 @@ enum Page: Hashable {
     case userProfileView
     case editProfile
     case myPosts
+    case myApplyPosts
     
     @ViewBuilder
     func getView(coordinator: CoordinatorProtocol, viewResolver: ViewResolverProtocol) -> some View {
@@ -24,6 +25,8 @@ enum Page: Hashable {
             viewResolver.resolveView(EditProfile.self)
         case .myPosts:
             viewResolver.resolveView(MyPostsView.self)
+        case .myApplyPosts:
+            viewResolver.resolveView(MyApplyPostsView.self)
         }
     }
 }

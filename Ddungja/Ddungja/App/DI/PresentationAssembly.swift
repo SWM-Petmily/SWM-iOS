@@ -20,6 +20,11 @@ struct PresentationAssembly: Assembly {
             return MyPostsViewModel(coordinator: Coordinator.instance, myPostsUsecase: usecase)
         }
         
+        container.register(MyApplyPostsViewModel.self) { resolver in
+            let usecase = resolver.resolve(MyApplyPostsUsecaseInterface.self)!
+            return MyApplyPostsViewModel(coordinator: Coordinator.instance, myPostsUsecase: usecase)
+        }
+        
         container.register(UserProfileView.self) { resolver in
             let userProfileViewModel = resolver.resolve(UserProfileViewModel.self)!
             return UserProfileView(viewModel: userProfileViewModel)
@@ -37,6 +42,11 @@ struct PresentationAssembly: Assembly {
         container.register(MyPostsView.self) { resolver in
             let mypostsViewModel = resolver.resolve(MyPostsViewModel.self)!
             return MyPostsView(viewModel: mypostsViewModel)
+        }
+        
+        container.register(MyApplyPostsView.self) { resolver in
+            let mypostsViewModel = resolver.resolve(MyApplyPostsViewModel.self)!
+            return MyApplyPostsView(vm: mypostsViewModel)
         }
     }
 }
