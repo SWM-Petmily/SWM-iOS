@@ -20,7 +20,6 @@ final class MyPostsViewModel: ObservableObject {
     @Published var status = "SAVE"
     @State private var isLoading = false
     
-    var refreshActionSubject = PassthroughSubject<(), Never>()
     var fetchMoreActionSubject = PassthroughSubject<(), Never>()
     
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyPostsUsecaseInterface) {
@@ -40,10 +39,10 @@ final class MyPostsViewModel: ObservableObject {
         myPostsUsecase.getMyEditPosts(status, page)
             .sink { error in
                 print(error)
-            } receiveValue: { vo in
-                self.myEditPosts = vo.content
-                self.pageInfo = vo.pageable.pageNumber + 1
-                self.totalPage = vo.totalPage
+            } receiveValue: { [weak self] vo in
+                self?.myEditPosts = vo.content
+                self?.pageInfo = vo.pageable.pageNumber + 1
+                self?.totalPage = vo.totalPage
             }
             .store(in: &cancellables)
     }
@@ -55,13 +54,12 @@ final class MyPostsViewModel: ObservableObject {
             .sink { completion in
                 print(completion)
                 self.isLoading = false
-            } receiveValue: { vo in
-                self.myEditPosts += vo.content
-                self.pageInfo = vo.pageable.pageNumber + 1
-                self.totalPage = vo.totalPage
+            } receiveValue: { [weak self] vo in
+                self?.myEditPosts += vo.content
+                self?.pageInfo = vo.pageable.pageNumber + 1
+                self?.totalPage = vo.totalPage
             }
             .store(in: &cancellables)
-
     }
     
     func pop() {
