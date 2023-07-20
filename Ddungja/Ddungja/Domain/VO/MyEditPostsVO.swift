@@ -8,12 +8,12 @@
 import Foundation
 
 struct MyEditPostsVO {
-    let content: [PostsInfoVO]
-    let pageable: PageInfo
+    let content: [EditPostsInfoVO]
+    let pageable: EditPageInfoVO
     let totalPage: Int
 }
 
-struct PostsInfoVO {
+struct EditPostsInfoVO {
     let postId: Int
     let name: String
     let thumbnailImage: URL
@@ -26,12 +26,12 @@ struct PostsInfoVO {
     let status: String
 }
 
-struct PageInfoVO {
+struct EditPageInfoVO {
     let pageNumber: Int
 }
 
-extension PostsInfoVO: Equatable {
-    static func == (lhs: PostsInfoVO, rhs: PostsInfoVO) -> Bool {
+extension EditPostsInfoVO: Equatable {
+    static func == (lhs: EditPostsInfoVO, rhs: EditPostsInfoVO) -> Bool {
         return lhs.postId == rhs.postId
     }
 }

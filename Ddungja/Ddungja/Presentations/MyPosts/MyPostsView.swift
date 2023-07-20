@@ -121,7 +121,7 @@ struct MyPostsView: View {
 }
 
 extension MyPostsView {
-    private func fetchMoreData(_ myPost: PostsInfoVO){
+    private func fetchMoreData(_ myPost: EditPostsInfoVO){
         if self.viewModel.myEditPosts.last == myPost {
             viewModel
                 .fetchMoreActionSubject.send()

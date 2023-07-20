@@ -8,12 +8,12 @@
 import Foundation
 
 struct MyEditPostsDTO: Decodable {
-    let content: [PostsInfo]?
-    let pageable: PageInfo?
+    let content: [EditPostsInfo]?
+    let pageable: EditPageInfo?
     let totalPages: Int?
 }
 
-struct PostsInfo: Decodable {
+struct EditPostsInfo: Decodable {
     let postId: Int
     let name: String
     let thumbnailImage: String
@@ -26,22 +26,35 @@ struct PostsInfo: Decodable {
     let status: String
 }
 
-struct PageInfo: Decodable {
+struct EditPageInfo: Decodable {
     let pageNumber: Int
 }
 
 extension MyEditPostsDTO {
     func toEditPostsVO() -> MyEditPostsVO {
         guard let contents = content, let page = pageable, let totalPage = totalPages else {
-            return MyEditPostsVO(content: [], pageable: PageInfo(pageNumber: 0), totalPage: 0)
+            return MyEditPostsVO(content: [], pageable: EditPageInfoVO(pageNumber: 0), totalPage: 0)
         }
         
-        var postInfoVO: [PostsInfoVO] = []
+        var postInfoVO: [EditPostsInfoVO] = []
         for content in contents {
             let imageURL = URL(string: content.thumbnailImage)!
-            postInfoVO.append(PostsInfoVO(postId: content.postId, name: content.name, thumbnailImage: imageURL, subCategory: content.subCategory, region: content.region, gender: content.gender, birth: content.birth, like: content.like, createdDate: content.createdDate, status: content.status))
+            postInfoVO.append(
+                EditPostsInfoVO(
+                    postId: content.postId,
+                    name: content.name,
+                    thumbnailImage: imageURL,
+                    subCategory: content.subCategory,
+                    region: content.region,
+                    gender: content.gender,
+                    birth: content.birth,
+                    like: content.like,
+                    createdDate: content.createdDate,
+                    status: content.status
+                )
+            )
         }
         
-        return MyEditPostsVO(content: postInfoVO, pageable: PageInfo(pageNumber: page.pageNumber), totalPage: totalPage)
+        return MyEditPostsVO(content: postInfoVO, pageable: EditPageInfoVO(pageNumber: page.pageNumber), totalPage: totalPage)
     }
 }

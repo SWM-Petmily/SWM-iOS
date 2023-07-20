@@ -24,7 +24,7 @@ struct ProfileImgView : View {
 
 struct MyPostsRowVIew: View {
     
-    var myPost: PostsInfoVO
+    var myPost: EditPostsInfoVO
     
     var body: some View {
         VStack {

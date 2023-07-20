@@ -14,7 +14,7 @@ final class MyPostsViewModel: ObservableObject {
     private let myPostsUsecase: MyPostsUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var myEditPosts = [PostsInfoVO]()
+    @Published var myEditPosts = [EditPostsInfoVO]()
     @Published var pageInfo = 0
     @Published var totalPage = 0
     @Published var status = "SAVE"
