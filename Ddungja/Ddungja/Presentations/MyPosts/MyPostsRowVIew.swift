@@ -23,7 +23,7 @@ struct ProfileImgView : View {
 }
 
 struct MyPostsRowVIew: View {
-    
+    var viewModel: MyPostsViewModel
     var myPost: EditPostsInfoVO
     
     var body: some View {
@@ -70,9 +70,9 @@ struct MyPostsRowVIew: View {
                                 .cornerRadius(6)
                             
                             Button {
-                                
+                                viewModel.moveToApplyList()
                             } label: {
-                                Text("수정")
+                                Text("지원자목록")
                                     .applyInner(color: .mainColor)
                                     .frame(height: 30)
                                     .frame(width: 80)

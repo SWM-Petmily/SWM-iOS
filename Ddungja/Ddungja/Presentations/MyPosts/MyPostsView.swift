@@ -90,7 +90,7 @@ struct MyPostsView: View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.myEditPosts, id: \.postId) { info in
-                    MyPostsRowVIew(myPost: info)
+                    MyPostsRowVIew(viewModel: viewModel, myPost: info)
                         .onAppear{
                             print(info)
                             fetchMoreData(info)

@@ -62,6 +62,10 @@ final class MyPostsViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func moveToApplyList() {
+        coordinator.push(.applyList)
+    }
+    
     func pop() {
         coordinator.pop()
     }
