@@ -42,7 +42,7 @@ extension MyPostsAPI: TargetType {
             return .requestParameters(parameters: ["status": status, "page": page], encoding: URLEncoding.queryString)
             
         case let .myApplyPosts(status, page):
-            return .requestParameters(parameters: ["approval": status, "page": page], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["status": status, "page": page], encoding: URLEncoding.queryString)
         }
     }
     
