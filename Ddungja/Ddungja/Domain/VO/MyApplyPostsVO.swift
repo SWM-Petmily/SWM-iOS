@@ -2,18 +2,18 @@
 //  MyApplyPostsVO.swift
 //  Ddungja
 //
-//  Created by 오승기 on 2023/07/18.
+//  Created by 오승기 on 2023/07/20.
 //
 
 import Foundation
 
 struct MyApplyPostsVO {
-    let content: [ApplyInfoVO]
-    let pageable: PageInfoVO
-    let totalPages: Int
+    let content: [ApplyPostsInfoVO]
+    let pageable: ApplyPageInfoVO
+    let totalPage: Int
 }
 
-struct ApplyInfoVO {
+struct ApplyPostsInfoVO {
     let applyId: Int
     let postId: Int
     let name: String
@@ -24,11 +24,16 @@ struct ApplyInfoVO {
     let birth: String
     let like: Int
     let createdDate: String
-    let approval: String
+    let status: String
+    let age: Int
 }
 
-extension ApplyInfoVO: Equatable {
-    static func == (lhs: ApplyInfoVO, rhs: ApplyInfoVO) -> Bool {
+struct ApplyPageInfoVO {
+    let pageNumber: Int
+}
+
+extension ApplyPostsInfoVO: Equatable {
+    static func == (lhs: ApplyPostsInfoVO, rhs: ApplyPostsInfoVO) -> Bool {
         return lhs.applyId == rhs.applyId
     }
 }

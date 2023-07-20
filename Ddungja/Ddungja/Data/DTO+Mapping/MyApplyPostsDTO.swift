@@ -2,18 +2,18 @@
 //  MyApplyPostsDTO.swift
 //  Ddungja
 //
-//  Created by 오승기 on 2023/07/18.
+//  Created by 오승기 on 2023/07/20.
 //
 
 import Foundation
 
 struct MyApplyPostsDTO: Decodable {
-    let content: [ApplyInfo]?
-    let pageable: PageInfo?
+    let content: [ApplyPostsInfo]?
+    let pageable: ApplyPageInfo?
     let totalPages: Int?
 }
 
-struct ApplyInfo: Decodable {
+struct ApplyPostsInfo: Decodable {
     let applyId: Int
     let postId: Int
     let name: String
@@ -24,22 +24,25 @@ struct ApplyInfo: Decodable {
     let birth: String
     let like: Int
     let createdDate: String
-    let approval: String
+    let status: String
+    let age: Int
+}
+
+struct ApplyPageInfo: Decodable {
+    let pageNumber: Int
 }
 
 extension MyApplyPostsDTO {
     func toApplyPostsVO() -> MyApplyPostsVO {
-        guard let contents = content,
-              let page = pageable,
-              let totalPage = totalPages else {
-            return MyApplyPostsVO(content: [], pageable: PageInfoVO(pageNumber: 0), totalPages: 0)
+        guard let contents = content, let page = pageable, let totalPage = totalPages else {
+            return MyApplyPostsVO(content: [], pageable: ApplyPageInfoVO(pageNumber: 0), totalPage: 0)
         }
-        var applyInfoVO = [ApplyInfoVO]()
         
+        var postInfoVO: [ApplyPostsInfoVO] = []
         for content in contents {
             let imageURL = URL(string: content.thumbnailImage)!
-            applyInfoVO.append(
-                ApplyInfoVO(
+            postInfoVO.append(
+                ApplyPostsInfoVO(
                     applyId: content.applyId,
                     postId: content.postId,
                     name: content.name,
@@ -50,16 +53,12 @@ extension MyApplyPostsDTO {
                     birth: content.birth,
                     like: content.like,
                     createdDate: content.createdDate,
-                    approval: content.approval
+                    status: content.status,
+                    age: content.age
                 )
             )
         }
         
-        return MyApplyPostsVO(
-            content: applyInfoVO,
-            pageable: PageInfoVO(pageNumber: page.pageNumber),
-            totalPages: totalPage
-        )
+        return MyApplyPostsVO(content: postInfoVO, pageable: ApplyPageInfoVO(pageNumber: page.pageNumber), totalPage: totalPage)
     }
 }
-
