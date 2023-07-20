@@ -128,13 +128,3 @@ extension MyPostsView {
         }
     }
 }
-
-extension MyPostsView {
-    private func buttonColor(_ state: ButtonState) -> CustomColor {
-        
-        
-        
-        // .disabledTextColor
-        return .mainColor
-    }
-}
