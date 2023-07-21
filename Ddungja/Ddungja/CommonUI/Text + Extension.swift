@@ -11,7 +11,8 @@ extension Text {
     func makeAcceptButton() -> some View {
         self.applyInner(color: .acceptText)
             .bold()
-            .frame(maxWidth: .infinity, minHeight: 54)
+            .frame(maxWidth: .infinity)
+            .frame(height: 45)
             .background(Color.acceptButton)
             .cornerRadius(15)
     }
@@ -19,7 +20,8 @@ extension Text {
     func makeRejectButton() -> some View {
         self.applyInner(color: .rejectText)
             .bold()
-            .frame(maxWidth: .infinity, minHeight: 54)
+            .frame(maxWidth: .infinity)
+            .frame(height: 45)
             .background(Color.rejectButton)
             .cornerRadius(15)
     }
