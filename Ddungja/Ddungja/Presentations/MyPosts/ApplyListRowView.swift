@@ -1,43 +1,59 @@
 //
-//  ApplyListView.swift
+//  ApplyListRowView.swift
 //  Ddungja
 //
-//  Created by 오승기 on 2023/07/20.
+//  Created by 오승기 on 2023/07/21.
 //
 
 import SwiftUI
 
-struct ApplyListView: View {
-    var viewModel: MyPostsViewModel
-    
+struct ApplyListRowView: View {
     var body: some View {
-        ScrollView {
-            LazyVStack {
-//                ForEach(viewModel.
-            }
-        }
-        
-        .navigationTitle("지원 받은 목록")
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("작성한 분양글")
-                    .onTapGesture {
-                        viewModel.pop()
+        ZStack {
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .strokeBorder(.gray, lineWidth: 1)
+                .background(.white)
+                .frame(height: 300)
+                .frame(maxWidth: .infinity)
+                
+            VStack {
+                userTitle
+                
+                Divider()
+                
+                userInfo
+                
+                Text("처음이지만 열심히 공부하고 있어요")
+                    .applySubtitle(color: .mainTextColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .lineLimit(1)
+                    .frame(height: 45)
+                    .background(Color.buttonBackground)
+                    .cornerRadius(15)
+                
+                CustomLazyVGrid(col: 2, spacing: 10) {
+                    Button {
+                        print("거절 tapped")
+                    } label: {
+                        Text("거절")
+                            .makeRejectButton()
                     }
+                    
+                    Button {
+                        print("수락 tapped")
+                    } label: {
+                        Text("수락")
+                            .makeAcceptButton()
+                    }
+                }
             }
+            .padding()
         }
-        .onAppear {
-            
-        }
-        .onTapGesture {
-            print("cell tapped")
-        }
-        .padding()
     }
 }
 
-extension ApplyListView {
+extension ApplyListRowView {
     private var userTitle: some View {
         HStack(spacing: 14) {
             ZStack {

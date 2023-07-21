@@ -50,7 +50,8 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(ApplyListView.self) { resolver in
-            return ApplyListView()
+            let myPostsViewModel = resolver.resolve(MyPostsViewModel.self)!
+            return ApplyListView(viewModel: myPostsViewModel)
         }
     }
 }

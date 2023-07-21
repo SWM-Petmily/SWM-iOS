@@ -71,6 +71,7 @@ struct MyPostsRowVIew: View {
                             
                             Button {
                                 viewModel.moveToApplyList()
+                                viewModel.getApplyList(id: myPost.postId)
                             } label: {
                                 Text("지원자목록")
                                     .applyInner(color: .mainColor)

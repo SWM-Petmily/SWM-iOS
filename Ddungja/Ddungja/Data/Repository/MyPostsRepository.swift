@@ -26,4 +26,8 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .map { $0.toApplyPostsVO() }
             .eraseToAnyPublisher()
     }
+    
+    func getApplyList(id: Int) {
+        dataSource.getApplyList(id: id)
+    }
 }

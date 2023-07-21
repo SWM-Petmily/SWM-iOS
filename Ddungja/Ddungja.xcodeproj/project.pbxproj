@@ -16,6 +16,8 @@
 		75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E532A68FF520083261A /* MyApplyPostsRowView.swift */; };
 		75154E562A69336B0083261A /* ApplyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E552A69336B0083261A /* ApplyListView.swift */; };
 		75154E582A695A4D0083261A /* Text + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E572A695A4D0083261A /* Text + Extension.swift */; };
+		75154E5C2A6A87ED0083261A /* ApplyListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */; };
+		75154E5E2A6A91DA0083261A /* ApplyListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */; };
 		7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115A2A41D7E8008B0101 /* CombineMoya */; };
 		7535115D2A41D7E8008B0101 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115C2A41D7E8008B0101 /* Moya */; };
 		753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511602A41DA2E008B0101 /* LoginAPI.swift */; };
@@ -114,6 +116,8 @@
 		75154E532A68FF520083261A /* MyApplyPostsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsRowView.swift; sourceTree = "<group>"; };
 		75154E552A69336B0083261A /* ApplyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListView.swift; sourceTree = "<group>"; };
 		75154E572A695A4D0083261A /* Text + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text + Extension.swift"; sourceTree = "<group>"; };
+		75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListRowView.swift; sourceTree = "<group>"; };
+		75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListDTO.swift; sourceTree = "<group>"; };
 		753511602A41DA2E008B0101 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		753511A52A430785008B0101 /* LoginAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIProvider.swift; sourceTree = "<group>"; };
 		753511A72A43427C008B0101 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 				7554624D2A44984700598268 /* SignUpDTO */,
 				759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */,
 				75154E512A68FCC70083261A /* MyApplyPostsDTO.swift */,
+				75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
 				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
 				75154E552A69336B0083261A /* ApplyListView.swift */,
+				75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */,
 			);
 			path = MyPosts;
 			sourceTree = "<group>";
@@ -721,6 +727,7 @@
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
+				75154E5E2A6A91DA0083261A /* ApplyListDTO.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
@@ -758,6 +765,7 @@
 				759228D82A5E724100603FF4 /* RegisterView.swift in Sources */,
 				759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */,
 				753511A82A43427C008B0101 /* LoginDTO.swift in Sources */,
+				75154E5C2A6A87ED0083261A /* ApplyListRowView.swift in Sources */,
 				75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */,
 				759228FC2A62DD3400603FF4 /* MyPostsRepository.swift in Sources */,
 				759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */,
