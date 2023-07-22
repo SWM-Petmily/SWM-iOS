@@ -31,6 +31,8 @@
 		7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDDE2A51A52C0019A986 /* UserProfileView.swift */; };
 		7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDE32A52B60D0019A986 /* EditProfile.swift */; };
 		754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */; };
+		754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */; };
+		754AB6CB2A6BF56100F2EBC8 /* DetailApplyVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */; };
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
@@ -131,6 +133,8 @@
 		7546BDDE2A51A52C0019A986 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		7546BDE32A52B60D0019A986 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyView.swift; sourceTree = "<group>"; };
+		754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyDTO.swift; sourceTree = "<group>"; };
+		754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyVO.swift; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 				759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */,
 				75154E512A68FCC70083261A /* MyApplyPostsDTO.swift */,
 				75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */,
+				754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */,
 				75154E4F2A68FC230083261A /* MyApplyPostsVO.swift */,
 				7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */,
+				754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -757,6 +763,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */,
 				759A65802A4037E500E6AD07 /* LoginView.swift in Sources */,
 				759228F22A6138C400603FF4 /* MyPostsView.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
@@ -824,6 +831,7 @@
 				75154E562A69336B0083261A /* ApplyListView.swift in Sources */,
 				75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */,
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
+				754AB6CB2A6BF56100F2EBC8 /* DetailApplyVO.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
 				7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */,
 				75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */,

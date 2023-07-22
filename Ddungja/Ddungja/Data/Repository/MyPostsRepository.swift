@@ -32,4 +32,10 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .map { $0.toApplyListVO() }
             .eraseToAnyPublisher()
     }
+    
+    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, MoyaError> {
+        return dataSource.getDetailApply(id: id)
+            .map { $0.toDetailApplyVO() }
+            .eraseToAnyPublisher()
+    }
 }

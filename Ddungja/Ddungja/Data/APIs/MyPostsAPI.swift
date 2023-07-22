@@ -13,6 +13,7 @@ enum MyPostsAPI {
     case myEditPosts(status: String, page: Int)
     case myApplyPosts(status: String, page: Int)
     case applyList(id: Int, _ page: Int)
+    case detailApply(id: Int)
 }
 
 extension MyPostsAPI: TargetType {
@@ -30,12 +31,15 @@ extension MyPostsAPI: TargetType {
             
         case let .applyList(id, _):
             return "users/apply/\(id)"
+            
+        case let .detailApply(id):
+            return "users/apply/\(id)/detail"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .myEditPosts, .myApplyPosts, .applyList:
+        case .myEditPosts, .myApplyPosts, .applyList, .detailApply:
             return .get
         }
     }
@@ -50,6 +54,9 @@ extension MyPostsAPI: TargetType {
             
         case let .applyList(_, page):
             return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
+            
+        case let .detailApply(id):
+            return .requestParameters(parameters: ["applyId": id], encoding: URLEncoding.queryString)
         }
     }
     

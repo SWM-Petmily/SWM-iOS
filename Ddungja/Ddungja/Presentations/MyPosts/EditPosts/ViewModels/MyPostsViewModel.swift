@@ -16,6 +16,7 @@ final class MyPostsViewModel: ObservableObject {
     
     @Published var myEditPosts = [EditPostsInfoVO]()
     @Published var applyLists = [ApplyListInfoVO]()
+    @Published var detailApply: DetailApplyVO
     @Published var pageInfo = 0
     @Published var totalPage = 0
     @Published var status = "SAVE"
@@ -26,7 +27,7 @@ final class MyPostsViewModel: ObservableObject {
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyPostsUsecaseInterface) {
         self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
-        
+        self.detailApply = DetailApplyVO(applyId: -1, nickname: "뚱자쓰", job: "-",environment: "-",people: 0,comment: "",region: "",isExperience: false,url: "", openTalk: "",approval: "",applyExperiences: [],isMyApply: false)
         fetchMoreActionSubject.sink{ [weak self] _ in
             guard let self = self else { return }
             if !self.isLoading {
@@ -86,6 +87,16 @@ final class MyPostsViewModel: ObservableObject {
                 self?.applyLists += vo.content
                 self?.pageInfo = vo.pageable.pageNumber + 1
                 self?.totalPage = vo.totalPages
+            }
+            .store(in: &cancellables)
+    }
+    
+    func getDetailApply(id: Int) {
+        myPostsUsecase.getDetailApply(id: id)
+            .sink { completion in
+                print(completion)
+            } receiveValue: { [weak self] vo in
+                self?.detailApply = vo
             }
             .store(in: &cancellables)
     }
