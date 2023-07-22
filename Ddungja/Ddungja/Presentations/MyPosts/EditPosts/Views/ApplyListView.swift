@@ -24,6 +24,9 @@ struct ApplyListView: View {
                         .onAppear {
                             fetchMoreApplyListData(info, postId)
                         }
+                        .onTapGesture {
+                            viewModel.moveToDetaionApply(id: info.applyId)
+                        }
                 }
             }
         }
@@ -39,9 +42,6 @@ struct ApplyListView: View {
         }
         .onAppear {
             viewModel.getApplyList(id: postId)
-        }
-        .onTapGesture {
-            print("cell tapped")
         }
         .padding()
     }

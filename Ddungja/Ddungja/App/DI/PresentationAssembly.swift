@@ -53,5 +53,9 @@ struct PresentationAssembly: Assembly {
             let myPostsViewModel = resolver.resolve(MyPostsViewModel.self)!
             return ApplyListView(viewModel: myPostsViewModel, id: id)
         }
+        
+        container.register(DetailApplyView.self) { (resolver, id: Int) in
+            return DetailApplyView(id: id)
+        }
     }
 }

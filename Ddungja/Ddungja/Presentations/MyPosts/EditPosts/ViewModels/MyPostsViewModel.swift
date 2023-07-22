@@ -95,7 +95,7 @@ final class MyPostsViewModel: ObservableObject {
     }
     
     func moveToDetaionApply(id: Int) {
-        coordinator.push(<#T##page: Page##Page#>)
+        coordinator.push(.detailApply(id: id))
     }
     
     func pop() {
