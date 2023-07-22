@@ -224,9 +224,8 @@
 		75154E452A66D7010083261A /* ApplyPosts */ = {
 			isa = PBXGroup;
 			children = (
-				75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */,
-				75154E4D2A66DE940083261A /* MyApplyPostsView.swift */,
-				75154E532A68FF520083261A /* MyApplyPostsRowView.swift */,
+				754AB6C52A6BE6AE00F2EBC8 /* Views */,
+				754AB6C42A6BE6A800F2EBC8 /* ViewModels */,
 			);
 			path = ApplyPosts;
 			sourceTree = "<group>";
@@ -283,6 +282,51 @@
 				7546BDE32A52B60D0019A986 /* EditProfile.swift */,
 				75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */,
 				75FB2FE72A5A557100E4DDE8 /* ModalView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		754AB6C12A6BE62E00F2EBC8 /* EditPosts */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6C32A6BE69500F2EBC8 /* Views */,
+				754AB6C22A6BE68C00F2EBC8 /* ViewModels */,
+			);
+			path = EditPosts;
+			sourceTree = "<group>";
+		};
+		754AB6C22A6BE68C00F2EBC8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		754AB6C32A6BE69500F2EBC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75154E552A69336B0083261A /* ApplyListView.swift */,
+				75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */,
+				759228F12A6138C400603FF4 /* MyPostsView.swift */,
+				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		754AB6C42A6BE6A800F2EBC8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		754AB6C52A6BE6AE00F2EBC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75154E4D2A66DE940083261A /* MyApplyPostsView.swift */,
+				75154E532A68FF520083261A /* MyApplyPostsRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -436,12 +480,8 @@
 		759228F02A6138AB00603FF4 /* MyPosts */ = {
 			isa = PBXGroup;
 			children = (
+				754AB6C12A6BE62E00F2EBC8 /* EditPosts */,
 				75154E452A66D7010083261A /* ApplyPosts */,
-				759228F12A6138C400603FF4 /* MyPostsView.swift */,
-				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
-				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
-				75154E552A69336B0083261A /* ApplyListView.swift */,
-				75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */,
 			);
 			path = MyPosts;
 			sourceTree = "<group>";
