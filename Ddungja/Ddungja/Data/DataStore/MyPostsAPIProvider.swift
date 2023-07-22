@@ -13,7 +13,7 @@ import Combine
 protocol MyPostsDataSourceInterface {
     func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, MoyaError>
     func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsDTO, MoyaError>
-    func getApplyList(id: Int)
+    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListDTO, MoyaError>
 }
 
 
@@ -39,15 +39,10 @@ final class MyPostsAPIProvider: MyPostsDataSourceInterface {
             .map(MyApplyPostsDTO.self)
     }
     
-    func getApplyList(id: Int) {
-        moyaProvider.requestPublisher(.applyList(id: id))
+    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListDTO, MoyaError> {
+        return moyaProvider.requestPublisher(.applyList(id: id, page))
+            .retry(3)
+            .eraseToAnyPublisher()
             .map(ApplyListDTO.self)
-            .sink { error in
-                print(error)
-            } receiveValue: { response in
-                print(response)
-            }
-            .store(in: &cancellabe)
-
     }
 }

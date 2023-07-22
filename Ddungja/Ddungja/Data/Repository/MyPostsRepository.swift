@@ -27,7 +27,9 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func getApplyList(id: Int) {
-        dataSource.getApplyList(id: id)
+    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListVO, MoyaError> {
+       return dataSource.getApplyList(id: id, page)
+            .map { $0.toApplyListVO() }
+            .eraseToAnyPublisher()
     }
 }

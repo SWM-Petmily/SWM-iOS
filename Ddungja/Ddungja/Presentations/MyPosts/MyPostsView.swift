@@ -14,8 +14,11 @@ enum ButtonState: String {
 }
 
 struct MyPostsView: View {
-    @StateObject var viewModel: MyPostsViewModel
+    @StateObject private var viewModel: MyPostsViewModel
     
+    init(viewModel: MyPostsViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     var body: some View {
         
         VStack(alignment: .leading, spacing: 20) {

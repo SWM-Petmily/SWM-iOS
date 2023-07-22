@@ -12,7 +12,7 @@ import Moya
 enum MyPostsAPI {
     case myEditPosts(status: String, page: Int)
     case myApplyPosts(status: String, page: Int)
-    case applyList(id: Int)
+    case applyList(id: Int, _ page: Int)
 }
 
 extension MyPostsAPI: TargetType {
@@ -28,7 +28,7 @@ extension MyPostsAPI: TargetType {
         case .myApplyPosts:
             return "users/apply"
             
-        case let .applyList(id):
+        case let .applyList(id, _):
             return "users/apply/\(id)"
         }
     }
@@ -48,8 +48,8 @@ extension MyPostsAPI: TargetType {
         case let .myApplyPosts(status, page):
             return .requestParameters(parameters: ["status": status, "page": page], encoding: URLEncoding.queryString)
             
-        case .applyList:
-            return .requestPlain
+        case let .applyList(_, page):
+            return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
         }
     }
     

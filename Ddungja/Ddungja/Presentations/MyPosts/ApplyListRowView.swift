@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ApplyListRowView: View {
+    var viewModel: MyPostsViewModel
+    var vo: ApplyListInfoVO
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
@@ -23,7 +26,7 @@ struct ApplyListRowView: View {
                 
                 userInfo
                 
-                Text("처음이지만 열심히 공부하고 있어요")
+                Text(vo.comment)
                     .applySubtitle(color: .mainTextColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
@@ -67,7 +70,7 @@ extension ApplyListRowView {
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .center, spacing: 7) {
-                    Text("아롱")
+                    Text(vo.nickname)
                         .applyTitle(color: .mainTextColor)
                         .bold()
                     ZStack {
@@ -75,11 +78,11 @@ extension ApplyListRowView {
                             .stroke(Color.gray, lineWidth: 1)
                             .frame(width: 53, height: 25)
                         
-                        Text("직장인")
+                        Text(vo.job)
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
-                Text("대한민국, 서울")
+                Text("대한민국, \(vo.region)")
                     .applySubtitle(color: .disabledTextColor)
                 
             }
@@ -98,7 +101,7 @@ extension ApplyListRowView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("양육 경험")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("없음")
+                    Text(vo.isExperience ? "있음" : "없음")
                         .applyInner(color: .mainTextColor)
                         .bold()
                 }
@@ -114,7 +117,7 @@ extension ApplyListRowView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("주거환경")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("오피스텔")
+                    Text(vo.environment)
                         .applyInner(color: .mainTextColor)
                         .bold()
                 }
@@ -130,7 +133,7 @@ extension ApplyListRowView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("가족 수")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("5 명")
+                    Text("\(vo.people) 명")
                         .applyInner(color: .mainTextColor)
                         .bold()
                 }

@@ -70,8 +70,7 @@ struct MyPostsRowVIew: View {
                                 .cornerRadius(6)
                             
                             Button {
-                                viewModel.moveToApplyList()
-                                viewModel.getApplyList(id: myPost.postId)
+                                viewModel.moveToApplyList(id: myPost.postId)
                             } label: {
                                 Text("지원자목록")
                                     .applyInner(color: .mainColor)

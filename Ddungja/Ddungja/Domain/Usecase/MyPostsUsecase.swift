@@ -10,7 +10,7 @@ import Moya
 
 protocol MyPostsUsecaseInterface {
     func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, MoyaError>
-    func getApplyList(id: Int)
+    func getApplyList(id: Int,  _ page: Int) -> AnyPublisher<ApplyListVO, MoyaError>
 }
 
 final class MyPostsUsecase: MyPostsUsecaseInterface {
@@ -24,7 +24,7 @@ final class MyPostsUsecase: MyPostsUsecaseInterface {
         return repository.getMyEditPosts(status, page)
     }
     
-    func getApplyList(id: Int) {
-        repository.getApplyList(id: id)
+    func getApplyList(id: Int,  _ page: Int) -> AnyPublisher<ApplyListVO, MoyaError> {
+        return repository.getApplyList(id: id, page)
     }
 }
