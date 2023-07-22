@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct DetailApplyView: View {
+    @StateObject private var viewModel: MyPostsViewModel
     private var id: Int
     
-    init(id: Int) {
+    init(viewModel: MyPostsViewModel, id: Int) {
+        _viewModel = StateObject(wrappedValue: viewModel)
         self.id = id
     }
     
