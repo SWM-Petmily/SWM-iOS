@@ -30,6 +30,7 @@
 		7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */; };
 		7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDDE2A51A52C0019A986 /* UserProfileView.swift */; };
 		7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDE32A52B60D0019A986 /* EditProfile.swift */; };
+		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554624E2A44987D00598268 /* CertificationNumberDTO.swift */; };
@@ -128,6 +129,7 @@
 		7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPIProvider.swift; sourceTree = "<group>"; };
 		7546BDDE2A51A52C0019A986 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		7546BDE32A52B60D0019A986 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
+		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		7554624E2A44987D00598268 /* CertificationNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberDTO.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */,
 				759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */,
 				75154E4F2A68FC230083261A /* MyApplyPostsVO.swift */,
+				7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
+				7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */,
 				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
 				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
