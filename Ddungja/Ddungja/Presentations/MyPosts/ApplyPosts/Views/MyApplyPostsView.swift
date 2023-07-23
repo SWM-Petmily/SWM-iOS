@@ -17,7 +17,11 @@ enum ApplyButtonState: String {
 
 struct MyApplyPostsView: View {
     
-    @StateObject var viewModel: MyApplyPostsViewModel
+    @StateObject private var viewModel: MyApplyPostsViewModel
+    
+    init(viewModel: MyApplyPostsViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         
@@ -103,17 +107,13 @@ struct MyApplyPostsView: View {
             }
             .frame(height: 33)
             .frame(maxWidth: .infinity)
-            
-            Text("분양중")
-                .applyInner(color: .mainTextColor)
-                .bold()
         }
         .padding()
         
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.myApplyPosts, id: \.applyId) { info in
-                    MyApplyPostsRowView(myPost: info)
+                    MyApplyPostsRowView(viewModel: viewModel, myPost: info)
                         .onAppear{
                             print(info)
                             fetchMoreData(info)
@@ -147,7 +147,7 @@ extension MyApplyPostsView {
     private func fetchMoreData(_ myPost: ApplyPostsInfoVO){
         if self.viewModel.myApplyPosts.last == myPost {
             viewModel
-                .fetchMoreActionSubject.send()
+                .fetchMoreMyApplyPosts()
         }
     }
 }

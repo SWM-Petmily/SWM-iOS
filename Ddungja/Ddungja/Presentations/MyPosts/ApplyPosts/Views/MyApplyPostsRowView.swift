@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyApplyPostsRowView: View {
-    
+    var viewModel: MyApplyPostsViewModel
     var myPost: ApplyPostsInfoVO
     
     var body: some View {
@@ -55,7 +55,7 @@ struct MyApplyPostsRowView: View {
                                 .cornerRadius(6)
                             
                             Button {
-                                
+                                viewModel.moveToApplyModifyView(myPost.applyId)
                             } label: {
                                 Text("수정")
                                     .applyInner(color: .mainColor)
