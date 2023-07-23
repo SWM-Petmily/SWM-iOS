@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DetailApplyView: View {
     @StateObject private var viewModel: MyPostsViewModel
@@ -55,7 +56,7 @@ struct DetailApplyView: View {
             }
             
             Button {
-                print("수락 tapped")
+                throttleButton(id: id, approval: "APPROVED")
             } label: {
                 Text("수락")
                     .makeAcceptButton()
@@ -216,5 +217,11 @@ extension DetailApplyView {
             }
             .padding()
         }
+    }
+}
+
+extension DetailApplyView {
+    private func throttleButton(id: Int, approval: String) {
+        viewModel.touchEvent.send((id, approval))
     }
 }

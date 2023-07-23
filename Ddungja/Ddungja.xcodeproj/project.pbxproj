@@ -33,6 +33,8 @@
 		754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */; };
 		754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */; };
 		754AB6CB2A6BF56100F2EBC8 /* DetailApplyVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */; };
+		754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */; };
+		754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */; };
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
@@ -135,6 +137,8 @@
 		754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyView.swift; sourceTree = "<group>"; };
 		754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyDTO.swift; sourceTree = "<group>"; };
 		754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyVO.swift; sourceTree = "<group>"; };
+		754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccpetInfoVO.swift; sourceTree = "<group>"; };
+		754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInfoDTO.swift; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 				75154E512A68FCC70083261A /* MyApplyPostsDTO.swift */,
 				75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */,
 				754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */,
+				754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				75154E4F2A68FC230083261A /* MyApplyPostsVO.swift */,
 				7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */,
 				754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */,
+				754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -777,6 +783,7 @@
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsView.swift in Sources */,
+				754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
@@ -795,6 +802,7 @@
 				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
 				75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */,
+				754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,

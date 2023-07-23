@@ -34,6 +34,9 @@ extension MyPostsAPI: TargetType {
             
         case let .detailApply(id):
             return "users/apply/\(id)/detail"
+            
+        case let .acceptInfo(id, _):
+            return "users/apply/\(id)/approval"
         }
     }
     
@@ -41,6 +44,9 @@ extension MyPostsAPI: TargetType {
         switch self {
         case .myEditPosts, .myApplyPosts, .applyList, .detailApply:
             return .get
+            
+        case .acceptInfo:
+            return .post
         }
     }
     
@@ -57,6 +63,9 @@ extension MyPostsAPI: TargetType {
             
         case let .detailApply(id):
             return .requestParameters(parameters: ["applyId": id], encoding: URLEncoding.queryString)
+            
+        case let .acceptInfo(_, approval):
+            return .requestJSONEncodable(approval)
         }
     }
     

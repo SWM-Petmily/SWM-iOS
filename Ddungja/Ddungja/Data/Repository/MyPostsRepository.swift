@@ -38,4 +38,9 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .map { $0.toDetailApplyVO() }
             .eraseToAnyPublisher()
     }
+    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, MoyaError> {
+        return dataSource.postAcceptInfo(id: id, approval: approval)
+            .map { $0.toAcceptInfoResponseVO() }
+            .eraseToAnyPublisher()
+    }
 }
