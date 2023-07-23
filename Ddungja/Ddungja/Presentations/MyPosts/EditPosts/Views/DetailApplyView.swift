@@ -49,7 +49,7 @@ struct DetailApplyView: View {
         
         CustomLazyVGrid(col: 2, spacing: 10) {
             Button {
-                print("거절 tapped")
+                throttleButton(id: id, approval: "REJECTED")
             } label: {
                 Text("거절")
                     .makeRejectButton()

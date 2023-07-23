@@ -14,6 +14,7 @@ enum MyPostsAPI {
     case myApplyPosts(status: String, page: Int)
     case applyList(id: Int, _ page: Int)
     case detailApply(id: Int)
+    case acceptInfo(id: Int, approval: AcceptInfoDTO)
 }
 
 extension MyPostsAPI: TargetType {

@@ -37,14 +37,14 @@ struct ApplyListRowView: View {
                 
                 CustomLazyVGrid(col: 2, spacing: 10) {
                     Button {
-                        print("거절 tapped")
+                        throttleButton(id: vo.applyId, approval: "REJECTED")
                     } label: {
                         Text("거절")
                             .makeRejectButton()
                     }
                     
                     Button {
-                        print("수락 tapped")
+                        throttleButton(id: vo.applyId, approval: "APPROVED")
                     } label: {
                         Text("수락")
                             .makeAcceptButton()
@@ -140,5 +140,11 @@ extension ApplyListRowView {
                 .padding()
             }
         }
+    }
+}
+
+extension ApplyListRowView {
+    private func throttleButton(id: Int, approval: String) {
+        viewModel.touchEvent.send((id, approval))
     }
 }

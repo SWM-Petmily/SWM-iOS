@@ -128,7 +128,6 @@ final class MyPostsViewModel: ObservableObject {
                 self?.isRequest = false
             } receiveValue: { [weak self] vo in
                 self?.pop()
-                print("pop view")
             }
             .store(in: &cancellables)
 
