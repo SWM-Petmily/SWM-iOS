@@ -20,7 +20,7 @@ enum MyPostsAPI {
 
 extension MyPostsAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://awseb-awseb-1melje2xj5uyh-307693018.ap-northeast-2.elb.amazonaws.com")!
+        return URL(string: "https://www.petmily.site")!
     }
     
     var path: String {
