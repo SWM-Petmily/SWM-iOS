@@ -14,8 +14,11 @@ enum ButtonState: String {
 }
 
 struct MyPostsView: View {
-    @StateObject var viewModel: MyPostsViewModel
+    @StateObject private var viewModel: MyPostsViewModel
     
+    init(viewModel: MyPostsViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     var body: some View {
         
         VStack(alignment: .leading, spacing: 20) {
@@ -90,7 +93,7 @@ struct MyPostsView: View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.myEditPosts, id: \.postId) { info in
-                    MyPostsRowVIew(myPost: info)
+                    MyPostsRowVIew(viewModel: viewModel, myPost: info)
                         .onAppear{
                             print(info)
                             fetchMoreData(info)
@@ -121,20 +124,10 @@ struct MyPostsView: View {
 }
 
 extension MyPostsView {
-    private func fetchMoreData(_ myPost: PostsInfoVO){
+    private func fetchMoreData(_ myPost: EditPostsInfoVO){
         if self.viewModel.myEditPosts.last == myPost {
             viewModel
                 .fetchMoreActionSubject.send()
         }
-    }
-}
-
-extension MyPostsView {
-    private func buttonColor(_ state: ButtonState) -> CustomColor {
-        
-        
-        
-        // .disabledTextColor
-        return .mainColor
     }
 }

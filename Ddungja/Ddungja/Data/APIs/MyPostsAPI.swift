@@ -11,6 +11,11 @@ import Moya
 
 enum MyPostsAPI {
     case myEditPosts(status: String, page: Int)
+    case myApplyPosts(status: String, page: Int)
+    case applyList(id: Int, _ page: Int)
+    case detailApply(id: Int)
+    case acceptInfo(id: Int, approval: AcceptInfoDTO)
+    case deleteInfo(id: Int)
 }
 
 extension MyPostsAPI: TargetType {
@@ -22,13 +27,34 @@ extension MyPostsAPI: TargetType {
         switch self {
         case .myEditPosts:
             return "posts/user"
+            
+        case .myApplyPosts:
+            return "users/apply"
+            
+        case let .applyList(id, _):
+            return "users/apply/\(id)"
+            
+        case let .detailApply(id):
+            return "users/apply/\(id)/detail"
+            
+        case let .acceptInfo(id, _):
+            return "users/apply/\(id)/approval"
+            
+        case let .deleteInfo(id):
+            return "users/apply/\(id)/cancel"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .myEditPosts:
+        case .myEditPosts, .myApplyPosts, .applyList, .detailApply:
             return .get
+            
+        case .acceptInfo:
+            return .post
+            
+        case .deleteInfo:
+            return .delete
         }
     }
     
@@ -36,6 +62,21 @@ extension MyPostsAPI: TargetType {
         switch self {
         case let .myEditPosts(status, page):
             return .requestParameters(parameters: ["status": status, "page": page], encoding: URLEncoding.queryString)
+            
+        case let .myApplyPosts(status, page):
+            return .requestParameters(parameters: ["status": status, "page": page], encoding: URLEncoding.queryString)
+            
+        case let .applyList(_, page):
+            return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
+            
+        case let .detailApply(id):
+            return .requestParameters(parameters: ["applyId": id], encoding: URLEncoding.queryString)
+            
+        case let .acceptInfo(_, approval):
+            return .requestJSONEncodable(approval)
+            
+        case .deleteInfo:
+            return .requestPlain
         }
     }
     

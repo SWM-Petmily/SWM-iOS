@@ -1,30 +1,15 @@
 //
-//  MyPostsRowVIew.swift
+//  MyApplyPostsRowView.swift
 //  Ddungja
 //
-//  Created by 오승기 on 2023/07/17.
+//  Created by 오승기 on 2023/07/20.
 //
 
 import SwiftUI
 
-struct ProfileImgView : View {
-
-    var imageUrl: URL
-
-    var body: some View {
-        AsyncImage(url: imageUrl) { image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
-        }
-        .frame(width: 90, height: 90)
-        .cornerRadius(6)
-    }
-}
-
-struct MyPostsRowVIew: View {
-    
-    var myPost: PostsInfoVO
+struct MyApplyPostsRowView: View {
+    var viewModel: MyApplyPostsViewModel
+    var myPost: ApplyPostsInfoVO
     
     var body: some View {
         VStack {
@@ -70,7 +55,7 @@ struct MyPostsRowVIew: View {
                                 .cornerRadius(6)
                             
                             Button {
-                                
+                                viewModel.moveToApplyModifyView(myPost.applyId)
                             } label: {
                                 Text("수정")
                                     .applyInner(color: .mainColor)
@@ -111,7 +96,7 @@ struct MyPostsRowVIew: View {
                     HStack(alignment: .center) {
                         Text("나이")
                             .applySubtitle(color: .disabledTextColor)
-                        Text("\(myPost.birth) 개월")
+                        Text("\(myPost.age) 개월")
                             .applySubtitle(color: .mainTextColor)
                             .bold()
                     }
@@ -139,3 +124,4 @@ struct MyPostsRowVIew: View {
         }
     }
 }
+

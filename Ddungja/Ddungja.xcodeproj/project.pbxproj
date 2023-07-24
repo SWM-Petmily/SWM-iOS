@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */; };
+		75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */; };
+		75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */; };
+		75154E4E2A66DE940083261A /* MyApplyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E4D2A66DE940083261A /* MyApplyPostsView.swift */; };
+		75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E4F2A68FC230083261A /* MyApplyPostsVO.swift */; };
+		75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E512A68FCC70083261A /* MyApplyPostsDTO.swift */; };
+		75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E532A68FF520083261A /* MyApplyPostsRowView.swift */; };
+		75154E562A69336B0083261A /* ApplyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E552A69336B0083261A /* ApplyListView.swift */; };
+		75154E582A695A4D0083261A /* Text + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E572A695A4D0083261A /* Text + Extension.swift */; };
+		75154E5C2A6A87ED0083261A /* ApplyListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */; };
+		75154E5E2A6A91DA0083261A /* ApplyListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */; };
 		7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115A2A41D7E8008B0101 /* CombineMoya */; };
 		7535115D2A41D7E8008B0101 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115C2A41D7E8008B0101 /* Moya */; };
 		753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511602A41DA2E008B0101 /* LoginAPI.swift */; };
@@ -20,6 +30,15 @@
 		7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */; };
 		7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDDE2A51A52C0019A986 /* UserProfileView.swift */; };
 		7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDE32A52B60D0019A986 /* EditProfile.swift */; };
+		754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */; };
+		754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */; };
+		754AB6CB2A6BF56100F2EBC8 /* DetailApplyVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */; };
+		754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */; };
+		754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */; };
+		754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D02A6D3BD300F2EBC8 /* ApplyModifyVIew.swift */; };
+		754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */; };
+		754AB6D52A6D522700F2EBC8 /* DeleteInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */; };
+		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554624E2A44987D00598268 /* CertificationNumberDTO.swift */; };
@@ -98,6 +117,16 @@
 
 /* Begin PBXFileReference section */
 		75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsRowVIew.swift; sourceTree = "<group>"; };
+		75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsViewModel.swift; sourceTree = "<group>"; };
+		75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsUsecase.swift; sourceTree = "<group>"; };
+		75154E4D2A66DE940083261A /* MyApplyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsView.swift; sourceTree = "<group>"; };
+		75154E4F2A68FC230083261A /* MyApplyPostsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsVO.swift; sourceTree = "<group>"; };
+		75154E512A68FCC70083261A /* MyApplyPostsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsDTO.swift; sourceTree = "<group>"; };
+		75154E532A68FF520083261A /* MyApplyPostsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsRowView.swift; sourceTree = "<group>"; };
+		75154E552A69336B0083261A /* ApplyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListView.swift; sourceTree = "<group>"; };
+		75154E572A695A4D0083261A /* Text + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text + Extension.swift"; sourceTree = "<group>"; };
+		75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListRowView.swift; sourceTree = "<group>"; };
+		75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListDTO.swift; sourceTree = "<group>"; };
 		753511602A41DA2E008B0101 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		753511A52A430785008B0101 /* LoginAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIProvider.swift; sourceTree = "<group>"; };
 		753511A72A43427C008B0101 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
@@ -108,6 +137,15 @@
 		7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPIProvider.swift; sourceTree = "<group>"; };
 		7546BDDE2A51A52C0019A986 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		7546BDE32A52B60D0019A986 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
+		754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyView.swift; sourceTree = "<group>"; };
+		754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyDTO.swift; sourceTree = "<group>"; };
+		754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailApplyVO.swift; sourceTree = "<group>"; };
+		754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccpetInfoVO.swift; sourceTree = "<group>"; };
+		754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInfoDTO.swift; sourceTree = "<group>"; };
+		754AB6D02A6D3BD300F2EBC8 /* ApplyModifyVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyModifyVIew.swift; sourceTree = "<group>"; };
+		754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInfoDTO.swift; sourceTree = "<group>"; };
+		754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInfoVO.swift; sourceTree = "<group>"; };
+		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		7554624E2A44987D00598268 /* CertificationNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberDTO.swift; sourceTree = "<group>"; };
@@ -199,6 +237,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75154E452A66D7010083261A /* ApplyPosts */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6C52A6BE6AE00F2EBC8 /* Views */,
+				754AB6C42A6BE6A800F2EBC8 /* ViewModels */,
+			);
+			path = ApplyPosts;
+			sourceTree = "<group>";
+		};
 		7535115E2A41D9B6008B0101 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +302,53 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		754AB6C12A6BE62E00F2EBC8 /* EditPosts */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6C32A6BE69500F2EBC8 /* Views */,
+				754AB6C22A6BE68C00F2EBC8 /* ViewModels */,
+			);
+			path = EditPosts;
+			sourceTree = "<group>";
+		};
+		754AB6C22A6BE68C00F2EBC8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		754AB6C32A6BE69500F2EBC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75154E552A69336B0083261A /* ApplyListView.swift */,
+				75154E5B2A6A87ED0083261A /* ApplyListRowView.swift */,
+				759228F12A6138C400603FF4 /* MyPostsView.swift */,
+				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
+				754AB6C62A6BE84600F2EBC8 /* DetailApplyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		754AB6C42A6BE6A800F2EBC8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		754AB6C52A6BE6AE00F2EBC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75154E4D2A66DE940083261A /* MyApplyPostsView.swift */,
+				75154E532A68FF520083261A /* MyApplyPostsRowView.swift */,
+				754AB6D02A6D3BD300F2EBC8 /* ApplyModifyVIew.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +377,11 @@
 				753511A72A43427C008B0101 /* LoginDTO.swift */,
 				7554624D2A44984700598268 /* SignUpDTO */,
 				759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */,
+				75154E512A68FCC70083261A /* MyApplyPostsDTO.swift */,
+				75154E5D2A6A91DA0083261A /* ApplyListDTO.swift */,
+				754AB6C82A6BF1D300F2EBC8 /* DetailApplyDTO.swift */,
+				754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */,
+				754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -337,6 +436,7 @@
 				75618C752A5424F2005FA31A /* CustomColor.swift */,
 				75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */,
 				75FB2FE92A5AFD8B00E4DDE8 /* View + Extension.swift */,
+				75154E572A695A4D0083261A /* Text + Extension.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -401,9 +501,8 @@
 		759228F02A6138AB00603FF4 /* MyPosts */ = {
 			isa = PBXGroup;
 			children = (
-				759228F12A6138C400603FF4 /* MyPostsView.swift */,
-				759228F52A628E2500603FF4 /* MyPostsViewModel.swift */,
-				75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */,
+				754AB6C12A6BE62E00F2EBC8 /* EditPosts */,
+				75154E452A66D7010083261A /* ApplyPosts */,
 			);
 			path = MyPosts;
 			sourceTree = "<group>";
@@ -486,6 +585,11 @@
 				75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */,
 				75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */,
 				759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */,
+				75154E4F2A68FC230083261A /* MyApplyPostsVO.swift */,
+				7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */,
+				754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */,
+				754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */,
+				754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -495,6 +599,7 @@
 			children = (
 				75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */,
 				759228F72A62D81400603FF4 /* MyPostsUsecase.swift */,
+				75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -673,33 +778,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */,
 				759A65802A4037E500E6AD07 /* LoginView.swift in Sources */,
 				759228F22A6138C400603FF4 /* MyPostsView.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
 				759228E72A5FF29C00603FF4 /* Page.swift in Sources */,
 				759228E42A5FF0E600603FF4 /* Coordinator.swift in Sources */,
 				75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */,
+				754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */,
 				759229042A63BBBD00603FF4 /* MyEditPostsVO.swift in Sources */,
 				75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */,
 				759228FE2A62E1F500603FF4 /* MyPostsAPIProvider.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
+				75154E4E2A66DE940083261A /* MyApplyPostsView.swift in Sources */,
+				754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* KakakoAuthViewModel.swift in Sources */,
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
+				75154E5E2A6A91DA0083261A /* ApplyListDTO.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
 				75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */,
+				75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
 				759228F82A62D81400603FF4 /* MyPostsUsecase.swift in Sources */,
+				754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
 				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
+				75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */,
+				754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
+				754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
 				759228F62A628E2500603FF4 /* MyPostsViewModel.swift in Sources */,
@@ -707,18 +822,25 @@
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabView.swift in Sources */,
+				754AB6D52A6D522700F2EBC8 /* DeleteInfoVO.swift in Sources */,
+				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
+				75154E582A695A4D0083261A /* Text + Extension.swift in Sources */,
 				759228DC2A5E725700603FF4 /* HomeView.swift in Sources */,
 				75FB2FEA2A5AFD8B00E4DDE8 /* View + Extension.swift in Sources */,
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
+				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
+				7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */,
 				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
+				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
 				759228D82A5E724100603FF4 /* RegisterView.swift in Sources */,
 				759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */,
 				753511A82A43427C008B0101 /* LoginDTO.swift in Sources */,
+				75154E5C2A6A87ED0083261A /* ApplyListRowView.swift in Sources */,
 				75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */,
 				759228FC2A62DD3400603FF4 /* MyPostsRepository.swift in Sources */,
 				759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */,
@@ -726,8 +848,10 @@
 				759228FA2A62DD0300603FF4 /* MyPostsRepositoryInterface.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
 				759228DF2A5E8F3F00603FF4 /* MyPageVIew.swift in Sources */,
+				75154E562A69336B0083261A /* ApplyListView.swift in Sources */,
 				75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */,
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
+				754AB6CB2A6BF56100F2EBC8 /* DetailApplyVO.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
 				7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */,
 				75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */,

@@ -138,6 +138,9 @@ struct MyPageVIew: View {
                                             .applyInner(color: .activeTextColor)
                                             .bold()
                                     }
+                                    .onTapGesture {
+                                        viewModel.moveToMyApplyPostsView()
+                                    }
                                 }
                                 .padding()
                             }

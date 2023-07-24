@@ -17,6 +17,10 @@ extension Color {
     static let activeText = Color("ActiveTextColor")
     static let white = Color("WhiteColor")
     static let tabBar = Color("TabBarColor")
+    static let acceptText = Color("AcceptTextColor")
+    static let acceptButton = Color("AcceptButtonColor")
+    static let rejectText = Color("RejectTextColor")
+    static let rejectButton = Color("RejectButtonColor")
 }
 
 enum CustomColor: String {
@@ -29,7 +33,11 @@ enum CustomColor: String {
     case activeTextColor
     case white
     case tabBar
-
+    case acceptText
+    case acceptButton
+    case rejectText
+    case rejectButton
+    
     var customValue: String {
         switch self {
         case .mainTextColor:
@@ -50,6 +58,14 @@ enum CustomColor: String {
             return "WhiteColor"
         case .tabBar:
             return "TabBarColor"
+        case .acceptText:
+            return "AcceptTextColor"
+        case .acceptButton:
+            return "AcceptButtonColor"
+        case .rejectText:
+            return "RejectTextColor"
+        case .rejectButton:
+            return "RejectButtonColor"
         }
     }
 }

@@ -1,19 +1,20 @@
 //
-//  MyEditPostsDTO.swift
+//  MyApplyPostsDTO.swift
 //  Ddungja
 //
-//  Created by 오승기 on 2023/07/16.
+//  Created by 오승기 on 2023/07/20.
 //
 
 import Foundation
 
-struct MyEditPostsDTO: Decodable {
-    let content: [EditPostsInfo]?
-    let pageable: EditPageInfo?
+struct MyApplyPostsDTO: Decodable {
+    let content: [ApplyPostsInfo]?
+    let pageable: ApplyPageInfo?
     let totalPages: Int?
 }
 
-struct EditPostsInfo: Decodable {
+struct ApplyPostsInfo: Decodable {
+    let applyId: Int
     let postId: Int
     let name: String
     let thumbnailImage: String
@@ -24,23 +25,25 @@ struct EditPostsInfo: Decodable {
     let like: Int
     let createdDate: String
     let status: String
+    let age: Int
 }
 
-struct EditPageInfo: Decodable {
+struct ApplyPageInfo: Decodable {
     let pageNumber: Int
 }
 
-extension MyEditPostsDTO {
-    func toEditPostsVO() -> MyEditPostsVO {
+extension MyApplyPostsDTO {
+    func toApplyPostsVO() -> MyApplyPostsVO {
         guard let contents = content, let page = pageable, let totalPage = totalPages else {
-            return MyEditPostsVO(content: [], pageable: EditPageInfoVO(pageNumber: 0), totalPage: 0)
+            return MyApplyPostsVO(content: [], pageable: ApplyPageInfoVO(pageNumber: 0), totalPage: 0)
         }
         
-        var postInfoVO: [EditPostsInfoVO] = []
+        var postInfoVO: [ApplyPostsInfoVO] = []
         for content in contents {
             let imageURL = URL(string: content.thumbnailImage)!
             postInfoVO.append(
-                EditPostsInfoVO(
+                ApplyPostsInfoVO(
+                    applyId: content.applyId,
                     postId: content.postId,
                     name: content.name,
                     thumbnailImage: imageURL,
@@ -50,11 +53,12 @@ extension MyEditPostsDTO {
                     birth: content.birth,
                     like: content.like,
                     createdDate: content.createdDate,
-                    status: content.status
+                    status: content.status,
+                    age: content.age
                 )
             )
         }
         
-        return MyEditPostsVO(content: postInfoVO, pageable: EditPageInfoVO(pageNumber: page.pageNumber), totalPage: totalPage)
+        return MyApplyPostsVO(content: postInfoVO, pageable: ApplyPageInfoVO(pageNumber: page.pageNumber), totalPage: totalPage)
     }
 }
