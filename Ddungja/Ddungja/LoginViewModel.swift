@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class KakakoAuthViewModel: ObservableObject {
+class LoginViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private let loginUsecase: LoginUsecaseInterface
     private var cancellables = Set<AnyCancellable>()

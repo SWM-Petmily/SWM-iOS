@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var kakaoAuthVM:KakakoAuthViewModel
+    @StateObject var viewModel:LoginViewModel
     
     var body: some View {
         VStack(spacing: 20) {
