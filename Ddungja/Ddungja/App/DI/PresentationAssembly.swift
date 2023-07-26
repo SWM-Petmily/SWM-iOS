@@ -25,6 +25,16 @@ struct PresentationAssembly: Assembly {
             return MyApplyPostsViewModel(coordinator: Coordinator.instance, myPostsUsecase: usecase)
         }
         
+        container.register(LoginViewModel.self) { resolver in
+            let usecase = resolver.resolve(LoginUsecaseInterface.self)!
+            return LoginViewModel(coordinator: Coordinator.instance, loginUsecase: usecase)
+        }
+        
+        container.register(LoginView.self) { resolver in
+            let viewModel = resolver.resolve(LoginViewModel.self)!
+            return LoginView(viewModel: viewModel)
+        }
+        
         container.register(UserProfileView.self) { resolver in
             let userProfileViewModel = resolver.resolve(UserProfileViewModel.self)!
             return UserProfileView(viewModel: userProfileViewModel)
