@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class LoginViewModel: ObservableObject {
+final class LoginViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private let loginUsecase: LoginUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
@@ -16,5 +16,20 @@ class LoginViewModel: ObservableObject {
     init(coordinator: CoordinatorProtocol, loginUsecase: LoginUsecaseInterface) {
         self.coordinator = coordinator
         self.loginUsecase = loginUsecase
+    }
+    
+    func requestKakaoLogin() {
+        loginUsecase.requestKakaoLogin()
+            .sink { error in
+                print(error)
+            } receiveValue: { vo in
+                switch vo {
+                case .certification:
+                    print("certification")
+                case .nonCertification:
+                    print("nonCertification")
+                }
+            }
+            .store(in: &cancellables)
     }
 }

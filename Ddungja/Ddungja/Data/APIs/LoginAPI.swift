@@ -9,18 +9,18 @@ import Foundation
 import Moya
 
 enum LoginAPI {
-    case kakaoLogin(accessToken: String)
+    case kakaoLogin(vo: OAuth.KakaoVO)
 }
 
-extension LoginAPI: TargetType, AccessTokenAuthorizable {
+extension LoginAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "https://www.petmily.site")!
     }
     
     var path: String {
         switch self {
         case .kakaoLogin:
-            return ""
+            return "users/kakao"
         }
     }
     
@@ -33,8 +33,8 @@ extension LoginAPI: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
-        case .kakaoLogin(let accessToken):
-            return .requestParameters(parameters: ["": accessToken], encoding: URLEncoding.queryString)
+        case let .kakaoLogin(vo):
+            return .requestParameters(parameters: ["accessToken": vo.accessToken, "tokenType": vo.tokenType], encoding: JSONEncoding.default)
         }
     }
     
@@ -42,13 +42,6 @@ extension LoginAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .kakaoLogin:
             return .none
-        }
-    }
-    
-    var authorizationType: Moya.AuthorizationType? {
-        switch self {
-        case .kakaoLogin:
-            return .bearer
         }
     }
 }

@@ -6,6 +6,9 @@
 //
 
 import Combine
+import Moya
 
-//Domain Layer의 UseCase에서 호출할 Repository 영역의 메소드 구현
-protocol LoginRepository { }
+protocol LoginRepository {
+    func requestKakaoLogin() -> AnyPublisher<OAuth.KakaoVO, Error>
+    func postLogin(_ oauth: OAuth)  -> AnyPublisher<LoginVO, MoyaError>
+}

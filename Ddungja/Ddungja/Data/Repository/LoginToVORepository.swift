@@ -5,11 +5,27 @@
 //  Created by 오승기 on 2023/06/23.
 //
 
-import Foundation
+import Combine
+import Moya
 
 class LoginToVORepository: LoginRepository {
 
-    //Data Layer의 DataSource에 의존하도록 의존성 주입
+    let loginDataSource: LoginDataSourceInterface
+    let oauthDataSource: OAuthProviderInterface
     
-    //LoginRepository Protocol 메소드 구현을 통해 VO로 변환하여 Domain Layer로 전달
+    init(loginDataSource: LoginDataSourceInterface, oauthDataSource: OAuthProviderInterface) {
+        self.loginDataSource = loginDataSource
+        self.oauthDataSource = oauthDataSource
+    }
+    
+    func requestKakaoLogin() -> AnyPublisher<OAuth.KakaoVO, Error> {
+        return oauthDataSource.requestKakaoLogin().eraseToAnyPublisher()
+    }
+    
+    func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, MoyaError> {
+        loginDataSource.requestKakaoLogin(oauth)
+            .map { $0.toLoginVO() }
+            .eraseToAnyPublisher()
+    }
+
 }

@@ -10,16 +10,24 @@ import Moya
 import CombineMoya
 import Combine
 
+protocol LoginDataSourceInterface {
+    func requestKakaoLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, MoyaError>
+}
 
-final class LoginAPIProvider {
+final class LoginAPIProvider: LoginDataSourceInterface {
     let moyaProvider: MoyaProvider<LoginAPI>
     
     init(moyaProvider: MoyaProvider<LoginAPI> = .init()) {
         self.moyaProvider = moyaProvider
     }
     
-    func getLogin() -> AnyPublisher<LoginDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.kakaoLogin(accessToken: "accessToken"))
-            .map(LoginDTO.self)
+    func requestKakaoLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, MoyaError> {
+        switch oauth {
+        case let .kakao(vo):
+            return moyaProvider.requestPublisher(.kakaoLogin(vo: vo))
+                .retry(3)
+                .eraseToAnyPublisher()
+                .map(LoginDTO.self)
+        }
     }
 }
