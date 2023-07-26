@@ -7,56 +7,14 @@
 
 import Foundation
 import Combine
-import KakaoSDKAuth
-import KakaoSDKUser
 
 class KakakoAuthViewModel: ObservableObject {
-    @Published var isLoggedIn = false
+    private var coordinator: CoordinatorProtocol
+    private let loginUsecase: LoginUsecaseInterface
+    private var cancellables = Set<AnyCancellable>()
     
-    //MARK: - Internal
-    @MainActor
-    func handleKakaoApi() {
-        Task {
-            if (UserApi.isKakaoTalkLoginAvailable()) {
-                isLoggedIn = await handleLoginWithKakaoTalk()
-            } else {
-                isLoggedIn = await handleLoginWithKakaoAcount()
-            }
-        }
-    }
-    
-    //MARK: - Private
-    @MainActor
-    private func handleLoginWithKakaoTalk() async -> Bool {
-        return await withCheckedContinuation { continuation in
-            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                    continuation.resume(returning: false)
-                } else {
-                    print("loginWithKakaoTalk() success.")
-
-                    _ = oauthToken
-                    continuation.resume(returning: true)
-                }
-            }
-        }
-    }
-    
-    @MainActor
-    private func handleLoginWithKakaoAcount() async -> Bool {
-        return await withCheckedContinuation { continuation in
-            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                    continuation.resume(returning: false)
-                } else {
-                    print("loginWithKakaoAccount() success.")
-
-                    _ = oauthToken
-                    continuation.resume(returning: true)
-                }
-            }
-        }
+    init(coordinator: CoordinatorProtocol, loginUsecase: LoginUsecaseInterface) {
+        self.coordinator = coordinator
+        self.loginUsecase = loginUsecase
     }
 }

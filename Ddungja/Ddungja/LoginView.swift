@@ -8,27 +8,38 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var kakaoAuthVM = KakakoAuthViewModel()
-    @State private var showDetailView = false
-    let loginStatusInfo: (Bool) -> String = { isLoggedIn in
-        return isLoggedIn ? "로그인 상태" : "로그아웃 상태"
-    }
+    @StateObject var kakaoAuthVM:KakakoAuthViewModel
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(loginStatusInfo(kakaoAuthVM.isLoggedIn))
             Button {
-                kakaoAuthVM.handleKakaoApi()
+                //kakao 로그인 버튼
             } label: {
-                Text("카카오 로그인")
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.theme.kakaoContainerColor)
+                        .frame(height: 50)
+                        .frame(maxWidth: .infinity)
+
+                    HStack(alignment: .center) {
+                        Image("KakaoSymbol")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding(.leading)
+
+                        Spacer()
+
+                        Text("카카오 로그인")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.theme.kakaoLabelColor)
+                            .bold()
+                        
+                        Spacer()
+                    }
+                }
             }
+            .padding(20)
         }
         .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }
