@@ -160,6 +160,7 @@
 		754AB6E32A712DB200F2EBC8 /* OAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthProvider.swift; sourceTree = "<group>"; };
 		754AB6E52A71590200F2EBC8 /* OAuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDTO.swift; sourceTree = "<group>"; };
 		754AB6E72A71713500F2EBC8 /* LoginResultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResultVO.swift; sourceTree = "<group>"; };
+		754AB6EB2A72A71500F2EBC8 /* Ddungja.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ddungja.entitlements; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -573,6 +574,7 @@
 		759A657C2A4037E500E6AD07 /* Ddungja */ = {
 			isa = PBXGroup;
 			children = (
+				754AB6EB2A72A71500F2EBC8 /* Ddungja.entitlements */,
 				75FB2FCE2A56B4BB00E4DDE8 /* App */,
 				75618C6F2A54063C005FA31A /* CommonUI */,
 				755462582A44B20300598268 /* Domain */,
@@ -1065,6 +1067,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Ddungja/Ddungja.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ddungja/Preview Content\"";
@@ -1096,6 +1099,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Ddungja/Ddungja.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ddungja/Preview Content\"";
