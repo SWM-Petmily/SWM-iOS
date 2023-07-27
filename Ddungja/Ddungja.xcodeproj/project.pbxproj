@@ -284,6 +284,7 @@
 		7546BDDA2A51A42F0019A986 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				754AB6E92A72A53600F2EBC8 /* Login */,
 				759228F02A6138AB00603FF4 /* MyPosts */,
 				759228E52A5FF28700603FF4 /* Coordinator */,
 				759228DD2A5E8F1900603FF4 /* MyPage */,
@@ -377,6 +378,15 @@
 				754AB6DD2A6FA91900F2EBC8 /* Bundle+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		754AB6E92A72A53600F2EBC8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				759A657F2A4037E500E6AD07 /* LoginView.swift */,
+				759A65B22A40574E00E6AD07 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
@@ -569,8 +579,6 @@
 				7535115E2A41D9B6008B0101 /* Data */,
 				759A65B92A417C4900E6AD07 /* Extension */,
 				7546BDDA2A51A42F0019A986 /* Presentations */,
-				759A657F2A4037E500E6AD07 /* LoginView.swift */,
-				759A65B22A40574E00E6AD07 /* LoginViewModel.swift */,
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
 				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
