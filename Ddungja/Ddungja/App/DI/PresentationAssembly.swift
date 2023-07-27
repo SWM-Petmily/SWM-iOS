@@ -49,6 +49,11 @@ struct PresentationAssembly: Assembly {
             return MyPageVIew(viewModel: MyPageViewModel(coordinator: coordinator))
         }
         
+        container.register(DdungjaTabView.self) { resolver in
+            let mypage = resolver.resolve(MyPageVIew.self)!
+            return DdungjaTabView(mypage)
+        }
+        
         container.register(MyPostsView.self) { resolver in
             let mypostsViewModel = resolver.resolve(MyPostsViewModel.self)!
             return MyPostsView(viewModel: mypostsViewModel)
