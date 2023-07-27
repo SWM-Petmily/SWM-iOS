@@ -16,6 +16,8 @@ enum Page: Hashable {
     case applyList(id: Int) //지원받은 목록보기
     case detailApply(id: Int) //지원하기 상세페이지
     case applyModify(id: Int)
+    case login
+    case tapBar
     
     @ViewBuilder
     func getView(coordinator: CoordinatorProtocol, viewResolver: ViewResolverProtocol) -> some View {
@@ -36,6 +38,10 @@ enum Page: Hashable {
             viewResolver.resolve(DetailApplyView.self, argument: id)
         case let .applyModify(id):
             viewResolver.resolve(ApplyModifyVIew.self, argument: id)
+        case .login:
+            viewResolver.resolveView(LoginView.self)
+        case .tapBar:
+            viewResolver.resolveView(DdungjaTabView.self)
         }
     }
 }

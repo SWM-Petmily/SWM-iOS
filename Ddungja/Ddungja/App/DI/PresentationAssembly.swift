@@ -8,26 +8,26 @@
 import Swinject
 
 struct PresentationAssembly: Assembly {
-    
+    let coordinator: Coordinator
     func assemble(container: Container) {
         container.register(UserProfileViewModel.self) { resolver in
             let useCase = resolver.resolve(ProfileUsecaseInterface.self)!
-            return UserProfileViewModel(coordinator: Coordinator.instance, profileUsecase: useCase)
+            return UserProfileViewModel(coordinator: coordinator, profileUsecase: useCase)
         }
         
         container.register(MyPostsViewModel.self) { resolver in
             let usecase = resolver.resolve(MyPostsUsecaseInterface.self)!
-            return MyPostsViewModel(coordinator: Coordinator.instance, myPostsUsecase: usecase)
+            return MyPostsViewModel(coordinator: coordinator, myPostsUsecase: usecase)
         }
         
         container.register(MyApplyPostsViewModel.self) { resolver in
             let usecase = resolver.resolve(MyApplyPostsUsecaseInterface.self)!
-            return MyApplyPostsViewModel(coordinator: Coordinator.instance, myPostsUsecase: usecase)
+            return MyApplyPostsViewModel(coordinator: coordinator, myPostsUsecase: usecase)
         }
         
         container.register(LoginViewModel.self) { resolver in
             let usecase = resolver.resolve(LoginUsecaseInterface.self)!
-            return LoginViewModel(coordinator: Coordinator.instance, loginUsecase: usecase)
+            return LoginViewModel(coordinator:coordinator ,loginUsecase: usecase)
         }
         
         container.register(LoginView.self) { resolver in
@@ -46,7 +46,7 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(MyPageVIew.self) { resolver in
-            return MyPageVIew(viewModel: MyPageViewModel(coordinator: Coordinator.instance))
+            return MyPageVIew(viewModel: MyPageViewModel(coordinator: coordinator))
         }
         
         container.register(MyPostsView.self) { resolver in

@@ -15,15 +15,18 @@ struct DdungjaApp: App {
     
     private let injector: Injector
     private let viewResolver: ViewResolver
+    @ObservedObject private var coordinator: Coordinator
     
     init() {
         injector = DependencyInjector(container: Container())
+        viewResolver = ViewResolver(injector: injector)
+        coordinator = Coordinator(.login)
         injector.assemble([DomainAssembly(),
                            DataAssembly(),
-                           PresentationAssembly()
+                           PresentationAssembly(coordinator: coordinator)
                           ])
-        viewResolver = ViewResolver(injector: injector)
-        
+
+        coordinator.injector = injector
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_API_LOGIN_KEY"] ?? ""
     
         // Kakao SDK 초기화
@@ -44,7 +47,13 @@ struct DdungjaApp: App {
 //                LoginView()
 //                    .navigationBarHidden(true)
 //            }
-            viewResolver.resolveView(LoginView.self)
+            NavigationStack(path: $coordinator.path) {
+                coordinator.initScene()
+                    .navigationDestination(for: Page.self) { page in
+                        coordinator.make(page)
+                    }
+            }
+//            viewResolver.resolveView(LoginView.self)
 //            DdungjaTabView(coordinator: Coordinator.instance, viewResolver: viewResolver)
 //            NavigationView {
 //                List {
