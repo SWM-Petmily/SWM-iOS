@@ -7,21 +7,27 @@
 
 import Combine
 import SwiftUI
+import KakaoSDKAuth
 
 protocol CoordinatorProtocol {
-    var pathPublisher: Published<NavigationPath>.Publisher { get }
-    
     func push(_ page: Page)
     func pop()
-    func popToRoot()
 }
 
 final class Coordinator: ObservableObject, CoordinatorProtocol {
-    @Published var path = NavigationPath()
-    var pathPublisher: Published<NavigationPath>.Publisher { $path }
-    static let instance = Coordinator()
+    @Published var path: NavigationPath
+
+    private var page: Page
+    var injector: Injector?
     
-    init() {}
+    init(_ page: Page) {
+        self.page = page
+        self.path = NavigationPath()
+    }
+    
+    func initScene() -> some View {
+        return make(page)
+    }
     
     func push(_ page: Page) {
         path.append(page)
@@ -31,7 +37,34 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
         path.removeLast()
     }
     
-    func popToRoot() {
-        path.removeLast(path.count)
+    @ViewBuilder
+    func make(_ page: Page) -> some View {
+        switch page {
+        case .myPageView:
+            injector?.resolve(MyPageVIew.self)
+        case .userProfileView:
+            injector?.resolve(UserProfileView.self)
+        case .editProfile:
+            injector?.resolve(EditProfile.self)
+        case .myPosts:
+            injector?.resolve(MyPostsView.self)
+        case .myApplyPosts:
+            injector?.resolve(MyApplyPostsView.self)
+        case .applyList:
+            injector?.resolve(ApplyListView.self)
+        case .detailApply:
+            injector?.resolve(DetailApplyView.self)
+        case .applyModify:
+            injector?.resolve(ApplyModifyVIew.self)
+        case .login:
+            injector?.resolve(LoginView.self)
+                .onOpenURL(perform: { url in
+                    if AuthApi.isKakaoTalkLoginUrl(url) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                })
+        case .tapBar:
+            injector?.resolve(DdungjaTabView.self)
+        }
     }
 }

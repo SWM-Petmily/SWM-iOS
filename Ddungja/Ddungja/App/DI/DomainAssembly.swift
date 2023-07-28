@@ -24,5 +24,10 @@ struct DomainAssembly: Assembly {
             let myPostsRepository = resolver.resolve(MyPostsRepositoryInterface.self)!
             return MyApplyPostsUsecase(repository: myPostsRepository)
         }
+        
+        container.register(LoginUsecaseInterface.self) { resolver in
+            let repository = resolver.resolve(LoginRepository.self)!
+            return LoginUsecase(repository: repository)
+        }
     }
 }
