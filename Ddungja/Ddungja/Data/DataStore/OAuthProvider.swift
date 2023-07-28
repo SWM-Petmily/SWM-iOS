@@ -10,13 +10,30 @@ import Combine
 import KakaoSDKAuth
 import KakaoSDKUser
 import KakaoSDKCommon
+import AuthenticationServices
 
 protocol OAuthProviderInterface {
     func requestKakaoLogin() -> AnyPublisher<OAuth.KakaoVO, Error>
+    func requestAppleLogin() -> AnyPublisher<OAuth.AppleVO, Error>
 }
 
-final class OAuthProvider: OAuthProviderInterface {
+final class OAuthProvider: NSObject, OAuthProviderInterface {
     
+    private let appleSubject = PassthroughSubject<OAuth.AppleVO, Error>()
+    
+    func requestAppleLogin() -> AnyPublisher<OAuth.AppleVO, Error> {
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+        controller.performRequests()
+        
+        return appleSubject.eraseToAnyPublisher()
+    }
+
     func requestKakaoLogin() -> AnyPublisher<OAuth.KakaoVO, Error> {
         if(UserApi.isKakaoTalkLoginAvailable()) {
             return handleLoginWithKakaoTalk()
@@ -59,5 +76,25 @@ final class OAuthProvider: OAuthProviderInterface {
             }
         }
         .eraseToAnyPublisher()
+    }
+}
+
+extension OAuthProvider: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleId as ASAuthorizationAppleIDCredential:
+            let accesstoken = String(data: appleId.authorizationCode ?? Data(), encoding: .utf8) ?? ""
+            let idToken = String(data: appleId.identityToken ?? Data(), encoding: .utf8) ?? ""
+            let vo = OAuth.AppleVO(accessToken: accesstoken, idToken: idToken)
+            appleSubject.send(vo)
+        default:
+            break
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        if let authorizationError = error as? ASAuthorizationError {
+            appleSubject.send(completion: .failure(authorizationError))
+        }
     }
 }
