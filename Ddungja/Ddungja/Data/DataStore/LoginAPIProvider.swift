@@ -21,7 +21,7 @@ final class LoginAPIProvider: LoginDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func requestKakaoLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, MoyaError> {
+    func requestLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, MoyaError> {
         switch oauth {
         case let .kakao(vo):
             return moyaProvider.requestPublisher(.kakaoLogin(vo: vo))
