@@ -32,4 +32,19 @@ final class LoginViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func requestAppleLogin() {
+        loginUsecase.requestAppleLogin()
+            .sink { error in
+                print(error)
+            } receiveValue: { vo in
+                switch vo {
+                case .certification:
+                    print("Apple certification")
+                case .nonCertification:
+                    print("Apple nonCertification")
+                }
+            }
+            .store(in: &cancellables)
+    }
 }

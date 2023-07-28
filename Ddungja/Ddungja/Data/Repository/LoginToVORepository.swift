@@ -22,6 +22,9 @@ class LoginToVORepository: LoginRepository {
         return oauthDataSource.requestKakaoLogin().eraseToAnyPublisher()
     }
     
+    func requestAppleLogin() -> AnyPublisher<OAuth.AppleVO, Error> {
+        return oauthDataSource.requestAppleLogin().eraseToAnyPublisher()
+    }
     func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, MoyaError> {
         loginDataSource.requestKakaoLogin(oauth)
             .map { $0.toLoginVO() }

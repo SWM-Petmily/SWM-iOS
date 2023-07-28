@@ -9,6 +9,7 @@ import Foundation
 
 enum OAuth {
     case kakao(KakaoVO)
+    case apple(AppleVO)
     
     struct KakaoVO {
         let accessToken: String
@@ -17,6 +18,16 @@ enum OAuth {
         init(accessToken: String, tokenType: String) {
             self.accessToken = accessToken
             self.tokenType = tokenType
+        }
+    }
+    
+    struct AppleVO {
+        let accessToken: String
+        let idToken: String
+
+        init(accessToken: String, idToken: String) {
+            self.accessToken = accessToken
+            self.idToken = idToken
         }
     }
 }

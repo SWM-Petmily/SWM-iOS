@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct LoginView: View {
     @StateObject var viewModel:LoginViewModel
     
     var body: some View {
         VStack(spacing: 20) {
+            SignInWithAppleButtonView()
+                .frame(height: 60)
+                .frame(maxWidth: .infinity)
+                .onTapGesture {
+                    viewModel.requestAppleLogin()
+                }
+
             Button {
                 viewModel.requestKakaoLogin()
             } label: {
@@ -41,5 +49,17 @@ struct LoginView: View {
             .padding(20)
         }
         .padding()
+    }
+}
+
+struct SignInWithAppleButtonView: UIViewRepresentable {
+    
+    typealias UIViewType = UIView
+    
+    func makeUIView(context: Context) -> UIView {
+        return ASAuthorizationAppleIDButton()
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
     }
 }

@@ -28,6 +28,12 @@ final class LoginAPIProvider: LoginDataSourceInterface {
                 .retry(3)
                 .eraseToAnyPublisher()
                 .map(LoginDTO.self)
+
+        case let .apple(vo):
+            return moyaProvider.requestPublisher(.appleLogin(vo: vo))
+                .retry(3)
+                .eraseToAnyPublisher()
+                .map(LoginDTO.self)
         }
     }
 }
