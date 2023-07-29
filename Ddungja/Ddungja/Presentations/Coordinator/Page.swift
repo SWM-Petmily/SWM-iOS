@@ -18,7 +18,7 @@ enum Page: Hashable {
     case applyModify(id: Int)
     case login
     case tapBar
-    
+    case signup
     @ViewBuilder
     func getView(coordinator: CoordinatorProtocol, viewResolver: ViewResolverProtocol) -> some View {
         switch self {

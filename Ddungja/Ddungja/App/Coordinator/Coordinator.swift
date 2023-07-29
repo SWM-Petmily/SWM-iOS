@@ -65,6 +65,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
                 })
         case .tapBar:
             injector?.resolve(DdungjaTabView.self)
+        case .signup:
+            injector?.resolve(SignUpView.self)
         }
     }
 }
