@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     @State private var nickName = ""
     @State private var phoneNumber = ""
+    @State private var certificationNumber = ""
     @State private var check = true
     let maxLength = 8
     
@@ -28,7 +29,7 @@ struct SignUpView: View {
             VStack(alignment: .leading) {
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     TextField("", text: $nickName, axis: .vertical)
-                        .placeholder(when: nickName.isEmpty, text: "닉네임을 입력해주세요.")
+                        .modifier(PlaceholderStyle(showPlaceHolder: nickName.isEmpty, placeholder: "닉네임을 입력해주세요."))
                         .font(.system(size: 16))
                         .foregroundColor(Color.disabledText)
                         .bold()
@@ -62,7 +63,7 @@ struct SignUpView: View {
                         HStack {
                             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                                 TextField("", text: $phoneNumber, axis: .horizontal)
-                                    .placeholder(when: phoneNumber.isEmpty, text: "번호를 입력해주세요")
+                                    .modifier(PlaceholderStyle(showPlaceHolder: phoneNumber.isEmpty, placeholder: "번호를 입력해주세요"))
                                     .font(.system(size: 16))
                                     .frame(width: geo.size.width * 0.85 * 0.8)
                                     .lineLimit(1)
@@ -89,8 +90,8 @@ struct SignUpView: View {
                         
                         HStack {
                             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                                TextField("", text: $phoneNumber, axis: .horizontal)
-                                    .placeholder(when: phoneNumber.isEmpty, text: "인증번호")
+                                TextField("", text: $certificationNumber, axis: .horizontal)
+                                    .modifier(PlaceholderStyle(showPlaceHolder: certificationNumber.isEmpty, placeholder: "인증번호"))
                                     .font(.system(size: 16))
                                     .frame(width: geo.size.width * 0.85 * 0.8)
                                     .lineLimit(1)

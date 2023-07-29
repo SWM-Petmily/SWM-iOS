@@ -17,15 +17,3 @@ extension View {
         )
     }
 }
-
-extension View {
-    func placeholder(when shouldShow: Bool, text: String) -> some View {
-        ZStack(alignment: .leading) {
-            Text(text)
-                .foregroundColor(Color.disabledText)
-                .bold()
-            
-            self
-        }
-    }
-}
