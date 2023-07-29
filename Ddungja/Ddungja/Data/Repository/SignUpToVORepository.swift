@@ -27,4 +27,10 @@ final class SignUpToVORepository: SignUpRepository {
             .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
+    
+    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
+        return dataSource.registerUserInfo(id, nickname, phoneNumber)
+            .map { $0.statusCode }
+            .eraseToAnyPublisher()
+    }
 }

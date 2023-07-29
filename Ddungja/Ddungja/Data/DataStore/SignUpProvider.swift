@@ -13,6 +13,7 @@ import Combine
 protocol SignUpDataSourceInterface {
     func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberDTO, MoyaError>
     func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Response, MoyaError>
+    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Response, MoyaError>
 }
 
 final class SignUpProvider: SignUpDataSourceInterface {
@@ -37,8 +38,9 @@ final class SignUpProvider: SignUpDataSourceInterface {
             .eraseToAnyPublisher()
     }
     
-    func getAccessToken() -> AnyPublisher<UserInfoDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.userInfo)
-            .map(UserInfoDTO.self)
+    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Response, MoyaError> {
+        let info = RegisterVO(certificationId: id, nickname: nickname, phone: phoneNumber)
+        return moyaProvider.requestPublisher(.userInfo(user: info))
+            .eraseToAnyPublisher()
     }
 }

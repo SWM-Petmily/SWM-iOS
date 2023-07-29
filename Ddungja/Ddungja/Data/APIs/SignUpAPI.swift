@@ -11,7 +11,7 @@ import Moya
 enum SignUpAPI {
     case requestCertificationNumber(phoneNumber: ReqeustCertificationDTO)
     case checkCertificationNumber(info: CertificationRequestVO)
-    case userInfo
+    case userInfo(user: RegisterVO)
 }
 
 extension SignUpAPI: TargetType {
@@ -26,7 +26,7 @@ extension SignUpAPI: TargetType {
         case .checkCertificationNumber:
             return "users/certification/verify"
         case .userInfo:
-            return ""
+            return "users/sign"
         }
     }
     
@@ -45,15 +45,18 @@ extension SignUpAPI: TargetType {
         case let .checkCertificationNumber(info):
             return .requestJSONEncodable(info)
             
-        case .userInfo:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
+        case let .userInfo(user):
+            return .requestJSONEncodable(user)
         }
     }
     
     var headers: [String : String]? {
         switch self {
         case .requestCertificationNumber, .checkCertificationNumber, .userInfo:
-            return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkwNjQ2MjMwfQ.1hGNP1_T0wxTQZcD0nBkYc1vEAqwXRbg3X1S4oa9af1ehlX8l4ivaJpp_Lat6B43RdUafS9b1LHXx5jVyqKp7A"]
+            if let accessToken = KeyChainManager.read(key: .accessToken) {
+                return ["Authorization" : accessToken]
+            }
+            return .none
         }
     }
 }

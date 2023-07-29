@@ -11,6 +11,7 @@ import Moya
 protocol SignUpUsecaseInterface {
     func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberVO, MoyaError>
     func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Int, MoyaError>
+    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Int, MoyaError>
 }
 
 final class SignUpUsecase: SignUpUsecaseInterface {
@@ -26,6 +27,10 @@ final class SignUpUsecase: SignUpUsecaseInterface {
     
     func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Int, MoyaError> {
         return repository.checkCertification(id, phone, certication)
+    }
+    
+    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
+        return repository.registerUserInfo(id, nickname, phoneNumber)
     }
 }
 

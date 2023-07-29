@@ -40,4 +40,14 @@ final class SignUpViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+        
+    func registerUserInfo(_ nickname: String) {
+        signUpUsecase.registerUserInfo(id, nickname, phoneNumber)
+            .sink { error in
+                print("registere user Info \(error)")
+            } receiveValue: { bool in
+                print("registerUserInfo response\(bool)")
+            }
+            .store(in: &cancellables)
+    }
 }
