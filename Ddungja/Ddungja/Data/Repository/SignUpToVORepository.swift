@@ -21,4 +21,10 @@ final class SignUpToVORepository: SignUpRepository {
             .map { $0.toNumberVO() }
             .eraseToAnyPublisher()
     }
+    
+    func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Int, MoyaError> {
+        return dataSource.checkCertification(id, phone, certication)
+            .map { $0.statusCode }
+            .eraseToAnyPublisher()
+    }
 }

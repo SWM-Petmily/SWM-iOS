@@ -50,6 +50,7 @@
 		754AB6F22A75001C00F2EBC8 /* SignUpUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */; };
 		754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F32A75168400F2EBC8 /* CustomPlaceHolder.swift */; };
 		754AB6F62A75289200F2EBC8 /* SignUpVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F52A75289200F2EBC8 /* SignUpVO.swift */; };
+		754AB6F92A75311D00F2EBC8 /* CertificationVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */; };
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
@@ -171,6 +172,7 @@
 		754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsecase.swift; sourceTree = "<group>"; };
 		754AB6F32A75168400F2EBC8 /* CustomPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceHolder.swift; sourceTree = "<group>"; };
 		754AB6F52A75289200F2EBC8 /* SignUpVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVO.swift; sourceTree = "<group>"; };
+		754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationVO.swift; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -406,6 +408,15 @@
 			children = (
 				754AB6ED2A73977100F2EBC8 /* SignUpView.swift */,
 				754AB6EF2A74CC7F00F2EBC8 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		754AB6F72A7530FC00F2EBC8 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6F52A75289200F2EBC8 /* SignUpVO.swift */,
+				754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -646,6 +657,7 @@
 		75FB2FBE2A55B49100E4DDE8 /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				754AB6F72A7530FC00F2EBC8 /* SignUp */,
 				75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */,
 				75FB2FDA2A57AC9700E4DDE8 /* ProfileEditVO.swift */,
 				759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */,
@@ -656,7 +668,6 @@
 				754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */,
 				754AB6E12A6FFEA600F2EBC8 /* LoginVO.swift */,
 				754AB6E72A71713500F2EBC8 /* LoginResultVO.swift */,
-				754AB6F52A75289200F2EBC8 /* SignUpVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -875,6 +886,7 @@
 				754AB6E22A6FFEA600F2EBC8 /* LoginVO.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
+				754AB6F92A75311D00F2EBC8 /* CertificationVO.swift in Sources */,
 				75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */,
 				75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */,
 				754AB6E42A712DB200F2EBC8 /* OAuthProvider.swift in Sources */,

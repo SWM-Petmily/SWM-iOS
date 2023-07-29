@@ -12,6 +12,12 @@ struct SignUpView: View {
     @State private var phoneNumber = ""
     @State private var certificationNumber = ""
     @State private var check = true
+    
+    @StateObject private var viewModel: SignUpViewModel
+    
+    init(viewModel: SignUpViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     let maxLength = 8
     
     var body: some View {

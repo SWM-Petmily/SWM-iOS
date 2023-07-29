@@ -12,6 +12,7 @@ import Combine
 
 protocol SignUpDataSourceInterface {
     func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberDTO, MoyaError>
+    func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Response, MoyaError>
 }
 
 final class SignUpProvider: SignUpDataSourceInterface {
@@ -30,9 +31,10 @@ final class SignUpProvider: SignUpDataSourceInterface {
             .map(CertificationNumberDTO.self)
     }
     
-    func getDuplicate() -> AnyPublisher<ConfirmNumberDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.checkCertificationNumber(phoneNumber: "", certificationNumber: ""))
-            .map(ConfirmNumberDTO.self)
+    func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Response, MoyaError>  {
+        let info = CertificationRequestVO(certificationId: id, phoneNumber: phone, certificationNumber: certication)
+        return moyaProvider.requestPublisher(.checkCertificationNumber(info: info))
+            .eraseToAnyPublisher()
     }
     
     func getAccessToken() -> AnyPublisher<UserInfoDTO, MoyaError> {

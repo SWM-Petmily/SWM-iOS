@@ -10,7 +10,7 @@ import Moya
 
 enum SignUpAPI {
     case requestCertificationNumber(phoneNumber: ReqeustCertificationDTO)
-    case checkCertificationNumber(phoneNumber: String, certificationNumber: String)
+    case checkCertificationNumber(info: CertificationRequestVO)
     case userInfo
 }
 
@@ -22,10 +22,9 @@ extension SignUpAPI: TargetType {
     var path: String {
         switch self {
         case .requestCertificationNumber:
-            return "users/certification/send"
+            return "users/certification/send/test"
         case .checkCertificationNumber:
-            return ""
-            
+            return "users/certification/verify"
         case .userInfo:
             return ""
         }
@@ -43,8 +42,8 @@ extension SignUpAPI: TargetType {
         case let .requestCertificationNumber(phoneNumber):
             return .requestJSONEncodable(phoneNumber)
             
-        case .checkCertificationNumber:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
+        case let .checkCertificationNumber(info):
+            return .requestJSONEncodable(info)
             
         case .userInfo:
             return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
