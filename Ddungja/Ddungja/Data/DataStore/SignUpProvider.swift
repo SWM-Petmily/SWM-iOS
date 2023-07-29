@@ -10,7 +10,12 @@ import Moya
 import CombineMoya
 import Combine
 
-final class SignUpProvider {
+protocol SignUpDataSourceInterface {
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberDTO, MoyaError>
+}
+
+final class SignUpProvider: SignUpDataSourceInterface {
+    
     let moyaProvider: MoyaProvider<SignUpAPI>
     
     init(moyaProvider: MoyaProvider<SignUpAPI> = .init()) {
@@ -18,8 +23,10 @@ final class SignUpProvider {
     }
     
     //휴대폰 인증번호 요청
-    func getCertificationNumber() -> AnyPublisher<CertificationNumberDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.requestCertificationNumber(phoneNumber: ""))
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberDTO, MoyaError> {
+        let a = ReqeustCertificationDTO(phoneNumber: phoneNumber)
+        return moyaProvider.requestPublisher(.requestCertificationNumber(phoneNumber: a))
+            .eraseToAnyPublisher()
             .map(CertificationNumberDTO.self)
     }
     

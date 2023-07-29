@@ -78,5 +78,15 @@ struct PresentationAssembly: Assembly {
             let myPostsViewModel = resolver.resolve(MyPostsViewModel.self)!
             return DetailApplyView(viewModel: myPostsViewModel, id: id)
         }
+        
+        container.register(SignUpViewModel.self) { resolver in
+            let usecase = resolver.resolve(SignUpUsecaseInterface.self)!
+            return SignUpViewModel(coordinator:coordinator ,signUpUsecase: usecase)
+        }
+        
+        container.register(SignUpView.self) { resolver in
+            let signUpViewModel = resolver.resolve(SignUpViewModel.self)!
+            return SignUpView(viewModel: signUpViewModel)
+        }
     }
 }

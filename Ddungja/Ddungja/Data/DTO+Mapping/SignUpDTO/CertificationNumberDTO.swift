@@ -8,8 +8,11 @@
 import Foundation
 
 struct CertificationNumberDTO: Decodable {
-    let requestId: String
-    let requestTime: String
-    let statusCode: Int
-    let statusName: String
+    let certificationId: Int?
+}
+
+extension CertificationNumberDTO {
+    func toNumberVO() -> CertificationNumberVO {
+        return CertificationNumberVO(certificationId: certificationId ?? -1)
+    }
 }

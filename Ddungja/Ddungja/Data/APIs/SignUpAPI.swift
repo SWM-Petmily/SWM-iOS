@@ -9,21 +9,20 @@ import Foundation
 import Moya
 
 enum SignUpAPI {
-    case requestCertificationNumber(phoneNumber: String)
+    case requestCertificationNumber(phoneNumber: ReqeustCertificationDTO)
     case checkCertificationNumber(phoneNumber: String, certificationNumber: String)
     case userInfo
 }
 
 extension SignUpAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "https://www.petmily.site")!
     }
     
     var path: String {
         switch self {
         case .requestCertificationNumber:
-            return ""
-            
+            return "users/certification/send"
         case .checkCertificationNumber:
             return ""
             
@@ -41,8 +40,8 @@ extension SignUpAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .requestCertificationNumber:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
+        case let .requestCertificationNumber(phoneNumber):
+            return .requestJSONEncodable(phoneNumber)
             
         case .checkCertificationNumber:
             return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
@@ -55,7 +54,7 @@ extension SignUpAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .requestCertificationNumber, .checkCertificationNumber, .userInfo:
-            return .none
+            return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkwNjQ2MjMwfQ.1hGNP1_T0wxTQZcD0nBkYc1vEAqwXRbg3X1S4oa9af1ehlX8l4ivaJpp_Lat6B43RdUafS9b1LHXx5jVyqKp7A"]
         }
     }
 }

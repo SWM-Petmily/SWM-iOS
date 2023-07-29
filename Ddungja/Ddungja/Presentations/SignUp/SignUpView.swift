@@ -40,7 +40,7 @@ struct SignUpView: View {
                         .background(Color.mainBackground)
                         .cornerRadius(10)
                         .border(nickName.count == maxLength ? Color.red : Color.mainBackground)
-                        .onChange(of: phoneNumber, perform: { newValue in
+                        .onChange(of: nickName, perform: { newValue in
                             if newValue.count > maxLength {
                                 nickName = String(newValue.prefix(maxLength))
                             }

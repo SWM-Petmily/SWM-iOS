@@ -6,5 +6,8 @@
 //
 
 import Combine
+import Moya
 
-protocol SignUpRepository { }
+protocol SignUpRepository {
+    func requestCertification(about: String) -> AnyPublisher<CertificationNumberVO, MoyaError>
+}

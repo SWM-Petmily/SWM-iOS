@@ -45,6 +45,11 @@
 		754AB6E42A712DB200F2EBC8 /* OAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6E32A712DB200F2EBC8 /* OAuthProvider.swift */; };
 		754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6E52A71590200F2EBC8 /* OAuthDTO.swift */; };
 		754AB6E82A71713500F2EBC8 /* LoginResultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6E72A71713500F2EBC8 /* LoginResultVO.swift */; };
+		754AB6EE2A73977100F2EBC8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6ED2A73977100F2EBC8 /* SignUpView.swift */; };
+		754AB6F02A74CC7F00F2EBC8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6EF2A74CC7F00F2EBC8 /* SignUpViewModel.swift */; };
+		754AB6F22A75001C00F2EBC8 /* SignUpUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */; };
+		754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F32A75168400F2EBC8 /* CustomPlaceHolder.swift */; };
+		754AB6F62A75289200F2EBC8 /* SignUpVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F52A75289200F2EBC8 /* SignUpVO.swift */; };
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
@@ -161,6 +166,11 @@
 		754AB6E52A71590200F2EBC8 /* OAuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDTO.swift; sourceTree = "<group>"; };
 		754AB6E72A71713500F2EBC8 /* LoginResultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResultVO.swift; sourceTree = "<group>"; };
 		754AB6EB2A72A71500F2EBC8 /* Ddungja.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ddungja.entitlements; sourceTree = "<group>"; };
+		754AB6ED2A73977100F2EBC8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		754AB6EF2A74CC7F00F2EBC8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsecase.swift; sourceTree = "<group>"; };
+		754AB6F32A75168400F2EBC8 /* CustomPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceHolder.swift; sourceTree = "<group>"; };
+		754AB6F52A75289200F2EBC8 /* SignUpVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVO.swift; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -285,6 +295,7 @@
 		7546BDDA2A51A42F0019A986 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				754AB6EC2A73975000F2EBC8 /* SignUp */,
 				754AB6E92A72A53600F2EBC8 /* Login */,
 				759228F02A6138AB00603FF4 /* MyPosts */,
 				759228E52A5FF28700603FF4 /* Coordinator */,
@@ -390,6 +401,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		754AB6EC2A73975000F2EBC8 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6ED2A73977100F2EBC8 /* SignUpView.swift */,
+				754AB6EF2A74CC7F00F2EBC8 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +501,7 @@
 				75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */,
 				75FB2FE92A5AFD8B00E4DDE8 /* View + Extension.swift */,
 				75154E572A695A4D0083261A /* Text + Extension.swift */,
+				754AB6F32A75168400F2EBC8 /* CustomPlaceHolder.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -635,6 +656,7 @@
 				754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */,
 				754AB6E12A6FFEA600F2EBC8 /* LoginVO.swift */,
 				754AB6E72A71713500F2EBC8 /* LoginResultVO.swift */,
+				754AB6F52A75289200F2EBC8 /* SignUpVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -646,6 +668,7 @@
 				759228F72A62D81400603FF4 /* MyPostsUsecase.swift */,
 				75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */,
 				754AB6DF2A6FAC7E00F2EBC8 /* LoginUsecase.swift */,
+				754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -844,6 +867,7 @@
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* LoginViewModel.swift in Sources */,
+				754AB6F62A75289200F2EBC8 /* SignUpVO.swift in Sources */,
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
 				75154E5E2A6A91DA0083261A /* ApplyListDTO.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
@@ -861,9 +885,11 @@
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
 				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
+				754AB6F22A75001C00F2EBC8 /* SignUpUsecase.swift in Sources */,
 				75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */,
 				754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
+				754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */,
 				754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
@@ -871,11 +897,13 @@
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
+				754AB6EE2A73977100F2EBC8 /* SignUpView.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabView.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
 				754AB6D52A6D522700F2EBC8 /* DeleteInfoVO.swift in Sources */,
 				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
+				754AB6F02A74CC7F00F2EBC8 /* SignUpViewModel.swift in Sources */,
 				754AB6E82A71713500F2EBC8 /* LoginResultVO.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
