@@ -42,6 +42,8 @@ enum Page: Hashable {
             viewResolver.resolveView(LoginView.self)
         case .tapBar:
             viewResolver.resolveView(DdungjaTabView.self)
+        case .signup:
+            viewResolver.resolveView(SignUpView.self)
         }
     }
 }
