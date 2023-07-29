@@ -22,6 +22,7 @@ final class KeyChainManager {
             kSecValueData: token.data(using: .utf8, allowLossyConversion: false) as Any
         ]
         SecItemDelete(query)
+        SecItemAdd(query, nil)
     }
     
     static func read(key: Keys) -> String? {
