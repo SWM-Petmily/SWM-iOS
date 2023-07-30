@@ -6,6 +6,7 @@
 //
 
 import Combine
+import SwiftUI
 
 final class SignUpViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
@@ -13,7 +14,13 @@ final class SignUpViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private(set) var id: Int = -1
     
+    @Published var showCertificationNumber = false
     @Published var phoneNumber = ""
+    @Published var nickName = ""
+    @Published var isActiveRequestButton = false
+    
+    var requestTextColor: CustomColor = .disabledTextColor
+    var requestBackgroundColor = Color.buttonBackground
     
     init(coordinator: CoordinatorProtocol, signUpUsecase: SignUpUsecaseInterface) {
         self.coordinator = coordinator
@@ -24,9 +31,10 @@ final class SignUpViewModel: ObservableObject {
         signUpUsecase.requestCertification(about: phoneNumber)
             .sink { error in
                 print(error)
-            } receiveValue: { vo in
+            } receiveValue: { [weak self] vo in
                 print("vo is \(vo)")
-                self.id = vo.certificationId
+                self?.id = vo.certificationId
+                self?.showCertificationNumber = true
             }
             .store(in: &cancellables)
     }
@@ -49,5 +57,18 @@ final class SignUpViewModel: ObservableObject {
                 print("registerUserInfo response\(bool)")
             }
             .store(in: &cancellables)
+    }
+    
+    func checkPhoneNumber() {
+        let pattern = "^01[0-1, 7][0-9]{7,8}$"
+        if let _ = phoneNumber.range(of: pattern, options: .regularExpression) {
+            isActiveRequestButton = false
+            requestTextColor = .mainTextColor
+            requestBackgroundColor = .main
+        } else {
+            isActiveRequestButton = true
+            requestTextColor = .disabledTextColor
+            requestBackgroundColor = .buttonBackground
+        }
     }
 }

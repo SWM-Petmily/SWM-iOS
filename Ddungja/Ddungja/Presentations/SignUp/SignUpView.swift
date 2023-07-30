@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State private var nickName = ""
-    @State private var phoneNumber = ""
     @State private var certificationNumber = ""
     @State private var check = true
     
@@ -34,8 +32,8 @@ struct SignUpView: View {
             
             VStack(alignment: .leading) {
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                    TextField("", text: $nickName, axis: .vertical)
-                        .modifier(PlaceholderStyle(showPlaceHolder: nickName.isEmpty, placeholder: "닉네임을 입력해주세요."))
+                    TextField("", text: $viewModel.nickName, axis: .vertical)
+                        .modifier(PlaceholderStyle(showPlaceHolder: viewModel.nickName.isEmpty, placeholder: "닉네임을 입력해주세요."))
                         .font(.system(size: 16))
                         .foregroundColor(Color.disabledText)
                         .bold()
@@ -45,10 +43,10 @@ struct SignUpView: View {
                         .padding()
                         .background(Color.mainBackground)
                         .cornerRadius(10)
-                        .border(nickName.count == maxLength ? Color.red : Color.mainBackground)
-                        .onChange(of: nickName, perform: { newValue in
+                        .border(viewModel.nickName.count == maxLength ? Color.red : Color.mainBackground)
+                        .onChange(of: viewModel.nickName, perform: { newValue in
                             if newValue.count > maxLength {
-                                nickName = String(newValue.prefix(maxLength))
+                                viewModel.nickName = String(newValue.prefix(maxLength))
                             }
                         })
                         .onTapGesture { endTextEditing() }
@@ -57,7 +55,7 @@ struct SignUpView: View {
                 Text("닉네임은 \(maxLength)글자를 초과할 수 없습니다!!")
                     .bold()
                     .foregroundColor(.red)
-                    .isHidden(nickName.count == maxLength ? false : true)
+                    .isHidden(viewModel.nickName.count == maxLength ? false : true)
             }
             
             Text("휴대전화")
@@ -68,8 +66,8 @@ struct SignUpView: View {
                     VStack {
                         HStack {
                             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                                TextField("", text: $phoneNumber, axis: .horizontal)
-                                    .modifier(PlaceholderStyle(showPlaceHolder: phoneNumber.isEmpty, placeholder: "번호를 입력해주세요"))
+                                TextField("", text: $viewModel.phoneNumber, axis: .horizontal)
+                                    .modifier(PlaceholderStyle(showPlaceHolder: viewModel.phoneNumber.isEmpty, placeholder: "번호를 입력해주세요"))
                                     .font(.system(size: 16))
                                     .frame(width: geo.size.width * 0.85 * 0.8)
                                     .lineLimit(1)
@@ -77,21 +75,25 @@ struct SignUpView: View {
                                     .padding()
                                     .background(Color.mainBackground)
                                     .cornerRadius(10)
+                                    .keyboardType(.numberPad)
                                     .onTapGesture { endTextEditing() }
                             }
                             
                             Button {
-                                
+                                viewModel.requestPhoneNumberCertification(viewModel.phoneNumber)
                             } label: {
                                 Text("인증요청")
                                     .bold()
-                                    .applyInner(color: .mainColor)
+                                    .applyInner(color: viewModel.requestTextColor)
                                     .frame(width: geo.size.width * 0.25 * 0.8)
                                     .frame(height: 60)
                             }
-                            .background(Color.sub)
+                            .background(viewModel.requestBackgroundColor)
+                            .disabled(viewModel.isActiveRequestButton)
                             .cornerRadius(10)
-                            
+                            .onChange(of: viewModel.phoneNumber, perform: { _ in
+                                viewModel.checkPhoneNumber()
+                            })
                         }
                         
                         HStack {
@@ -109,7 +111,7 @@ struct SignUpView: View {
                             }
                             
                             Button {
-                                
+                                viewModel.checkCertificationNumber(certificationNumber)
                             } label: {
                                 Text("확인")
                                     .bold()
@@ -121,12 +123,13 @@ struct SignUpView: View {
                             .cornerRadius(10)
                             
                         }
+                        .isHidden(!viewModel.showCertificationNumber)
                     }
                 }
             
             
             Button {
-                
+                viewModel.registerUserInfo(viewModel.nickName)
             } label: {
                 Text("등록")
                     .applyInner(color: check ? .disabledTextColor : .white)
@@ -134,7 +137,7 @@ struct SignUpView: View {
                     .frame(maxWidth: .infinity)
             }
             .background(check ? Color.buttonBackground : Color.main)
-            .disabled(check)
+//            .disabled(check)
             .cornerRadius(14)
         }
         .padding()
