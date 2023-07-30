@@ -19,13 +19,16 @@ struct SignUpView: View {
     let maxLength = 8
     
     var body: some View {
+
         VStack(alignment: .leading) {
-            Text("최초 1회 본인 인증이 필요합니다.")
-            Text("본인 인증 시 수집된 개인정보는 서비스 이외 다른 용도로 사용되지 않습니다.")
-        }
-        
-        
-        VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 15) {
+                Text("최초 1회 본인 인증이 필요합니다.")
+                    .applyBigTitle(color: .mainTextColor)
+                Text("본인 인증 시 수집된 개인정보는 서비스 이외 다른 용도로 사용되지 않습니다.")
+                    .applySubhead(color: .mainTextColor)
+            }
+            .padding([.bottom, .top])
+            
             Text("닉네임")
                 .applySubtitle(color: .mainTextColor)
                 .bold()
