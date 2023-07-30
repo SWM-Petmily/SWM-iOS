@@ -55,7 +55,6 @@
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
-		7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554624E2A44987D00598268 /* CertificationNumberDTO.swift */; };
 		755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462502A4498A300598268 /* ConfirmNumberDTO.swift */; };
 		755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462522A4498DA00598268 /* UserInfoDTO.swift */; };
 		7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554625B2A44B23600598268 /* LoginToVORepository.swift */; };
@@ -178,7 +177,6 @@
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
-		7554624E2A44987D00598268 /* CertificationNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationNumberDTO.swift; sourceTree = "<group>"; };
 		755462502A4498A300598268 /* ConfirmNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberDTO.swift; sourceTree = "<group>"; };
 		755462522A4498DA00598268 /* UserInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDTO.swift; sourceTree = "<group>"; };
 		7554625B2A44B23600598268 /* LoginToVORepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToVORepository.swift; sourceTree = "<group>"; };
@@ -427,7 +425,6 @@
 		7554624D2A44984700598268 /* SignUpDTO */ = {
 			isa = PBXGroup;
 			children = (
-				7554624E2A44987D00598268 /* CertificationNumberDTO.swift */,
 				755462502A4498A300598268 /* ConfirmNumberDTO.swift */,
 				755462522A4498DA00598268 /* UserInfoDTO.swift */,
 			);
@@ -899,7 +896,6 @@
 				754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
-				7554624F2A44987D00598268 /* CertificationNumberDTO.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
 				754AB6F22A75001C00F2EBC8 /* SignUpUsecase.swift in Sources */,
 				75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */,

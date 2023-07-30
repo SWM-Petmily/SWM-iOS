@@ -12,7 +12,6 @@ final class SignUpViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private var signUpUsecase: SignUpUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
-    private(set) var id: Int = -1
     
     @Published var showCertificationNumber = false
     @Published var phoneNumber = ""
@@ -38,14 +37,13 @@ final class SignUpViewModel: ObservableObject {
                 print(error)
             } receiveValue: { [weak self] vo in
                 print("vo is \(vo)")
-                self?.id = vo.certificationId
                 self?.showCertificationNumber = true
             }
             .store(in: &cancellables)
     }
     
     func checkCertificationNumber(_ certification: String) {
-        signUpUsecase.checkCertification(id, phoneNumber, certification)
+        signUpUsecase.checkCertification(certification)
             .sink { error in
                 print("error \(error)")
             } receiveValue: { [weak self] response in
@@ -56,7 +54,7 @@ final class SignUpViewModel: ObservableObject {
     }
         
     func registerUserInfo(_ nickname: String) {
-        signUpUsecase.registerUserInfo(id, nickname, phoneNumber)
+        signUpUsecase.registerUserInfo(nickname)
             .sink { error in
                 print("registere user Info \(error)")
             } receiveValue: { bool in

@@ -9,9 +9,9 @@ import Combine
 import Moya
 
 protocol SignUpUsecaseInterface {
-    func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberVO, MoyaError>
-    func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Int, MoyaError>
-    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Int, MoyaError>
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Int, MoyaError>
+    func checkCertification(_ certication: String) -> AnyPublisher<Int, MoyaError>
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Int, MoyaError>
 }
 
 final class SignUpUsecase: SignUpUsecaseInterface {
@@ -21,16 +21,16 @@ final class SignUpUsecase: SignUpUsecaseInterface {
         self.repository = repository
     }
     
-    func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberVO, MoyaError> {
-        repository.requestCertification(about: phoneNumber)
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
+        return repository.requestCertification(about: phoneNumber)
     }
     
-    func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Int, MoyaError> {
-        return repository.checkCertification(id, phone, certication)
+    func checkCertification(_ certication: String) -> AnyPublisher<Int, MoyaError> {
+        return repository.checkCertification(certication)
     }
     
-    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
-        return repository.registerUserInfo(id, nickname, phoneNumber)
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Int, MoyaError> {
+        return repository.registerUserInfo(nickname)
     }
 }
 

@@ -10,8 +10,3 @@ import Foundation
 struct ReqeustCertificationDTO: Encodable {
     let phoneNumber: String
 }
-
-
-struct CertificationNumberVO {
-    let certificationId: Int
-}

@@ -8,7 +8,5 @@
 import Foundation
 
 struct RegisterVO: Encodable {
-    let certificationId: Int
     let nickname: String
-    let phone: String
 }

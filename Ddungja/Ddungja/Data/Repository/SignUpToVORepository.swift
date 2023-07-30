@@ -16,20 +16,20 @@ final class SignUpToVORepository: SignUpRepository {
         self.dataSource = dataSource
     }
     
-    func requestCertification(about phoneNumber: String) -> AnyPublisher<CertificationNumberVO, MoyaError> {
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
         return dataSource.requestCertification(about: phoneNumber)
-            .map { $0.toNumberVO() }
-            .eraseToAnyPublisher()
-    }
-    
-    func checkCertification(_ id: Int,_ phone: String,_ certication: String) -> AnyPublisher<Int, MoyaError> {
-        return dataSource.checkCertification(id, phone, certication)
             .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
     
-    func registerUserInfo(_ id: Int, _ nickname: String, _ phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
-        return dataSource.registerUserInfo(id, nickname, phoneNumber)
+    func checkCertification(_ certication: String) -> AnyPublisher<Int, MoyaError> {
+        return dataSource.checkCertification(certication)
+            .map { $0.statusCode }
+            .eraseToAnyPublisher()
+    }
+    
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Int, MoyaError> {
+        return dataSource.registerUserInfo(nickname)
             .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
