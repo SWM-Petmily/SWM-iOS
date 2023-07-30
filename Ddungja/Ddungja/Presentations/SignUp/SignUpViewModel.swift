@@ -18,9 +18,14 @@ final class SignUpViewModel: ObservableObject {
     @Published var phoneNumber = ""
     @Published var nickName = ""
     @Published var isActiveRequestButton = false
+    @Published var isActiveRegisterButton = false
+    @Published var isSuccessVerify = false
     
     var requestTextColor: CustomColor = .disabledTextColor
     var requestBackgroundColor = Color.buttonBackground
+    
+    var registerTextColor: CustomColor = .disabledTextColor
+    var registerBackgroundColor = Color.buttonBackground
     
     init(coordinator: CoordinatorProtocol, signUpUsecase: SignUpUsecaseInterface) {
         self.coordinator = coordinator
@@ -43,8 +48,9 @@ final class SignUpViewModel: ObservableObject {
         signUpUsecase.checkCertification(id, phoneNumber, certification)
             .sink { error in
                 print("error \(error)")
-            } receiveValue: { response in
+            } receiveValue: { [weak self] response in
                 print("response \(response)")
+                self?.isSuccessVerify = true
             }
             .store(in: &cancellables)
     }
@@ -69,6 +75,18 @@ final class SignUpViewModel: ObservableObject {
             isActiveRequestButton = true
             requestTextColor = .disabledTextColor
             requestBackgroundColor = .buttonBackground
+        }
+    }
+    
+    func register() {
+        if isSuccessVerify && !nickName.isEmpty {
+            registerTextColor = .white
+            registerBackgroundColor = .main
+            isActiveRegisterButton = false
+        } else {
+            registerTextColor = .disabledTextColor
+            registerBackgroundColor = .buttonBackground
+            isActiveRegisterButton = true
         }
     }
 }

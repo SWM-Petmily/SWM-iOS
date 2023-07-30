@@ -133,12 +133,18 @@ struct SignUpView: View {
                 viewModel.registerUserInfo(viewModel.nickName)
             } label: {
                 Text("등록")
-                    .applyInner(color: check ? .disabledTextColor : .white)
+                    .applyInner(color: viewModel.registerTextColor)
                     .frame(height: 52)
                     .frame(maxWidth: .infinity)
             }
-            .background(check ? Color.buttonBackground : Color.main)
-//            .disabled(check)
+            .onChange(of: viewModel.isSuccessVerify, perform: { newValue in
+                viewModel.register()
+            })
+            .onChange(of: viewModel.nickName, perform: { newValue in
+                viewModel.register()
+            })
+            .background(viewModel.registerBackgroundColor)
+            .disabled(viewModel.isActiveRegisterButton)
             .cornerRadius(14)
         }
         .padding()
