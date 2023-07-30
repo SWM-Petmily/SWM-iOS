@@ -63,8 +63,8 @@ final class SignUpViewModel: ObservableObject {
         let pattern = "^01[0-1, 7][0-9]{7,8}$"
         if let _ = phoneNumber.range(of: pattern, options: .regularExpression) {
             isActiveRequestButton = false
-            requestTextColor = .mainTextColor
-            requestBackgroundColor = .main
+            requestTextColor = .mainColor
+            requestBackgroundColor = .sub
         } else {
             isActiveRequestButton = true
             requestTextColor = .disabledTextColor

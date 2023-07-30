@@ -106,6 +106,7 @@ struct SignUpView: View {
                                     .frame(height: 30)
                                     .padding()
                                     .background(Color.mainBackground)
+                                    .keyboardType(.numberPad)
                                     .cornerRadius(10)
                                     .onTapGesture { endTextEditing() }
                             }
