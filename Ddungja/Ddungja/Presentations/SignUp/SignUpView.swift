@@ -62,71 +62,71 @@ struct SignUpView: View {
                 .applySubtitle(color: .mainTextColor)
                 .bold()
             
-                GeometryReader { geo in
-                    VStack {
-                        HStack {
-                            ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                                TextField("", text: $viewModel.phoneNumber, axis: .horizontal)
-                                    .modifier(PlaceholderStyle(showPlaceHolder: viewModel.phoneNumber.isEmpty, placeholder: "번호를 입력해주세요"))
-                                    .font(.system(size: 16))
-                                    .frame(width: geo.size.width * 0.85 * 0.8)
-                                    .lineLimit(1)
-                                    .frame(height: 30)
-                                    .padding()
-                                    .background(Color.mainBackground)
-                                    .cornerRadius(10)
-                                    .keyboardType(.numberPad)
-                                    .onTapGesture { endTextEditing() }
-                            }
-                            
-                            Button {
-                                viewModel.requestPhoneNumberCertification(viewModel.phoneNumber)
-                            } label: {
-                                Text("인증요청")
-                                    .bold()
-                                    .applyInner(color: viewModel.requestTextColor)
-                                    .frame(width: geo.size.width * 0.25 * 0.8)
-                                    .frame(height: 60)
-                            }
-                            .background(viewModel.requestBackgroundColor)
-                            .disabled(viewModel.isActiveRequestButton)
-                            .cornerRadius(10)
-                            .onChange(of: viewModel.phoneNumber, perform: { _ in
-                                viewModel.checkPhoneNumber()
-                            })
+            GeometryReader { geo in
+                VStack {
+                    HStack {
+                        ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
+                            TextField("", text: $viewModel.phoneNumber, axis: .horizontal)
+                                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.phoneNumber.isEmpty, placeholder: "번호를 입력해주세요"))
+                                .font(.system(size: 16))
+                                .frame(width: geo.size.width * 0.85 * 0.8)
+                                .lineLimit(1)
+                                .frame(height: 30)
+                                .padding()
+                                .background(Color.mainBackground)
+                                .cornerRadius(10)
+                                .keyboardType(.numberPad)
+                                .onTapGesture { endTextEditing() }
                         }
                         
-                        HStack {
-                            ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                                TextField("", text: $certificationNumber, axis: .horizontal)
-                                    .modifier(PlaceholderStyle(showPlaceHolder: certificationNumber.isEmpty, placeholder: "인증번호"))
-                                    .font(.system(size: 16))
-                                    .frame(width: geo.size.width * 0.85 * 0.8)
-                                    .lineLimit(1)
-                                    .frame(height: 30)
-                                    .padding()
-                                    .background(Color.mainBackground)
-                                    .keyboardType(.numberPad)
-                                    .cornerRadius(10)
-                                    .onTapGesture { endTextEditing() }
-                            }
-                            
-                            Button {
-                                viewModel.checkCertificationNumber(certificationNumber)
-                            } label: {
-                                Text("확인")
-                                    .bold()
-                                    .applyInner(color: .mainColor)
-                                    .frame(width: geo.size.width * 0.25 * 0.8)
-                                    .frame(height: 60)
-                            }
-                            .background(Color.sub)
-                            .cornerRadius(10)
-                            
+                        Button {
+                            viewModel.requestPhoneNumberCertification(viewModel.phoneNumber)
+                        } label: {
+                            Text("인증요청")
+                                .bold()
+                                .applyInner(color: viewModel.requestTextColor)
+                                .frame(width: geo.size.width * 0.25 * 0.8)
+                                .frame(height: 60)
                         }
-                        .isHidden(!viewModel.showCertificationNumber)
+                        .background(viewModel.requestBackgroundColor)
+                        .disabled(viewModel.isActiveRequestButton)
+                        .cornerRadius(10)
+                        .onChange(of: viewModel.phoneNumber, perform: { _ in
+                            viewModel.checkPhoneNumber()
+                        })
                     }
+                    
+                    HStack {
+                        ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
+                            TextField("", text: $certificationNumber, axis: .horizontal)
+                                .modifier(PlaceholderStyle(showPlaceHolder: certificationNumber.isEmpty, placeholder: "인증번호"))
+                                .font(.system(size: 16))
+                                .frame(width: geo.size.width * 0.85 * 0.8)
+                                .lineLimit(1)
+                                .frame(height: 30)
+                                .padding()
+                                .background(Color.mainBackground)
+                                .keyboardType(.numberPad)
+                                .cornerRadius(10)
+                                .onTapGesture { endTextEditing() }
+                        }
+                        
+                        Button {
+                            viewModel.checkCertificationNumber(certificationNumber)
+                        } label: {
+                            Text("확인")
+                                .bold()
+                                .applyInner(color: .mainColor)
+                                .frame(width: geo.size.width * 0.25 * 0.8)
+                                .frame(height: 60)
+                        }
+                        .background(Color.sub)
+                        .cornerRadius(10)
+                        
+                    }
+                    .isHidden(!viewModel.showCertificationNumber)
                 }
+            }
             
             
             Button {
