@@ -23,63 +23,26 @@ struct MyPostsScene: View {
         
         VStack(alignment: .leading, spacing: 20) {
             HStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .strokeBorder(viewModel.status == ButtonState.all.rawValue ? Color.main : .buttonBackground)
-                        .background(viewModel.status == ButtonState.all.rawValue ? .white : .buttonBackground)
-                        .cornerRadius(15)
-                    
-                    Button {
+                Text("전체")
+                    .modifier(RadioButton(status: viewModel.status, buttonState: ButtonState.all.rawValue))
+                    .onTapGesture {
                         viewModel.status = ButtonState.all.rawValue
                         viewModel.getMyEditPosts(viewModel.status)
-                    } label: {
-                        Text("전체")
-                            .bold(viewModel.status == ButtonState.all.rawValue)
-                            .applyInner(
-                                color:
-                                    viewModel.status == ButtonState.all.rawValue ? .mainColor : .disabledTextColor
-                            )
                     }
-                }
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .strokeBorder(viewModel.status == ButtonState.save.rawValue ? Color.main : .buttonBackground)
-                        .background(viewModel.status == ButtonState.save.rawValue ? .white : .buttonBackground)
-                        .cornerRadius(15)
-
-                    Button {
+                Text("분양중")
+                    .modifier(RadioButton(status: viewModel.status, buttonState: ButtonState.save.rawValue))
+                    .onTapGesture {
                         viewModel.status = ButtonState.save.rawValue
                         viewModel.getMyEditPosts(viewModel.status)
-                    } label: {
-                        Text("분양중")
-                            .bold(viewModel.status == ButtonState.save.rawValue)
-                            .applyInner(
-                                color:
-                                    viewModel.status == ButtonState.save.rawValue ? .mainColor : .disabledTextColor
-                            )
                     }
-                }
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .strokeBorder(viewModel.status == ButtonState.complete.rawValue ? Color.main : .buttonBackground)
-                        .background(viewModel.status == ButtonState.complete.rawValue ? .white : .buttonBackground)
-                        .cornerRadius(15)
-
-                    Button {
+                Text("분양완료")
+                    .modifier(RadioButton(status: viewModel.status, buttonState: ButtonState.complete.rawValue))
+                    .onTapGesture {
                         viewModel.status = ButtonState.complete.rawValue
                         viewModel.getMyEditPosts(viewModel.status)
-                    } label: {
-                        Text("분양완료")
-                            .bold(viewModel.status == ButtonState.complete.rawValue)
-                            .applyInner(
-                                color:
-                                    viewModel.status == ButtonState.complete.rawValue ? .mainColor : .disabledTextColor
-                            )
                     }
-                }
-                Spacer()
             }
             .frame(height: 33)
             .frame(maxWidth: .infinity)

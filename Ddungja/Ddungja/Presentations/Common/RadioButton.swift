@@ -9,10 +9,10 @@ import SwiftUI
 
 struct RadioButton: ViewModifier {
     var status: String
-    var buttonState: ButtonState
+    var buttonState: String
     
     func body(content: Content) -> some View {
-        let isActive = status == buttonState.rawValue
+        let isActive = status == buttonState
         
         return ZStack {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
