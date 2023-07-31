@@ -13,7 +13,7 @@ enum ButtonState: String {
     case complete = "COMPLETE"
 }
 
-struct MyPostsView: View {
+struct MyPostsScene: View {
     @StateObject private var viewModel: MyPostsViewModel
     
     init(viewModel: MyPostsViewModel) {
@@ -123,7 +123,7 @@ struct MyPostsView: View {
     }
 }
 
-extension MyPostsView {
+extension MyPostsScene {
     private func fetchMoreData(_ myPost: EditPostsInfoVO){
         if self.viewModel.myEditPosts.last == myPost {
             viewModel

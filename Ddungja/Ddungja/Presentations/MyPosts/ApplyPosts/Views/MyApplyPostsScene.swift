@@ -15,7 +15,7 @@ enum ApplyButtonState: String {
     case cancel = "CANCEL"
 }
 
-struct MyApplyPostsView: View {
+struct MyApplyPostsScene: View {
     
     @StateObject private var viewModel: MyApplyPostsViewModel
     
@@ -143,7 +143,7 @@ struct MyApplyPostsView: View {
     }
 }
 
-extension MyApplyPostsView {
+extension MyApplyPostsScene {
     private func fetchMoreData(_ myPost: ApplyPostsInfoVO){
         if self.viewModel.myApplyPosts.last == myPost {
             viewModel

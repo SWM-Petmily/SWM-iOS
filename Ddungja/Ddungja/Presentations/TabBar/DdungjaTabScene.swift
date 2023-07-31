@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct DdungjaTabView: View {
+struct DdungjaTabScene: View {
     
-    private let myPage: MyPageVIew
+    private let myPage: MyPageScene
     
-    init(_ myPage: MyPageVIew) {
+    init(_ myPage: MyPageScene) {
         self.myPage = myPage
     }
     

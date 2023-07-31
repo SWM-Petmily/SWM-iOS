@@ -40,27 +40,27 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     func make(_ page: Page) -> some View {
         switch page {
         case .myPageView:
-            injector?.resolve(MyPageVIew.self)
+            injector?.resolve(MyPageScene.self)
         case .userProfileView:
             injector?.resolve(UserProfileView.self)
         case .editProfile:
             injector?.resolve(EditProfile.self)
         case .myPosts:
-            injector?.resolve(MyPostsView.self)
+            injector?.resolve(MyPostsScene.self)
         case .myApplyPosts:
-            injector?.resolve(MyApplyPostsView.self)
-        case .applyList:
-            injector?.resolve(ApplyListView.self)
-        case .detailApply:
-            injector?.resolve(DetailApplyView.self)
-        case .applyModify:
-            injector?.resolve(ApplyModifyVIew.self)
+            injector?.resolve(MyApplyPostsScene.self)
+        case let .applyList(id):
+            injector?.resolve(ApplyListScene.self, argument: id)
+        case let .detailApply(id):
+            injector?.resolve(DetailApplyView.self, argument: id)
+        case let .applyModify(id):
+            injector?.resolve(ApplyModifyVIew.self, argument: id)
         case .login:
-            injector?.resolve(LoginView.self)
+            injector?.resolve(LoginScene.self)
         case .tapBar:
-            injector?.resolve(DdungjaTabView.self)
+            injector?.resolve(DdungjaTabScene.self)
         case .signup:
-            injector?.resolve(SignUpView.self)
+            injector?.resolve(SignUpScene.self)
         }
     }
 }

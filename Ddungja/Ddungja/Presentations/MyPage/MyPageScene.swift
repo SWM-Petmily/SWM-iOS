@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MyPageVIew: View {
+struct MyPageScene: View {
     @ObservedObject private(set) var viewModel: MyPageViewModel
     
     var body: some View {

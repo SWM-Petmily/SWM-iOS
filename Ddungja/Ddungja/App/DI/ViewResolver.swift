@@ -19,7 +19,7 @@ final class ViewResolver: ViewResolverProtocol {
     }
     
     func resolveView<T>(_ serviceType: T.Type) -> T {
-        return injector.resolve(T.self)
+        return injector.resolve(serviceType)
     }
     
     func resolve<T, Arg>(_ serviceType: T.Type, argument: Arg) -> T {
