@@ -276,6 +276,7 @@
 		7535115E2A41D9B6008B0101 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				754AB6D62A6F520600F2EBC8 /* Common */,
 				755462552A44B0C900598268 /* DTO+Mapping */,
 				7554625A2A44B21F00598268 /* Repository */,
 				755462572A44B11900598268 /* APIs */,
@@ -474,7 +475,6 @@
 		755462582A44B20300598268 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				754AB6D62A6F520600F2EBC8 /* Common */,
 				75FB2FC32A5644E700E4DDE8 /* Usecase */,
 				75FB2FBE2A55B49100E4DDE8 /* VO */,
 				755462592A44B20E00598268 /* RepositoryProtocol */,
