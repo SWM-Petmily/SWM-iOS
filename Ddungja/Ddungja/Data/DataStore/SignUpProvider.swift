@@ -10,7 +10,14 @@ import Moya
 import CombineMoya
 import Combine
 
-final class SignUpProvider {
+protocol SignUpDataSourceInterface {
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Response, MoyaError>
+    func checkCertification(_ certication: String) -> AnyPublisher<Response, MoyaError>
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Response, MoyaError>
+}
+
+final class SignUpProvider: SignUpDataSourceInterface {
+    
     let moyaProvider: MoyaProvider<SignUpAPI>
     
     init(moyaProvider: MoyaProvider<SignUpAPI> = .init()) {
@@ -18,18 +25,21 @@ final class SignUpProvider {
     }
     
     //휴대폰 인증번호 요청
-    func getCertificationNumber() -> AnyPublisher<CertificationNumberDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.requestCertificationNumber(phoneNumber: ""))
-            .map(CertificationNumberDTO.self)
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Response, MoyaError> {
+        let a = ReqeustCertificationDTO(phoneNumber: phoneNumber)
+        return moyaProvider.requestPublisher(.requestCertificationNumber(phoneNumber: a))
+            .eraseToAnyPublisher()
     }
     
-    func getDuplicate() -> AnyPublisher<ConfirmNumberDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.checkCertificationNumber(phoneNumber: "", certificationNumber: ""))
-            .map(ConfirmNumberDTO.self)
+    func checkCertification(_ certication: String) -> AnyPublisher<Response, MoyaError>  {
+        let info = CertificationRequestVO(certificationNumber: certication)
+        return moyaProvider.requestPublisher(.checkCertificationNumber(info: info))
+            .eraseToAnyPublisher()
     }
     
-    func getAccessToken() -> AnyPublisher<UserInfoDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.userInfo)
-            .map(UserInfoDTO.self)
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Response, MoyaError> {
+        let info = RegisterVO(nickname: nickname)
+        return moyaProvider.requestPublisher(.userInfo(user: info))
+            .eraseToAnyPublisher()
     }
 }

@@ -26,6 +26,10 @@ struct DataAssembly: Assembly {
             return OAuthProvider()
         }
         
+        container.register(SignUpDataSourceInterface.self) { _ in
+            return SignUpProvider()
+        }
+        
         container.register(ProfileRepository.self) { resolver in
             let dataSource = resolver.resolve(UserProfileDataSourceInterface.self)!
             return ProfileToVORepository(dataSource: dataSource)
@@ -40,6 +44,11 @@ struct DataAssembly: Assembly {
             let loginDatasource = resolver.resolve(LoginDataSourceInterface.self)!
             let oauthDataSource = resolver.resolve(OAuthProviderInterface.self)!
             return LoginToVORepository(loginDataSource: loginDatasource, oauthDataSource: oauthDataSource)
+        }
+        
+        container.register(SignUpRepository.self) { resolver in
+            let datasource = resolver.resolve(SignUpDataSourceInterface.self)!
+            return SignUpToVORepository(dataSource: datasource)
         }
     }
 }

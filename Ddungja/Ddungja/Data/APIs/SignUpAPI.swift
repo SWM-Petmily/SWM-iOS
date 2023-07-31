@@ -9,26 +9,24 @@ import Foundation
 import Moya
 
 enum SignUpAPI {
-    case requestCertificationNumber(phoneNumber: String)
-    case checkCertificationNumber(phoneNumber: String, certificationNumber: String)
-    case userInfo
+    case requestCertificationNumber(phoneNumber: ReqeustCertificationDTO)
+    case checkCertificationNumber(info: CertificationRequestVO)
+    case userInfo(user: RegisterVO)
 }
 
 extension SignUpAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "https://www.petmily.site")!
     }
     
     var path: String {
         switch self {
         case .requestCertificationNumber:
-            return ""
-            
+            return "users/certification/send/test"
         case .checkCertificationNumber:
-            return ""
-            
+            return "users/certification/verify"
         case .userInfo:
-            return ""
+            return "users/sign"
         }
     }
     
@@ -41,20 +39,23 @@ extension SignUpAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .requestCertificationNumber:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
+        case let .requestCertificationNumber(phoneNumber):
+            return .requestJSONEncodable(phoneNumber)
             
-        case .checkCertificationNumber:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
+        case let .checkCertificationNumber(info):
+            return .requestJSONEncodable(info)
             
-        case .userInfo:
-            return .requestParameters(parameters: ["": ""], encoding: URLEncoding.queryString)
+        case let .userInfo(user):
+            return .requestJSONEncodable(user)
         }
     }
     
     var headers: [String : String]? {
         switch self {
         case .requestCertificationNumber, .checkCertificationNumber, .userInfo:
+            if let accessToken = KeyChainManager.read(key: .accessToken) {
+                return ["Authorization" : accessToken]
+            }
             return .none
         }
     }

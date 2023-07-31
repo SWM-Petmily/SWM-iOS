@@ -19,6 +19,10 @@ struct CustomText: ViewModifier {
 }
 
 extension Text {
+    //Default Font Size -> 20
+    func applyBigTitle(color: CustomColor) -> some View {
+        self.modifier(CustomText(color: Color(color.customValue), font: .title3))
+    }
     //Default Font Size -> 17
     func applyTitle(color: CustomColor) -> some View {
         self.modifier(CustomText(color: Color(color.customValue), font: .headline))
@@ -26,6 +30,10 @@ extension Text {
     //Default Font Size -> 16
     func applyInner(color: CustomColor) -> some View {
         self.modifier(CustomText(color: Color(color.customValue), font: .callout))
+    }
+    //Default Font Size -> 15
+    func applySubhead(color: CustomColor) -> some View {
+        self.modifier(CustomText(color: Color(color.customValue), font: .subheadline))
     }
     //Default Font Size -> 13
     func applySubtitle(color: CustomColor) -> some View {
