@@ -7,7 +7,6 @@
 
 import Combine
 import SwiftUI
-import KakaoSDKAuth
 
 protocol CoordinatorProtocol {
     func push(_ page: Page)
@@ -58,11 +57,6 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector?.resolve(ApplyModifyVIew.self)
         case .login:
             injector?.resolve(LoginView.self)
-                .onOpenURL(perform: { url in
-                    if AuthApi.isKakaoTalkLoginUrl(url) {
-                        _ = AuthController.handleOpenUrl(url: url)
-                    }
-                })
         case .tapBar:
             injector?.resolve(DdungjaTabView.self)
         case .signup:

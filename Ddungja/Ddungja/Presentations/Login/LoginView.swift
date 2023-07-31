@@ -49,6 +49,9 @@ struct LoginView: View {
             .padding(20)
         }
         .padding()
+        .onOpenURL { url in
+            viewModel.isKakaoTalkLoginUrl(url)
+        }
     }
 }
 

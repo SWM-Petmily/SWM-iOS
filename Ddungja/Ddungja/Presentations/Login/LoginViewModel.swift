@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import KakaoSDKAuth
 
 final class LoginViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
@@ -46,5 +47,11 @@ final class LoginViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func isKakaoTalkLoginUrl(_ url: URL) {
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            _ = AuthController.handleOpenUrl(url: url)
+        }
     }
 }
