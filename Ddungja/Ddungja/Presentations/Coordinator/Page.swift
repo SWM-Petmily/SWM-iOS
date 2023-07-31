@@ -19,31 +19,4 @@ enum Page: Hashable {
     case login
     case tapBar
     case signup
-    @ViewBuilder
-    func getView(coordinator: CoordinatorProtocol, viewResolver: ViewResolverProtocol) -> some View {
-        switch self {
-        case .userProfileView:
-            viewResolver.resolveView(UserProfileView.self)
-        case .myPageView:
-            viewResolver.resolveView(MyPageVIew.self)
-        case .editProfile:
-            viewResolver.resolveView(EditProfile.self)
-        case .myPosts:
-            viewResolver.resolveView(MyPostsView.self)
-        case .myApplyPosts:
-            viewResolver.resolveView(MyApplyPostsView.self)
-        case let .applyList(id):
-            viewResolver.resolve(ApplyListView.self, argument: id)
-        case let .detailApply(id):
-            viewResolver.resolve(DetailApplyView.self, argument: id)
-        case let .applyModify(id):
-            viewResolver.resolve(ApplyModifyVIew.self, argument: id)
-        case .login:
-            viewResolver.resolveView(LoginView.self)
-        case .tapBar:
-            viewResolver.resolveView(DdungjaTabView.self)
-        case .signup:
-            viewResolver.resolveView(SignUpView.self)
-        }
-    }
 }
