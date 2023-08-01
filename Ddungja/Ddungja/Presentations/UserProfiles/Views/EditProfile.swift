@@ -246,45 +246,25 @@ extension EditProfile {
     
     private var houseButton: some View {
         CustomLazyVGrid(col: 4, spacing: 10) {
-            Button {
+            Button("원룸") {
                 houseNumber = .oneRoom
-            } label: {
-                Text("원룸")
-                    .applyInner(color: houseNumber == .oneRoom ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == .oneRoom ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
+            .buttonStyle(RadioButtonMain(status: houseNumber.rawValue, buttonState: HouseStatus.oneRoom.rawValue))
             
-            Button {
+            Button("아파트") {
                 houseNumber = .apart
-            } label: {
-                Text("아파트")
-                    .applyInner(color: houseNumber == .apart ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == .apart ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
+            .buttonStyle(RadioButtonMain(status: houseNumber.rawValue, buttonState: HouseStatus.apart.rawValue))
             
-            Button {
+            Button("오피스텔") {
                 houseNumber = .op
-            } label: {
-                Text("오피스텔\n빌라")
-                    .applyInner(color: houseNumber == .op ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == .op ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
+            .buttonStyle(RadioButtonMain(status: houseNumber.rawValue, buttonState: HouseStatus.op.rawValue))
             
-            Button {
+            Button("단독주택") {
                 houseNumber = .house
-            } label: {
-                Text("단독주택")
-                    .applyInner(color: houseNumber == .house ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(houseNumber == .house ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
+            .buttonStyle(RadioButtonMain(status: houseNumber.rawValue, buttonState: HouseStatus.house.rawValue))
         }
     }
     
