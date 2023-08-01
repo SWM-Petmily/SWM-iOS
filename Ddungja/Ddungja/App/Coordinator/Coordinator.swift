@@ -17,11 +17,12 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     @Published var path: NavigationPath
 
     private var page: Page
-    var injector: Injector?
+    private var injector: Injector
     
-    init(_ page: Page) {
+    init(_ page: Page, _ injector: Injector) {
         self.page = page
         self.path = NavigationPath()
+        self.injector = injector
     }
     
     func initScene() -> some View {
@@ -40,27 +41,27 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     func make(_ page: Page) -> some View {
         switch page {
         case .myPageView:
-            injector?.resolve(MyPageScene.self)
+            injector.resolve(MyPageScene.self)
         case .userProfileView:
-            injector?.resolve(UserProfileView.self)
+            injector.resolve(UserProfileView.self)
         case .editProfile:
-            injector?.resolve(EditProfile.self)
+            injector.resolve(EditProfile.self)
         case .myPosts:
-            injector?.resolve(MyPostsScene.self)
+            injector.resolve(MyPostsScene.self)
         case .myApplyPosts:
-            injector?.resolve(MyApplyPostsScene.self)
+            injector.resolve(MyApplyPostsScene.self)
         case let .applyList(id):
-            injector?.resolve(ApplyListScene.self, argument: id)
+            injector.resolve(ApplyListScene.self, argument: id)
         case let .detailApply(id):
-            injector?.resolve(DetailApplyView.self, argument: id)
+            injector.resolve(DetailApplyView.self, argument: id)
         case let .applyModify(id):
-            injector?.resolve(ApplyModifyVIew.self, argument: id)
+            injector.resolve(ApplyModifyVIew.self, argument: id)
         case .login:
-            injector?.resolve(LoginScene.self)
+            injector.resolve(LoginScene.self)
         case .tapBar:
-            injector?.resolve(DdungjaTabScene.self)
+            injector.resolve(DdungjaTabScene.self)
         case .signup:
-            injector?.resolve(SignUpScene.self)
+            injector.resolve(SignUpScene.self)
         }
     }
 }
