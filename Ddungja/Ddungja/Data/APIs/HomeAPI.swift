@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum HomeAPI {
-    case mainPost
+    case mainPost(page: Int)
 }
 
 extension HomeAPI: TargetType {
@@ -33,8 +33,8 @@ extension HomeAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .mainPost:
-            return .requestPlain
+        case let .mainPost(page):
+            return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
         }
     }
     

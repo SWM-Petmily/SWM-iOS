@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Combine
+import Moya
 
 protocol HomeUsecaseInterface {
-    func getMainPost()
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError>
 }
 
 final class HomeUsecase: HomeUsecaseInterface {
@@ -18,7 +20,7 @@ final class HomeUsecase: HomeUsecaseInterface {
         self.repository = repository
     }
     
-    func getMainPost() {
-        repository.getMainPost()
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError> {
+        return repository.getMainPost(page)
     }
 }

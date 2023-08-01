@@ -5,7 +5,8 @@
 //  Created by 오승기 on 2023/08/01.
 //
 
-import Foundation
+import Combine
+import Moya
 
 final class HomeRepository: HomeRepositoryInterface {
     private let datasource: HomeDataSourceInterface
@@ -14,7 +15,9 @@ final class HomeRepository: HomeRepositoryInterface {
         self.datasource = datasource
     }
     
-    func getMainPost() {
-        datasource.getMainPost()
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError> {
+        return datasource.getMainPost(page)
+            .map { $0.toHomeVO() }
+            .eraseToAnyPublisher()
     }
 }
