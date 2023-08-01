@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct SignUpScene: View {
     @State private var certificationNumber = ""
     @State private var check = true
     

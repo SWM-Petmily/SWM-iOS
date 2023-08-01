@@ -20,13 +20,12 @@ struct DdungjaApp: App {
     init() {
         injector = DependencyInjector(container: Container())
         viewResolver = ViewResolver(injector: injector)
-        coordinator = Coordinator(.login)
+        coordinator = Coordinator(.login, injector)
         injector.assemble([DomainAssembly(),
                            DataAssembly(),
                            PresentationAssembly(coordinator: coordinator)
                           ])
-
-        coordinator.injector = injector
+    
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_API_LOGIN_KEY"] ?? ""
     
         // Kakao SDK 초기화

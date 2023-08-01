@@ -30,9 +30,9 @@ struct PresentationAssembly: Assembly {
             return LoginViewModel(coordinator:coordinator ,loginUsecase: usecase)
         }
         
-        container.register(LoginView.self) { resolver in
+        container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
-            return LoginView(viewModel: viewModel)
+            return LoginScene(viewModel: viewModel)
         }
         
         container.register(UserProfileView.self) { resolver in
@@ -45,23 +45,23 @@ struct PresentationAssembly: Assembly {
             return EditProfile(viewModel: userProfileViemodel)
         }
         
-        container.register(MyPageVIew.self) { resolver in
-            return MyPageVIew(viewModel: MyPageViewModel(coordinator: coordinator))
+        container.register(MyPageScene.self) { resolver in
+            return MyPageScene(viewModel: MyPageViewModel(coordinator: coordinator))
         }
         
-        container.register(DdungjaTabView.self) { resolver in
-            let mypage = resolver.resolve(MyPageVIew.self)!
-            return DdungjaTabView(mypage)
+        container.register(DdungjaTabScene.self) { resolver in
+            let mypage = resolver.resolve(MyPageScene.self)!
+            return DdungjaTabScene(mypage)
         }
         
-        container.register(MyPostsView.self) { resolver in
+        container.register(MyPostsScene.self) { resolver in
             let mypostsViewModel = resolver.resolve(MyPostsViewModel.self)!
-            return MyPostsView(viewModel: mypostsViewModel)
+            return MyPostsScene(viewModel: mypostsViewModel)
         }
         
-        container.register(MyApplyPostsView.self) { resolver in
+        container.register(MyApplyPostsScene.self) { resolver in
             let mypostsViewModel = resolver.resolve(MyApplyPostsViewModel.self)!
-            return MyApplyPostsView(viewModel: mypostsViewModel)
+            return MyApplyPostsScene(viewModel: mypostsViewModel)
         }
         
         container.register(ApplyModifyVIew.self) { (resolver, id) in
@@ -69,9 +69,9 @@ struct PresentationAssembly: Assembly {
             return ApplyModifyVIew(viewModel: mypostsViewModel, id: id)
         }
         
-        container.register(ApplyListView.self) { (resolver, id: Int) in
+        container.register(ApplyListScene.self) { (resolver, id: Int) in
             let myPostsViewModel = resolver.resolve(MyPostsViewModel.self)!
-            return ApplyListView(viewModel: myPostsViewModel, id: id)
+            return ApplyListScene(viewModel: myPostsViewModel, id: id)
         }
         
         container.register(DetailApplyView.self) { (resolver, id: Int) in
@@ -84,9 +84,9 @@ struct PresentationAssembly: Assembly {
             return SignUpViewModel(coordinator:coordinator ,signUpUsecase: usecase)
         }
         
-        container.register(SignUpView.self) { resolver in
+        container.register(SignUpScene.self) { resolver in
             let signUpViewModel = resolver.resolve(SignUpViewModel.self)!
-            return SignUpView(viewModel: signUpViewModel)
+            return SignUpScene(viewModel: signUpViewModel)
         }
     }
 }

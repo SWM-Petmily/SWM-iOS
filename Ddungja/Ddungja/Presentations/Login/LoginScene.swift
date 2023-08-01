@@ -8,7 +8,7 @@
 import SwiftUI
 import AuthenticationServices
 
-struct LoginView: View {
+struct LoginScene: View {
     @StateObject var viewModel:LoginViewModel
     
     var body: some View {
@@ -49,6 +49,9 @@ struct LoginView: View {
             .padding(20)
         }
         .padding()
+        .onOpenURL { url in
+            viewModel.isKakaoTalkLoginUrl(url)
+        }
     }
 }
 

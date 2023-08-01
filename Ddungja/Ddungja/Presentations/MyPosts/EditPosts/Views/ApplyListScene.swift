@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ApplyListView: View {
+struct ApplyListScene: View {
     @StateObject private var viewModel: MyPostsViewModel
     private var postId: Int
     
@@ -47,7 +47,7 @@ struct ApplyListView: View {
     }
 }
 
-extension ApplyListView {
+extension ApplyListScene {
     private var userTitle: some View {
         HStack(spacing: 14) {
             ZStack {
@@ -134,7 +134,7 @@ extension ApplyListView {
     }
 }
 
-extension ApplyListView {
+extension ApplyListScene {
     private func fetchMoreApplyListData(_ applyList: ApplyListInfoVO, _ postId: Int){
         if self.viewModel.applyLists.last == applyList {
             viewModel.fetchMoreApplyList(id: postId)
