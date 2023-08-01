@@ -19,4 +19,5 @@ enum Page: Hashable {
     case login
     case tapBar
     case signup
+    case home
 }

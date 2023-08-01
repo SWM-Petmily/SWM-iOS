@@ -34,5 +34,10 @@ struct DomainAssembly: Assembly {
             let repository = resolver.resolve(SignUpRepository.self)!
             return SignUpUsecase(repository: repository)
         }
+        
+        container.register(HomeUsecaseInterface.self) { resolver in
+            let repository = resolver.resolve(HomeRepository.self)!
+            return HomeUsecase(repository: repository)
+        }
     }
 }

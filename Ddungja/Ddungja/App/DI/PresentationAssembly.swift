@@ -50,8 +50,9 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(DdungjaTabScene.self) { resolver in
+            let home = resolver.resolve(HomeScene.self)!
             let mypage = resolver.resolve(MyPageScene.self)!
-            return DdungjaTabScene(mypage)
+            return DdungjaTabScene(home, mypage)
         }
         
         container.register(MyPostsScene.self) { resolver in
@@ -87,6 +88,15 @@ struct PresentationAssembly: Assembly {
         container.register(SignUpScene.self) { resolver in
             let signUpViewModel = resolver.resolve(SignUpViewModel.self)!
             return SignUpScene(viewModel: signUpViewModel)
+        }
+        
+        container.register(HomeViewModel.self) { resolver in
+            let usecase = resolver.resolve(HomeUsecaseInterface.self)!
+            return HomeViewModel(coordinator: coordinator, homeUsecase: usecase)
+        }
+        container.register(HomeScene.self) { resolver in
+            let homeViewModel = resolver.resolve(HomeViewModel.self)!
+            return HomeScene(viewModel: homeViewModel)
         }
     }
 }

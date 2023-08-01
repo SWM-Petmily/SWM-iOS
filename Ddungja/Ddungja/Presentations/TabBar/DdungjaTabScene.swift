@@ -9,15 +9,17 @@ import SwiftUI
 
 struct DdungjaTabScene: View {
     
+    private let home: HomeScene
     private let myPage: MyPageScene
     
-    init(_ myPage: MyPageScene) {
+    init(_ home: HomeScene,_ myPage: MyPageScene) {
+        self.home = home
         self.myPage = myPage
     }
     
     var body: some View {
         TabView {
-            HomeScene()
+            home
                 .tabItem {
                     Image(systemName: "house")
                     Text("홈")

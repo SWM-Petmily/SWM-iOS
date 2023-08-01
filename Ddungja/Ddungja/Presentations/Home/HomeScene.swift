@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HomeScene: View {
-    let arr = [1,2,3,4,5,6,7,8]
+    var viewModel: HomeViewModel
+    
     var body: some View {
         CustomLazyVGrid(col: 2, spacing: 10) {
             
