@@ -187,36 +187,21 @@ extension EditProfile {
     
     private var personStatusButton: some View {
         CustomLazyVGrid(col: 3, spacing: 10) {
-            Button {
+            Button("학생") {
                 jobStatus = .student
-            } label: {
-                Text("학생")
-                    .applyInner(color: jobStatus == .student ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(jobStatus == .student ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
+            .buttonStyle(RadioButtonMain(status: jobStatus.rawValue, buttonState: EmploymentStatus.student.rawValue))
             
-            Button {
+            
+            Button("무직") {
                 jobStatus = .unemployed
-            } label: {
-                Text("무직")
-                    .applyInner(color: jobStatus == .unemployed ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(jobStatus == .unemployed ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
-
+            .buttonStyle(RadioButtonMain(status: jobStatus.rawValue, buttonState: EmploymentStatus.unemployed.rawValue))
             
-            Button {
+            Button("직장인") {
                 jobStatus = .employed
-            } label: {
-                Text("직장인")
-                    .applyInner(color: jobStatus == .employed ? .activeTextColor : .disabledTextColor)
-                    .frame(maxWidth: .infinity, minHeight: 54)
-                    .background(jobStatus == .employed ? Color.sub : Color.mainBackground)
-                    .cornerRadius(10)
             }
+            .buttonStyle(RadioButtonMain(status: jobStatus.rawValue, buttonState: EmploymentStatus.employed.rawValue))
         }
     }
     

@@ -30,3 +30,17 @@ struct RadioButton: ViewModifier {
         }
     }
 }
+
+struct RadioButtonMain: ButtonStyle {
+    var status: String
+    var buttonState: String
+    func makeBody(configuration: Configuration) -> some View {
+        let isActive = status == buttonState
+        
+        configuration.label
+            .frame(maxWidth: .infinity, minHeight: 54)
+            .foregroundColor(isActive ? Color(CustomColor.activeTextColor.customValue) : Color(CustomColor.disabledTextColor.customValue))
+            .background(isActive ? Color.sub : Color.mainBackground)
+            .cornerRadius(10)
+    }
+}
