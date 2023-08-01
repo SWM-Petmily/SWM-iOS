@@ -13,6 +13,7 @@ struct HomeVO {
 }
 struct PostsInfoVO {
     let id: Int
+    let name: String
     let subCategory: String
     let thumbnailImage: String
     let region: String

@@ -15,6 +15,7 @@ struct HomeDTO: Decodable {
 struct PostsInfoDTO: Decodable {
     let id: Int?
     let subCategory: String?
+    let name: String?
     let thumbnailImage: String?
     let region: String?
     let genderType: String?
@@ -34,6 +35,7 @@ extension HomeDTO {
             info.append(
                 PostsInfoVO(
                     id: post.id ?? -1,
+                    name: post.name ?? "Unknown",
                     subCategory: post.subCategory ?? "Unknown",
                     thumbnailImage: post.thumbnailImage ?? "Unknown",
                     region: post.region ?? "Unknown",
