@@ -24,6 +24,12 @@
 		753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511A52A430785008B0101 /* LoginAPIProvider.swift */; };
 		753511A82A43427C008B0101 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511A72A43427C008B0101 /* LoginDTO.swift */; };
 		7543D4B82A77C15400A0E9D9 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4B72A77C15400A0E9D9 /* RadioButton.swift */; };
+		7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */; };
+		7543D4BC2A78C75900A0E9D9 /* HomeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */; };
+		7543D4BE2A78C80500A0E9D9 /* HomeRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4BD2A78C80500A0E9D9 /* HomeRepositoryInterface.swift */; };
+		7543D4C02A78C84F00A0E9D9 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4BF2A78C84F00A0E9D9 /* HomeRepository.swift */; };
+		7543D4C22A78C89C00A0E9D9 /* HomeAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4C12A78C89C00A0E9D9 /* HomeAPIProvider.swift */; };
+		7543D4C42A78CE7D00A0E9D9 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4C32A78CE7D00A0E9D9 /* HomeAPI.swift */; };
 		7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDAF2A4C09E20019A986 /* UserProfileAPI.swift */; };
 		7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB22A4C249F0019A986 /* ProfileModifyDTO.swift */; };
 		7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7546BDB42A4C24C40019A986 /* ProfileDetailDTO.swift */; };
@@ -68,7 +74,7 @@
 		759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D22A5E575000603FF4 /* DdungjaTabScene.swift */; };
 		759228D82A5E724100603FF4 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D72A5E724100603FF4 /* RegisterView.swift */; };
 		759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D92A5E724E00603FF4 /* InterestView.swift */; };
-		759228DC2A5E725700603FF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228DB2A5E725700603FF4 /* HomeView.swift */; };
+		759228DC2A5E725700603FF4 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228DB2A5E725700603FF4 /* HomeScene.swift */; };
 		759228DF2A5E8F3F00603FF4 /* MyPageScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228DE2A5E8F3F00603FF4 /* MyPageScene.swift */; };
 		759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228E02A5FDE6200603FF4 /* MyPageViewModel.swift */; };
 		759228E42A5FF0E600603FF4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228E32A5FF0E600603FF4 /* Coordinator.swift */; };
@@ -145,6 +151,12 @@
 		753511A52A430785008B0101 /* LoginAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIProvider.swift; sourceTree = "<group>"; };
 		753511A72A43427C008B0101 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
 		7543D4B72A77C15400A0E9D9 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUsecase.swift; sourceTree = "<group>"; };
+		7543D4BD2A78C80500A0E9D9 /* HomeRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepositoryInterface.swift; sourceTree = "<group>"; };
+		7543D4BF2A78C84F00A0E9D9 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		7543D4C12A78C89C00A0E9D9 /* HomeAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIProvider.swift; sourceTree = "<group>"; };
+		7543D4C32A78CE7D00A0E9D9 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		7546BDAF2A4C09E20019A986 /* UserProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPI.swift; sourceTree = "<group>"; };
 		7546BDB22A4C249F0019A986 /* ProfileModifyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModifyDTO.swift; sourceTree = "<group>"; };
 		7546BDB42A4C24C40019A986 /* ProfileDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailDTO.swift; sourceTree = "<group>"; };
@@ -191,7 +203,7 @@
 		759228D22A5E575000603FF4 /* DdungjaTabScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaTabScene.swift; sourceTree = "<group>"; };
 		759228D72A5E724100603FF4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		759228D92A5E724E00603FF4 /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
-		759228DB2A5E725700603FF4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		759228DB2A5E725700603FF4 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		759228DE2A5E8F3F00603FF4 /* MyPageScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageScene.swift; sourceTree = "<group>"; };
 		759228E02A5FDE6200603FF4 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		759228E32A5FF0E600603FF4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -451,6 +463,7 @@
 				7546BDB82A4C281D0019A986 /* UserProfileAPIProvider.swift */,
 				759228FD2A62E1F500603FF4 /* MyPostsAPIProvider.swift */,
 				754AB6E32A712DB200F2EBC8 /* OAuthProvider.swift */,
+				7543D4C12A78C89C00A0E9D9 /* HomeAPIProvider.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -479,6 +492,7 @@
 				755462452A446A1B00598268 /* SignUpAPI.swift */,
 				7546BDAF2A4C09E20019A986 /* UserProfileAPI.swift */,
 				759228FF2A62E63B00603FF4 /* MyPostsAPI.swift */,
+				7543D4C32A78CE7D00A0E9D9 /* HomeAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -500,6 +514,7 @@
 				755462612A44B40000598268 /* SignUpRepository.swift */,
 				75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */,
 				759228F92A62DD0300603FF4 /* MyPostsRepositoryInterface.swift */,
+				7543D4BD2A78C80500A0E9D9 /* HomeRepositoryInterface.swift */,
 			);
 			path = RepositoryProtocol;
 			sourceTree = "<group>";
@@ -511,6 +526,7 @@
 				7554625D2A44B24100598268 /* SignUpToVORepository.swift */,
 				75FB2FC62A564AC200E4DDE8 /* ProfileToVORepository.swift */,
 				759228FB2A62DD3400603FF4 /* MyPostsRepository.swift */,
+				7543D4BF2A78C84F00A0E9D9 /* HomeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -539,7 +555,8 @@
 		759228D42A5E720E00603FF4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				759228DB2A5E725700603FF4 /* HomeView.swift */,
+				759228DB2A5E725700603FF4 /* HomeScene.swift */,
+				7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -691,6 +708,7 @@
 				75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */,
 				754AB6DF2A6FAC7E00F2EBC8 /* LoginUsecase.swift */,
 				754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */,
+				7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -882,8 +900,11 @@
 				75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */,
 				759228FE2A62E1F500603FF4 /* MyPostsAPIProvider.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
+				7543D4C42A78CE7D00A0E9D9 /* HomeAPI.swift in Sources */,
+				7543D4BE2A78C80500A0E9D9 /* HomeRepositoryInterface.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsScene.swift in Sources */,
+				7543D4C02A78C84F00A0E9D9 /* HomeRepository.swift in Sources */,
 				754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */,
 				754AB6E02A6FAC7E00F2EBC8 /* LoginUsecase.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
@@ -898,8 +919,10 @@
 				754AB6E22A6FFEA600F2EBC8 /* LoginVO.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
+				7543D4C22A78C89C00A0E9D9 /* HomeAPIProvider.swift in Sources */,
 				754AB6F92A75311D00F2EBC8 /* CertificationVO.swift in Sources */,
 				75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */,
+				7543D4BC2A78C75900A0E9D9 /* HomeUsecase.swift in Sources */,
 				75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */,
 				754AB6E42A712DB200F2EBC8 /* OAuthProvider.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
@@ -921,6 +944,7 @@
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				754AB6EE2A73977100F2EBC8 /* SignUpScene.swift in Sources */,
+				7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
@@ -933,7 +957,7 @@
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
 				7543D4B82A77C15400A0E9D9 /* RadioButton.swift in Sources */,
 				75154E582A695A4D0083261A /* Text + Extension.swift in Sources */,
-				759228DC2A5E725700603FF4 /* HomeView.swift in Sources */,
+				759228DC2A5E725700603FF4 /* HomeScene.swift in Sources */,
 				75FB2FEA2A5AFD8B00E4DDE8 /* View + Extension.swift in Sources */,
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,

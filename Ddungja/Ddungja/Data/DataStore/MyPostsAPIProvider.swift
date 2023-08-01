@@ -22,7 +22,6 @@ protocol MyPostsDataSourceInterface {
 
 final class MyPostsAPIProvider: MyPostsDataSourceInterface {
     let moyaProvider: MoyaProvider<MyPostsAPI>
-    var cancellabe = Set<AnyCancellable>()
     
     init(moyaProvider: MoyaProvider<MyPostsAPI> = .init()) {
         self.moyaProvider = moyaProvider
