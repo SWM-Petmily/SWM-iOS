@@ -5,7 +5,7 @@
 //  Created by 오승기 on 2023/08/01.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
 final class HomeViewModel: ObservableObject {
@@ -18,10 +18,15 @@ final class HomeViewModel: ObservableObject {
     init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
         self.coordinator = coordinator
         self.homeUsecase = homeUsecase
-        
-        getMainPost()
     }
     
+    func changeMonthToAge(_ month: Int) -> String {
+        return month <= 12 ? "\(month)개월" : "\(month/12)년\(month%12)개월"
+    }
+    
+    func changeGenderToImage(_ type: String) -> Image {
+        return type == "MALE" ? Image("Male") : Image("Female")
+    }
     func getMainPost(_ page: Int = 1) {
         homeUsecase.getMainPost(page)
             .sink { error in
