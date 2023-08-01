@@ -17,7 +17,7 @@ struct DdungjaTabScene: View {
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeScene()
                 .tabItem {
                     Image(systemName: "house")
                     Text("홈")
