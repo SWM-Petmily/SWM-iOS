@@ -62,6 +62,10 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(DdungjaTabScene.self)
         case .signup:
             injector.resolve(SignUpScene.self)
+        case .home:
+            injector.resolve(HomeScene.self)
+        case let .detailPost(id):
+            injector.resolve(DetailPostScene.self, argument: id)
         }
     }
 }

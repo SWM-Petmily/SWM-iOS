@@ -21,6 +21,7 @@ extension Color {
     static let acceptButton = Color("AcceptButtonColor")
     static let rejectText = Color("RejectTextColor")
     static let rejectButton = Color("RejectButtonColor")
+    static let homeSubFilter = Color("HomeSubFilterColor")
 }
 
 enum CustomColor: String {
@@ -37,6 +38,7 @@ enum CustomColor: String {
     case acceptButton
     case rejectText
     case rejectButton
+    case homeSubFilter
     
     var customValue: String {
         switch self {
@@ -66,6 +68,8 @@ enum CustomColor: String {
             return "RejectTextColor"
         case .rejectButton:
             return "RejectButtonColor"
+        case .homeSubFilter:
+            return "HomeSubFilterColor"
         }
     }
 }
