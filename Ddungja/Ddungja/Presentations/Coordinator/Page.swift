@@ -20,4 +20,5 @@ enum Page: Hashable {
     case tapBar
     case signup
     case home
+    case detailPost(id: Int) //상세게시글페이지
 }

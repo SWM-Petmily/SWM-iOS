@@ -98,5 +98,9 @@ struct PresentationAssembly: Assembly {
             let homeViewModel = resolver.resolve(HomeViewModel.self)!
             return HomeScene(viewModel: homeViewModel)
         }
+        
+        container.register(DetailPostScene.self) { (resolver, id: Int) in
+            return DetailPostScene()
+        }
     }
 }
