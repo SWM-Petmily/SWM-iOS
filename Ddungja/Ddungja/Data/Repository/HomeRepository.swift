@@ -20,4 +20,16 @@ final class HomeRepository: HomeRepositoryInterface {
             .map { $0.toHomeVO() }
             .eraseToAnyPublisher()
     }
+    
+    func requestChangeDisLike(_ id: Int) -> AnyPublisher<Int, MoyaError>  {
+        return datasource.requestChangeDislike(id)
+            .map { $0.statusCode }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestChangeLike(_ id: Int) -> AnyPublisher<Int, MoyaError> {
+        return datasource.requestChangeLike(id)
+            .map { $0.statusCode }
+            .eraseToAnyPublisher()
+    }
 }

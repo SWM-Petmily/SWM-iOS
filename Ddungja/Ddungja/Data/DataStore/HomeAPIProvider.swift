@@ -11,6 +11,8 @@ import Combine
 
 protocol HomeDataSourceInterface {
     func getMainPost(_ page: Int) -> AnyPublisher<HomeDTO, MoyaError>
+    func requestChangeDislike(_ id: Int) -> AnyPublisher<Response, MoyaError>
+    func requestChangeLike(_ id: Int) -> AnyPublisher<Response, MoyaError>
 }
 
 final class HomeAPIProvider: HomeDataSourceInterface {
@@ -25,5 +27,17 @@ final class HomeAPIProvider: HomeDataSourceInterface {
             .retry(3)
             .eraseToAnyPublisher()
             .map(HomeDTO.self)
+    }
+    
+    func requestChangeDislike(_ id: Int) -> AnyPublisher<Response, MoyaError> {
+        moyaProvider.requestPublisher(.disLike(id: id))
+            .retry(3)
+            .eraseToAnyPublisher()
+    }
+    
+    func requestChangeLike(_ id: Int) -> AnyPublisher<Response, MoyaError> {
+        return moyaProvider.requestPublisher(.like(id: id))
+            .retry(3)
+            .eraseToAnyPublisher()
     }
 }

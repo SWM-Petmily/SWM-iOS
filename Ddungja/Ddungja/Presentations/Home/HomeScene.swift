@@ -77,6 +77,14 @@ struct HomeScene: View {
                                 }
                                 .padding(10)
                             }
+                            .onTapGesture(count: 2) {
+                                //좋아요 api쏘는곳
+                                viewModel.tappedLike(info.id, info.isLike)
+                            }
+                            .onTapGesture {
+                                //상세페이지로 이동
+                            }
+                            
                             HStack {
                                 Text("\(viewModel.changeGenderToImage(info.genderType))")
                                     .padding(5)

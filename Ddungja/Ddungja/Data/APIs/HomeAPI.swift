@@ -10,6 +10,8 @@ import Moya
 
 enum HomeAPI {
     case mainPost(page: Int)
+    case like(id: Int)
+    case disLike(id: Int)
 }
 
 extension HomeAPI: TargetType {
@@ -21,6 +23,8 @@ extension HomeAPI: TargetType {
         switch self {
         case .mainPost:
             return "posts/main"
+        case let .like(id), let .disLike(id):
+            return "posts/like/\(id)"
         }
     }
     
@@ -28,6 +32,10 @@ extension HomeAPI: TargetType {
         switch self {
         case .mainPost:
             return .get
+        case .like:
+            return .post
+        case .disLike:
+            return .delete
         }
     }
     
@@ -35,6 +43,8 @@ extension HomeAPI: TargetType {
         switch self {
         case let .mainPost(page):
             return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
+        case .like, .disLike:
+            return .requestPlain
         }
     }
     

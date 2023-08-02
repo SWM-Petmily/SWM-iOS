@@ -27,6 +27,7 @@ final class HomeViewModel: ObservableObject {
     func changeGenderToImage(_ type: String) -> Image {
         return type == "MALE" ? Image("Male") : Image("Female")
     }
+    
     func getMainPost(_ page: Int = 1) {
         homeUsecase.getMainPost(page)
             .sink { error in
@@ -37,7 +38,22 @@ final class HomeViewModel: ObservableObject {
                 
 //                self?.info = vo
             }
-            .store(in: &cancellables
-            )
+            .store(in: &cancellables)
+    }
+    
+    func tappedLike(_ postId: Int, _ currentCheck: Bool) {
+        homeUsecase.tappedLike(postId, currentCheck)
+            .sink { error in
+                
+            } receiveValue: { [weak self] vo in
+                guard let self = self else { return }
+                self.info = self.info.map { var mutableVO = $0
+                    if mutableVO.id == postId {
+                        mutableVO.isLike = !currentCheck
+                    }
+                    return mutableVO
+                }
+            }
+            .store(in: &cancellables)
     }
 }

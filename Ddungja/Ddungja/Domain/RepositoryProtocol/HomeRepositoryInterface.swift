@@ -10,4 +10,6 @@ import Moya
 
 protocol HomeRepositoryInterface {
     func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError>
+    func requestChangeDisLike(_ id: Int) -> AnyPublisher<Int, MoyaError> 
+    func requestChangeLike(_ id: Int) -> AnyPublisher<Int, MoyaError>
 }

@@ -11,6 +11,7 @@ import Moya
 
 protocol HomeUsecaseInterface {
     func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError>
+    func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Int, MoyaError>
 }
 
 final class HomeUsecase: HomeUsecaseInterface {
@@ -22,5 +23,17 @@ final class HomeUsecase: HomeUsecaseInterface {
     
     func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError> {
         return repository.getMainPost(page)
+    }
+
+    /*
+     - currentCheck가 true일 경우 좋아요 취소 요청
+     - currentCheck가 false일 경우 좋아요 누르기 요청
+     */
+    func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Int, MoyaError> {
+        if currentCheck {
+            return repository.requestChangeDisLike(id)
+        } else {
+            return repository.requestChangeLike(id)
+        }
     }
 }

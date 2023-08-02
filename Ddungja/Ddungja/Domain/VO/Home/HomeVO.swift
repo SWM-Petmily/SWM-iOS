@@ -20,6 +20,6 @@ struct PostsInfoVO {
     let genderType: String
     let age: Int
     let money: Int
-    let isLike: Bool
+    var isLike: Bool
     let createdDate: String
 }
