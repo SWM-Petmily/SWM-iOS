@@ -15,6 +15,11 @@ final class HomeViewModel: ObservableObject {
     
     @Published var info = [PostsInfoVO]()
     
+    struct LikeButton {
+        let imageName: String
+        let color: Color
+    }
+    
     init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
         self.coordinator = coordinator
         self.homeUsecase = homeUsecase
@@ -55,5 +60,11 @@ final class HomeViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func likeButton(_ state: Bool) -> LikeButton {
+        let imageName = state ? "heart.fill" : "heart"
+        let color = state ? Color.main : Color.white
+        return LikeButton(imageName: imageName, color: color)
     }
 }

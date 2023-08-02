@@ -13,11 +13,9 @@ struct BackgroundImage: View {
     var body: some View {
         AsyncImage(url: URL(string: imageURL)!) { image in
             image.resizable()
-                .aspectRatio(contentMode: .fill)
         } placeholder: {
             ProgressView()
         }
-        .cornerRadius(14)
     }
 }
 struct HomeScene: View {
@@ -37,8 +35,8 @@ struct HomeScene: View {
                                 BackgroundImage(imageURL: info.thumbnailImage)
                                     .frame(minWidth: 160, maxWidth: .infinity)
                                     .frame(height: 215)
-                                    .clipShape(RoundedRectangle(cornerRadius: 14))
-                                
+                                    .cornerRadius(14)
+                            
                                 VStack {
                                     HStack(alignment: .center) {
                                         
@@ -48,9 +46,9 @@ struct HomeScene: View {
                                             .background(RoundedRectangle(cornerRadius: 35).fill(Color.black).opacity(0.18))
                                         
                                         Spacer()
-                                        
-                                        Image(systemName: "heart")
-                                            .foregroundColor(.white)
+
+                                        Image(systemName: viewModel.likeButton(info.isLike).imageName)
+                                            .foregroundColor(viewModel.likeButton(info.isLike).color)
                                     }
                                     
                                     Spacer()
