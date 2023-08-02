@@ -67,4 +67,8 @@ final class HomeViewModel: ObservableObject {
         let color = state ? Color.main : Color.white
         return LikeButton(imageName: imageName, color: color)
     }
+    
+    func pushDetailPost(_ id: Int) {
+        coordinator.push(.detailPost(id: id))
+    }
 }

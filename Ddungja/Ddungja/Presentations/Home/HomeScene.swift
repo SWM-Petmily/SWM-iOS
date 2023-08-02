@@ -81,6 +81,7 @@ struct HomeScene: View {
                             }
                             .onTapGesture {
                                 //상세페이지로 이동
+                                viewModel.pushDetailPost(info.id)
                             }
                             
                             HStack {
