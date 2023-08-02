@@ -14,6 +14,7 @@ final class DetailPostViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var detail: DetailPostVO?
+    @Published var imagesURLString = [(id: String, url: String)]()
     
     init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
         self.coordinator = coordinator
@@ -26,6 +27,7 @@ final class DetailPostViewModel: ObservableObject {
                 print("getDetailPost error \(error)")
             } receiveValue: { [weak self] vo in
                 self?.detail = vo
+                self?.imagesURLString = vo.images.map { (id: UUID().uuidString, url: $0.url) }
             }
             .store(in: &cancellables)
     }

@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct PetImageView: View {
+    var imageUrl: String
+
+    var body: some View {
+        if let url = URL(string: imageUrl) {
+            AsyncImage(url: url) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+        } else {
+            EmptyView()
+        }
+    }
+}
+
 struct DetailPostScene: View {
     @StateObject private var viewModel: DetailPostViewModel
     private var postId: Int
@@ -17,6 +33,19 @@ struct DetailPostScene: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geo in
+            TabView {
+                ForEach(viewModel.imagesURLString, id: \.id) { image in
+                    PetImageView(imageUrl: image.url)
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                }
+            }
+            .frame(width: geo.size.width, height: 350)
+            .tabViewStyle(.page)
+        }
+        .onAppear {
+            viewModel.getDetailPost(1)
+        }
     }
 }
