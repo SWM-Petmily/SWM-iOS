@@ -33,7 +33,9 @@ final class HomeRepository: HomeRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func getDetailPost(_ id: Int) {
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, MoyaError> {
         datasource.getDetailPost(id)
+            .map { $0.toDetailPostVO() }
+            .eraseToAnyPublisher()
     }
 }
