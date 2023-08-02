@@ -94,13 +94,20 @@ struct PresentationAssembly: Assembly {
             let usecase = resolver.resolve(HomeUsecaseInterface.self)!
             return HomeViewModel(coordinator: coordinator, homeUsecase: usecase)
         }
+        
+        container.register(DetailPostViewModel.self) { resolver in
+            let usecase = resolver.resolve(HomeUsecaseInterface.self)!
+            return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase)
+        }
+        
         container.register(HomeScene.self) { resolver in
             let homeViewModel = resolver.resolve(HomeViewModel.self)!
             return HomeScene(viewModel: homeViewModel)
         }
         
         container.register(DetailPostScene.self) { (resolver, id: Int) in
-            return DetailPostScene()
+            let viewModel = resolver.resolve(DetailPostViewModel.self)!
+            return DetailPostScene(viewModel: viewModel, postId: id)
         }
     }
 }

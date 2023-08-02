@@ -32,4 +32,8 @@ final class HomeRepository: HomeRepositoryInterface {
             .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
+    
+    func getDetailPost(_ id: Int) {
+        datasource.getDetailPost(id)
+    }
 }

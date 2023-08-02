@@ -40,8 +40,6 @@ final class HomeViewModel: ObservableObject {
             } receiveValue: { [weak self] vo in
                 print(vo)
                 self?.info = vo.postsInfo
-                
-//                self?.info = vo
             }
             .store(in: &cancellables)
     }

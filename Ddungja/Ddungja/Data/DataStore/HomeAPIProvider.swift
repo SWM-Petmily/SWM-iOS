@@ -13,6 +13,7 @@ protocol HomeDataSourceInterface {
     func getMainPost(_ page: Int) -> AnyPublisher<HomeDTO, MoyaError>
     func requestChangeDislike(_ id: Int) -> AnyPublisher<Response, MoyaError>
     func requestChangeLike(_ id: Int) -> AnyPublisher<Response, MoyaError>
+    func getDetailPost(_ id: Int)
 }
 
 final class HomeAPIProvider: HomeDataSourceInterface {
@@ -39,5 +40,9 @@ final class HomeAPIProvider: HomeDataSourceInterface {
         return moyaProvider.requestPublisher(.like(id: id))
             .retry(3)
             .eraseToAnyPublisher()
+    }
+    
+    func getDetailPost(_ id: Int) {
+        moyaProvider.requestPublisher(.detailPost(id: id))
     }
 }
