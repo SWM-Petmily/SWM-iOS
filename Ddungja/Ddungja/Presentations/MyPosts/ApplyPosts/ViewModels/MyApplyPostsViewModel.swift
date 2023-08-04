@@ -11,6 +11,7 @@ import SwiftUI
 final class MyApplyPostsViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private let myPostsUsecase: MyApplyPostsUsecaseInterface
+    let applyViewModel: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
     @State private var isLoading = false
     
@@ -18,16 +19,15 @@ final class MyApplyPostsViewModel: ObservableObject {
     @Published var totalPage = 0
     @Published var status = ""
     @Published var myApplyPosts = [ApplyPostsInfoVO]()
-    @Published var detailApply: DetailApplyVO
     
     private var isRequest = false
     
     var deleteEvent = PassthroughSubject<Int, Never>()
     
-    init(coordinator: CoordinatorProtocol, myPostsUsecase: MyApplyPostsUsecaseInterface) {
+    init(coordinator: CoordinatorProtocol, myPostsUsecase: MyApplyPostsUsecaseInterface, applyViewModel: ApplyCommonViewModel) {
         self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
-        self.detailApply = DetailApplyVO(applyId: -1, nickname: "뚱자쓰", job: "-",environment: "-",people: 0,comment: "",region: "",isExperience: false,url: "", openTalk: "",approval: "",applyExperiences: [],isMyApply: false)
+        self.applyViewModel = applyViewModel
         
         deleteEvent
             .throttle(for: 3, scheduler: RunLoop.main, latest: false)
@@ -65,16 +65,6 @@ final class MyApplyPostsViewModel: ObservableObject {
                 self?.myApplyPosts += vo.content
                 self?.pageInfo = vo.pageable.pageNumber + 1
                 self?.totalPage = vo.totalPage
-            }
-            .store(in: &cancellables)
-    }
-    
-    func getApplyInfo(id: Int) {
-        myPostsUsecase.getApplyInfo(id: id)
-            .sink { completion in
-                print("getApplyInfo \(completion)")
-            } receiveValue: { [weak self] vo in
-                self?.detailApply = vo
             }
             .store(in: &cancellables)
     }
