@@ -27,4 +27,14 @@ final class ApplyCommonViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func postApply(_ postId: Int) {
+        myPostsUsecase.postApply(postId, detailApply)
+            .sink { error in
+                print("postApply \(error)")
+            } receiveValue: { [weak self] vo in
+                print(vo)
+            }
+            .store(in: &cancellables)
+    }
 }
