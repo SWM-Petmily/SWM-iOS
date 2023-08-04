@@ -64,29 +64,11 @@ struct DetailPostScene: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
+                
                 HStack {
-                    VStack(alignment: .center) {
-                        Image(systemName: "heart")
-                            .foregroundColor(.disabledText)
-                            .frame(width: 24, height: 24)
-                        Text("\(viewModel.detail?.likeCount ?? -1)")
-                            .bold()
-                            .applySubtitle(color: .mainTextColor)
-                    }
-                    .padding(.leading, 20)
+                    likeButton
                     
-                    Button {
-                        
-                    } label: {
-                        Text("입양 신청하기")
-                            .bold()
-                            .applyInner(color: .white)
-                            .frame(height: 52)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .background(Color.main)
-                    .cornerRadius(14)
-                    .padding()
+                    requsetButton
                 }
             }
             .navigationBarBackButtonHidden()
@@ -100,7 +82,7 @@ struct DetailPostScene: View {
             }
         }
         .onAppear {
-            viewModel.getDetailPost(1)
+            viewModel.getDetailPost(postId)
         }
     }
 }
@@ -126,7 +108,7 @@ extension DetailPostScene {
                     .applySubtitle(color: .disabledTextColor)
             }
         }
-        .padding([.leading, .trailing])
+        .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
@@ -317,5 +299,33 @@ extension DetailPostScene {
                 .applyInner(color: .mainTextColor)
         }
         .padding([.leading, .trailing])
+    }
+    
+    private var likeButton: some View {
+        VStack(alignment: .center) {
+            Image(systemName: "heart")
+                .foregroundColor(.disabledText)
+                .frame(width: 24, height: 24)
+            Text("\(viewModel.detail?.likeCount ?? -1)")
+                .bold()
+                .applySubtitle(color: .mainTextColor)
+        }
+        .padding(.leading, 20)
+    }
+    
+    private var requsetButton: some View {
+        Button {
+            viewModel.push(postId)
+        } label: {
+            Text(viewModel.buttonText)
+                .bold()
+                .applyInner(color: .white)
+                .frame(height: 52)
+                .frame(maxWidth: .infinity)
+        }
+        .background(Color.main)
+        .disabled(viewModel.buttonDisabled)
+        .cornerRadius(14)
+        .padding()
     }
 }
