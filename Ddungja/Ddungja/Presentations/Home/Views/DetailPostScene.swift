@@ -303,14 +303,18 @@ extension DetailPostScene {
     
     private var likeButton: some View {
         VStack(alignment: .center) {
-            Image(systemName: "heart")
-                .foregroundColor(.disabledText)
+            Image(systemName: viewModel.likeButton(viewModel.like).imageName)
+                .foregroundColor(viewModel.likeButton(viewModel.like).color)
                 .frame(width: 24, height: 24)
-            Text("\(viewModel.detail?.likeCount ?? -1)")
+            Text("\(viewModel.likeCount)")
                 .bold()
                 .applySubtitle(color: .mainTextColor)
         }
         .padding(.leading, 20)
+        .onTapGesture {
+            viewModel.tappedLike(postId)
+            viewModel.likeActionSubject.send()
+        }
     }
     
     private var requsetButton: some View {

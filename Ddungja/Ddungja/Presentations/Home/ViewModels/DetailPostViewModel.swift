@@ -21,9 +21,11 @@ final class DetailPostViewModel: ObservableObject {
     @Published var buttonDisabled = false
     @Published var buttonBackground = Color.buttonBackground
     @Published var textColor = CustomColor.disabledTextColor
+    @Published var like = false
+    @Published var likeCount = -1
     
     private var buttonActionSubject = PassthroughSubject<(isWriter: Bool, isApply: Bool, state: String), Never>()
-    
+    var likeActionSubject = PassthroughSubject<(), Never>()
     init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
         self.coordinator = coordinator
         self.homeUsecase = homeUsecase
@@ -34,6 +36,16 @@ final class DetailPostViewModel: ObservableObject {
             self.buttonDisabled = changeButtonAbled(isWriter, isApply, state)
         }
         .store(in: &cancellables)
+        
+        likeActionSubject.sink { [weak self] _ in
+            guard let self = self else { return }
+            likeCount = like ? likeCount - 1 : likeCount + 1
+        }
+        .store(in: &cancellables)
+    }
+    struct LikeButton {
+        let imageName: String
+        let color: Color
     }
     
     private func changeButtonAbled(_ isWriter: Bool, _ isApply: Bool, _ state: String) -> Bool {
@@ -75,6 +87,23 @@ final class DetailPostViewModel: ObservableObject {
         }
     }
     
+    func tappedLike(_ postId: Int) {
+        homeUsecase.tappedLike(postId, like)
+            .sink { error in
+                
+            } receiveValue: { [weak self] vo in
+                guard let self = self else { return }
+                self.like = !like
+            }
+            .store(in: &cancellables)
+    }
+    
+    func likeButton(_ state: Bool) -> LikeButton {
+        let imageName = state ? "heart.fill" : "heart"
+        let color = state ? Color.main : Color.disabledText
+        return LikeButton(imageName: imageName, color: color)
+    }
+    
     func getDetailPost(_ id: Int) {
         homeUsecase.getDetailPost(id)
             .sink { error in
@@ -85,6 +114,8 @@ final class DetailPostViewModel: ObservableObject {
                 self?.imagesURLString = vo.images.map { (id: UUID().uuidString, url: $0.url) }
                 self?.diseaseInfo = vo.diseases.map { $0 }
                 self?.buttonActionSubject.send((vo.isWriter, vo.isApply, vo.status))
+                self?.like = vo.isLike
+                self?.likeCount = vo.likeCount
             }
             .store(in: &cancellables)
     }
