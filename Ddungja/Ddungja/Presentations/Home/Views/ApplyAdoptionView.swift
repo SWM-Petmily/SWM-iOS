@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ApplyAdoptionView: View {
     @StateObject private var viewModel: DetailPostViewModel
-    
-    init(viewModel: DetailPostViewModel) {
+    private let postId: Int
+    init(viewModel: DetailPostViewModel, postId: Int) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.postId = postId
     }
     
     var body: some View {
@@ -27,7 +28,7 @@ struct ApplyAdoptionView: View {
             }
         
         Button {
-//            viewModel.applyCommon.
+            viewModel.applyCommon.postApply(postId)
         } label: {
             Text("입양 신청하기")
                 .applyInner(color: .white)

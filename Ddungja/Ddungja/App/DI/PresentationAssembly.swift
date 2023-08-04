@@ -124,7 +124,7 @@ struct PresentationAssembly: Assembly {
         
         container.register(ApplyAdoptionView.self) { (resolver, id: Int) in
             let viewModel = resolver.resolve(DetailPostViewModel.self)!
-            return ApplyAdoptionView(viewModel: viewModel)
+            return ApplyAdoptionView(viewModel: viewModel, postId: id)
         }
     }
 }
