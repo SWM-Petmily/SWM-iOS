@@ -66,6 +66,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(HomeScene.self)
         case let .detailPost(id):
             injector.resolve(DetailPostScene.self, argument: id)
+        case let .applyAdaption(postId):
+            injector.resolve(ApplyAdoptionView.self, argument: postId)
         }
     }
 }

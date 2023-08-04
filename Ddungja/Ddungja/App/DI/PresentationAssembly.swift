@@ -103,7 +103,8 @@ struct PresentationAssembly: Assembly {
         
         container.register(DetailPostViewModel.self) { resolver in
             let usecase = resolver.resolve(HomeUsecaseInterface.self)!
-            return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase)
+            let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
+            return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase, applyCommon: viewModel)
         }
         
         container.register(HomeScene.self) { resolver in
@@ -119,6 +120,11 @@ struct PresentationAssembly: Assembly {
         container.register(DetailPostScene.self) { (resolver, id: Int) in
             let viewModel = resolver.resolve(DetailPostViewModel.self)!
             return DetailPostScene(viewModel: viewModel, postId: id)
+        }
+        
+        container.register(ApplyAdoptionView.self) { (resolver, id: Int) in
+            let viewModel = resolver.resolve(DetailPostViewModel.self)!
+            return ApplyAdoptionView(viewModel: viewModel)
         }
     }
 }

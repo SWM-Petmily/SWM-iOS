@@ -12,6 +12,7 @@ import SwiftUI
 final class DetailPostViewModel: ObservableObject {
     private let coordinator: CoordinatorProtocol
     private let homeUsecase: HomeUsecaseInterface
+    private(set) var applyCommon: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
     
     @Published var detail: DetailPostVO?
@@ -26,9 +27,10 @@ final class DetailPostViewModel: ObservableObject {
     
     private var buttonActionSubject = PassthroughSubject<(isWriter: Bool, isApply: Bool, state: String), Never>()
     var likeActionSubject = PassthroughSubject<(), Never>()
-    init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
+    init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface, applyCommon: ApplyCommonViewModel) {
         self.coordinator = coordinator
         self.homeUsecase = homeUsecase
+        self.applyCommon = applyCommon
         
         buttonActionSubject.sink { [weak self] (isWriter, isApply, state) in
             guard let self = self else { return }
@@ -139,7 +141,13 @@ final class DetailPostViewModel: ObservableObject {
     }
 
     func push(_ id: Int) {
-        coordinator.push(.applyModify(id: id))
+        if buttonText == "입양 신청하기" {
+            coordinator.push(.applyAdaption(postId: id))
+        }
+    }
+    
+    func moveToEditProfile() {
+        coordinator.push(.editProfile)
     }
     
     func pop() {
