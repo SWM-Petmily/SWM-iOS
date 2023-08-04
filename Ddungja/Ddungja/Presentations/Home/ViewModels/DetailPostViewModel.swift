@@ -19,6 +19,8 @@ final class DetailPostViewModel: ObservableObject {
     @Published var diseaseInfo = [String]()
     @Published var buttonText = ""
     @Published var buttonDisabled = false
+    @Published var buttonBackground = Color.buttonBackground
+    @Published var textColor = CustomColor.disabledTextColor
     
     private var buttonActionSubject = PassthroughSubject<(isWriter: Bool, isApply: Bool, state: String), Never>()
     
@@ -37,9 +39,19 @@ final class DetailPostViewModel: ObservableObject {
     private func changeButtonAbled(_ isWriter: Bool, _ isApply: Bool, _ state: String) -> Bool {
         if state == "SAVE" {
             if isWriter {
+                buttonBackground = Color.main
+                textColor = .white
                 return false
             } else {
-                return isApply ? true : false
+                if isApply {
+                    buttonBackground = Color.buttonBackground
+                    textColor = CustomColor.disabledTextColor
+                    return true
+                } else {
+                    buttonBackground = Color.main
+                    textColor = .white
+                    return false
+                }
             }
         }
         return false

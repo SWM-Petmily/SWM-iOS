@@ -319,11 +319,11 @@ extension DetailPostScene {
         } label: {
             Text(viewModel.buttonText)
                 .bold()
-                .applyInner(color: .white)
+                .applyInner(color: viewModel.textColor)
                 .frame(height: 52)
                 .frame(maxWidth: .infinity)
         }
-        .background(Color.main)
+        .background(viewModel.buttonBackground)
         .disabled(viewModel.buttonDisabled)
         .cornerRadius(14)
         .padding()
