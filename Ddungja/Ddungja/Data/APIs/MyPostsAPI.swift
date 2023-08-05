@@ -16,6 +16,7 @@ enum MyPostsAPI {
     case detailApply(id: Int)
     case acceptInfo(id: Int, approval: AcceptInfoDTO)
     case deleteInfo(id: Int)
+    case postApply(postId: Int, info: DetailApplyVO)
 }
 
 extension MyPostsAPI: TargetType {
@@ -42,6 +43,9 @@ extension MyPostsAPI: TargetType {
             
         case let .deleteInfo(id):
             return "users/apply/\(id)/cancel"
+            
+        case let .postApply(postId, _):
+            return "users/apply/\(postId)"
         }
     }
     
@@ -50,7 +54,7 @@ extension MyPostsAPI: TargetType {
         case .myEditPosts, .myApplyPosts, .applyList, .detailApply:
             return .get
             
-        case .acceptInfo:
+        case .acceptInfo, .postApply:
             return .post
             
         case .deleteInfo:
@@ -77,6 +81,9 @@ extension MyPostsAPI: TargetType {
             
         case .deleteInfo:
             return .requestPlain
+            
+        case let .postApply(_, info):
+            return .requestJSONEncodable(info)
         }
     }
     

@@ -12,6 +12,7 @@ enum HomeAPI {
     case mainPost(page: Int)
     case like(id: Int)
     case disLike(id: Int)
+    case detailPost(id: Int)
 }
 
 extension HomeAPI: TargetType {
@@ -25,12 +26,14 @@ extension HomeAPI: TargetType {
             return "posts/main"
         case let .like(id), let .disLike(id):
             return "posts/like/\(id)"
+        case let .detailPost(id):
+            return "posts/\(id)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .mainPost:
+        case .mainPost, .detailPost:
             return .get
         case .like:
             return .post
@@ -43,7 +46,7 @@ extension HomeAPI: TargetType {
         switch self {
         case let .mainPost(page):
             return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
-        case .like, .disLike:
+        case .like, .disLike, .detailPost:
             return .requestPlain
         }
     }

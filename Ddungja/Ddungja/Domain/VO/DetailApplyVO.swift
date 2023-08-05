@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailApplyVO {
+struct DetailApplyVO: Encodable {
     let applyId: Int
     let nickname: String
     let job: String
@@ -23,7 +23,7 @@ struct DetailApplyVO {
     let isMyApply: Bool
 }
 
-struct ApplyExperiencsVO {
+struct ApplyExperiencsVO: Encodable {
     let species: String
     let period: Int
 }

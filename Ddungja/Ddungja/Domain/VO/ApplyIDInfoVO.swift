@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct DeleteInfoVO {
+struct ApplyIDInfoVO {
     let applyId: Int
 }

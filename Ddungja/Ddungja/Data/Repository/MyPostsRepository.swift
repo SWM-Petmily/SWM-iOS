@@ -44,9 +44,15 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoVO, MoyaError>{
+    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
         dataSource.deleteInfo(id: id)
             .map { $0.toInfoVO() }
+            .eraseToAnyPublisher()
+    }
+    
+    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
+        return dataSource.postApply(postId, info)
+            .map { $0.toApplyIdVO() }
             .eraseToAnyPublisher()
     }
 }

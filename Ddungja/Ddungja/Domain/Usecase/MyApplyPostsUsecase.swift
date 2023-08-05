@@ -11,7 +11,8 @@ import Moya
 protocol MyApplyPostsUsecaseInterface {
     func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, MoyaError>
     func getApplyInfo(id: Int) -> AnyPublisher<DetailApplyVO, MoyaError>
-    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoVO, MoyaError>
+    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, MoyaError>
+    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, MoyaError>
 }
 
 final class MyApplyPostsUsecase: MyApplyPostsUsecaseInterface {
@@ -29,7 +30,11 @@ final class MyApplyPostsUsecase: MyApplyPostsUsecaseInterface {
         return repository.getDetailApply(id: id)
     }
     
-    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoVO, MoyaError> {
+    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
         return repository.deleteInfo(id: id)
+    }
+    
+    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
+        return repository.postApply(postId, info)
     }
 }

@@ -22,7 +22,13 @@ struct PresentationAssembly: Assembly {
         
         container.register(MyApplyPostsViewModel.self) { resolver in
             let usecase = resolver.resolve(MyApplyPostsUsecaseInterface.self)!
-            return MyApplyPostsViewModel(coordinator: coordinator, myPostsUsecase: usecase)
+            let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
+            return MyApplyPostsViewModel(coordinator: coordinator, myPostsUsecase: usecase, applyViewModel: viewModel)
+        }
+        
+        container.register(ApplyCommonViewModel.self) { resolover in
+            let usecase = resolover.resolve(MyApplyPostsUsecaseInterface.self)!
+            return ApplyCommonViewModel(myPostsUsecase: usecase)
         }
         
         container.register(LoginViewModel.self) { resolver in
@@ -94,13 +100,31 @@ struct PresentationAssembly: Assembly {
             let usecase = resolver.resolve(HomeUsecaseInterface.self)!
             return HomeViewModel(coordinator: coordinator, homeUsecase: usecase)
         }
+        
+        container.register(DetailPostViewModel.self) { resolver in
+            let usecase = resolver.resolve(HomeUsecaseInterface.self)!
+            let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
+            return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase, applyCommon: viewModel)
+        }
+        
         container.register(HomeScene.self) { resolver in
             let homeViewModel = resolver.resolve(HomeViewModel.self)!
             return HomeScene(viewModel: homeViewModel)
         }
         
+        container.register(ApplyCommonView.self) { resolver in
+            let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
+            return ApplyCommonView(viewModel: viewModel)
+        }
+        
         container.register(DetailPostScene.self) { (resolver, id: Int) in
-            return DetailPostScene()
+            let viewModel = resolver.resolve(DetailPostViewModel.self)!
+            return DetailPostScene(viewModel: viewModel, postId: id)
+        }
+        
+        container.register(ApplyAdoptionView.self) { (resolver, id: Int) in
+            let viewModel = resolver.resolve(DetailPostViewModel.self)!
+            return ApplyAdoptionView(viewModel: viewModel, postId: id)
         }
     }
 }

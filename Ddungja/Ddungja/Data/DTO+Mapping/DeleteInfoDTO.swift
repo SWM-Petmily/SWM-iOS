@@ -12,7 +12,7 @@ struct DeleteInfoDTO: Decodable {
 }
 
 extension DeleteInfoDTO {
-    func toInfoVO() -> DeleteInfoVO {
-        return DeleteInfoVO(applyId: applyId ?? -1)
+    func toInfoVO() -> ApplyIDInfoVO {
+        return ApplyIDInfoVO(applyId: applyId ?? -1)
     }
 }

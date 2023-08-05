@@ -23,7 +23,14 @@
 		753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511602A41DA2E008B0101 /* LoginAPI.swift */; };
 		753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511A52A430785008B0101 /* LoginAPIProvider.swift */; };
 		753511A82A43427C008B0101 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753511A72A43427C008B0101 /* LoginDTO.swift */; };
+		753BA7142A7D37430090EAE3 /* ApplyAdoptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7132A7D37430090EAE3 /* ApplyAdoptionView.swift */; };
+		753BA7162A7D49A10090EAE3 /* PostApplyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7152A7D49A10090EAE3 /* PostApplyDTO.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
+		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
+		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
+		753DF8C92A7B015E001D50AE /* DetailPostVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C82A7B015E001D50AE /* DetailPostVO.swift */; };
+		753DF8CD2A7CF690001D50AE /* ApplyCommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8CC2A7CF690001D50AE /* ApplyCommonViewModel.swift */; };
+		753DF8CF2A7D1A61001D50AE /* ApplyCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8CE2A7D1A61001D50AE /* ApplyCommonView.swift */; };
 		7543D4B82A77C15400A0E9D9 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4B72A77C15400A0E9D9 /* RadioButton.swift */; };
 		7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */; };
 		7543D4BC2A78C75900A0E9D9 /* HomeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */; };
@@ -47,7 +54,7 @@
 		754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */; };
 		754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D02A6D3BD300F2EBC8 /* ApplyModifyVIew.swift */; };
 		754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */; };
-		754AB6D52A6D522700F2EBC8 /* DeleteInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */; };
+		754AB6D52A6D522700F2EBC8 /* ApplyIDInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D42A6D522700F2EBC8 /* ApplyIDInfoVO.swift */; };
 		754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6D72A6F521700F2EBC8 /* KeyChainManager.swift */; };
 		754AB6DE2A6FA91900F2EBC8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6DD2A6FA91900F2EBC8 /* Bundle+Extension.swift */; };
 		754AB6E02A6FAC7E00F2EBC8 /* LoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6DF2A6FAC7E00F2EBC8 /* LoginUsecase.swift */; };
@@ -153,7 +160,14 @@
 		753511602A41DA2E008B0101 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		753511A52A430785008B0101 /* LoginAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIProvider.swift; sourceTree = "<group>"; };
 		753511A72A43427C008B0101 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
+		753BA7132A7D37430090EAE3 /* ApplyAdoptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyAdoptionView.swift; sourceTree = "<group>"; };
+		753BA7152A7D49A10090EAE3 /* PostApplyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApplyDTO.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
+		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
+		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
+		753DF8C82A7B015E001D50AE /* DetailPostVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostVO.swift; sourceTree = "<group>"; };
+		753DF8CC2A7CF690001D50AE /* ApplyCommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCommonViewModel.swift; sourceTree = "<group>"; };
+		753DF8CE2A7D1A61001D50AE /* ApplyCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyCommonView.swift; sourceTree = "<group>"; };
 		7543D4B72A77C15400A0E9D9 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUsecase.swift; sourceTree = "<group>"; };
@@ -177,7 +191,7 @@
 		754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInfoDTO.swift; sourceTree = "<group>"; };
 		754AB6D02A6D3BD300F2EBC8 /* ApplyModifyVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyModifyVIew.swift; sourceTree = "<group>"; };
 		754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInfoDTO.swift; sourceTree = "<group>"; };
-		754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInfoVO.swift; sourceTree = "<group>"; };
+		754AB6D42A6D522700F2EBC8 /* ApplyIDInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyIDInfoVO.swift; sourceTree = "<group>"; };
 		754AB6D72A6F521700F2EBC8 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		754AB6DA2A6F9FE100F2EBC8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		754AB6DD2A6FA91900F2EBC8 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -305,9 +319,38 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		753BA7122A7D244C0090EAE3 /* Apply */ = {
+			isa = PBXGroup;
+			children = (
+				753DF8CC2A7CF690001D50AE /* ApplyCommonViewModel.swift */,
+				753DF8CE2A7D1A61001D50AE /* ApplyCommonView.swift */,
+			);
+			path = Apply;
+			sourceTree = "<group>";
+		};
+		753DF8C22A7AEE98001D50AE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */,
+				753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		753DF8C32A7AEEA3001D50AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				759228DB2A5E725700603FF4 /* HomeScene.swift */,
+				753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */,
+				753BA7132A7D37430090EAE3 /* ApplyAdoptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7543D4B62A77C13900A0E9D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				753BA7122A7D244C0090EAE3 /* Apply */,
 				7543D4B72A77C15400A0E9D9 /* RadioButton.swift */,
 			);
 			path = Common;
@@ -317,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				7543D4C72A78D33300A0E9D9 /* HomeDTO.swift */,
+				753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -334,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				7543D4CA2A78D57200A0E9D9 /* HomeVO.swift */,
+				753DF8C82A7B015E001D50AE /* DetailPostVO.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -513,6 +558,7 @@
 				754AB6CE2A6C298B00F2EBC8 /* AcceptInfoDTO.swift */,
 				754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */,
 				754AB6E52A71590200F2EBC8 /* OAuthDTO.swift */,
+				753BA7152A7D49A10090EAE3 /* PostApplyDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -587,9 +633,8 @@
 		759228D42A5E720E00603FF4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				759228DB2A5E725700603FF4 /* HomeScene.swift */,
-				7543D4B92A78C2DB00A0E9D9 /* HomeViewModel.swift */,
-				753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */,
+				753DF8C32A7AEEA3001D50AE /* Views */,
+				753DF8C22A7AEE98001D50AE /* ViewModels */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -728,7 +773,7 @@
 				7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */,
 				754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */,
 				754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */,
-				754AB6D42A6D522700F2EBC8 /* DeleteInfoVO.swift */,
+				754AB6D42A6D522700F2EBC8 /* ApplyIDInfoVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -923,6 +968,7 @@
 			files = (
 				754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */,
 				759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */,
+				753DF8CD2A7CF690001D50AE /* ApplyCommonViewModel.swift in Sources */,
 				759228F22A6138C400603FF4 /* MyPostsScene.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
 				759228E72A5FF29C00603FF4 /* Page.swift in Sources */,
@@ -930,15 +976,19 @@
 				75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */,
 				754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */,
 				759229042A63BBBD00603FF4 /* MyEditPostsVO.swift in Sources */,
+				753DF8C92A7B015E001D50AE /* DetailPostVO.swift in Sources */,
 				75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */,
 				759228FE2A62E1F500603FF4 /* MyPostsAPIProvider.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				7543D4C42A78CE7D00A0E9D9 /* HomeAPI.swift in Sources */,
+				753BA7142A7D37430090EAE3 /* ApplyAdoptionView.swift in Sources */,
 				7543D4BE2A78C80500A0E9D9 /* HomeRepositoryInterface.swift in Sources */,
+				753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsScene.swift in Sources */,
 				7543D4C02A78C84F00A0E9D9 /* HomeRepository.swift in Sources */,
 				754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */,
+				753DF8CF2A7D1A61001D50AE /* ApplyCommonView.swift in Sources */,
 				754AB6E02A6FAC7E00F2EBC8 /* LoginUsecase.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				7543D4C82A78D33300A0E9D9 /* HomeDTO.swift in Sources */,
@@ -983,7 +1033,7 @@
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
-				754AB6D52A6D522700F2EBC8 /* DeleteInfoVO.swift in Sources */,
+				754AB6D52A6D522700F2EBC8 /* ApplyIDInfoVO.swift in Sources */,
 				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
 				754AB6F02A74CC7F00F2EBC8 /* SignUpViewModel.swift in Sources */,
 				754AB6E82A71713500F2EBC8 /* LoginResultVO.swift in Sources */,
@@ -991,11 +1041,13 @@
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
 				7543D4B82A77C15400A0E9D9 /* RadioButton.swift in Sources */,
+				753BA7162A7D49A10090EAE3 /* PostApplyDTO.swift in Sources */,
 				75154E582A695A4D0083261A /* Text + Extension.swift in Sources */,
 				759228DC2A5E725700603FF4 /* HomeScene.swift in Sources */,
 				75FB2FEA2A5AFD8B00E4DDE8 /* View + Extension.swift in Sources */,
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
+				753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */,
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
 				7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */,
 				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
