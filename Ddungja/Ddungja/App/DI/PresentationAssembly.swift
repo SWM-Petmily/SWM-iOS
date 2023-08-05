@@ -36,6 +36,11 @@ struct PresentationAssembly: Assembly {
             return LoginViewModel(coordinator:coordinator ,loginUsecase: usecase)
         }
         
+        container.register(RegisterViewModel.self) { resolver in
+            let usecase = resolver.resolve(RegisterUsecaseInterface.self)!
+            return RegisterViewModel(coordinator: coordinator, registerUsecase: usecase)
+        }
+        
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
             return LoginScene(viewModel: viewModel)
@@ -57,8 +62,9 @@ struct PresentationAssembly: Assembly {
         
         container.register(DdungjaTabScene.self) { resolver in
             let home = resolver.resolve(HomeScene.self)!
+            let register = resolver.resolve(RegisterScene.self)!
             let mypage = resolver.resolve(MyPageScene.self)!
-            return DdungjaTabScene(home, mypage)
+            return DdungjaTabScene(home, register, mypage)
         }
         
         container.register(MyPostsScene.self) { resolver in
@@ -125,6 +131,11 @@ struct PresentationAssembly: Assembly {
         container.register(ApplyAdoptionView.self) { (resolver, id: Int) in
             let viewModel = resolver.resolve(DetailPostViewModel.self)!
             return ApplyAdoptionView(viewModel: viewModel, postId: id)
+        }
+        
+        container.register(RegisterScene.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return RegisterScene(viewModel: viewModel)
         }
     }
 }
