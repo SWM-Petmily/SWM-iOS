@@ -32,6 +32,8 @@
 		753BA7212A7E724E0090EAE3 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7202A7E724E0090EAE3 /* RegisterRepository.swift */; };
 		753BA7232A7E728C0090EAE3 /* RegisterAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7222A7E728C0090EAE3 /* RegisterAPIProvider.swift */; };
 		753BA7252A7E72C80090EAE3 /* RegisterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7242A7E72C80090EAE3 /* RegisterAPI.swift */; };
+		753BA7282A7E80500090EAE3 /* RegisteredPetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */; };
+		753BA72B2A7E83D40090EAE3 /* RegisteredPetVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA72A2A7E83D40090EAE3 /* RegisteredPetVO.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -176,6 +178,8 @@
 		753BA7202A7E724E0090EAE3 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		753BA7222A7E728C0090EAE3 /* RegisterAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIProvider.swift; sourceTree = "<group>"; };
 		753BA7242A7E72C80090EAE3 /* RegisterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPI.swift; sourceTree = "<group>"; };
+		753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredPetDTO.swift; sourceTree = "<group>"; };
+		753BA72A2A7E83D40090EAE3 /* RegisteredPetVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredPetVO.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -340,6 +344,22 @@
 				753DF8CE2A7D1A61001D50AE /* ApplyCommonView.swift */,
 			);
 			path = Apply;
+			sourceTree = "<group>";
+		};
+		753BA7262A7E803B0090EAE3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		753BA7292A7E83C70090EAE3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				753BA72A2A7E83D40090EAE3 /* RegisteredPetVO.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		753DF8C22A7AEE98001D50AE /* ViewModels */ = {
@@ -563,6 +583,7 @@
 		755462552A44B0C900598268 /* DTO+Mapping */ = {
 			isa = PBXGroup;
 			children = (
+				753BA7262A7E803B0090EAE3 /* Register */,
 				7543D4C92A78D34B00A0E9D9 /* Home */,
 				7546BDB12A4C24870019A986 /* UserProfileDTO */,
 				753511A72A43427C008B0101 /* LoginDTO.swift */,
@@ -783,6 +804,7 @@
 		75FB2FBE2A55B49100E4DDE8 /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				753BA7292A7E83C70090EAE3 /* Register */,
 				7543D4CD2A78D58A00A0E9D9 /* Home */,
 				7543D4CC2A78D58200A0E9D9 /* Login */,
 				754AB6F72A7530FC00F2EBC8 /* SignUp */,
@@ -1038,6 +1060,7 @@
 				759228F82A62D81400603FF4 /* MyPostsUsecase.swift in Sources */,
 				754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
+				753BA7282A7E80500090EAE3 /* RegisteredPetDTO.swift in Sources */,
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
 				754AB6F22A75001C00F2EBC8 /* SignUpUsecase.swift in Sources */,
@@ -1098,6 +1121,7 @@
 				754AB6CB2A6BF56100F2EBC8 /* DetailApplyVO.swift in Sources */,
 				753511A62A430785008B0101 /* LoginAPIProvider.swift in Sources */,
 				7546BDB02A4C09E20019A986 /* UserProfileAPI.swift in Sources */,
+				753BA72B2A7E83D40090EAE3 /* RegisteredPetVO.swift in Sources */,
 				753BA71F2A7E72380090EAE3 /* RegisterRepositoryInterface.swift in Sources */,
 				75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */,
 				753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */,

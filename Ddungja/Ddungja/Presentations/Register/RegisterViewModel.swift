@@ -17,4 +17,14 @@ final class RegisterViewModel: ObservableObject {
         self.coordinator = coordinator
         self.registerUsecase = registerUsecase
     }
+    
+    func getRegisteredPet() {
+        registerUsecase.getRegisteredPet()
+            .sink { error in
+                print(error)
+            } receiveValue: { [weak self] vo in
+                print(vo)
+            }
+            .store(in: &cancellables)
+    }
 }

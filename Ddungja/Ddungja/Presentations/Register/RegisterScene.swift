@@ -18,9 +18,3 @@ struct RegisterScene: View {
         Color.blue
     }
 }
-
-struct registerView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterScene()
-    }
-}

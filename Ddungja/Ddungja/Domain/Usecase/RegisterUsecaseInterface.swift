@@ -5,10 +5,11 @@
 //  Created by 오승기 on 2023/08/05.
 //
 
-import Foundation
+import Combine
+import Moya
 
 protocol RegisterUsecaseInterface {
-    
+    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError>
 }
 
 final class RegisterUsecase: RegisterUsecaseInterface {
@@ -16,5 +17,9 @@ final class RegisterUsecase: RegisterUsecaseInterface {
     
     init(repository: RegisterRepositoryInterface) {
         self.repository = repository
+    }
+    
+    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError> {
+        return repository.getRegisteredPet()
     }
 }
