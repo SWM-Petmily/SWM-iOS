@@ -1,5 +1,5 @@
 //
-//  RegisterView.swift
+//  RegisterScene.swift
 //  Ddungja
 //
 //  Created by 오승기 on 2023/07/12.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegisterView: View {
+struct RegisterScene: View {
     var body: some View {
         Color.blue
     }
@@ -15,6 +15,6 @@ struct RegisterView: View {
 
 struct registerView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterScene()
     }
 }

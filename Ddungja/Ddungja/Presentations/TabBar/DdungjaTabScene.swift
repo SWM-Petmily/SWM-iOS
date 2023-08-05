@@ -34,7 +34,7 @@ struct DdungjaTabScene: View {
                     
                 }
             
-            RegisterView()
+            RegisterScene()
                 .tabItem {
                     Image(systemName: "plus.app")
                         .environment(\.symbolVariants, .none)
