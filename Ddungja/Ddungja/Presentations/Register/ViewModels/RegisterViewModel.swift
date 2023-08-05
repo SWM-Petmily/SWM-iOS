@@ -13,6 +13,7 @@ final class RegisterViewModel: ObservableObject {
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
+    @Published var registeredPetInfo = [RegisteredPetVO]()
     init(coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
         self.coordinator = coordinator
         self.registerUsecase = registerUsecase
@@ -23,7 +24,7 @@ final class RegisterViewModel: ObservableObject {
             .sink { error in
                 print(error)
             } receiveValue: { [weak self] vo in
-                print(vo)
+                self?.registeredPetInfo = vo
             }
             .store(in: &cancellables)
     }

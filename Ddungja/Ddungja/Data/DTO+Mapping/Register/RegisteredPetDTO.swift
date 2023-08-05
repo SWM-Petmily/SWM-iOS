@@ -30,7 +30,7 @@ extension RegisteredPetDTO {
                 RegisteredPetVO(
                     id: content.id ?? -1,
                     petName: content.petName ?? "Unknown",
-                    petType: content.petName ?? "Unknown",
+                    petType: content.petType ?? "Unknown",
                     petGender: content.petGender ?? "Unknown",
                     petNeutered: content.petNeutered ?? "Unknown"
                 )

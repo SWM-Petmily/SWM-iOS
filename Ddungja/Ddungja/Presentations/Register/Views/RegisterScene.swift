@@ -15,6 +15,15 @@ struct RegisterScene: View {
     }
     
     var body: some View {
-        Color.blue
+        List {
+            ForEach(viewModel.registeredPetInfo, id: \.id) { info in
+                PetInfoRowView(info: info)
+            }
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+        .onAppear {
+            viewModel.getRegisteredPet()
+        }
     }
 }
