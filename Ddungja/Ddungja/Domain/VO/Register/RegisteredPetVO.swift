@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RegisteredPetVO {
+struct RegisteredPetVO: Hashable {
     let id: Int
     let petName: String
     let petType: String

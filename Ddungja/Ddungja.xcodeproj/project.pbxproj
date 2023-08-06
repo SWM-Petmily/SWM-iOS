@@ -35,6 +35,7 @@
 		753BA7282A7E80500090EAE3 /* RegisteredPetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */; };
 		753BA72B2A7E83D40090EAE3 /* RegisteredPetVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA72A2A7E83D40090EAE3 /* RegisteredPetVO.swift */; };
 		753BA72F2A7E92AC0090EAE3 /* PetInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA72E2A7E92AC0090EAE3 /* PetInfoRowView.swift */; };
+		753BA7312A7F5A910090EAE3 /* PetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7302A7F5A910090EAE3 /* PetInfoView.swift */; };
 		753BA7332A7F71180090EAE3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7322A7F71180090EAE3 /* PhotoPickerView.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
@@ -183,6 +184,7 @@
 		753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredPetDTO.swift; sourceTree = "<group>"; };
 		753BA72A2A7E83D40090EAE3 /* RegisteredPetVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredPetVO.swift; sourceTree = "<group>"; };
 		753BA72E2A7E92AC0090EAE3 /* PetInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoRowView.swift; sourceTree = "<group>"; };
+		753BA7302A7F5A910090EAE3 /* PetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoView.swift; sourceTree = "<group>"; };
 		753BA7322A7F71180090EAE3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				759228D72A5E724100603FF4 /* RegisterScene.swift */,
 				753BA72E2A7E92AC0090EAE3 /* PetInfoRowView.swift */,
+				753BA7302A7F5A910090EAE3 /* PetInfoView.swift */,
 				753BA7322A7F71180090EAE3 /* PhotoPickerView.swift */,
 			);
 			path = Views;
@@ -1063,6 +1066,7 @@
 				7546BDB92A4C281D0019A986 /* UserProfileAPIProvider.swift in Sources */,
 				754AB6FB2A7564E400F2EBC8 /* RegisterInfoVO.swift in Sources */,
 				75154E5E2A6A91DA0083261A /* ApplyListDTO.swift in Sources */,
+				753BA7312A7F5A910090EAE3 /* PetInfoView.swift in Sources */,
 				753BA71B2A7E70770090EAE3 /* RegisterViewModel.swift in Sources */,
 				753BA7252A7E72C80090EAE3 /* RegisterAPI.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,

@@ -137,5 +137,10 @@ struct PresentationAssembly: Assembly {
             let viewModel = resolver.resolve(RegisterViewModel.self)!
             return RegisterScene(viewModel: viewModel)
         }
+        
+        container.register(PetInfoView.self) { (resolver, info: RegisteredPetVO) in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetInfoView(viewModel: viewModel, info: info)
+        }
     }
 }
