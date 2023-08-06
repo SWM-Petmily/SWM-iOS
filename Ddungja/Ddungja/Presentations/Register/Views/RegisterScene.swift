@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct RegisterScene: View {
-    @ObservedObject private var viewModel: RegisterViewModel
+    @StateObject private var viewModel: RegisterViewModel
     
     init(viewModel: RegisterViewModel) {
-        self.viewModel = viewModel
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         List {
             ForEach(viewModel.registeredPetInfo, id: \.id) { info in
                 PetInfoRowView(info: info)
+                    .onTapGesture {
+                        viewModel.push(.petInfo(info: info))
+                    }
             }
             .listRowSeparator(.hidden)
         }
