@@ -14,6 +14,8 @@ final class RegisterViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var registeredPetInfo = [RegisteredPetVO]()
+    @Published var images = Array(repeating: Data(), count: 5)
+    
     init(coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
         self.coordinator = coordinator
         self.registerUsecase = registerUsecase
@@ -27,5 +29,9 @@ final class RegisterViewModel: ObservableObject {
                 self?.registeredPetInfo = vo
             }
             .store(in: &cancellables)
+    }
+    
+    func push(_ page: Page) {
+        coordinator.push(page)
     }
 }
