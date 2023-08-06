@@ -227,7 +227,7 @@ extension PetInfoView {
     
     private var registerButton: some View {
         Button {
-            
+            viewModel.push(.adoptionReason)
         } label: {
             Text("등록 1/6")
                 .applyInner(color: .white)

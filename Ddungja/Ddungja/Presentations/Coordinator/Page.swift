@@ -23,4 +23,5 @@ enum Page: Hashable {
     case detailPost(id: Int) //상세게시글페이지
     case applyAdaption(postId: Int)
     case petInfo(info: RegisteredPetVO)
+    case adoptionReason
 }

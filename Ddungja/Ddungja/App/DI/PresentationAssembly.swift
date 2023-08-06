@@ -142,5 +142,9 @@ struct PresentationAssembly: Assembly {
             let viewModel = resolver.resolve(RegisterViewModel.self)!
             return PetInfoView(viewModel: viewModel, info: info)
         }
+        
+        container.register(AdoptionReasonView.self) { resolver in
+            return AdoptionReasonView()
+        }
     }
 }

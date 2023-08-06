@@ -70,6 +70,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(ApplyAdoptionView.self, argument: postId)
         case let .petInfo(info):
             injector.resolve(PetInfoView.self, argument: info)
+        case .adoptionReason:
+            injector.resolve(AdoptionReasonView.self)
         }
     }
 }
