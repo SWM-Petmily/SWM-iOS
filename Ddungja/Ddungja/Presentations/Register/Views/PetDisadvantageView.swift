@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PetDisadvantageView: View {
-    @State private var willString = ""
+    @ObservedObject private var viewModel: RegisterViewModel
+    
+    init(viewModel: RegisterViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ScrollView {
@@ -21,7 +25,7 @@ struct PetDisadvantageView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("재파양을 막기 위해서 단점들 또한 상세하게 적어주세요!!", text: $willString, axis: .vertical)
+                        TextField("재파양을 막기 위해서 단점들 또한 상세하게 적어주세요!!", text: $viewModel.disAdvantage, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -31,7 +35,7 @@ struct PetDisadvantageView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(willString.count) / 1000")
+                        Text("\(viewModel.disAdvantage.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -40,7 +44,7 @@ struct PetDisadvantageView: View {
         }
         
         Button {
-            
+            viewModel.push(.petCost)
         } label: {
             Text("등록 4/6")
                 .applyInner(color: .white)

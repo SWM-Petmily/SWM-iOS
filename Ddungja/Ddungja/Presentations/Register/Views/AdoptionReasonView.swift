@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct AdoptionReasonView: View {
-    @State private var willString = ""
+    @ObservedObject private var viewModel: RegisterViewModel
+    
+    init(viewModel: RegisterViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ScrollView {
@@ -21,7 +25,7 @@ struct AdoptionReasonView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("분양하는 이유가 상세할수록 분양확률이 올라가요!!", text: $willString, axis: .vertical)
+                        TextField("분양하는 이유가 상세할수록 분양확률이 올라가요!!", text: $viewModel.reason, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -31,7 +35,7 @@ struct AdoptionReasonView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(willString.count) / 1000")
+                        Text("\(viewModel.reason.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -40,7 +44,7 @@ struct AdoptionReasonView: View {
         }
         
         Button {
-            
+            viewModel.push(.petAdvantage)
         } label: {
             Text("등록 2/6")
                 .applyInner(color: .white)
@@ -50,11 +54,5 @@ struct AdoptionReasonView: View {
         .background(Color.main)
         .cornerRadius(14)
         .padding([.leading, .trailing, .bottom])
-    }
-}
-
-struct AdoptionReasonView_Previews: PreviewProvider {
-    static var previews: some View {
-        AdoptionReasonView()
     }
 }

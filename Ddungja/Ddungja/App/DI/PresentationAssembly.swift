@@ -144,7 +144,28 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(AdoptionReasonView.self) { resolver in
-            return AdoptionReasonView()
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return AdoptionReasonView(viewModel: viewModel)
+        }
+        
+        container.register(PetAdvantageView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetAdvantageView(viewModel: viewModel)
+        }
+        
+        container.register(PetDisadvantageView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetDisadvantageView(viewModel: viewModel)
+        }
+        
+        container.register(PetCostView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetCostView(viewModel: viewModel)
+        }
+        
+        container.register(PetAdopterView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetAdopterView(viewModel: viewModel)
         }
     }
 }

@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PetAdopterView: View {
-    @State private var willString = ""
+    @ObservedObject private var viewModel: RegisterViewModel
+    
+    init(viewModel: RegisterViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ScrollView {
@@ -21,7 +25,7 @@ struct PetAdopterView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("나의 반려동물이 어떤 주인에게 가면 좋을지 상세하게 작성해주세요", text: $willString, axis: .vertical)
+                        TextField("나의 반려동물이 어떤 주인에게 가면 좋을지 상세하게 작성해주세요", text: $viewModel.adopter, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -31,7 +35,7 @@ struct PetAdopterView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(willString.count) / 1000")
+                        Text("\(viewModel.adopter.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }

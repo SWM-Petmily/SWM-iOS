@@ -72,6 +72,14 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(PetInfoView.self, argument: info)
         case .adoptionReason:
             injector.resolve(AdoptionReasonView.self)
+        case .petAdvantage:
+            injector.resolve(PetAdvantageView.self)
+        case .petDisadvantage:
+            injector.resolve(PetDisadvantageView.self)
+        case .petCost:
+            injector.resolve(PetCostView.self)
+        case .petAdopter:
+            injector.resolve(PetAdopterView.self)
         }
     }
 }

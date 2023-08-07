@@ -8,6 +8,17 @@
 import Foundation
 import Combine
 
+enum Gender: String {
+    case male = "MALE"
+    case female = "FEMALE"
+}
+
+enum Neutered: String{
+    case yes = "YES"
+    case no = "NO"
+}
+
+
 final class RegisterViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private let registerUsecase: RegisterUsecaseInterface
@@ -15,6 +26,20 @@ final class RegisterViewModel: ObservableObject {
     
     @Published var registeredPetInfo = [RegisteredPetVO]()
     @Published var images = Array(repeating: Data(), count: 5)
+    
+    @Published var petType = ""
+    @Published var petName = ""
+    @Published var region = ""
+    @Published var gender = Gender.male.rawValue
+    @Published var neutered = Neutered.yes.rawValue
+    @Published var year = ""
+    @Published var month = ""
+    @Published var reason = ""
+    @Published var advantage = ""
+    @Published var disAdvantage = ""
+    @Published var cost = ""
+    @Published var adopter = ""
+    
     
     init(coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
         self.coordinator = coordinator
