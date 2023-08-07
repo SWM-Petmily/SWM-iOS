@@ -10,6 +10,7 @@ import PhotosUI
 
 struct PetInfoView: View {
     @StateObject private var viewModel: RegisterViewModel
+    @StateObject private var keyboardHandler = KeyboardHandler()
     private let info: RegisteredPetVO
     
     @State private var petType = ""
@@ -36,6 +37,7 @@ struct PetInfoView: View {
                 genderButton
                 neuteredButton
             }
+            .padding(.bottom, keyboardHandler.keyboardHeight)
         }
         .padding()
         .onAppear {
@@ -157,7 +159,7 @@ extension PetInfoView {
                 .applySubtitle(color: .mainTextColor)
                 .bold()
             
-            CustomLazyVGrid(col: 2, spacing: 10) {
+            HStack {
                 ZStack {
                     Rectangle()
                         .fill(Color.mainBackground)
