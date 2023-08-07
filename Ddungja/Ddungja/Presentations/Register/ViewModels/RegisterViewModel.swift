@@ -8,38 +8,15 @@
 import Foundation
 import Combine
 
-enum Gender: String {
-    case male = "MALE"
-    case female = "FEMALE"
-}
-
-enum Neutered: String{
-    case yes = "YES"
-    case no = "NO"
-}
-
-
 final class RegisterViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
+    private(set) var isRegistered = true
+    
     @Published var registeredPetInfo = [RegisteredPetVO]()
     @Published var images = Array(repeating: Data(), count: 5)
-    
-    @Published var petType = ""
-    @Published var petName = ""
-    @Published var region = ""
-    @Published var gender = Gender.male.rawValue
-    @Published var neutered = Neutered.yes.rawValue
-    @Published var year = ""
-    @Published var month = ""
-    @Published var reason = ""
-    @Published var advantage = ""
-    @Published var disAdvantage = ""
-    @Published var cost = ""
-    @Published var adopter = ""
-    
     
     init(coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
         self.coordinator = coordinator
@@ -54,6 +31,10 @@ final class RegisterViewModel: ObservableObject {
                 self?.registeredPetInfo = vo
             }
             .store(in: &cancellables)
+    }
+    
+    func registerPost(vo: PetPostVO, images: [Data]) {
+        registerUsecase.registerPost(vo, images)
     }
     
     func push(_ page: Page) {

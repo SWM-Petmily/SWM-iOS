@@ -7,9 +7,11 @@
 
 import Combine
 import Moya
+import UIKit
 
 protocol RegisterUsecaseInterface {
     func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError>
+    func registerPost(_ vo: PetPostVO, _ images: [Data])
 }
 
 final class RegisterUsecase: RegisterUsecaseInterface {
@@ -21,5 +23,16 @@ final class RegisterUsecase: RegisterUsecaseInterface {
     
     func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError> {
         return repository.getRegisteredPet()
+    }
+    
+    func registerPost(_ vo: PetPostVO, _ images: [Data]) {
+        var userImages = [UIImage]()
+        for image in images {
+            if let uiImage = UIImage(data: image) {
+                userImages.append(uiImage)
+            }
+        }
+        
+        repository.registerPost(vo, userImages)
     }
 }

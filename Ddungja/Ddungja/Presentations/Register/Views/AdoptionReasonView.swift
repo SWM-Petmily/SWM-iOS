@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct AdoptionReasonView: View {
-    @ObservedObject private var viewModel: RegisterViewModel
+    @StateObject private var viewModel: RegisterViewModel
+    @State private var reason = ""
+    private var petPostVO: PetPostVO
+    private var image: [Data]
     
-    init(viewModel: RegisterViewModel) {
-        self.viewModel = viewModel
+    init(viewModel: RegisterViewModel, petPostVO: PetPostVO, image: [Data]) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.petPostVO = petPostVO
+        self.image = image
     }
     
     var body: some View {
@@ -25,7 +30,7 @@ struct AdoptionReasonView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("분양하는 이유가 상세할수록 분양확률이 올라가요!!", text: $viewModel.reason, axis: .vertical)
+                        TextField("분양하는 이유가 상세할수록 분양확률이 올라가요!!", text: $reason, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -35,7 +40,7 @@ struct AdoptionReasonView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(viewModel.reason.count) / 1000")
+                        Text("\(reason.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -44,7 +49,7 @@ struct AdoptionReasonView: View {
         }
         
         Button {
-            viewModel.push(.petAdvantage)
+            viewModel.push(.petAdvantage(post: PetPostVO(mainCategory: petPostVO.mainCategory, subCategory: petPostVO.subCategory, name: petPostVO.name, region: petPostVO.region, gender: petPostVO.gender, birth: petPostVO.birth, neutered: petPostVO.neutered, money: petPostVO.money, reason: reason, advantage: "", disadvantage: "", averageCost: "", adopter: "", status: petPostVO.status, diseases: petPostVO.diseases, isRegistered: petPostVO.isRegistered), images: image))
         } label: {
             Text("등록 2/6")
                 .applyInner(color: .white)

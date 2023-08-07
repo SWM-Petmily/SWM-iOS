@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct PetAdvantageView: View {
-    @ObservedObject private var viewModel: RegisterViewModel
+    @StateObject private var viewModel: RegisterViewModel
+    @State private var advantage = ""
+    private var petPostVO: PetPostVO
+    private var image: [Data]
     
-    init(viewModel: RegisterViewModel) {
-        self.viewModel = viewModel
+    init(viewModel: RegisterViewModel, petPostVO: PetPostVO, image: [Data]) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.petPostVO = petPostVO
+        self.image = image
     }
     
     var body: some View {
@@ -25,7 +30,7 @@ struct PetAdvantageView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("반려동물을 자랑해보세요!!", text: $viewModel.advantage, axis: .vertical)
+                        TextField("반려동물을 자랑해보세요!!", text: $advantage, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -35,7 +40,7 @@ struct PetAdvantageView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(viewModel.advantage.count) / 1000")
+                        Text("\(advantage.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -44,7 +49,7 @@ struct PetAdvantageView: View {
         }
         
         Button {
-            viewModel.push(.petDisadvantage)
+            viewModel.push(.petDisadvantage(post: PetPostVO(mainCategory: petPostVO.mainCategory, subCategory: petPostVO.subCategory, name: petPostVO.name, region: petPostVO.region, gender: petPostVO.gender, birth: petPostVO.birth, neutered: petPostVO.neutered, money: petPostVO.money, reason: petPostVO.reason, advantage: advantage, disadvantage: "", averageCost: "", adopter: "", status: petPostVO.status, diseases: petPostVO.diseases, isRegistered: petPostVO.isRegistered), images: image))
         } label: {
             Text("등록 3/6")
                 .applyInner(color: .white)

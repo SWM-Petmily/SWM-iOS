@@ -7,6 +7,7 @@
 
 import Combine
 import Moya
+import UIKit
 
 final class RegisterRepository: RegisterRepositoryInterface {
     private let datasource: RegisterDataSourceInterface
@@ -19,5 +20,9 @@ final class RegisterRepository: RegisterRepositoryInterface {
         return datasource.getRegisteredPet()
             .map { $0.toRegisteredPetVO() }
             .eraseToAnyPublisher()
+    }
+    
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) {
+        datasource.registerPost(vo, images)
     }
 }

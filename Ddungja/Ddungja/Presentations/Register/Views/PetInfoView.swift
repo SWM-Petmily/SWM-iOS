@@ -13,6 +13,13 @@ struct PetInfoView: View {
     @StateObject private var keyboardHandler = KeyboardHandler()
     
     private let info: RegisteredPetVO
+    @State private var petType = ""
+    @State private var petName = ""
+    @State private var region = ""
+    @State private var gender = Gender.male.rawValue
+    @State private var neutered = Neutered.yes.rawValue
+    @State private var year = ""
+    @State private var month = ""
     
     init(viewModel: RegisterViewModel, info: RegisteredPetVO) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -34,9 +41,10 @@ struct PetInfoView: View {
         }
         .padding()
         .onAppear {
-            viewModel.petType = info.petType
-            viewModel.petName = info.petName
-            viewModel.gender = info.petGender
+            petType = info.petType
+            petName = info.petName
+            gender = info.petGender
+            neutered = info.petNeutered
         }
         
         registerButton
@@ -69,8 +77,8 @@ extension PetInfoView {
                 .applySubtitle(color: .mainTextColor)
                 .bold()
             
-            TextField("", text: $viewModel.petType)
-                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.petType.isEmpty, placeholder: "품종을 입력해주세요."))
+            TextField("", text: $petType)
+                .modifier(PlaceholderStyle(showPlaceHolder: petType.isEmpty, placeholder: "품종을 입력해주세요."))
                 .font(.system(size: 16))
                 .foregroundColor(Color.mainText)
                 .bold()
@@ -90,8 +98,8 @@ extension PetInfoView {
                 .applySubtitle(color: .mainTextColor)
                 .bold()
             
-            TextField("", text: $viewModel.petName)
-                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.petName.isEmpty, placeholder: "이름을 입력해주세요."))
+            TextField("", text: $petName)
+                .modifier(PlaceholderStyle(showPlaceHolder: petName.isEmpty, placeholder: "이름을 입력해주세요."))
                 .font(.system(size: 16))
                 .foregroundColor(Color.mainText)
                 .bold()
@@ -111,8 +119,8 @@ extension PetInfoView {
                 .applySubtitle(color: .mainTextColor)
                 .bold()
             
-            TextField("", text: $viewModel.region)
-                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.region.isEmpty, placeholder: "지역을 입력해주세요."))
+            TextField("", text: $region)
+                .modifier(PlaceholderStyle(showPlaceHolder: region.isEmpty, placeholder: "지역을 입력해주세요."))
                 .font(.system(size: 16))
                 .foregroundColor(Color.mainText)
                 .bold()
@@ -134,14 +142,14 @@ extension PetInfoView {
             
             CustomLazyVGrid(col: 2, spacing: 10) {
                 Button("남아") {
-                    viewModel.gender = Gender.male.rawValue
+                    gender = Gender.male.rawValue
                 }
-                .buttonStyle(RadioButtonMain(status: viewModel.gender, buttonState: Gender.male.rawValue))
+                .buttonStyle(RadioButtonMain(status: gender, buttonState: Gender.male.rawValue))
                 
                 Button("여아") {
-                    viewModel.gender = Gender.female.rawValue
+                    gender = Gender.female.rawValue
                 }
-                .buttonStyle(RadioButtonMain(status: viewModel.gender, buttonState: Gender.female.rawValue))
+                .buttonStyle(RadioButtonMain(status: gender, buttonState: Gender.female.rawValue))
             }
         }
     }
@@ -161,7 +169,7 @@ extension PetInfoView {
                         .frame(maxWidth: .infinity)
                     
                     HStack {
-                        TextField("", text: $viewModel.year)
+                        TextField("", text: $year)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad)
                             .onTapGesture {
@@ -183,7 +191,7 @@ extension PetInfoView {
                         .frame(maxWidth: .infinity)
                     
                     HStack {
-                        TextField("", text: $viewModel.month)
+                        TextField("", text: $month)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad)
                             .onTapGesture {
@@ -208,21 +216,21 @@ extension PetInfoView {
             
             CustomLazyVGrid(col: 2, spacing: 10) {
                 Button("유") {
-                    viewModel.neutered = Neutered.yes.rawValue
+                    neutered = Neutered.yes.rawValue
                 }
-                .buttonStyle(RadioButtonMain(status: viewModel.neutered, buttonState: Neutered.yes.rawValue))
+                .buttonStyle(RadioButtonMain(status: neutered, buttonState: Neutered.yes.rawValue))
                 
                 Button("무") {
-                    viewModel.neutered = Neutered.no.rawValue
+                    neutered = Neutered.no.rawValue
                 }
-                .buttonStyle(RadioButtonMain(status: viewModel.neutered, buttonState: Neutered.no.rawValue))
+                .buttonStyle(RadioButtonMain(status: neutered, buttonState: Neutered.no.rawValue))
             }
         }
     }
     
     private var registerButton: some View {
         Button {
-            viewModel.push(.adoptionReason)
+            viewModel.push(.adoptionReason(post: PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: "", advantage: "", disadvantage: "", averageCost: "", adopter: "", status: "SAVE", diseases: [], isRegistered: viewModel.isRegistered),images: viewModel.images))
         } label: {
             Text("등록 1/6")
                 .applyInner(color: .white)
@@ -232,5 +240,17 @@ extension PetInfoView {
         .background(Color.main)
         .cornerRadius(14)
         .padding([.leading, .trailing, .bottom])
+    }
+}
+
+extension PetInfoView {
+    enum Gender: String {
+        case male = "MALE"
+        case female = "FEMALE"
+    }
+
+    enum Neutered: String{
+        case yes = "YES"
+        case no = "NO"
     }
 }

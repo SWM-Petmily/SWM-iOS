@@ -7,7 +7,9 @@
 
 import Combine
 import Moya
+import UIKit
 
 protocol RegisterRepositoryInterface {
     func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError>
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage])
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 동물 등록 정보를 통해 받아온 값
 struct RegisteredPetVO: Hashable {
     let id: Int
     let petName: String

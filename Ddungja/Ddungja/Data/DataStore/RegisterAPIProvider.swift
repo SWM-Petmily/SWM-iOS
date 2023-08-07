@@ -8,9 +8,11 @@
 import Moya
 import CombineMoya
 import Combine
+import UIKit
 
 protocol RegisterDataSourceInterface {
     func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, MoyaError>
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage])
 }
 
 final class RegisterAPIProvider: RegisterDataSourceInterface {
@@ -25,5 +27,11 @@ final class RegisterAPIProvider: RegisterDataSourceInterface {
             .retry(3)
             .eraseToAnyPublisher()
             .map(RegisteredPetDTO.self)
+    }
+    
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) {
+        moyaProvider.requestPublisher(.registerPost(vo: vo, images: images))
+            .retry(3)
+            .eraseToAnyPublisher()
     }
 }
