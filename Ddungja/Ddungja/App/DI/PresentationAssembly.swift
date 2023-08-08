@@ -39,9 +39,9 @@ struct PresentationAssembly: Assembly {
         
         container.register(RegisterViewModel.self) { resolver in
             let usecase = resolver.resolve(RegisterUsecaseInterface.self)!
-            return RegisterViewModel(coordinator: coordinator, registerUsecase: usecase)
+            return RegisterViewModel(container: container,coordinator: coordinator, registerUsecase: usecase)
         }
-        .inObjectScope(.container)
+        .inObjectScope(.exitSalePost)
         
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!

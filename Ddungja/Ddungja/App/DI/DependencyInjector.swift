@@ -49,3 +49,10 @@ final class DependencyInjector: Injector {
     }
 }
 
+extension ObjectScope {
+    static let exitSalePost = ObjectScope(
+        storageFactory: PermanentStorage.init,
+        description: "Exit Pet Sale Post"
+    )
+}
+

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Swinject
 
 enum Gender: String {
     case male = "MALE"
@@ -19,6 +20,7 @@ enum Neutered: String{
 }
 
 final class RegisterViewModel: ObservableObject {
+    private var container: Container
     private var coordinator: CoordinatorProtocol
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
@@ -40,7 +42,8 @@ final class RegisterViewModel: ObservableObject {
     @Published var cost = ""
     @Published var adopter = ""
     
-    init(coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
+    init(container: Container, coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
+        self.container = container
         self.coordinator = coordinator
         self.registerUsecase = registerUsecase
     }
@@ -63,5 +66,9 @@ final class RegisterViewModel: ObservableObject {
     
     func push(_ page: Page) {
         coordinator.push(page)
+    }
+    
+    func userExitPost() {
+        container.resetObjectScope(.exitSalePost)
     }
 }

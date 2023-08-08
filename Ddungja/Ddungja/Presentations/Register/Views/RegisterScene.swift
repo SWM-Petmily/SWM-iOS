@@ -26,6 +26,7 @@ struct RegisterScene: View {
         }
         .listStyle(.plain)
         .onAppear {
+            viewModel.userExitPost()
             viewModel.getRegisteredPet()
         }
     }
