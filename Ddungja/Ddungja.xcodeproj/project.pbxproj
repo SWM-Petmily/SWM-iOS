@@ -44,6 +44,7 @@
 		753BA73D2A80A9F50090EAE3 /* PetCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA73C2A80A9F50090EAE3 /* PetCostView.swift */; };
 		753BA73F2A80AB450090EAE3 /* PetAdopterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA73E2A80AB450090EAE3 /* PetAdopterView.swift */; };
 		753BA7412A80B02D0090EAE3 /* PetPostVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7402A80B02D0090EAE3 /* PetPostVO.swift */; };
+		753BA7432A8256D80090EAE3 /* PetCertificationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7422A8256D80090EAE3 /* PetCertificationScene.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -200,6 +201,7 @@
 		753BA73C2A80A9F50090EAE3 /* PetCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCostView.swift; sourceTree = "<group>"; };
 		753BA73E2A80AB450090EAE3 /* PetAdopterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAdopterView.swift; sourceTree = "<group>"; };
 		753BA7402A80B02D0090EAE3 /* PetPostVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPostVO.swift; sourceTree = "<group>"; };
+		753BA7422A8256D80090EAE3 /* PetCertificationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCertificationScene.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				753BA73A2A80783E0090EAE3 /* PetDisadvantageView.swift */,
 				753BA73C2A80A9F50090EAE3 /* PetCostView.swift */,
 				753BA73E2A80AB450090EAE3 /* PetAdopterView.swift */,
+				753BA7422A8256D80090EAE3 /* PetCertificationScene.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1148,6 +1151,7 @@
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
 				753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */,
 				759A65BD2A417C6E00E6AD07 /* Color+Extension.swift in Sources */,
+				753BA7432A8256D80090EAE3 /* PetCertificationScene.swift in Sources */,
 				7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */,
 				7546BDE42A52B60D0019A986 /* EditProfile.swift in Sources */,
 				753BA73F2A80AB450090EAE3 /* PetAdopterView.swift in Sources */,
