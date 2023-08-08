@@ -9,14 +9,9 @@ import SwiftUI
 
 struct AdoptionReasonView: View {
     @StateObject private var viewModel: RegisterViewModel
-    @State private var reason = ""
-    private var petPostVO: PetPostVO
-    private var image: [Data]
     
-    init(viewModel: RegisterViewModel, petPostVO: PetPostVO, image: [Data]) {
+    init(viewModel: RegisterViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        self.petPostVO = petPostVO
-        self.image = image
     }
     
     var body: some View {
@@ -30,7 +25,7 @@ struct AdoptionReasonView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("분양하는 이유가 상세할수록 분양확률이 올라가요!!", text: $reason, axis: .vertical)
+                        TextField("분양하는 이유가 상세할수록 분양확률이 올라가요!!", text: $viewModel.reason, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -40,7 +35,7 @@ struct AdoptionReasonView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(reason.count) / 1000")
+                        Text("\(viewModel.reason.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -49,7 +44,7 @@ struct AdoptionReasonView: View {
         }
         
         Button {
-            viewModel.push(.petAdvantage(post: PetPostVO(mainCategory: petPostVO.mainCategory, subCategory: petPostVO.subCategory, name: petPostVO.name, region: petPostVO.region, gender: petPostVO.gender, birth: petPostVO.birth, neutered: petPostVO.neutered, money: petPostVO.money, reason: reason, advantage: "", disadvantage: "", averageCost: "", adopter: "", status: petPostVO.status, diseases: petPostVO.diseases, isRegistered: petPostVO.isRegistered), images: image))
+            viewModel.push(.petAdvantage)
         } label: {
             Text("등록 2/6")
                 .applyInner(color: .white)

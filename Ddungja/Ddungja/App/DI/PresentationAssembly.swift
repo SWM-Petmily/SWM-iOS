@@ -41,6 +41,7 @@ struct PresentationAssembly: Assembly {
             let usecase = resolver.resolve(RegisterUsecaseInterface.self)!
             return RegisterViewModel(coordinator: coordinator, registerUsecase: usecase)
         }
+        .inObjectScope(.container)
         
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
@@ -144,29 +145,29 @@ struct PresentationAssembly: Assembly {
             return PetInfoView(viewModel: viewModel, info: info)
         }
         
-        container.register(AdoptionReasonView.self) { (resolver, vo: PetPostVO, images: [Data]) in
+        container.register(AdoptionReasonView.self) { resolver in
             let viewModel = resolver.resolve(RegisterViewModel.self)!
-            return AdoptionReasonView(viewModel: viewModel, petPostVO: vo, image: images)
+            return AdoptionReasonView(viewModel: viewModel)
         }
         
-        container.register(PetAdvantageView.self) { (resolver, vo: PetPostVO, images: [Data]) in
+        container.register(PetAdvantageView.self) { resolver in
             let viewModel = resolver.resolve(RegisterViewModel.self)!
-            return PetAdvantageView(viewModel: viewModel, petPostVO: vo, image: images)
+            return PetAdvantageView(viewModel: viewModel)
         }
         
-        container.register(PetDisadvantageView.self) { (resolver, vo: PetPostVO, images: [Data]) in
+        container.register(PetDisadvantageView.self) { resolver in
             let viewModel = resolver.resolve(RegisterViewModel.self)!
-            return PetDisadvantageView(viewModel: viewModel, petPostVO: vo, image: images)
+            return PetDisadvantageView(viewModel: viewModel)
         }
         
-        container.register(PetCostView.self) { (resolver, vo: PetPostVO, images: [Data]) in
+        container.register(PetCostView.self) { resolver in
             let viewModel = resolver.resolve(RegisterViewModel.self)!
-            return PetCostView(viewModel: viewModel, petPostVO: vo, image: images)
+            return PetCostView(viewModel: viewModel)
         }
         
-        container.register(PetAdopterView.self) { (resolver, vo: PetPostVO, images: [Data]) in
+        container.register(PetAdopterView.self) { resolver in
             let viewModel = resolver.resolve(RegisterViewModel.self)!
-            return PetAdopterView(viewModel: viewModel, petPostVO: vo, image: images)
+            return PetAdopterView(viewModel: viewModel)
         }
     }
 }

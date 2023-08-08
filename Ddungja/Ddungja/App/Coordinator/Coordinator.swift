@@ -70,16 +70,16 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(ApplyAdoptionView.self, argument: postId)
         case let .petInfo(info):
             injector.resolve(PetInfoView.self, argument: info)
-        case let .adoptionReason(vo, images):
-            injector.resolve(AdoptionReasonView.self, arguments: vo, images)
-        case let .petAdvantage(vo, images):
-            injector.resolve(PetAdvantageView.self, arguments: vo, images)
-        case let .petDisadvantage(vo, images):
-            injector.resolve(PetDisadvantageView.self, arguments: vo, images)
-        case let .petCost(vo, images):
-            injector.resolve(PetCostView.self, arguments: vo, images)
-        case let .petAdopter(vo, images):
-            injector.resolve(PetAdopterView.self, arguments: vo, images)
+        case .adoptionReason:
+            injector.resolve(AdoptionReasonView.self)
+        case .petAdvantage:
+            injector.resolve(PetAdvantageView.self)
+        case .petDisadvantage:
+            injector.resolve(PetDisadvantageView.self)
+        case .petCost:
+            injector.resolve(PetCostView.self)
+        case .petAdopter:
+            injector.resolve(PetAdopterView.self)
         }
     }
 }

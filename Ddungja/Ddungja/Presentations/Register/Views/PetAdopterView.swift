@@ -9,14 +9,9 @@ import SwiftUI
 
 struct PetAdopterView: View {
     @StateObject private var viewModel: RegisterViewModel
-    @State private var adopter = ""
-    private var petPostVO: PetPostVO
-    private var image: [Data]
     
-    init(viewModel: RegisterViewModel, petPostVO: PetPostVO, image: [Data]) {
+    init(viewModel: RegisterViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        self.petPostVO = petPostVO
-        self.image = image
     }
     
     var body: some View {
@@ -30,7 +25,7 @@ struct PetAdopterView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("나의 반려동물이 어떤 주인에게 가면 좋을지 상세하게 작성해주세요", text: $adopter, axis: .vertical)
+                        TextField("나의 반려동물이 어떤 주인에게 가면 좋을지 상세하게 작성해주세요", text: $viewModel.adopter, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -40,7 +35,7 @@ struct PetAdopterView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(adopter.count) / 1000")
+                        Text("\(viewModel.adopter.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -49,9 +44,7 @@ struct PetAdopterView: View {
         }
         
         Button {
-            let vo = PetPostVO(mainCategory: petPostVO.mainCategory, subCategory: petPostVO.subCategory, name: petPostVO.name, region: petPostVO.region, gender: petPostVO.gender, birth: petPostVO.birth, neutered: petPostVO.neutered, money: petPostVO.money, reason: petPostVO.reason, advantage: petPostVO.advantage, disadvantage: petPostVO.disadvantage, averageCost: petPostVO.averageCost, adopter: adopter, status: petPostVO.status, diseases: petPostVO.diseases, isRegistered: petPostVO.isRegistered)
-            
-            viewModel.registerPost(vo: vo, images: image)
+            viewModel.registerPost()
         } label: {
             Text("작성완료")
                 .applyInner(color: .white)

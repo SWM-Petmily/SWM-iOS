@@ -9,14 +9,9 @@ import SwiftUI
 
 struct PetDisadvantageView: View {
     @StateObject private var viewModel: RegisterViewModel
-    @State private var disAdvantage = ""
-    private var petPostVO: PetPostVO
-    private var image: [Data]
     
-    init(viewModel: RegisterViewModel, petPostVO: PetPostVO, image: [Data]) {
+    init(viewModel: RegisterViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        self.petPostVO = petPostVO
-        self.image = image
     }
     
     var body: some View {
@@ -30,7 +25,7 @@ struct PetDisadvantageView: View {
                 
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                     VStack(alignment: .trailing) {
-                        TextField("재파양을 막기 위해서 단점들 또한 상세하게 적어주세요!!", text: $disAdvantage, axis: .vertical)
+                        TextField("재파양을 막기 위해서 단점들 또한 상세하게 적어주세요!!", text: $viewModel.disAdvantage, axis: .vertical)
                             .frame(maxWidth: .infinity, minHeight: 186, alignment: .topLeading)
                             .padding()
                             .background(.white)
@@ -40,7 +35,7 @@ struct PetDisadvantageView: View {
                             )
                             .onTapGesture { endTextEditing() }
                         
-                        Text("\(disAdvantage.count) / 1000")
+                        Text("\(viewModel.disAdvantage.count) / 1000")
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
@@ -49,7 +44,7 @@ struct PetDisadvantageView: View {
         }
         
         Button {
-            viewModel.push(.petCost(post: PetPostVO(mainCategory: petPostVO.mainCategory, subCategory: petPostVO.subCategory, name: petPostVO.name, region: petPostVO.region, gender: petPostVO.gender, birth: petPostVO.birth, neutered: petPostVO.neutered, money: petPostVO.money, reason: petPostVO.reason, advantage: petPostVO.advantage, disadvantage: disAdvantage, averageCost: "", adopter: "", status: petPostVO.status, diseases: petPostVO.diseases, isRegistered: petPostVO.isRegistered), images: image))
+            viewModel.push(.petCost)
         } label: {
             Text("등록 4/6")
                 .applyInner(color: .white)
