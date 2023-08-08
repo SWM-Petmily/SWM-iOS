@@ -22,7 +22,9 @@ final class RegisterRepository: RegisterRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) {
-        datasource.registerPost(vo, images)
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
+        return datasource.registerPost(vo, images)
+            .map { $0.toApplyIdVO() }
+            .eraseToAnyPublisher()
     }
 }

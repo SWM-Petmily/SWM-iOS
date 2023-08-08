@@ -12,7 +12,7 @@ import UIKit
 
 protocol RegisterDataSourceInterface {
     func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, MoyaError>
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage])
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<PostApplyDTO, MoyaError>
 }
 
 final class RegisterAPIProvider: RegisterDataSourceInterface {
@@ -29,9 +29,10 @@ final class RegisterAPIProvider: RegisterDataSourceInterface {
             .map(RegisteredPetDTO.self)
     }
     
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) {
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<PostApplyDTO, MoyaError> {
         moyaProvider.requestPublisher(.registerPost(vo: vo, images: images))
             .retry(3)
             .eraseToAnyPublisher()
+            .map(PostApplyDTO.self)
     }
 }

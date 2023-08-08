@@ -62,6 +62,12 @@ final class RegisterViewModel: ObservableObject {
         let vo = PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: reason, advantage: advantage, disadvantage: disAdvantage, averageCost: cost, adopter: adopter, status: "SAVE", diseases: [], isRegistered: isRegistered)
 
         registerUsecase.registerPost(vo, images)
+            .sink { completion in
+                print("RegisterPost completion \(completion)")
+            } receiveValue: { [weak self] _ in
+                
+            }
+            .store(in: &cancellables)
     }
     
     func push(_ page: Page) {
