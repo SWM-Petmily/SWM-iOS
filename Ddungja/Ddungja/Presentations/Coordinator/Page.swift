@@ -28,4 +28,5 @@ enum Page: Hashable {
     case petDisadvantage
     case petCost
     case petAdopter
+    case petCertification
 }
