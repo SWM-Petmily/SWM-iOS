@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import Moya
 
 final class PetCertificationRepository: PetCertificationRepositoryInterface {
     private let datasource: PetCertificationDataSourceInterface
@@ -14,7 +16,9 @@ final class PetCertificationRepository: PetCertificationRepositoryInterface {
         self.datasource = datasource
     }
     
-    func getAdditionalPageInfo(_ postId: Int) {
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError> {
         datasource.getAdditionalPageInfo(postId)
+            .map { $0.toCertificationInfoVO() }
+            .eraseToAnyPublisher()
     }
 }

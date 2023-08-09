@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PetCertificationScene: View {
-    @ObservedObject private var viewModel: PetCertificationViewModel
+    @StateObject private var viewModel: PetCertificationViewModel
     private let postId: Int
+    
     init(viewModel: PetCertificationViewModel, postId: Int) {
-        self.viewModel = viewModel
+        _viewModel = StateObject(wrappedValue: viewModel)
         self.postId = postId
     }
     
@@ -33,9 +34,9 @@ struct PetCertificationScene: View {
                 ZStack(alignment: .trailing) {
                     Rectangle()
                         .fill(.white)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, minHeight: 120)
                         .cornerRadius(15)
-                    Image("Approved")
+                    Image(viewModel.registrationStatus)
                 }
                 
                 HStack {
@@ -61,9 +62,9 @@ struct PetCertificationScene: View {
                 ZStack(alignment: .trailing) {
                     Rectangle()
                         .fill(.white)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, minHeight: 120)
                         .cornerRadius(15)
-                    Image("Rejected")
+                    Image(viewModel.vaccinationStatus)
                 }
                 
                 
@@ -89,9 +90,9 @@ struct PetCertificationScene: View {
                 ZStack(alignment: .trailing) {
                     Rectangle()
                         .fill(.white)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, minHeight: 120)
                         .cornerRadius(15)
-                    Image("Waiting")
+                    Image(viewModel.healthScreeningStatus)
                 }
                 HStack {
                     Image("HealthScreening")
@@ -125,6 +126,9 @@ struct PetCertificationScene: View {
             .padding([.leading, .trailing, .bottom])
         }
         .padding()
+        .onAppear {
+            viewModel.getAdditionalPageInfo(postId)
+        }
     }
 }
 

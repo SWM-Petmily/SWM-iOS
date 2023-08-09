@@ -10,26 +10,20 @@ import CombineMoya
 import Moya
 import Combine
 protocol PetCertificationDataSourceInterface {
-    func getAdditionalPageInfo(_ postId: Int)
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError>
 }
 
 final class CertificationAPIProvider: PetCertificationDataSourceInterface {
     private let moyaProvider: MoyaProvider<CertificationAPI>
-    var cancel = Set<AnyCancellable>()
+    
     init(moyaProvider: MoyaProvider<CertificationAPI> = .init()) {
         self.moyaProvider = moyaProvider
     }
     
-    func getAdditionalPageInfo(_ postId: Int) {
-        moyaProvider.requestPublisher(.getAdditionalPage(postId: 599))
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
+        moyaProvider.requestPublisher(.getAdditionalPage(postId: 402))
             .retry(3)
             .eraseToAnyPublisher()
-            .sink { error in
-                print(error)
-            } receiveValue: { response in
-                print("response \(response.statusCode)")
-                print(response)
-            }
-            .store(in: &cancel)
+            .map(CertificationInfoDTO.self)
     }
 }

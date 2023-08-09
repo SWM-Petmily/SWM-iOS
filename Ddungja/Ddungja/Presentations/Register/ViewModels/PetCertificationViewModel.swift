@@ -7,11 +7,16 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class PetCertificationViewModel: ObservableObject {
     private var coordinator: CoordinatorProtocol
     private let petCertificationUsecase: PetCertificationUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
+    
+    @Published var registrationStatus = CertificationStatus.none.rawValue
+    @Published var vaccinationStatus = CertificationStatus.none.rawValue
+    @Published var healthScreeningStatus = CertificationStatus.none.rawValue
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
         self.coordinator = coordinator
@@ -20,8 +25,27 @@ final class PetCertificationViewModel: ObservableObject {
     
     func getAdditionalPageInfo(_ postId: Int) {
         petCertificationUsecase.getAdditionalPageInfo(postId)
+            .sink { completion in
+                print("getAdditionalPageInfo \(completion)")
+            } receiveValue: { [weak self] vo in
+                guard let self = self else { return }
+                self.registrationStatus = vo.isRegistered
+                self.vaccinationStatus = vo.isVaccinated
+                self.healthScreeningStatus = vo.isMedicalChecked
+            }
+            .store(in: &cancellables)
     }
+    
     func push(_ page: Page) {
         coordinator.push(page)
+    }
+}
+
+extension PetCertificationViewModel {
+    enum CertificationStatus: String {
+        case none = "NONE"
+        case certified = "CERTIFIED"
+        case reject = "REJECT"
+        case waiting = "WAITING"
     }
 }

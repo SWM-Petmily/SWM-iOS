@@ -5,10 +5,11 @@
 //  Created by 오승기 on 2023/08/08.
 //
 
-import Foundation
+import Combine
+import Moya
 
 protocol PetCertificationUsecaseInterface {
-    func getAdditionalPageInfo(_ postId: Int)
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError>
 }
 
 final class PetCertificationUsecase: PetCertificationUsecaseInterface {
@@ -18,7 +19,7 @@ final class PetCertificationUsecase: PetCertificationUsecaseInterface {
         self.repository = repository
     }
     
-    func getAdditionalPageInfo(_ postId: Int) {
-        repository.getAdditionalPageInfo(postId)
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+        return repository.getAdditionalPageInfo(postId)
     }
 }

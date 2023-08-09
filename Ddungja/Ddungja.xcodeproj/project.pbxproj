@@ -45,6 +45,19 @@
 		753BA73F2A80AB450090EAE3 /* PetAdopterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA73E2A80AB450090EAE3 /* PetAdopterView.swift */; };
 		753BA7412A80B02D0090EAE3 /* PetPostVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7402A80B02D0090EAE3 /* PetPostVO.swift */; };
 		753BA7432A8256D80090EAE3 /* PetCertificationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7422A8256D80090EAE3 /* PetCertificationScene.swift */; };
+		753BA7452A8278140090EAE3 /* PetRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7442A8278140090EAE3 /* PetRegistrationView.swift */; };
+		753BA7472A8278240090EAE3 /* VaccinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7462A8278240090EAE3 /* VaccinationView.swift */; };
+		753BA7492A82782F0090EAE3 /* HealthScreeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7482A82782F0090EAE3 /* HealthScreeningView.swift */; };
+		753BA74B2A8278A10090EAE3 /* PetCertificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA74A2A8278A10090EAE3 /* PetCertificationViewModel.swift */; };
+		753BA74D2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA74C2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift */; };
+		753BA74F2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA74E2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift */; };
+		753BA7512A8303C80090EAE3 /* PetCertificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7502A8303C80090EAE3 /* PetCertificationRepository.swift */; };
+		753BA7532A8304240090EAE3 /* CertificationAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7522A8304240090EAE3 /* CertificationAPIProvider.swift */; };
+		753BA7552A8304BF0090EAE3 /* CertificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7542A8304BF0090EAE3 /* CertificationAPI.swift */; };
+		753BA7572A834A390090EAE3 /* RegisterPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7562A834A390090EAE3 /* RegisterPostDTO.swift */; };
+		753BA7592A8352220090EAE3 /* RegisterPostIDVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7582A8352220090EAE3 /* RegisterPostIDVO.swift */; };
+		753BA75B2A8355160090EAE3 /* CertificationInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */; };
+		753BA75D2A8355A80090EAE3 /* CertificationInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -202,6 +215,19 @@
 		753BA73E2A80AB450090EAE3 /* PetAdopterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAdopterView.swift; sourceTree = "<group>"; };
 		753BA7402A80B02D0090EAE3 /* PetPostVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPostVO.swift; sourceTree = "<group>"; };
 		753BA7422A8256D80090EAE3 /* PetCertificationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCertificationScene.swift; sourceTree = "<group>"; };
+		753BA7442A8278140090EAE3 /* PetRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetRegistrationView.swift; sourceTree = "<group>"; };
+		753BA7462A8278240090EAE3 /* VaccinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationView.swift; sourceTree = "<group>"; };
+		753BA7482A82782F0090EAE3 /* HealthScreeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthScreeningView.swift; sourceTree = "<group>"; };
+		753BA74A2A8278A10090EAE3 /* PetCertificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCertificationViewModel.swift; sourceTree = "<group>"; };
+		753BA74C2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCertificationUsecaseInterface.swift; sourceTree = "<group>"; };
+		753BA74E2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCertificationRepositoryInterface.swift; sourceTree = "<group>"; };
+		753BA7502A8303C80090EAE3 /* PetCertificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCertificationRepository.swift; sourceTree = "<group>"; };
+		753BA7522A8304240090EAE3 /* CertificationAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationAPIProvider.swift; sourceTree = "<group>"; };
+		753BA7542A8304BF0090EAE3 /* CertificationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationAPI.swift; sourceTree = "<group>"; };
+		753BA7562A834A390090EAE3 /* RegisterPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostDTO.swift; sourceTree = "<group>"; };
+		753BA7582A8352220090EAE3 /* RegisterPostIDVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostIDVO.swift; sourceTree = "<group>"; };
+		753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationInfoDTO.swift; sourceTree = "<group>"; };
+		753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationInfoVO.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -372,6 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */,
+				753BA7562A834A390090EAE3 /* RegisterPostDTO.swift */,
+				753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -381,6 +409,8 @@
 			children = (
 				753BA72A2A7E83D40090EAE3 /* RegisteredPetVO.swift */,
 				753BA7402A80B02D0090EAE3 /* PetPostVO.swift */,
+				753BA7582A8352220090EAE3 /* RegisterPostIDVO.swift */,
+				753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -389,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				753BA71A2A7E70770090EAE3 /* RegisterViewModel.swift */,
+				753BA74A2A8278A10090EAE3 /* PetCertificationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -406,6 +437,9 @@
 				753BA73C2A80A9F50090EAE3 /* PetCostView.swift */,
 				753BA73E2A80AB450090EAE3 /* PetAdopterView.swift */,
 				753BA7422A8256D80090EAE3 /* PetCertificationScene.swift */,
+				753BA7442A8278140090EAE3 /* PetRegistrationView.swift */,
+				753BA7462A8278240090EAE3 /* VaccinationView.swift */,
+				753BA7482A82782F0090EAE3 /* HealthScreeningView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -625,6 +659,7 @@
 				754AB6E32A712DB200F2EBC8 /* OAuthProvider.swift */,
 				7543D4C12A78C89C00A0E9D9 /* HomeAPIProvider.swift */,
 				753BA7222A7E728C0090EAE3 /* RegisterAPIProvider.swift */,
+				753BA7522A8304240090EAE3 /* CertificationAPIProvider.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -658,6 +693,7 @@
 				759228FF2A62E63B00603FF4 /* MyPostsAPI.swift */,
 				7543D4C32A78CE7D00A0E9D9 /* HomeAPI.swift */,
 				753BA7242A7E72C80090EAE3 /* RegisterAPI.swift */,
+				753BA7542A8304BF0090EAE3 /* CertificationAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -681,6 +717,7 @@
 				759228F92A62DD0300603FF4 /* MyPostsRepositoryInterface.swift */,
 				7543D4BD2A78C80500A0E9D9 /* HomeRepositoryInterface.swift */,
 				753BA71E2A7E72380090EAE3 /* RegisterRepositoryInterface.swift */,
+				753BA74E2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift */,
 			);
 			path = RepositoryProtocol;
 			sourceTree = "<group>";
@@ -694,6 +731,7 @@
 				759228FB2A62DD3400603FF4 /* MyPostsRepository.swift */,
 				7543D4BF2A78C84F00A0E9D9 /* HomeRepository.swift */,
 				753BA7202A7E724E0090EAE3 /* RegisterRepository.swift */,
+				753BA7502A8303C80090EAE3 /* PetCertificationRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -879,6 +917,7 @@
 				754AB6F12A75001C00F2EBC8 /* SignUpUsecase.swift */,
 				7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */,
 				753BA71C2A7E71F20090EAE3 /* RegisterUsecaseInterface.swift */,
+				753BA74C2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -1098,6 +1137,7 @@
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				754AB6E22A6FFEA600F2EBC8 /* LoginVO.swift in Sources */,
+				753BA7532A8304240090EAE3 /* CertificationAPIProvider.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
 				7543D4C22A78C89C00A0E9D9 /* HomeAPIProvider.swift in Sources */,
@@ -1105,10 +1145,12 @@
 				75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */,
 				7543D4BC2A78C75900A0E9D9 /* HomeUsecase.swift in Sources */,
 				75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */,
+				753BA7492A82782F0090EAE3 /* HealthScreeningView.swift in Sources */,
 				754AB6E42A712DB200F2EBC8 /* OAuthProvider.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
 				7543D4CB2A78D57200A0E9D9 /* HomeVO.swift in Sources */,
 				753BA7192A7E3A2D0090EAE3 /* PopGesture.swift in Sources */,
+				753BA7452A8278140090EAE3 /* PetRegistrationView.swift in Sources */,
 				759228F82A62D81400603FF4 /* MyPostsUsecase.swift in Sources */,
 				754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
@@ -1119,11 +1161,13 @@
 				75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */,
 				754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
+				753BA7512A8303C80090EAE3 /* PetCertificationRepository.swift in Sources */,
 				753BA7232A7E728C0090EAE3 /* RegisterAPIProvider.swift in Sources */,
 				754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */,
 				754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
+				753BA74D2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift in Sources */,
 				759228F62A628E2500603FF4 /* MyPostsViewModel.swift in Sources */,
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
@@ -1133,6 +1177,7 @@
 				7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */,
+				753BA7592A8352220090EAE3 /* RegisterPostIDVO.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
 				754AB6D52A6D522700F2EBC8 /* ApplyIDInfoVO.swift in Sources */,
 				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
@@ -1146,7 +1191,9 @@
 				753BA7162A7D49A10090EAE3 /* PostApplyDTO.swift in Sources */,
 				75154E582A695A4D0083261A /* Text + Extension.swift in Sources */,
 				759228DC2A5E725700603FF4 /* HomeScene.swift in Sources */,
+				753BA74F2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift in Sources */,
 				75FB2FEA2A5AFD8B00E4DDE8 /* View + Extension.swift in Sources */,
+				753BA7552A8304BF0090EAE3 /* CertificationAPI.swift in Sources */,
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
 				753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */,
@@ -1168,11 +1215,15 @@
 				759228FC2A62DD3400603FF4 /* MyPostsRepository.swift in Sources */,
 				759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */,
 				75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */,
+				753BA7472A8278240090EAE3 /* VaccinationView.swift in Sources */,
 				759228FA2A62DD0300603FF4 /* MyPostsRepositoryInterface.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
 				759228DF2A5E8F3F00603FF4 /* MyPageScene.swift in Sources */,
 				754AB6DE2A6FA91900F2EBC8 /* Bundle+Extension.swift in Sources */,
+				753BA74B2A8278A10090EAE3 /* PetCertificationViewModel.swift in Sources */,
 				753BA7372A8074DC0090EAE3 /* KeyboardHandler.swift in Sources */,
+				753BA75D2A8355A80090EAE3 /* CertificationInfoVO.swift in Sources */,
+				753BA7572A834A390090EAE3 /* RegisterPostDTO.swift in Sources */,
 				75154E562A69336B0083261A /* ApplyListScene.swift in Sources */,
 				75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */,
 				75618C712A54065B005FA31A /* CustomText.swift in Sources */,
@@ -1184,6 +1235,7 @@
 				753BA7412A80B02D0090EAE3 /* PetPostVO.swift in Sources */,
 				75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */,
 				753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */,
+				753BA75B2A8355160090EAE3 /* CertificationInfoDTO.swift in Sources */,
 				753BA72F2A7E92AC0090EAE3 /* PetInfoRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
