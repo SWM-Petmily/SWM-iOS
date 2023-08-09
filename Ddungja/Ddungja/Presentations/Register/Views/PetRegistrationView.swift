@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct PetRegistrationView: View {
+    private let viewModel: PetCertificationViewModel
     @State private var test = ""
+    
+    init(viewModel: PetCertificationViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {

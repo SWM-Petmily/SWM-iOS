@@ -179,5 +179,10 @@ struct PresentationAssembly: Assembly {
             let viewModel = resolver.resolve(PetCertificationViewModel.self)!
             return PetCertificationScene(viewModel: viewModel, postId: postId)
         }
+        
+        container.register(PetRegistrationView.self) { resolver in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return PetRegistrationView(viewModel: viewModel)
+        }
     }
 }

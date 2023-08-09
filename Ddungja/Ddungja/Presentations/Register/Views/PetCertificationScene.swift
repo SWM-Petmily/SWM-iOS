@@ -57,6 +57,9 @@ struct PetCertificationScene: View {
                 
             }
             .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 0)
+            .onTapGesture {
+                viewModel.push(.petRegistration)
+            }
             
             ZStack(alignment: .leading) {
                 ZStack(alignment: .trailing) {
