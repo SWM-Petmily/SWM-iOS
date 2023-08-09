@@ -51,6 +51,17 @@ final class PetCertificationViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func registerPetHealthInfo(_ postId: Int) {
+        petCertificationUsecase.registerPetHealthInfo(postId, images)
+            .sink { completion in
+                print("getAdditionalPageInfo \(completion)")
+            } receiveValue: { [weak self] vo in
+                guard let self = self else { return }
+                print("register number \(vo)")
+            }
+            .store(in: &cancellables)
+    }
+    
     func push(_ page: Page) {
         coordinator.push(page)
     }

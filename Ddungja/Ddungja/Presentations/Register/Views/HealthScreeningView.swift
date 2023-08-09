@@ -48,7 +48,7 @@ struct HealthScreeningView: View {
         Spacer()
         
         Button {
-            
+            viewModel.registerPetHealthInfo(postId)
         } label: {
             Text("작성완료")
                 .applyInner(color: .white)

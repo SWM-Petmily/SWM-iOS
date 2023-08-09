@@ -5,7 +5,7 @@
 //  Created by 오승기 on 2023/08/09.
 //
 
-import Foundation
+import UIKit
 import Combine
 import Moya
 
@@ -24,6 +24,12 @@ final class PetCertificationRepository: PetCertificationRepositoryInterface {
     
     func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, MoyaError> {
         datasource.registerPetNumber(postId, dto)
+            .map { $0.toCertificationInfoVO() }
+            .eraseToAnyPublisher()
+    }
+    
+    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+        datasource.registerPetHealthInfo(postId, images)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
