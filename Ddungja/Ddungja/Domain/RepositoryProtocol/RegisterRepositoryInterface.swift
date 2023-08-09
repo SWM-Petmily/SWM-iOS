@@ -11,5 +11,5 @@ import UIKit
 
 protocol RegisterRepositoryInterface {
     func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError>
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<ApplyIDInfoVO, MoyaError>
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostIDVO, MoyaError>
 }
