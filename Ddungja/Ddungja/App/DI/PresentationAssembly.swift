@@ -180,9 +180,9 @@ struct PresentationAssembly: Assembly {
             return PetCertificationScene(viewModel: viewModel, postId: postId)
         }
         
-        container.register(PetRegistrationView.self) { resolver in
+        container.register(PetRegistrationView.self) { (resolver, postId: Int) in
             let viewModel = resolver.resolve(PetCertificationViewModel.self)!
-            return PetRegistrationView(viewModel: viewModel)
+            return PetRegistrationView(viewModel: viewModel, postId: postId)
         }
     }
 }

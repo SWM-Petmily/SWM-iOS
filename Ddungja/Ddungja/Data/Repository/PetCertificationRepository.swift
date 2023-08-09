@@ -21,4 +21,10 @@ final class PetCertificationRepository: PetCertificationRepositoryInterface {
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
+    
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+        datasource.registerPetNumber(postId, dto)
+            .map { $0.toCertificationInfoVO() }
+            .eraseToAnyPublisher()
+    }
 }

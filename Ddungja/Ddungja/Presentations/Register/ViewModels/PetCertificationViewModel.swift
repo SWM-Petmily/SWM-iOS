@@ -18,6 +18,9 @@ final class PetCertificationViewModel: ObservableObject {
     @Published var vaccinationStatus = CertificationStatus.none.rawValue
     @Published var healthScreeningStatus = CertificationStatus.none.rawValue
     
+    @Published var name = ""
+    @Published var registrationNumber = ""
+    
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
         self.coordinator = coordinator
         self.petCertificationUsecase = petCertificationUsecase
@@ -32,6 +35,17 @@ final class PetCertificationViewModel: ObservableObject {
                 self.registrationStatus = vo.isRegistered
                 self.vaccinationStatus = vo.isVaccinated
                 self.healthScreeningStatus = vo.isMedicalChecked
+            }
+            .store(in: &cancellables)
+    }
+    
+    func registerPetNumber(_ postId: Int) {
+        petCertificationUsecase.registerPetNumber(postId, name, registrationNumber)
+            .sink { completion in
+                print("getAdditionalPageInfo \(completion)")
+            } receiveValue: { [weak self] vo in
+                guard let self = self else { return }
+                print("register number \(vo)")
             }
             .store(in: &cancellables)
     }

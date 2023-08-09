@@ -9,8 +9,10 @@ import Foundation
 import CombineMoya
 import Moya
 import Combine
+
 protocol PetCertificationDataSourceInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError>
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, MoyaError>
 }
 
 final class CertificationAPIProvider: PetCertificationDataSourceInterface {
@@ -22,6 +24,13 @@ final class CertificationAPIProvider: PetCertificationDataSourceInterface {
     
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
         moyaProvider.requestPublisher(.getAdditionalPage(postId: 402))
+            .retry(3)
+            .eraseToAnyPublisher()
+            .map(CertificationInfoDTO.self)
+    }
+    
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, MoyaError>  {
+        moyaProvider.requestPublisher(.registerPetNumber(postId: postId, dto: dto))
             .retry(3)
             .eraseToAnyPublisher()
             .map(CertificationInfoDTO.self)

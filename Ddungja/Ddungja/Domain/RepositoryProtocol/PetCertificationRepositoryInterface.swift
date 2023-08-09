@@ -10,4 +10,5 @@ import Moya
 
 protocol PetCertificationRepositoryInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError>
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, MoyaError>
 }

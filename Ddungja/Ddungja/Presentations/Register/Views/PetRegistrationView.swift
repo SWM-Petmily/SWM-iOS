@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PetRegistrationView: View {
-    private let viewModel: PetCertificationViewModel
-    @State private var test = ""
+    @StateObject private var viewModel: PetCertificationViewModel
+    private let postId: Int
     
-    init(viewModel: PetCertificationViewModel) {
-        self.viewModel = viewModel
+    init(viewModel: PetCertificationViewModel, postId: Int) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.postId = postId
     }
     
     var body: some View {
@@ -44,8 +45,8 @@ struct PetRegistrationView: View {
                 
                 HStack(spacing: 20) {
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                        TextField("", text: $test, axis: .horizontal)
-                            .modifier(PlaceholderStyle(showPlaceHolder: test.isEmpty, placeholder: "입력해주세요"))
+                        TextField("", text: $viewModel.name, axis: .horizontal)
+                            .modifier(PlaceholderStyle(showPlaceHolder: viewModel.name.isEmpty, placeholder: "입력해주세요"))
                             .font(.system(size: 16))
                             .lineLimit(1)
                             .frame(height: 30)
@@ -62,8 +63,8 @@ struct PetRegistrationView: View {
                 
                 HStack(spacing: 20) {
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                        TextField("", text: $test, axis: .horizontal)
-                            .modifier(PlaceholderStyle(showPlaceHolder: test.isEmpty, placeholder: "입력해주세요"))
+                        TextField("", text: $viewModel.registrationNumber, axis: .horizontal)
+                            .modifier(PlaceholderStyle(showPlaceHolder: viewModel.registrationNumber.isEmpty, placeholder: "입력해주세요"))
                             .font(.system(size: 16))
                             .lineLimit(1)
                             .frame(height: 30)
@@ -75,7 +76,7 @@ struct PetRegistrationView: View {
                     }
                     
                     Button {
-                
+                        viewModel.registerPetNumber(postId)
                     } label: {
                         Text("확인")
                             .bold()
@@ -92,24 +93,5 @@ struct PetRegistrationView: View {
             }
             .padding()
         }
-        
-        
-        Button {
-            
-        } label: {
-            Text("건너뛰기")
-                .applyInner(color: .white)
-                .frame(height: 52)
-                .frame(maxWidth: .infinity)
-        }
-        .background(Color.main)
-        .cornerRadius(14)
-        .padding([.leading, .trailing, .bottom])
-    }
-}
-
-struct PetRegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        PetRegistrationView()
     }
 }

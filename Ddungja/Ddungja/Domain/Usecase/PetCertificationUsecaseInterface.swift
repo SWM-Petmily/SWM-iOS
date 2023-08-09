@@ -10,6 +10,7 @@ import Moya
 
 protocol PetCertificationUsecaseInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError>
+    func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, MoyaError>
 }
 
 final class PetCertificationUsecase: PetCertificationUsecaseInterface {
@@ -21,5 +22,10 @@ final class PetCertificationUsecase: PetCertificationUsecaseInterface {
     
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError> {
         return repository.getAdditionalPageInfo(postId)
+    }
+    
+    func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+        let dto = RegisterPetNumberDTO(ownerName: name, dogRegistrationNumber: number)
+        return repository.registerPetNumber(postId, dto)
     }
 }

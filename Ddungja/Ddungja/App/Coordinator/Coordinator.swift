@@ -11,6 +11,7 @@ import SwiftUI
 protocol CoordinatorProtocol {
     func push(_ page: Page)
     func pop()
+    func popToRoot()
 }
 
 final class Coordinator: ObservableObject, CoordinatorProtocol {
@@ -35,6 +36,10 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     
     func pop() {
         path.removeLast()
+    }
+    
+    func popToRoot() {
+        path.removeLast(path.count - 1)
     }
     
     @ViewBuilder
@@ -82,8 +87,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(PetAdopterView.self)
         case let .petCertification(postId):
             injector.resolve(PetCertificationScene.self, argument: postId)
-        case .petRegistration:
-            injector.resolve(PetRegistrationView.self)
+        case let .petRegistration(postId):
+            injector.resolve(PetRegistrationView.self, argument: postId)
         }
     }
 }
