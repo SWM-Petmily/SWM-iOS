@@ -184,5 +184,10 @@ struct PresentationAssembly: Assembly {
             let viewModel = resolver.resolve(PetCertificationViewModel.self)!
             return PetRegistrationView(viewModel: viewModel, postId: postId)
         }
+        
+        container.register(HealthScreeningView.self) { (resolver, postId: Int) in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return HealthScreeningView(viewModel: viewModel, postId: postId)
+        }
     }
 }

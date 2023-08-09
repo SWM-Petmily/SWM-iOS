@@ -30,4 +30,5 @@ enum Page: Hashable {
     case petAdopter
     case petCertification(postId: Int)
     case petRegistration(postId: Int)
+    case healthScreening(postId: Int)
 }

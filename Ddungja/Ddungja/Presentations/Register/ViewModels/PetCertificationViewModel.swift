@@ -20,6 +20,7 @@ final class PetCertificationViewModel: ObservableObject {
     
     @Published var name = ""
     @Published var registrationNumber = ""
+    @Published var images = Array(repeating: Data(), count: 5)
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
         self.coordinator = coordinator
