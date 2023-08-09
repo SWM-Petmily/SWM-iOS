@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct PetCertificationScene: View {
+    @ObservedObject private var viewModel: PetCertificationViewModel
+    private let postId: Int
+    init(viewModel: PetCertificationViewModel, postId: Int) {
+        self.viewModel = viewModel
+        self.postId = postId
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 10) {
