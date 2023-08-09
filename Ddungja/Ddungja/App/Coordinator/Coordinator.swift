@@ -80,8 +80,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(PetCostView.self)
         case .petAdopter:
             injector.resolve(PetAdopterView.self)
-        case .petCertification:
-            injector.resolve(PetCertificationScene.self)
+        case let .petCertification(postId):
+            injector.resolve(PetCertificationScene.self, argument: postId)
         }
     }
 }

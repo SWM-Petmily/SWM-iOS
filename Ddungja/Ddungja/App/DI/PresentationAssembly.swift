@@ -43,6 +43,11 @@ struct PresentationAssembly: Assembly {
         }
         .inObjectScope(.exitSalePost)
         
+        container.register(PetCertificationViewModel.self) { resolver in
+            let usecase = resolver.resolve(PetCertificationUsecaseInterface.self)!
+            return PetCertificationViewModel(coordinator: coordinator, petCertificationUsecase: usecase)
+        }
+        
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
             return LoginScene(viewModel: viewModel)
@@ -170,8 +175,9 @@ struct PresentationAssembly: Assembly {
             return PetAdopterView(viewModel: viewModel)
         }
         
-        container.register(PetCertificationScene.self) { resolver in
-            return PetCertificationScene()
+        container.register(PetCertificationScene.self) { (resolver, postId: Int) in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return PetCertificationScene(viewModel: viewModel, postId: postId)
         }
     }
 }

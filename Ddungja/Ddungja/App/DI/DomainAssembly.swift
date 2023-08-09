@@ -44,5 +44,10 @@ struct DomainAssembly: Assembly {
             let repository = resolver.resolve(RegisterRepository.self)!
             return RegisterUsecase(repository: repository)
         }
+        
+        container.register(PetCertificationUsecaseInterface.self) { resolver in
+            let repository = resolver.resolve(PetCertificationRepositoryInterface.self)!
+            return PetCertificationUsecase(repository: repository)
+        }
     }
 }
