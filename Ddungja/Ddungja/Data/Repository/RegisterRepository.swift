@@ -16,13 +16,13 @@ final class RegisterRepository: RegisterRepositoryInterface {
         self.datasource = datasource
     }
     
-    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], MoyaError> {
+    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], Error> {
         return datasource.getRegisteredPet()
             .map { $0.toRegisteredPetVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostIDVO, MoyaError> {
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostIDVO, Error> {
         return datasource.registerPost(vo, images)
             .map { $0.toPostIdVO() }
             .eraseToAnyPublisher()

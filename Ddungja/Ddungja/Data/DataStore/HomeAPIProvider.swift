@@ -10,10 +10,10 @@ import CombineMoya
 import Combine
 
 protocol HomeDataSourceInterface {
-    func getMainPost(_ page: Int) -> AnyPublisher<HomeDTO, MoyaError>
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeDTO, Error>
     func requestChangeDislike(_ id: Int) -> AnyPublisher<Response, MoyaError>
     func requestChangeLike(_ id: Int) -> AnyPublisher<Response, MoyaError>
-    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostDTO, MoyaError>
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostDTO, Error>
 }
 
 final class HomeAPIProvider: HomeDataSourceInterface {
@@ -23,11 +23,9 @@ final class HomeAPIProvider: HomeDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getMainPost(_ page: Int) -> AnyPublisher<HomeDTO, MoyaError> {
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeDTO, Error> {
         return moyaProvider.requestPublisher(.mainPost(page: page))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(HomeDTO.self)
+            .asResult()
     }
     
     func requestChangeDislike(_ id: Int) -> AnyPublisher<Response, MoyaError> {
@@ -42,10 +40,8 @@ final class HomeAPIProvider: HomeDataSourceInterface {
             .eraseToAnyPublisher()
     }
     
-    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostDTO, MoyaError> {
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostDTO, Error> {
         return moyaProvider.requestPublisher(.detailPost(id: id))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(DetailPostDTO.self)
+            .asResult()
     }
 }

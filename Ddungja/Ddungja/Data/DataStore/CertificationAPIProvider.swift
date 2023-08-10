@@ -11,10 +11,10 @@ import Moya
 import Combine
 
 protocol PetCertificationDataSourceInterface {
-    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError>
-    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, MoyaError>
-    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError>
-    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError>
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, Error>
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, Error>
+    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, Error>
+    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, Error>
 }
 
 final class CertificationAPIProvider: PetCertificationDataSourceInterface {
@@ -24,31 +24,23 @@ final class CertificationAPIProvider: PetCertificationDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, Error> {
         moyaProvider.requestPublisher(.getAdditionalPage(postId: 401))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(CertificationInfoDTO.self)
+            .asResult()
     }
     
-    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, MoyaError>  {
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, Error>  {
         moyaProvider.requestPublisher(.registerPetNumber(postId: postId, dto: dto))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(CertificationInfoDTO.self)
+            .asResult()
     }
     
-    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
+    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, Error> {
         moyaProvider.requestPublisher(.registerHealthInfo(postId: postId, images: images))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(CertificationInfoDTO.self)
+            .asResult()
     }
     
-    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
+    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, Error> {
         moyaProvider.requestPublisher(.registerVaccineInfo(postId: postId, images: images))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(CertificationInfoDTO.self)
+            .asResult()
     }
 }

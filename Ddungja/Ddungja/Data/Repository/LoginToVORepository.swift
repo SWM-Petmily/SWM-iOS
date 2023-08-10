@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Moya
 
 class LoginToVORepository: LoginRepository {
 
@@ -26,7 +25,7 @@ class LoginToVORepository: LoginRepository {
         return oauthDataSource.requestAppleLogin().eraseToAnyPublisher()
     }
     
-    func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, MoyaError> {
+    func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, Error> {
         loginDataSource.requestLogin(oauth)
             .map { $0.toLoginVO() }
             .eraseToAnyPublisher()

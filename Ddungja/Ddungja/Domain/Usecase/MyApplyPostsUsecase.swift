@@ -6,13 +6,12 @@
 //
 
 import Combine
-import Moya
 
 protocol MyApplyPostsUsecaseInterface {
-    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, MoyaError>
-    func getApplyInfo(id: Int) -> AnyPublisher<DetailApplyVO, MoyaError>
-    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, MoyaError>
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, MoyaError>
+    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, Error>
+    func getApplyInfo(id: Int) -> AnyPublisher<DetailApplyVO, Error>
+    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, Error>
+    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, Error>
 }
 
 final class MyApplyPostsUsecase: MyApplyPostsUsecaseInterface {
@@ -22,19 +21,19 @@ final class MyApplyPostsUsecase: MyApplyPostsUsecaseInterface {
         self.repository = repository
     }
     
-    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, MoyaError> {
+    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, Error> {
         return repository.getMyApplyPosts(status, page)
     }
     
-    func getApplyInfo(id: Int) -> AnyPublisher<DetailApplyVO, MoyaError> {
+    func getApplyInfo(id: Int) -> AnyPublisher<DetailApplyVO, Error> {
         return repository.getDetailApply(id: id)
     }
     
-    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
+    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, Error> {
         return repository.deleteInfo(id: id)
     }
     
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, MoyaError> {
+    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, Error> {
         return repository.postApply(postId, info)
     }
 }

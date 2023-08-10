@@ -10,9 +10,9 @@ import Combine
 import Moya
 
 protocol HomeUsecaseInterface {
-    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError>
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, Error>
     func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Int, MoyaError>
-    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, MoyaError>
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, Error>
 }
 
 final class HomeUsecase: HomeUsecaseInterface {
@@ -22,7 +22,7 @@ final class HomeUsecase: HomeUsecaseInterface {
         self.repository = repository
     }
     
-    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError> {
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, Error> {
         return repository.getMainPost(page)
     }
 
@@ -38,7 +38,7 @@ final class HomeUsecase: HomeUsecaseInterface {
         }
     }
     
-    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, MoyaError> {
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, Error> {
         return repository.getDetailPost(id)
     }
 }

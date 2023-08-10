@@ -15,7 +15,7 @@ final class HomeRepository: HomeRepositoryInterface {
         self.datasource = datasource
     }
     
-    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, MoyaError> {
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, Error> {
         return datasource.getMainPost(page)
             .map { $0.toHomeVO() }
             .eraseToAnyPublisher()
@@ -33,7 +33,7 @@ final class HomeRepository: HomeRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, MoyaError> {
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, Error> {
         datasource.getDetailPost(id)
             .map { $0.toDetailPostVO() }
             .eraseToAnyPublisher()

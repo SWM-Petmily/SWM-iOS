@@ -6,10 +6,9 @@
 //
 
 import Combine
-import Moya
 
 protocol LoginRepository {
     func requestKakaoLogin() -> AnyPublisher<OAuth.KakaoVO, Error>
     func requestAppleLogin() -> AnyPublisher<OAuth.AppleVO, Error>
-    func postLogin(_ oauth: OAuth)  -> AnyPublisher<LoginVO, MoyaError>
+    func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, Error>
 }

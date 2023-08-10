@@ -6,14 +6,13 @@
 //
 
 import Combine
-import Moya
 import UIKit
 
 protocol PetCertificationUsecaseInterface {
-    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError>
-    func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, MoyaError>
-    func registerPetHealthInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError>
-    func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError>
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, Error>
+    func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, Error>
+    func registerPetHealthInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, Error>
+    func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, Error>
 }
 
 final class PetCertificationUsecase: PetCertificationUsecaseInterface {
@@ -23,16 +22,16 @@ final class PetCertificationUsecase: PetCertificationUsecaseInterface {
         self.repository = repository
     }
     
-    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, Error> {
         return repository.getAdditionalPageInfo(postId)
     }
     
-    func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, Error> {
         let dto = RegisterPetNumberDTO(ownerName: name, dogRegistrationNumber: number)
         return repository.registerPetNumber(postId, dto)
     }
     
-    func registerPetHealthInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func registerPetHealthInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, Error> {
         var userImages = [UIImage]()
         for image in images {
             if let uiImage = UIImage(data: image) {
@@ -43,7 +42,7 @@ final class PetCertificationUsecase: PetCertificationUsecaseInterface {
         return repository.registerPetHealthInfo(postId, userImages)
     }
     
-    func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, Error> {
         var userImages = [UIImage]()
         for image in images {
             if let uiImage = UIImage(data: image) {
