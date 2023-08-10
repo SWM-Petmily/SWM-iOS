@@ -13,6 +13,7 @@ protocol PetCertificationUsecaseInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError>
     func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, MoyaError>
     func registerPetHealthInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError>
+    func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError>
 }
 
 final class PetCertificationUsecase: PetCertificationUsecaseInterface {
@@ -40,5 +41,16 @@ final class PetCertificationUsecase: PetCertificationUsecaseInterface {
         }
         
         return repository.registerPetHealthInfo(postId, userImages)
+    }
+    
+    func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+        var userImages = [UIImage]()
+        for image in images {
+            if let uiImage = UIImage(data: image) {
+                userImages.append(uiImage)
+            }
+        }
+        
+        return repository.registerVaccineInfo(postId, userImages)
     }
 }

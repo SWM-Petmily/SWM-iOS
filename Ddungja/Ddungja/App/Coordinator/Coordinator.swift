@@ -91,6 +91,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(PetRegistrationView.self, argument: postId)
         case let .healthScreening(postId):
             injector.resolve(HealthScreeningView.self, argument: postId)
+        case let .vaccination(postId):
+            injector.resolve(VaccinationView.self, argument: postId)
         }
     }
 }

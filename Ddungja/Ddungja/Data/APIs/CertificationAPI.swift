@@ -12,6 +12,7 @@ enum CertificationAPI {
     case getAdditionalPage(postId: Int)
     case registerPetNumber(postId: Int, dto: RegisterPetNumberDTO)
     case registerHealthInfo(postId: Int, images: [UIImage])
+    case registerVaccineInfo(postId: Int, images: [UIImage])
 }
 
 extension CertificationAPI: TargetType {
@@ -27,6 +28,8 @@ extension CertificationAPI: TargetType {
             return "posts/certifyRegistration/\(postId)"
         case let .registerHealthInfo(postId, _):
             return "posts/certifyMedicalCheck/\(postId)"
+        case let .registerVaccineInfo(postId, _):
+            return "posts/certifyVaccination/\(postId)"
         }
     }
     
@@ -34,7 +37,7 @@ extension CertificationAPI: TargetType {
         switch self {
         case .getAdditionalPage:
             return .get
-        case .registerPetNumber, .registerHealthInfo:
+        case .registerPetNumber, .registerHealthInfo, .registerVaccineInfo:
             return .post
         }
     }
@@ -51,6 +54,16 @@ extension CertificationAPI: TargetType {
             for image in images {
                 if let imageData = image.jpegData(compressionQuality: 0.1) {
                     let formData = MultipartFormData(provider: .data(imageData), name: "medicalCheckImages", fileName: "image.jpg", mimeType: "image/jpeg")
+                    formDataArray.append(formData)
+                }
+            }
+            return .uploadMultipart(formDataArray)
+        case let .registerVaccineInfo(_, images):
+            var formDataArray: [MultipartFormData] = []
+            
+            for image in images {
+                if let imageData = image.jpegData(compressionQuality: 0.1) {
+                    let formData = MultipartFormData(provider: .data(imageData), name: "vaccinationImages", fileName: "image.jpg", mimeType: "image/jpeg")
                     formDataArray.append(formData)
                 }
             }

@@ -20,7 +20,8 @@ final class PetCertificationViewModel: ObservableObject {
     
     @Published var name = ""
     @Published var registrationNumber = ""
-    @Published var images = Array(repeating: Data(), count: 5)
+    @Published var healthInfoImages = Array(repeating: Data(), count: 5)
+    @Published var vaccineInfoImages = Array(repeating: Data(), count: 5)
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
         self.coordinator = coordinator
@@ -52,12 +53,23 @@ final class PetCertificationViewModel: ObservableObject {
     }
     
     func registerPetHealthInfo(_ postId: Int) {
-        petCertificationUsecase.registerPetHealthInfo(postId, images)
+        petCertificationUsecase.registerPetHealthInfo(postId, healthInfoImages)
             .sink { completion in
                 print("getAdditionalPageInfo \(completion)")
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
                 print("register number \(vo)")
+            }
+            .store(in: &cancellables)
+    }
+    
+    func registerVaccineInfo(_ postId: Int) {
+        petCertificationUsecase.registerVaccineInfo(postId, vaccineInfoImages)
+            .sink { completion in
+                print("registerVaccineInfo \(completion)")
+            } receiveValue: { [weak self] vo in
+                guard let self = self else { return }
+                print("registerVaccineInfo \(vo)")
             }
             .store(in: &cancellables)
     }

@@ -14,6 +14,7 @@ protocol PetCertificationDataSourceInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, MoyaError>
     func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, MoyaError>
     func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError>
+    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError>
 }
 
 final class CertificationAPIProvider: PetCertificationDataSourceInterface {
@@ -39,6 +40,13 @@ final class CertificationAPIProvider: PetCertificationDataSourceInterface {
     
     func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
         moyaProvider.requestPublisher(.registerHealthInfo(postId: postId, images: images))
+            .retry(3)
+            .eraseToAnyPublisher()
+            .map(CertificationInfoDTO.self)
+    }
+    
+    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, MoyaError> {
+        moyaProvider.requestPublisher(.registerVaccineInfo(postId: postId, images: images))
             .retry(3)
             .eraseToAnyPublisher()
             .map(CertificationInfoDTO.self)

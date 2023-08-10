@@ -19,18 +19,18 @@ struct HealthScreeningView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("예방접종 인증 Tip!")
+            Text("건강검진 정보 인증 Tip!")
                 .bold()
                 .applyTitle(color: .mainTextColor)
             
-            Text("** 병원에 직접 방문하거나, 인투펫 등의 동물병원 내역 조회 서비스를 통한 백신 내역을 올려주세요!")
+            Text("** 건강검진 결과를 사진으로 등록해주세요!")
                 .applySubhead(color: .mainTextColor)
             
             ScrollView(.horizontal) {
                 HStack {
                     PhotoPickerView1(viewModel: viewModel)
                         .frame(width: 108, height: 108)
-                    ForEach(viewModel.images, id: \.self) { imageData in
+                    ForEach(viewModel.healthInfoImages, id: \.self) { imageData in
                         if let image = UIImage(data: imageData) {
                             Image(uiImage: image)
                                 .resizable()
@@ -94,7 +94,7 @@ struct PhotoPickerView1: View {
             for (idx, item) in selectedItems.enumerated() {
                 Task {
                     if let data = try? await item.loadTransferable(type: Data.self) {
-                        viewModel.images.insert(data, at: idx)
+                        viewModel.healthInfoImages.insert(data, at: idx)
                     }
                 }
             }
