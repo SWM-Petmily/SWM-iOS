@@ -63,6 +63,7 @@
 		753BA7662A84D63A0090EAE3 /* NetworkErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7652A84D63A0090EAE3 /* NetworkErrorDTO.swift */; };
 		753BA76B2A850A930090EAE3 /* ErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76A2A850A930090EAE3 /* ErrorVO.swift */; };
 		753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */; };
+		753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -238,6 +239,7 @@
 		753BA7652A84D63A0090EAE3 /* NetworkErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorDTO.swift; sourceTree = "<group>"; };
 		753BA76A2A850A930090EAE3 /* ErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVO.swift; sourceTree = "<group>"; };
 		753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Extension.swift"; sourceTree = "<group>"; };
+		753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 			children = (
 				754AB6D72A6F521700F2EBC8 /* KeyChainManager.swift */,
 				753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */,
+				753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1207,6 +1210,7 @@
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				753BA7332A7F71180090EAE3 /* PhotoPickerView.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
+				753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */,
 				754AB6EE2A73977100F2EBC8 /* SignUpScene.swift in Sources */,
 				7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
