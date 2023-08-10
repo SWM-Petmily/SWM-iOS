@@ -88,6 +88,9 @@ extension MyPostsAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkwNjQ2MjMwfQ.1hGNP1_T0wxTQZcD0nBkYc1vEAqwXRbg3X1S4oa9af1ehlX8l4ivaJpp_Lat6B43RdUafS9b1LHXx5jVyqKp7A"]
+        if let accessToken = KeyChainManager.read(key: .accessToken) {
+            return ["Authorization" : accessToken]
+        }
+        return .none
     }
 }

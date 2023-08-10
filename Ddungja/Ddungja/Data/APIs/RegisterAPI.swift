@@ -65,9 +65,15 @@ extension RegisterAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .getRegiteredPet:
-            return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkxOTk4NjAzfQ._k8PvIWKG_9PtY_KIa60DHOjKtOS17W2oCW-yNRKq77IIiw8TVR9MDCE3lQO0q40wrygK0mQOodpUPwDaUjvHA"]
+            if let accessToken = KeyChainManager.read(key: .accessToken) {
+                return ["Authorization" : accessToken]
+            }
+            return .none
         case .registerPost:
-            return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkxOTk4NjAzfQ._k8PvIWKG_9PtY_KIa60DHOjKtOS17W2oCW-yNRKq77IIiw8TVR9MDCE3lQO0q40wrygK0mQOodpUPwDaUjvHA","Content-type" : "multipart/form-data"]
+            if let accessToken = KeyChainManager.read(key: .accessToken) {
+                return ["Authorization" : accessToken, "Content-type" : "multipart/form-data"]
+            }
+            return ["Authorization" : "","Content-type" : "multipart/form-data"]
         }
     }
 }

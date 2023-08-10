@@ -72,6 +72,9 @@ extension CertificationAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkxOTk4NjAzfQ._k8PvIWKG_9PtY_KIa60DHOjKtOS17W2oCW-yNRKq77IIiw8TVR9MDCE3lQO0q40wrygK0mQOodpUPwDaUjvHA"]
+        if let accessToken = KeyChainManager.read(key: .accessToken) {
+            return ["Authorization" : accessToken]
+        }
+        return .none
     }
 }
