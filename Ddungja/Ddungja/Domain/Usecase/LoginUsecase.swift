@@ -29,6 +29,7 @@ final class LoginUsecase: LoginUsecaseInterface {
                         return Fail(error: error)
                     }
                     .map { loginVO in
+                        KeyChainManager.create(key: .userId, token: String(loginVO.userId))
                         KeyChainManager.create(key: .accessToken, token: loginVO.accessToken)
                         KeyChainManager.create(key: .refreshToken, token: loginVO.refreshToken)
                         return loginVO.isCertification ? .certification : .nonCertification
@@ -46,6 +47,7 @@ final class LoginUsecase: LoginUsecaseInterface {
                         return Fail(error: error)
                     }
                     .map { loginVO in
+                        KeyChainManager.create(key: .userId, token: String(loginVO.userId))
                         KeyChainManager.create(key: .accessToken, token: loginVO.accessToken)
                         KeyChainManager.create(key: .refreshToken, token: loginVO.refreshToken)
                         return loginVO.isCertification ? .certification : .nonCertification
