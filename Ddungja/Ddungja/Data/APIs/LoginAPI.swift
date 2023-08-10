@@ -15,7 +15,7 @@ enum LoginAPI {
 
 extension LoginAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://www.petmily.site")!
+        return URL(string: NetworkConfiguration.petmilyURL as! String)!
     }
     
     var path: String {

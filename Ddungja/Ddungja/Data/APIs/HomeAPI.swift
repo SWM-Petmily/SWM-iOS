@@ -17,7 +17,7 @@ enum HomeAPI {
 
 extension HomeAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://www.petmily.site")!
+        return URL(string: NetworkConfiguration.petmilyURL as! String)!
     }
     
     var path: String {
