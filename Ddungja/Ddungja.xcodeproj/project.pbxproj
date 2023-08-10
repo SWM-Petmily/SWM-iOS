@@ -59,6 +59,10 @@
 		753BA75B2A8355160090EAE3 /* CertificationInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */; };
 		753BA75D2A8355A80090EAE3 /* CertificationInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */; };
 		753BA75F2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75E2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift */; };
+		753BA7642A84D3360090EAE3 /* MoyaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7632A84D3360090EAE3 /* MoyaError.swift */; };
+		753BA7662A84D63A0090EAE3 /* NetworkErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7652A84D63A0090EAE3 /* NetworkErrorDTO.swift */; };
+		753BA76B2A850A930090EAE3 /* ErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76A2A850A930090EAE3 /* ErrorVO.swift */; };
+		753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -230,6 +234,10 @@
 		753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationInfoDTO.swift; sourceTree = "<group>"; };
 		753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationInfoVO.swift; sourceTree = "<group>"; };
 		753BA75E2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetNumberDTO.swift; sourceTree = "<group>"; };
+		753BA7632A84D3360090EAE3 /* MoyaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaError.swift; sourceTree = "<group>"; };
+		753BA7652A84D63A0090EAE3 /* NetworkErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorDTO.swift; sourceTree = "<group>"; };
+		753BA76A2A850A930090EAE3 /* ErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVO.swift; sourceTree = "<group>"; };
+		753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Extension.swift"; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -447,6 +455,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		753BA7622A84D30E0090EAE3 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				753BA7632A84D3360090EAE3 /* MoyaError.swift */,
+				753BA7652A84D63A0090EAE3 /* NetworkErrorDTO.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		753BA7692A850A880090EAE3 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				753BA76A2A850A930090EAE3 /* ErrorVO.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		753DF8C22A7AEE98001D50AE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				754AB6D72A6F521700F2EBC8 /* KeyChainManager.swift */,
+				753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -670,6 +696,7 @@
 		755462552A44B0C900598268 /* DTO+Mapping */ = {
 			isa = PBXGroup;
 			children = (
+				753BA7622A84D30E0090EAE3 /* Error */,
 				753BA7262A7E803B0090EAE3 /* Register */,
 				7543D4C92A78D34B00A0E9D9 /* Home */,
 				7546BDB12A4C24870019A986 /* UserProfileDTO */,
@@ -894,6 +921,7 @@
 		75FB2FBE2A55B49100E4DDE8 /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				753BA7692A850A880090EAE3 /* Error */,
 				753BA7292A7E83C70090EAE3 /* Register */,
 				7543D4CD2A78D58A00A0E9D9 /* Home */,
 				7543D4CC2A78D58200A0E9D9 /* Login */,
@@ -1100,12 +1128,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753BA7662A84D63A0090EAE3 /* NetworkErrorDTO.swift in Sources */,
 				754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */,
 				759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */,
 				753DF8CD2A7CF690001D50AE /* ApplyCommonViewModel.swift in Sources */,
 				759228F22A6138C400603FF4 /* MyPostsScene.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
 				759228E72A5FF29C00603FF4 /* Page.swift in Sources */,
+				753BA76B2A850A930090EAE3 /* ErrorVO.swift in Sources */,
 				759228E42A5FF0E600603FF4 /* Coordinator.swift in Sources */,
 				75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */,
 				754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */,
@@ -1126,6 +1156,7 @@
 				754AB6E02A6FAC7E00F2EBC8 /* LoginUsecase.swift in Sources */,
 				7546BDB52A4C24C40019A986 /* ProfileDetailDTO.swift in Sources */,
 				7543D4C82A78D33300A0E9D9 /* HomeDTO.swift in Sources */,
+				753BA7642A84D3360090EAE3 /* MoyaError.swift in Sources */,
 				75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */,
 				759A65B32A40574E00E6AD07 /* LoginViewModel.swift in Sources */,
 				753BA7352A7FEA230090EAE3 /* AdoptionReasonView.swift in Sources */,
@@ -1220,6 +1251,7 @@
 				759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */,
 				75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */,
 				753BA7472A8278240090EAE3 /* VaccinationView.swift in Sources */,
+				753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */,
 				759228FA2A62DD0300603FF4 /* MyPostsRepositoryInterface.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
 				759228DF2A5E8F3F00603FF4 /* MyPageScene.swift in Sources */,
