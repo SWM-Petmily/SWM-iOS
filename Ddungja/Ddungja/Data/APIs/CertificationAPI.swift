@@ -1,0 +1,77 @@
+//
+//  CertificationAPI.swift
+//  Ddungja
+//
+//  Created by 오승기 on 2023/08/09.
+//
+
+import UIKit
+import Moya
+
+enum CertificationAPI {
+    case getAdditionalPage(postId: Int)
+    case registerPetNumber(postId: Int, dto: RegisterPetNumberDTO)
+    case registerHealthInfo(postId: Int, images: [UIImage])
+    case registerVaccineInfo(postId: Int, images: [UIImage])
+}
+
+extension CertificationAPI: TargetType {
+    var baseURL: URL {
+        return URL(string: "https://www.petmily.site")!
+    }
+    
+    var path: String {
+        switch self {
+        case let .getAdditionalPage(postId):
+            return "posts/certify/\(postId)"
+        case let .registerPetNumber(postId, _):
+            return "posts/certifyRegistration/\(postId)"
+        case let .registerHealthInfo(postId, _):
+            return "posts/certifyMedicalCheck/\(postId)"
+        case let .registerVaccineInfo(postId, _):
+            return "posts/certifyVaccination/\(postId)"
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .getAdditionalPage:
+            return .get
+        case .registerPetNumber, .registerHealthInfo, .registerVaccineInfo:
+            return .post
+        }
+    }
+    
+    var task: Task {
+        switch self {
+        case .getAdditionalPage:
+            return .requestPlain
+        case let .registerPetNumber(_, dto):
+            return .requestJSONEncodable(dto)
+        case let .registerHealthInfo(_, images):
+            var formDataArray: [MultipartFormData] = []
+            
+            for image in images {
+                if let imageData = image.jpegData(compressionQuality: 0.1) {
+                    let formData = MultipartFormData(provider: .data(imageData), name: "medicalCheckImages", fileName: "image.jpg", mimeType: "image/jpeg")
+                    formDataArray.append(formData)
+                }
+            }
+            return .uploadMultipart(formDataArray)
+        case let .registerVaccineInfo(_, images):
+            var formDataArray: [MultipartFormData] = []
+            
+            for image in images {
+                if let imageData = image.jpegData(compressionQuality: 0.1) {
+                    let formData = MultipartFormData(provider: .data(imageData), name: "vaccinationImages", fileName: "image.jpg", mimeType: "image/jpeg")
+                    formDataArray.append(formData)
+                }
+            }
+            return .uploadMultipart(formDataArray)
+        }
+    }
+    
+    var headers: [String : String]? {
+        return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkxOTk4NjAzfQ._k8PvIWKG_9PtY_KIa60DHOjKtOS17W2oCW-yNRKq77IIiw8TVR9MDCE3lQO0q40wrygK0mQOodpUPwDaUjvHA"]
+    }
+}

@@ -22,4 +22,14 @@ enum Page: Hashable {
     case home
     case detailPost(id: Int) //상세게시글페이지
     case applyAdaption(postId: Int)
+    case petInfo(info: RegisteredPetVO)
+    case adoptionReason
+    case petAdvantage
+    case petDisadvantage
+    case petCost
+    case petAdopter
+    case petCertification(postId: Int)
+    case petRegistration(postId: Int)
+    case healthScreening(postId: Int)
+    case vaccination(postId: Int)
 }

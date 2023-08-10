@@ -10,10 +10,12 @@ import SwiftUI
 struct DdungjaTabScene: View {
     
     private let home: HomeScene
+    private let register: RegisterScene
     private let myPage: MyPageScene
     
-    init(_ home: HomeScene,_ myPage: MyPageScene) {
+    init(_ home: HomeScene, _ register: RegisterScene, _ myPage: MyPageScene) {
         self.home = home
+        self.register = register
         self.myPage = myPage
     }
     
@@ -34,7 +36,7 @@ struct DdungjaTabScene: View {
                     
                 }
             
-            RegisterView()
+            register
                 .tabItem {
                     Image(systemName: "plus.app")
                         .environment(\.symbolVariants, .none)

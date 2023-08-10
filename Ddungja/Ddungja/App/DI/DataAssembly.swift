@@ -34,6 +34,14 @@ struct DataAssembly: Assembly {
             return HomeAPIProvider()
         }
         
+        container.register(RegisterDataSourceInterface.self) { _ in
+            return RegisterAPIProvider()
+        }
+        
+        container.register(PetCertificationDataSourceInterface.self) { _ in
+            return CertificationAPIProvider()
+        }
+        
         container.register(ProfileRepository.self) { resolver in
             let dataSource = resolver.resolve(UserProfileDataSourceInterface.self)!
             return ProfileToVORepository(dataSource: dataSource)
@@ -58,6 +66,16 @@ struct DataAssembly: Assembly {
         container.register(HomeRepository.self) { resolver in
             let datasource = resolver.resolve(HomeDataSourceInterface.self)!
             return HomeRepository(datasource: datasource)
+        }
+        
+        container.register(RegisterRepository.self) { resolver in
+            let datasource = resolver.resolve(RegisterDataSourceInterface.self)!
+            return RegisterRepository(datasource: datasource)
+        }
+        
+        container.register(PetCertificationRepositoryInterface.self) { resolver in
+            let datasource = resolver.resolve(PetCertificationDataSourceInterface.self)!
+            return PetCertificationRepository(datasource: datasource)
         }
     }
 }

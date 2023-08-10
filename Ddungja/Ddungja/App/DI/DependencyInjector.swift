@@ -15,6 +15,7 @@ protocol DependencyAssemblable {
 public protocol DependencyResolvable {
     func resolve<T>(_ serviceType: T.Type) -> T
     func resolve<T, Arg>(_ serviceType: T.Type, argument: Arg) -> T
+    func resolve<T, Arg1, Arg2>(_ serviceType: T.Type, arguments arg1: Arg1, _ arg2: Arg2) -> T
 }
 
 typealias Injector = DependencyAssemblable & DependencyResolvable
@@ -43,5 +44,15 @@ final class DependencyInjector: Injector {
     func resolve<T, Arg>(_ serviceType: T.Type, argument: Arg) -> T {
         container.resolve(serviceType, argument: argument)!
     }
+    func resolve<T, Arg1, Arg2>(_ serviceType: T.Type, arguments arg1: Arg1, _ arg2: Arg2) -> T {
+        return container.resolve(serviceType, arguments: arg1, arg2)!
+    }
+}
+
+extension ObjectScope {
+    static let exitSalePost = ObjectScope(
+        storageFactory: PermanentStorage.init,
+        description: "Exit Pet Sale Post"
+    )
 }
 

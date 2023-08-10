@@ -6,6 +6,7 @@
 //
 
 import Swinject
+import Foundation
 
 struct PresentationAssembly: Assembly {
     let coordinator: Coordinator
@@ -36,6 +37,17 @@ struct PresentationAssembly: Assembly {
             return LoginViewModel(coordinator:coordinator ,loginUsecase: usecase)
         }
         
+        container.register(RegisterViewModel.self) { resolver in
+            let usecase = resolver.resolve(RegisterUsecaseInterface.self)!
+            return RegisterViewModel(container: container,coordinator: coordinator, registerUsecase: usecase)
+        }
+        .inObjectScope(.exitSalePost)
+        
+        container.register(PetCertificationViewModel.self) { resolver in
+            let usecase = resolver.resolve(PetCertificationUsecaseInterface.self)!
+            return PetCertificationViewModel(coordinator: coordinator, petCertificationUsecase: usecase)
+        }
+        
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
             return LoginScene(viewModel: viewModel)
@@ -57,8 +69,9 @@ struct PresentationAssembly: Assembly {
         
         container.register(DdungjaTabScene.self) { resolver in
             let home = resolver.resolve(HomeScene.self)!
+            let register = resolver.resolve(RegisterScene.self)!
             let mypage = resolver.resolve(MyPageScene.self)!
-            return DdungjaTabScene(home, mypage)
+            return DdungjaTabScene(home, register, mypage)
         }
         
         container.register(MyPostsScene.self) { resolver in
@@ -125,6 +138,61 @@ struct PresentationAssembly: Assembly {
         container.register(ApplyAdoptionView.self) { (resolver, id: Int) in
             let viewModel = resolver.resolve(DetailPostViewModel.self)!
             return ApplyAdoptionView(viewModel: viewModel, postId: id)
+        }
+        
+        container.register(RegisterScene.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return RegisterScene(viewModel: viewModel)
+        }
+        
+        container.register(PetInfoView.self) { (resolver, info: RegisteredPetVO) in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetInfoView(viewModel: viewModel, info: info)
+        }
+        
+        container.register(AdoptionReasonView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return AdoptionReasonView(viewModel: viewModel)
+        }
+        
+        container.register(PetAdvantageView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetAdvantageView(viewModel: viewModel)
+        }
+        
+        container.register(PetDisadvantageView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetDisadvantageView(viewModel: viewModel)
+        }
+        
+        container.register(PetCostView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetCostView(viewModel: viewModel)
+        }
+        
+        container.register(PetAdopterView.self) { resolver in
+            let viewModel = resolver.resolve(RegisterViewModel.self)!
+            return PetAdopterView(viewModel: viewModel)
+        }
+        
+        container.register(PetCertificationScene.self) { (resolver, postId: Int) in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return PetCertificationScene(viewModel: viewModel, postId: postId)
+        }
+        
+        container.register(PetRegistrationView.self) { (resolver, postId: Int) in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return PetRegistrationView(viewModel: viewModel, postId: postId)
+        }
+        
+        container.register(HealthScreeningView.self) { (resolver, postId: Int) in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return HealthScreeningView(viewModel: viewModel, postId: postId)
+        }
+        
+        container.register(VaccinationView.self) { (resolver, postId: Int) in
+            let viewModel = resolver.resolve(PetCertificationViewModel.self)!
+            return VaccinationView(viewModel: viewModel, postId: postId)
         }
     }
 }

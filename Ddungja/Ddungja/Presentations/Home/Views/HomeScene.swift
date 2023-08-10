@@ -33,6 +33,7 @@ struct HomeScene: View {
                         VStack(alignment: .leading) {
                             ZStack {
                                 BackgroundImage(imageURL: info.thumbnailImage)
+                                    .scaledToFill()
                                     .frame(minWidth: 160, maxWidth: .infinity)
                                     .frame(height: 215)
                                     .cornerRadius(14)
@@ -75,6 +76,7 @@ struct HomeScene: View {
                                 }
                                 .padding(10)
                             }
+                            .contentShape(Rectangle())
                             .onTapGesture(count: 2) {
                                 //좋아요 api쏘는곳
                                 viewModel.tappedLike(info.id, info.isLike)
