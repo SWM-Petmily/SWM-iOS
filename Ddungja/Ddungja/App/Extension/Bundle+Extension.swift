@@ -16,4 +16,13 @@ extension Bundle {
         }
         return key
     }
+    
+    var petmilyURL: String {
+        guard let file = path(forResource: "Info", ofType: "plist") else { return "" }
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["SERVER_URL"] as? String else {
+            fatalError("API_Key 설정이 안되어 있음.")
+        }
+        return key
+    }
 }
