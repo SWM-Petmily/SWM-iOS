@@ -9,8 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class DetailPostViewModel: ObservableObject {
-    private let coordinator: CoordinatorProtocol
+final class DetailPostViewModel: BaseViewModel {
     private let homeUsecase: HomeUsecaseInterface
     private(set) var applyCommon: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
@@ -28,9 +27,10 @@ final class DetailPostViewModel: ObservableObject {
     private var buttonActionSubject = PassthroughSubject<(isWriter: Bool, isApply: Bool, state: String), Never>()
     var likeActionSubject = PassthroughSubject<(), Never>()
     init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface, applyCommon: ApplyCommonViewModel) {
-        self.coordinator = coordinator
         self.homeUsecase = homeUsecase
         self.applyCommon = applyCommon
+        
+        super.init(coordinator: coordinator)
         
         buttonActionSubject.sink { [weak self] (isWriter, isApply, state) in
             guard let self = self else { return }
@@ -144,13 +144,5 @@ final class DetailPostViewModel: ObservableObject {
         if buttonText == "입양 신청하기" {
             coordinator.push(.applyAdaption(postId: id))
         }
-    }
-    
-    func moveToEditProfile() {
-        coordinator.push(.editProfile)
-    }
-    
-    func pop() {
-        coordinator.pop()
     }
 }

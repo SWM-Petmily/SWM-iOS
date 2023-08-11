@@ -8,8 +8,7 @@
 import Combine
 import SwiftUI
 
-final class MyApplyPostsViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class MyApplyPostsViewModel: BaseViewModel {
     private let myPostsUsecase: MyApplyPostsUsecaseInterface
     let applyViewModel: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
@@ -25,9 +24,10 @@ final class MyApplyPostsViewModel: ObservableObject {
     var deleteEvent = PassthroughSubject<Int, Never>()
     
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyApplyPostsUsecaseInterface, applyViewModel: ApplyCommonViewModel) {
-        self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
         self.applyViewModel = applyViewModel
+        
+        super.init(coordinator: coordinator)
         
         deleteEvent
             .throttle(for: 3, scheduler: RunLoop.main, latest: false)
@@ -79,13 +79,5 @@ final class MyApplyPostsViewModel: ObservableObject {
                 print(vo)
             }
             .store(in: &cancellables)
-    }
-    
-    func moveToApplyModifyView(_ id: Int) {
-        coordinator.push(.applyModify(id: id))
-    }
-    
-    func pop() {
-        coordinator.pop()
     }
 }

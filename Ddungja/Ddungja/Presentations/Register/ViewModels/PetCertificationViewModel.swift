@@ -9,8 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class PetCertificationViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class PetCertificationViewModel: BaseViewModel {
     private let petCertificationUsecase: PetCertificationUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -24,8 +23,9 @@ final class PetCertificationViewModel: ObservableObject {
     @Published var vaccineInfoImages = Array(repeating: Data(), count: 5)
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
-        self.coordinator = coordinator
         self.petCertificationUsecase = petCertificationUsecase
+        
+        super.init(coordinator: coordinator)
     }
     
     func getAdditionalPageInfo(_ postId: Int) {
@@ -72,10 +72,6 @@ final class PetCertificationViewModel: ObservableObject {
                 print("registerVaccineInfo \(vo)")
             }
             .store(in: &cancellables)
-    }
-    
-    func push(_ page: Page) {
-        coordinator.push(page)
     }
 }
 

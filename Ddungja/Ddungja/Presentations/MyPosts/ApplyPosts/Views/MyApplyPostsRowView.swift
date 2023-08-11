@@ -55,7 +55,7 @@ struct MyApplyPostsRowView: View {
                                 .cornerRadius(6)
                             
                             Button {
-                                viewModel.moveToApplyModifyView(myPost.applyId)
+                                viewModel.push(.applyModify(id: myPost.applyId))
                             } label: {
                                 Text("수정")
                                     .applyInner(color: .mainColor)

@@ -9,8 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class MyPostsViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class MyPostsViewModel: BaseViewModel {
     private let myPostsUsecase: MyPostsUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -28,10 +27,11 @@ final class MyPostsViewModel: ObservableObject {
     var touchEvent = PassthroughSubject<(id: Int, approval: String), Never>()
     
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyPostsUsecaseInterface) {
-        self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
         self.detailApply = DetailApplyVO(applyId: -1, nickname: "뚱자쓰", job: "-",environment: "-",people: 0,comment: "",region: "",isExperience: false,url: "", openTalk: "",approval: "",applyExperiences: [],isMyApply: false)
     
+        super.init(coordinator: coordinator)
+        
         touchEvent
             .throttle(for: 3, scheduler: RunLoop.main, latest: false)
             .sink{ [weak self] (id, approve) in
@@ -130,18 +130,5 @@ final class MyPostsViewModel: ObservableObject {
                 self?.pop()
             }
             .store(in: &cancellables)
-
-    }
-    
-    func moveToApplyList(id :Int) {
-        coordinator.push(.applyList(id: id))
-    }
-    
-    func moveToDetaionApply(id: Int) {
-        coordinator.push(.detailApply(id: id))
-    }
-    
-    func pop() {
-        coordinator.pop()
     }
 }

@@ -74,7 +74,7 @@ struct MyPageScene: View {
                                     .padding()
                             }
                             .onTapGesture {
-                                viewModel.moveToUserProfileView()
+                                viewModel.push(.userProfileView)
                             }
                         }
                     }
@@ -139,7 +139,7 @@ struct MyPageScene: View {
                                             .bold()
                                     }
                                     .onTapGesture {
-                                        viewModel.moveToMyApplyPostsView()
+                                        viewModel.push(.myApplyPosts)
                                     }
                                 }
                                 .padding()
@@ -154,7 +154,7 @@ struct MyPageScene: View {
                                 .applyInner(color: .mainTextColor)
                         }
                         .onTapGesture {
-                            viewModel.moveToMyPostsView()
+                            viewModel.push(.myPosts)
                         }
                         
                         HStack {

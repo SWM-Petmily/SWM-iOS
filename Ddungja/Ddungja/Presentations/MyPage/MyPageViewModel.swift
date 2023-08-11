@@ -7,22 +7,9 @@
 
 import Foundation
 
-final class MyPageViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class MyPageViewModel: BaseViewModel {
     
-    init(coordinator: CoordinatorProtocol) {
-        self.coordinator = coordinator
-    }
-    
-    func moveToUserProfileView() {
-        coordinator.push(.userProfileView)
-    }
-    
-    func moveToMyPostsView() {
-        coordinator.push(.myPosts)
-    }
-    
-    func moveToMyApplyPostsView() {
-        coordinator.push(.myApplyPosts)
+    override init(coordinator: CoordinatorProtocol) {
+        super.init(coordinator: coordinator)
     }
 }

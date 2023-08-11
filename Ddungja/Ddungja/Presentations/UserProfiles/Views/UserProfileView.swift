@@ -50,7 +50,7 @@ struct UserProfileView: View {
                 Text("수정하기")
                     .applyInner(color: .mainColor)
                     .onTapGesture {
-                        viewModel.moveToEditProfile()
+                        viewModel.push(.editProfile)
                     }
             }
         }

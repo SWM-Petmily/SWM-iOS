@@ -25,7 +25,7 @@ struct ApplyListScene: View {
                             fetchMoreApplyListData(info, postId)
                         }
                         .onTapGesture {
-                            viewModel.moveToDetaionApply(id: info.applyId)
+                            viewModel.push(.detailApply(id: info.applyId))
                         }
                 }
             }

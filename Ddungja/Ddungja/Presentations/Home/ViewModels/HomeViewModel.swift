@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-final class HomeViewModel: ObservableObject {
-    private let coordinator: CoordinatorProtocol
+final class HomeViewModel: BaseViewModel {
     private let homeUsecase: HomeUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -21,8 +20,9 @@ final class HomeViewModel: ObservableObject {
     }
     
     init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
-        self.coordinator = coordinator
         self.homeUsecase = homeUsecase
+        
+        super.init(coordinator: coordinator)
     }
     
     func changeMonthToAge(_ month: Int) -> String {
@@ -64,9 +64,5 @@ final class HomeViewModel: ObservableObject {
         let imageName = state ? "heart.fill" : "heart"
         let color = state ? Color.main : Color.white
         return LikeButton(imageName: imageName, color: color)
-    }
-    
-    func pushDetailPost(_ id: Int) {
-        coordinator.push(.detailPost(id: id))
     }
 }

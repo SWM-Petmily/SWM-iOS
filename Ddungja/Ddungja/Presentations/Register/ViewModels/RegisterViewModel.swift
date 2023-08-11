@@ -19,9 +19,8 @@ enum Neutered: String{
     case no = "NO"
 }
 
-final class RegisterViewModel: ObservableObject {
+final class RegisterViewModel: BaseViewModel {
     private var container: Container
-    private var coordinator: CoordinatorProtocol
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -44,8 +43,9 @@ final class RegisterViewModel: ObservableObject {
     
     init(container: Container, coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
         self.container = container
-        self.coordinator = coordinator
         self.registerUsecase = registerUsecase
+        
+        super.init(coordinator: coordinator)
     }
     
     func getRegisteredPet() {
