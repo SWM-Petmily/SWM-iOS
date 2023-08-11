@@ -64,6 +64,8 @@
 		753BA76B2A850A930090EAE3 /* ErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76A2A850A930090EAE3 /* ErrorVO.swift */; };
 		753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */; };
 		753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */; };
+		753BA7732A860D3D0090EAE3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */; };
+		753BA7752A86132B0090EAE3 /* CustomErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -240,6 +242,8 @@
 		753BA76A2A850A930090EAE3 /* ErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVO.swift; sourceTree = "<group>"; };
 		753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Extension.swift"; sourceTree = "<group>"; };
 		753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorVO.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				753BA76A2A850A930090EAE3 /* ErrorVO.swift */,
+				753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				7543D4B72A77C15400A0E9D9 /* RadioButton.swift */,
 				753BA7182A7E3A2D0090EAE3 /* PopGesture.swift */,
 				753BA7362A8074DC0090EAE3 /* KeyboardHandler.swift */,
+				753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1174,6 +1180,7 @@
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				754AB6E22A6FFEA600F2EBC8 /* LoginVO.swift in Sources */,
+				753BA7752A86132B0090EAE3 /* CustomErrorVO.swift in Sources */,
 				753BA7532A8304240090EAE3 /* CertificationAPIProvider.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
@@ -1232,6 +1239,7 @@
 				753BA74F2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift in Sources */,
 				75FB2FEA2A5AFD8B00E4DDE8 /* View + Extension.swift in Sources */,
 				753BA7552A8304BF0090EAE3 /* CertificationAPI.swift in Sources */,
+				753BA7732A860D3D0090EAE3 /* BaseViewModel.swift in Sources */,
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
 				753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */,
