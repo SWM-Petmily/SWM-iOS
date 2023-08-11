@@ -11,4 +11,8 @@ struct CustomErrorVO: Error, Decodable {
     let code: Int
     let status: String
     let message: String
+    let title: String
+    let detailMessage: String
+    let icon: String
+    let iconColor: String
 }
