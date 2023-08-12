@@ -108,8 +108,19 @@ final class DetailPostViewModel: BaseViewModel {
     
     func getDetailPost(_ id: Int) {
         homeUsecase.getDetailPost(id)
-            .sink { error in
-                print("getDetailPost error \(error)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                    
+                }
             } receiveValue: { [weak self] vo in
                 print(vo)
                 self?.detail = vo

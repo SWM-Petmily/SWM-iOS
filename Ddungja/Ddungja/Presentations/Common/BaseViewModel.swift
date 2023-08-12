@@ -9,7 +9,10 @@ import SwiftUI
 
 class BaseViewModel: ObservableObject {
     var coordinator: CoordinatorProtocol
-    @Published var errorStatus = CustomErrorVO(code: 0, status: "", message: "", title: "", detailMessage: "", icon: "", iconColor: "")
+    @Published var errorTitle = ""
+    @Published var errorDetailMessage = ""
+    @Published var errorIcon = ""
+    @Published var errorIconColor = ""
     @Published var showAlert = false
     
     init(coordinator: CoordinatorProtocol) {

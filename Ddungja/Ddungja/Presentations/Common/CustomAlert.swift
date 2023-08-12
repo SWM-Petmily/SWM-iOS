@@ -9,32 +9,46 @@ import Combine
 import SwiftUI
 
 enum AlertType {
-    case error(title: String, message: String = "")
+    case error(title: String, message: String = "", icon: String = "", iconColor: String = "")
     
-    func title() -> String {
+    var title: String {
         switch self {
-        case .error(title: let title, _):
+        case let .error(title, _ , _, _):
             return title
         }
     }
 
-    func message() -> String {
+    var message:String {
         switch self {
-        case .error(_, message: let message):
+        case let .error(_, message, _, _):
             return message
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case let .error(_, _, icon, _):
+            return icon
+        }
+    }
+    
+    var iconColor: String {
+        switch self {
+        case let .error(_, _, _, iconColor):
+            return iconColor
         }
     }
     
     var leftActionText: String {
         switch self {
-        case .error(_, _):
+        case .error:
             return "확인"
         }
     }
     
     func height(isShowVerticalButtons: Bool = false) -> CGFloat {
         switch self {
-        case .error(_, _):
+        case .error:
             return isShowVerticalButtons ? 220 : 180
         }
     }
@@ -59,12 +73,13 @@ struct CustomAlert: View {
             Color.black.opacity(0.75)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 0) {
-                Image(systemName: "wifi.slash")
-                    .foregroundColor(.red)
-                    .padding(.top, 15)
-                
-                if alertType.title() != "" {
-                    Text(alertType.title())
+                if alertType.icon != "" {
+                    Image(systemName: alertType.icon)
+                        .foregroundColor(Color(hex: alertType.iconColor))
+                        .padding(.top, 15)
+                }
+                if alertType.title != "" {
+                    Text(alertType.title)
                         .applyTitle(color: .mainTextColor)
                         .bold()
                         .multilineTextAlignment(.center)
@@ -74,7 +89,7 @@ struct CustomAlert: View {
                         .padding(.horizontal, 16)
                 }
 
-                Text(alertType.message())
+                Text(alertType.message)
                     .applySubhead(color: .mainTextColor)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .multilineTextAlignment(.center)
