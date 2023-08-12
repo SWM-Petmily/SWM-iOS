@@ -64,6 +64,7 @@
 		753BA76B2A850A930090EAE3 /* ErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76A2A850A930090EAE3 /* ErrorVO.swift */; };
 		753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */; };
 		753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */; };
+		753BA7712A85FB7C0090EAE3 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7702A85FB7C0090EAE3 /* CustomAlert.swift */; };
 		753BA7732A860D3D0090EAE3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */; };
 		753BA7752A86132B0090EAE3 /* CustomErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
@@ -242,6 +243,7 @@
 		753BA76A2A850A930090EAE3 /* ErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVO.swift; sourceTree = "<group>"; };
 		753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Extension.swift"; sourceTree = "<group>"; };
 		753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		753BA7702A85FB7C0090EAE3 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorVO.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				7543D4B72A77C15400A0E9D9 /* RadioButton.swift */,
 				753BA7182A7E3A2D0090EAE3 /* PopGesture.swift */,
 				753BA7362A8074DC0090EAE3 /* KeyboardHandler.swift */,
+				753BA7702A85FB7C0090EAE3 /* CustomAlert.swift */,
 				753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */,
 			);
 			path = Common;
@@ -1250,6 +1253,7 @@
 				753BA73F2A80AB450090EAE3 /* PetAdopterView.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
 				753BA7212A7E724E0090EAE3 /* RegisterRepository.swift in Sources */,
+				753BA7712A85FB7C0090EAE3 /* CustomAlert.swift in Sources */,
 				753BA73D2A80A9F50090EAE3 /* PetCostView.swift in Sources */,
 				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
 				759228D82A5E724100603FF4 /* RegisterScene.swift in Sources */,
