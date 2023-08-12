@@ -11,8 +11,8 @@ import CombineMoya
 import Combine
 
 protocol UserProfileDataSourceInterface {
-    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, Error>
-    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, Error>
+    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO>
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
 }
     
 final class UserProfileAPIProvider: UserProfileDataSourceInterface {
@@ -22,12 +22,12 @@ final class UserProfileAPIProvider: UserProfileDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, Error> {
+    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.detail(userId: "1"))
             .asResult()
     }
     
-    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, Error> {
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO> {
         let profileDTO = profile.toData(profile: profile)
         
         return moyaProvider.requestPublisher(.modify(userInfo: profileDTO))

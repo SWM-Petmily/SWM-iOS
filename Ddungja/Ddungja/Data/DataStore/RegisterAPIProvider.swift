@@ -11,8 +11,8 @@ import Combine
 import UIKit
 
 protocol RegisterDataSourceInterface {
-    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, Error>
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, Error>
+    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, CustomErrorVO>
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, CustomErrorVO>
 }
 
 final class RegisterAPIProvider: RegisterDataSourceInterface {
@@ -22,12 +22,12 @@ final class RegisterAPIProvider: RegisterDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, Error> {
+    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.getRegiteredPet)
             .asResult()
     }
     
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, Error> {
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, CustomErrorVO> {
         moyaProvider.requestPublisher(.registerPost(vo: vo, images: images))
             .asResult()
     }

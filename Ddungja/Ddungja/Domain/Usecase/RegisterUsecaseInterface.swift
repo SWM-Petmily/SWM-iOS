@@ -10,8 +10,8 @@ import Moya
 import UIKit
 
 protocol RegisterUsecaseInterface {
-    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], Error>
-    func registerPost(_ vo: PetPostVO, _ images: [Data]) -> AnyPublisher<RegisterPostIDVO, Error>
+    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], CustomErrorVO>
+    func registerPost(_ vo: PetPostVO, _ images: [Data]) -> AnyPublisher<RegisterPostIDVO, CustomErrorVO>
 }
 
 final class RegisterUsecase: RegisterUsecaseInterface {
@@ -21,11 +21,11 @@ final class RegisterUsecase: RegisterUsecaseInterface {
         self.repository = repository
     }
     
-    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], Error> {
+    func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], CustomErrorVO> {
         return repository.getRegisteredPet()
     }
     
-    func registerPost(_ vo: PetPostVO, _ images: [Data]) -> AnyPublisher<RegisterPostIDVO, Error> {
+    func registerPost(_ vo: PetPostVO, _ images: [Data]) -> AnyPublisher<RegisterPostIDVO, CustomErrorVO> {
         var userImages = [UIImage]()
         for image in images {
             if let uiImage = UIImage(data: image) {

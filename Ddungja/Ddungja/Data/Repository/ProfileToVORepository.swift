@@ -15,11 +15,11 @@ final class ProfileToVORepository: ProfileRepository {
         self.dataSource = dataSource
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileVO, Error> {
+    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {
         return dataSource.getUserProfile().map { $0.toDomain() }.eraseToAnyPublisher()
     }
     
-    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, Error>{
+    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>{
         dataSource.putEditUserProfile(profile: VO)
             .map { $0.toDomain() }
             .eraseToAnyPublisher()

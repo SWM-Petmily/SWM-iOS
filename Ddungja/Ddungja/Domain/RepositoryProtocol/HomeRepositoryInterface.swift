@@ -9,8 +9,8 @@ import Combine
 import Moya
 
 protocol HomeRepositoryInterface {
-    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, Error>
+    func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, CustomErrorVO>
     func requestChangeDisLike(_ id: Int) -> AnyPublisher<Int, MoyaError> 
     func requestChangeLike(_ id: Int) -> AnyPublisher<Int, MoyaError>
-    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, Error>
+    func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, CustomErrorVO>
 }

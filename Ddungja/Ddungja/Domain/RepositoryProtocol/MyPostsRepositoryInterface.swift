@@ -8,11 +8,11 @@
 import Combine
 
 protocol MyPostsRepositoryInterface {
-    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, Error>
-    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, Error>
-    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListVO, Error>
-    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, Error>
-    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, Error>
-    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, Error>
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, Error>
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, CustomErrorVO>
+    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsVO, CustomErrorVO>
+    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListVO, CustomErrorVO>
+    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, CustomErrorVO>
+    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, CustomErrorVO>
+    func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO>
+    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO>
 }

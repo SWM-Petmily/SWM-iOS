@@ -25,7 +25,7 @@ class LoginToVORepository: LoginRepository {
         return oauthDataSource.requestAppleLogin().eraseToAnyPublisher()
     }
     
-    func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, Error> {
+    func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, CustomErrorVO> {
         loginDataSource.requestLogin(oauth)
             .map { $0.toLoginVO() }
             .eraseToAnyPublisher()

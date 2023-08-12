@@ -8,10 +8,10 @@
 import Combine
 
 protocol MyPostsUsecaseInterface {
-    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, Error>
-    func getApplyList(id: Int,  _ page: Int) -> AnyPublisher<ApplyListVO, Error>
-    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, Error>
-    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, Error>
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, CustomErrorVO>
+    func getApplyList(id: Int,  _ page: Int) -> AnyPublisher<ApplyListVO, CustomErrorVO>
+    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, CustomErrorVO>
+    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, CustomErrorVO>
 }
 
 final class MyPostsUsecase: MyPostsUsecaseInterface {
@@ -21,19 +21,19 @@ final class MyPostsUsecase: MyPostsUsecaseInterface {
         self.repository = repository
     }
     
-    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, Error> {
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsVO, CustomErrorVO> {
         return repository.getMyEditPosts(status, page)
     }
     
-    func getApplyList(id: Int,  _ page: Int) -> AnyPublisher<ApplyListVO, Error> {
+    func getApplyList(id: Int,  _ page: Int) -> AnyPublisher<ApplyListVO, CustomErrorVO> {
         return repository.getApplyList(id: id, page)
     }
     
-    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, Error> {
+    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, CustomErrorVO> {
         return repository.getDetailApply(id: id)
     }
     
-    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, Error> {
+    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, CustomErrorVO> {
         return repository.postAcceptInfo(id: id, approval: approval)
     }
 }

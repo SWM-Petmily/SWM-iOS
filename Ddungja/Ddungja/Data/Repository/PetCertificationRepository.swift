@@ -15,25 +15,25 @@ final class PetCertificationRepository: PetCertificationRepositoryInterface {
         self.datasource = datasource
     }
     
-    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, Error> {
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.getAdditionalPageInfo(postId)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, Error> {
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerPetNumber(postId, dto)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, Error> {
+    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerPetHealthInfo(postId, images)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, Error> {
+    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerVaccineInfo(postId, images)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()

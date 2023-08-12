@@ -8,6 +8,6 @@
 import Combine
 
 protocol ProfileRepository {
-    func getUserProfile() -> AnyPublisher<ProfileVO, Error>
-    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, Error>
+    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO>
+    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
 }
