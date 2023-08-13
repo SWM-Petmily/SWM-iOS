@@ -49,7 +49,7 @@ final class MyPostsRepository: MyPostsRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO> {
+    func postApply(_ postId: Int, _ info: ApplyDTO) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO> {
         return dataSource.postApply(postId, info)
             .map { $0.toApplyIdVO() }
             .eraseToAnyPublisher()

@@ -14,5 +14,5 @@ protocol MyPostsRepositoryInterface {
     func getDetailApply(id: Int) -> AnyPublisher<DetailApplyVO, CustomErrorVO>
     func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseVO, CustomErrorVO>
     func deleteInfo(id: Int) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO>
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO>
+    func postApply(_ postId: Int, _ info: ApplyDTO) -> AnyPublisher<ApplyIDInfoVO, CustomErrorVO>
 }

@@ -16,7 +16,7 @@ enum MyPostsAPI {
     case detailApply(id: Int)
     case acceptInfo(id: Int, approval: AcceptInfoDTO)
     case deleteInfo(id: Int)
-    case postApply(postId: Int, info: DetailApplyVO)
+    case postApply(postId: Int, info: ApplyDTO)
 }
 
 extension MyPostsAPI: TargetType {

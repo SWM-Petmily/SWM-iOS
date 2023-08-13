@@ -17,7 +17,7 @@ protocol MyPostsDataSourceInterface {
     func getDetailApply(id: Int) -> AnyPublisher<DetailApplyDTO, CustomErrorVO>
     func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseDTO, CustomErrorVO>
     func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoDTO, CustomErrorVO>
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<PostApplyDTO, CustomErrorVO>
+    func postApply(_ postId: Int, _ info: ApplyDTO) -> AnyPublisher<PostApplyDTO, CustomErrorVO>
 }
 
 
@@ -59,7 +59,7 @@ final class MyPostsAPIProvider: MyPostsDataSourceInterface {
             .asResult()
     }
     
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<PostApplyDTO, CustomErrorVO> {
+    func postApply(_ postId: Int, _ info: ApplyDTO) -> AnyPublisher<PostApplyDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.postApply(postId: postId, info: info))
             .asResult()
     }

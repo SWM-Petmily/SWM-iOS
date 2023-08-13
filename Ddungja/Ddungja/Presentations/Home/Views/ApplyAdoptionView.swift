@@ -16,7 +16,7 @@ struct ApplyAdoptionView: View {
     }
     
     var body: some View {
-        ApplyCommonView(viewModel: viewModel.applyCommon)
+        ApplyCommonView(viewModel: viewModel.applyCommon, postId: postId)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Text("수정하기")

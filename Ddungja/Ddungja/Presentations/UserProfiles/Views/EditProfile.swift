@@ -360,6 +360,7 @@ extension EditProfile {
                                               region: viewModel.profile.region,
                                               isExperience: experienceNumber.description,
                                               nickname: "seunggi",
+                                              profileImageId: 1,
                                               profileImage: imageNumer.description,
                                               experiences: [(id: 1, species: viewModel.experienceArray[0].species, period: 1)])
             } else {

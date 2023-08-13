@@ -59,7 +59,7 @@ final class UserProfileViewModel: BaseViewModel {
         self.profileUsecase = profileUsecase
         
 //        getProfile()
-        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImage: "bulldog", experiences: [(id: 1, species: "불독", period: 16), (id: 2, species: "푸들", period: 13), (id: 3, species: "기타", period: 11)])
+        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImageId: 1, profileImage: "bulldog", experiences: [(id: 1, species: "불독", period: 16), (id: 2, species: "푸들", period: 13), (id: 3, species: "기타", period: 11)])
         
         super.init(coordinator: coordinator)
     }

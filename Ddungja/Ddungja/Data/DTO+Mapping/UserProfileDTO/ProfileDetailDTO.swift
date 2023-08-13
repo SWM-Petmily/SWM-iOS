@@ -23,18 +23,18 @@ struct ProfileDetailDTO: Decodable {
 struct User: Decodable {
     let email: String
     let nickname: String
-    let birth: String
     let phone: String
     let provider: String
-    let profile: Bool
+    let isProfile: Bool
 }
 
 struct ProfileImage: Decodable {
+    let id: Int?
     let url: String
 }
 
 struct Experience: Decodable {
-    let id: Int
+    let id: Int?
     let species: String
     let period: Int
 }
@@ -47,8 +47,8 @@ extension ProfileDetailDTO {
             let id = experience.id
             let species = experience.species
             let period = experience.period
-            experiencesArray.append((id: id, species: species, period: period))
+            experiencesArray.append((id: id ?? -1, species: species, period: period))
         }
-        return ProfileVO(job: job, environment: environment, people: people, comment: comment, openTalk: openTalk, region: region, isExperience: isExperience, nickname: nickname,profileImage: profileImage.url, experiences: experiencesArray)
+        return ProfileVO(job: job, environment: environment, people: people, comment: comment, openTalk: openTalk, region: region, isExperience: isExperience, nickname: nickname, profileImageId: profileImage.id ?? 1, profileImage: profileImage.url, experiences: experiencesArray)
     }
 }

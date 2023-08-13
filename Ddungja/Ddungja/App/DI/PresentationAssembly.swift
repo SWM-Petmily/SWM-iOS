@@ -28,8 +28,9 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(ApplyCommonViewModel.self) { resolover in
-            let usecase = resolover.resolve(MyApplyPostsUsecaseInterface.self)!
-            return ApplyCommonViewModel(myPostsUsecase: usecase)
+            let postUsecase = resolover.resolve(MyApplyPostsUsecaseInterface.self)!
+            let usecase = resolover.resolve(ProfileUsecaseInterface.self)!
+            return ApplyCommonViewModel(myPostsUsecase: postUsecase, profileUsecase: usecase)
         }
         
         container.register(LoginViewModel.self) { resolver in
@@ -125,9 +126,9 @@ struct PresentationAssembly: Assembly {
             return HomeScene(viewModel: homeViewModel)
         }
         
-        container.register(ApplyCommonView.self) { resolver in
+        container.register(ApplyCommonView.self) { (resolver, id: Int) in
             let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
-            return ApplyCommonView(viewModel: viewModel)
+            return ApplyCommonView(viewModel: viewModel, postId: id)
         }
         
         container.register(DetailPostScene.self) { (resolver, id: Int) in

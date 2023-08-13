@@ -17,7 +17,7 @@ struct ApplyModifyVIew: View {
     }
     
     var body: some View {
-        ApplyCommonView(viewModel: viewModel.applyViewModel)
+        ApplyCommonView(viewModel: viewModel.applyViewModel, postId: id)
             .navigationTitle("지원하기")
             .navigationBarBackButtonHidden()
             .toolbar {

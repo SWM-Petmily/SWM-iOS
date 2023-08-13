@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ApplyCommonView: View {
     @StateObject private var viewModel: ApplyCommonViewModel
+    private var postId: Int
     
-    init(viewModel: ApplyCommonViewModel) {
+    init(viewModel: ApplyCommonViewModel, postId: Int) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.postId = postId
     }
     var body: some View {
         ScrollView {
@@ -27,6 +29,9 @@ struct ApplyCommonView: View {
             }
             .padding()
         }
+        .onAppear {
+            viewModel.getProfile()
+        }
     }
 }
 
@@ -34,7 +39,7 @@ extension ApplyCommonView {
     private var userTitle: some View {
         HStack(spacing: 14) {
             
-            AsyncImage(url: URL(string: viewModel.detailApply.url)) { image in
+            AsyncImage(url: URL(string: viewModel.profile.profileImage)) { image in
                 image.resizable()
             } placeholder: {
                 ProgressView()
@@ -45,7 +50,7 @@ extension ApplyCommonView {
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .center, spacing: 7) {
-                    Text(viewModel.detailApply.nickname)
+                    Text(viewModel.profile.nickname)
                         .applyTitle(color: .mainTextColor)
                         .bold()
                     ZStack {
@@ -53,11 +58,11 @@ extension ApplyCommonView {
                             .stroke(Color.gray, lineWidth: 1)
                             .frame(width: 53, height: 25)
                         
-                        Text(viewModel.detailApply.job)
+                        Text(viewModel.profile.job)
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
-                Text("대한민국, \(viewModel.detailApply.region)")
+                Text("대한민국, \(viewModel.profile.region)")
                     .applySubtitle(color: .disabledTextColor)
                 
             }
@@ -82,7 +87,7 @@ extension ApplyCommonView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 경험")
                         .applySubtitle(color: .disabledTextColor)
-                    Text(viewModel.detailApply.isExperience ? "있음" : "없음")
+                    Text(viewModel.profile.isExperience ? "있음" : "없음")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -97,7 +102,7 @@ extension ApplyCommonView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("반려 동물 종")
                         .applySubtitle(color: .disabledTextColor)
-                    Text(viewModel.detailApply.applyExperiences.first?.species ?? "-")
+                    Text(viewModel.profile.experiences.first?.species ?? "-")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -112,7 +117,7 @@ extension ApplyCommonView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("주거환경")
                         .applySubtitle(color: .disabledTextColor)
-                    Text(viewModel.detailApply.environment)
+                    Text(viewModel.profile.environment)
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -127,7 +132,7 @@ extension ApplyCommonView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("함께하는 사람 수")
                         .applySubtitle(color: .disabledTextColor)
-                    Text("\(viewModel.detailApply.people) 명")
+                    Text("\(viewModel.profile.people) 명")
                         .applyInner(color: .mainTextColor)
                 }
                 .padding()
@@ -156,7 +161,7 @@ extension ApplyCommonView {
                 Text("키울 수 있는 각오")
                     .applySubtitle(color: .disabledTextColor)
             
-                Text(viewModel.detailApply.comment)
+                Text(viewModel.profile.comment)
                     .applyInner(color: .mainTextColor)
             }
             .padding()
@@ -175,7 +180,7 @@ extension ApplyCommonView {
                 Text("오픈 카톡방 링크")
                     .applySubtitle(color: .disabledTextColor)
             
-                Text("\(viewModel.detailApply.openTalk)")
+                Text("\(viewModel.profile.openTalk)")
                     .applyInner(color: .mainTextColor)
                     .lineLimit(1)
             }

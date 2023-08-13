@@ -124,6 +124,7 @@
 		75618C762A5424F2005FA31A /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C752A5424F2005FA31A /* CustomColor.swift */; };
 		75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */; };
 		756829AB2A87C35000DB38F0 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756829AA2A87C34F00DB38F0 /* Color + Extension.swift */; };
+		756829AD2A88E39D00DB38F0 /* ApplyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */; };
 		759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D22A5E575000603FF4 /* DdungjaTabScene.swift */; };
 		759228D82A5E724100603FF4 /* RegisterScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D72A5E724100603FF4 /* RegisterScene.swift */; };
 		759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D92A5E724E00603FF4 /* InterestView.swift */; };
@@ -306,6 +307,7 @@
 		75618C752A5424F2005FA31A /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLazyVGrid.swift; sourceTree = "<group>"; };
 		756829AA2A87C34F00DB38F0 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyDTO.swift; sourceTree = "<group>"; };
 		759228D22A5E575000603FF4 /* DdungjaTabScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaTabScene.swift; sourceTree = "<group>"; };
 		759228D72A5E724100603FF4 /* RegisterScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScene.swift; sourceTree = "<group>"; };
 		759228D92A5E724E00603FF4 /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
@@ -949,6 +951,7 @@
 				754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */,
 				754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */,
 				754AB6D42A6D522700F2EBC8 /* ApplyIDInfoVO.swift */,
+				756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -1260,6 +1263,7 @@
 				753BA73D2A80A9F50090EAE3 /* PetCostView.swift in Sources */,
 				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
 				759228D82A5E724100603FF4 /* RegisterScene.swift in Sources */,
+				756829AD2A88E39D00DB38F0 /* ApplyDTO.swift in Sources */,
 				759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */,
 				753BA75F2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift in Sources */,
 				756829AB2A87C35000DB38F0 /* Color + Extension.swift in Sources */,

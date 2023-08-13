@@ -9,27 +9,29 @@ import Combine
 
 final class ApplyCommonViewModel: ObservableObject {
     private let myPostsUsecase: MyApplyPostsUsecaseInterface
+    private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
-    @Published var detailApply: DetailApplyVO
+    @Published var profile: ProfileVO
     
-    init(myPostsUsecase: MyApplyPostsUsecaseInterface) {
+    init(myPostsUsecase: MyApplyPostsUsecaseInterface,profileUsecase: ProfileUsecaseInterface) {
         self.myPostsUsecase = myPostsUsecase
-        self.detailApply = DetailApplyVO(applyId: -1, nickname: "뚱자쓰", job: "-",environment: "-",people: 0,comment: "",region: "",isExperience: false,url: "", openTalk: "",approval: "",applyExperiences: [],isMyApply: false)
+        self.profileUsecase = profileUsecase
+        self.profile = ProfileVO(job: "", environment: "", people: -1, comment: "", openTalk: "", region: "", isExperience: false, nickname: "", profileImageId: 1, profileImage: "bulldog", experiences: [])
     }
     
-    func getApplyInfo(id: Int) {
-        myPostsUsecase.getApplyInfo(id: id)
+    func getProfile() {
+        profileUsecase.getUserProfile()
             .sink { completion in
                 print("getApplyInfo \(completion)")
-            } receiveValue: { [weak self] vo in
-                print("apply Common \(vo)")
-                self?.detailApply = vo
+            } receiveValue: { profileVo in
+                print(profileVo)
+                self.profile = profileVo
             }
             .store(in: &cancellables)
     }
     
     func postApply(_ postId: Int) {
-        myPostsUsecase.postApply(postId, detailApply)
+        myPostsUsecase.postApply(postId, profile)
             .sink { error in
                 print("postApply \(error)")
             } receiveValue: { [weak self] vo in
