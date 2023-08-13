@@ -11,7 +11,6 @@ import SwiftUI
 
 final class DetailPostViewModel: BaseViewModel {
     private let homeUsecase: HomeUsecaseInterface
-    private(set) var applyCommon: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
     
     @Published var detail: DetailPostVO?
@@ -26,9 +25,8 @@ final class DetailPostViewModel: BaseViewModel {
     
     private var buttonActionSubject = PassthroughSubject<(isWriter: Bool, isApply: Bool, state: String), Never>()
     var likeActionSubject = PassthroughSubject<(), Never>()
-    init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface, applyCommon: ApplyCommonViewModel) {
+    init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
         self.homeUsecase = homeUsecase
-        self.applyCommon = applyCommon
         
         super.init(coordinator: coordinator)
         

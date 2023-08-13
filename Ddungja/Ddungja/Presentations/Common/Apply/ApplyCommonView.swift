@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ApplyCommonView: View {
-    @StateObject private var viewModel: ApplyCommonViewModel
+    @ObservedObject private var viewModel: ApplyCommonViewModel
     private var postId: Int
     
     init(viewModel: ApplyCommonViewModel, postId: Int) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
         self.postId = postId
     }
     var body: some View {
