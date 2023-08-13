@@ -7,14 +7,25 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct CustomModalView: View {
+    let coordinator: CoordinatorProtocol
+    let title: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
+        Text(title)
+            .applyBigTitle(color: .mainTextColor)
+        
+        Button {
+            coordinator.pop()
+        } label: {
+            Text("확인")
+                .applyInner(color: .white)
+                .bold()
+                .frame(maxWidth: .infinity)
+                .frame(height: 52)
+                .background(Color.main)
+                .cornerRadius(15)
+        }
+        .padding()
     }
 }

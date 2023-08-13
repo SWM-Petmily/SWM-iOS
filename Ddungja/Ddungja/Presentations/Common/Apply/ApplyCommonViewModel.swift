@@ -11,6 +11,8 @@ final class ApplyCommonViewModel: BaseViewModel {
     private let myPostsUsecase: MyApplyPostsUsecaseInterface
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
+    
+    @Published var isSucceedPost = false
     @Published var profile: ProfileVO
     init(coordinator: CoordinatorProtocol,myPostsUsecase: MyApplyPostsUsecaseInterface,profileUsecase: ProfileUsecaseInterface) {
         self.myPostsUsecase = myPostsUsecase
@@ -43,10 +45,20 @@ final class ApplyCommonViewModel: BaseViewModel {
     
     func postApply(_ postId: Int) {
         myPostsUsecase.postApply(postId, profile)
-            .sink { error in
-                print("postApply \(error)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
-                print(vo)
+                self?.isSucceedPost = true
             }
             .store(in: &cancellables)
     }
