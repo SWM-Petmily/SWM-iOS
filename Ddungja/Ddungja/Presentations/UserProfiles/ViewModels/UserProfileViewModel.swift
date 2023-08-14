@@ -52,32 +52,32 @@ final class UserProfileViewModel: BaseViewModel {
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     @Published var profile: ProfileVO
-    @Published var experienceArray = [(id: UUID, species: String, period: Int)]()
+    @Published var experienceArray = [(id: String, species: String, period: Int)]()
     @Published var isShowModal = false
     
     init(coordinator: CoordinatorProtocol, profileUsecase: ProfileUsecaseInterface) {
         self.profileUsecase = profileUsecase
         
-//        getProfile()
-        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImageId: 1, profileImage: "bulldog", experiences: [(id: 1, species: "불독", period: 16), (id: 2, species: "푸들", period: 13), (id: 3, species: "기타", period: 11)])
+        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImageId: 1, profileImage: "bulldog", experiences: [(id: "1", species: "불독", period: 16), (id: "2", species: "푸들", period: 13), (id: "3", species: "기타", period: 11)])
         
         super.init(coordinator: coordinator)
     }
     
-    private func getProfile() {
+    func getProfile() {
         profileUsecase.getUserProfile()
             .sink { errpr in
                 print("Cheeck \(errpr)")
             } receiveValue: { profileVo in
-                print(profileVo)
+                print("profileVoprofileVo \(profileVo)")
                 self.profile = profileVo
+                self.experienceArray = profileVo.experiences
             }
             .store(in: &cancellables)
     }
     
     private func makeExperienceArray() {
         for v in profile.experiences {
-            experienceArray.append((id: UUID(),species: v.species, period: v.period))
+            experienceArray.append((id: v.id,species: v.species, period: v.period))
         }
     }
     

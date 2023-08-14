@@ -42,12 +42,12 @@ struct Experience: Decodable {
 extension ProfileDetailDTO {
     func toDomain() -> ProfileVO {
         let nickname = user.nickname
-        var experiencesArray = [(id: Int, species: String, period: Int)]()
+        var experiencesArray = [(id: String, species: String, period: Int)]()
         for experience in experiences {
-            let id = experience.id
+            let id = experience.id == nil ? UUID().uuidString : String(experience.id!)
             let species = experience.species
             let period = experience.period
-            experiencesArray.append((id: id ?? -1, species: species, period: period))
+            experiencesArray.append((id: id, species: species, period: period))
         }
         return ProfileVO(job: job, environment: environment, people: people, comment: comment, openTalk: openTalk, region: region, isExperience: isExperience, nickname: nickname, profileImageId: profileImage.id ?? 1, profileImage: profileImage.url, experiences: experiencesArray)
     }

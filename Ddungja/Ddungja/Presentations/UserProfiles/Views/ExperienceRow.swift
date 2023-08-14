@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExperienceRow: View {
     
-    let id: UUID
+    let id: String
 
     @State var species: String
     @State var year: String
@@ -101,9 +101,3 @@ struct ExperienceRow: View {
         }
     }
 }
-
-//struct ExperienceRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExperienceRow()
-//    }
-//}

@@ -19,10 +19,10 @@ struct EditProfile: View {
     
     @State private var isShowSheet = false
     
-    @ObservedObject var viewModel: UserProfileViewModel
+    @StateObject private var viewModel: UserProfileViewModel
     
     init(viewModel: UserProfileViewModel) {
-        self.viewModel = viewModel
+        _viewModel = StateObject(wrappedValue: viewModel)
         
         jobStatus = viewModel.changeToJobStatus(viewModel.profile.job)
         experienceNumber = viewModel.changeToExperience(viewModel.profile.isExperience)
@@ -50,15 +50,19 @@ struct EditProfile: View {
                     selectSpeciesTitle
                     
                     LazyVStack {
-                        ForEach(viewModel.experienceArray.indices, id: \.self) { index in
-                            ExperienceRow(id: viewModel.experienceArray[index].id, species: viewModel.experienceArray[index].species, year: String(viewModel.experienceArray[index].period / 12), month: String(viewModel.experienceArray[index].period % 12), viewModel: viewModel).id(UUID())
+                        ForEach(viewModel.experienceArray, id: \.id) { experience in
+                            ExperienceRow(id: experience.id,
+                                          species: experience.species,
+                                          year: String(experience.period / 12),
+                                          month: String(experience.period % 12),
+                                          viewModel: viewModel)
                         }
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
                     Button {
                         withAnimation {
-                            viewModel.experienceArray.append((id: UUID(), species: "", period: 0))
+                            viewModel.experienceArray.append((id: UUID().uuidString, species: "", period: 0))
                         }
                     } label: {
                         Text("추가")
@@ -97,6 +101,9 @@ struct EditProfile: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
+        }
+        .onAppear {
+            viewModel.getProfile()
         }
         
         registerButton
@@ -362,7 +369,7 @@ extension EditProfile {
                                               nickname: "seunggi",
                                               profileImageId: 1,
                                               profileImage: imageNumer.description,
-                                              experiences: [(id: 1, species: viewModel.experienceArray[0].species, period: 1)])
+                                              experiences: [(id: "1", species: viewModel.experienceArray[0].species, period: 1)])
             } else {
                 print("실패모달")
             }
