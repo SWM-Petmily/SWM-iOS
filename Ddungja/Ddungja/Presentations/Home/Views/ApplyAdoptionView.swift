@@ -19,7 +19,6 @@ struct ApplyAdoptionView: View {
         ZStack {
             CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
                 .isHidden(!viewModel.showAlert)
-            
             VStack {
                 ApplyCommonView(viewModel: viewModel, postId: postId)
                     .navigationBarBackButtonHidden()
@@ -31,13 +30,14 @@ struct ApplyAdoptionView: View {
                                         viewModel.pop()
                                     }
                             }
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Text("수정하기")
-                                
-                                    .applyInner(color: .mainColor)
-                                    .onTapGesture {
-                                        viewModel.push(.editProfile)
-                                    }
+                            if viewModel.showEditButton {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Text("수정하기")
+                                        .applyInner(color: .mainColor)
+                                        .onTapGesture {
+                                            viewModel.push(.editProfile)
+                                        }
+                                }
                             }
                         }
                     }
@@ -55,10 +55,15 @@ struct ApplyAdoptionView: View {
                 }
                 .padding()
             }
+            
+            Color.black.opacity(0.75)
+                .edgesIgnoringSafeArea(.all)
+                .isHidden(!viewModel.isSucceedPost)
         }
         .sheet(isPresented: $viewModel.isSucceedPost) {
-            CustomModalView(coordinator: viewModel.coordinator, title: "지원 요청완료")
+            CustomModalView(coordinator: viewModel.coordinator, title: "지원 요청완료", message: "성공적으로 지원을 완료하였습니다.")
                 .presentationDetents([.height(200)])
+                .presentationBackgroundInteraction(.disabled)
         }
     }
 }

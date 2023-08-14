@@ -13,6 +13,7 @@ final class ApplyCommonViewModel: BaseViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var isSucceedPost = false
+    @Published var showEditButton = true
     @Published var profile: ProfileVO
     init(coordinator: CoordinatorProtocol,myPostsUsecase: MyApplyPostsUsecaseInterface,profileUsecase: ProfileUsecaseInterface) {
         self.myPostsUsecase = myPostsUsecase
@@ -59,6 +60,7 @@ final class ApplyCommonViewModel: BaseViewModel {
                 }
             } receiveValue: { [weak self] vo in
                 self?.isSucceedPost = true
+                self?.showEditButton = false
             }
             .store(in: &cancellables)
     }

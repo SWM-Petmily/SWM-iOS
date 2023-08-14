@@ -10,10 +10,18 @@ import SwiftUI
 struct CustomModalView: View {
     let coordinator: CoordinatorProtocol
     let title: String
-    
+    let message: String
     var body: some View {
         Text(title)
             .applyBigTitle(color: .mainTextColor)
+            .bold()
+            .padding(.top, 30)
+        
+        Text(message)
+            .applyInner(color: .mainTextColor)
+            .padding(.top, 8)
+        
+        Spacer()
         
         Button {
             coordinator.pop()
