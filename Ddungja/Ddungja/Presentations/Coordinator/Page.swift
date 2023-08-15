@@ -10,7 +10,7 @@ import SwiftUI
 enum Page: Hashable {
     case myPageView
     case userProfileView
-    case editProfile
+    case editProfile(isRegister: Bool)
     case myPosts
     case myApplyPosts
     case applyList(id: Int) //지원받은 목록보기

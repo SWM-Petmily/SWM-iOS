@@ -59,9 +59,9 @@ struct PresentationAssembly: Assembly {
             return UserProfileView(viewModel: userProfileViewModel)
         }
         
-        container.register(EditProfile.self) { resolver in
+        container.register(EditProfile.self) { (resolver, isRegister: Bool) in
             let userProfileViemodel = resolver.resolve(UserProfileViewModel.self)!
-            return EditProfile(viewModel: userProfileViemodel)
+            return EditProfile(viewModel: userProfileViemodel, isRegister: isRegister)
         }
         
         container.register(MyPageScene.self) { resolver in

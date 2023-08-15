@@ -13,6 +13,7 @@ import Combine
 protocol UserProfileDataSourceInterface {
     func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO>
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
+    func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
 }
     
 final class UserProfileAPIProvider: UserProfileDataSourceInterface {
@@ -31,6 +32,12 @@ final class UserProfileAPIProvider: UserProfileDataSourceInterface {
         let profileDTO = profile.toData(profile: profile)
         
         return moyaProvider.requestPublisher(.modify(userInfo: profileDTO))
+            .asResult()
+    }
+    
+    func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO> {
+        let profileDTO = profile.toData(profile: profile)
+        return moyaProvider.requestPublisher(.register(userInfo: profileDTO))
             .asResult()
     }
 }

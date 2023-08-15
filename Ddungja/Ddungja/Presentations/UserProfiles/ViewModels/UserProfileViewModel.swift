@@ -66,7 +66,7 @@ final class UserProfileViewModel: BaseViewModel {
     init(coordinator: CoordinatorProtocol, profileUsecase: ProfileUsecaseInterface) {
         self.profileUsecase = profileUsecase
         
-        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImageId: 1, profileImage: "dog1", experiences: [(id: "1", species: "불독", period: 16), (id: "2", species: "푸들", period: 13), (id: "3", species: "기타", period: 11)])
+        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImageId: 1, profileImage: "dog1", experiences: [(id: "1", species: "불독", period: 16), (id: "2", species: "푸들", period: 13), (id: "3", species: "기타", period: 11)], isMyProfile: false)
 
         super.init(coordinator: coordinator)
     }
@@ -98,16 +98,56 @@ final class UserProfileViewModel: BaseViewModel {
         }
     }
     
-    func putEditProfile(_ profile: ProfileEditVO) {
+    func registerProfile(_ isRegistered: Bool) {
+        let vo = ProfileEditVO(job: job.rawValue, environment: house.rawValue, people: person, comment: comment, openTalk: openTalk, region: "", isExperience: experience.description, profileImageId: image.rawValue, experiences: experienceArray)
+        if isRegistered {
+            putEditProfile(vo)
+        } else  {
+            postEditProfile(vo)
+        }
+    }
+    
+    private func postEditProfile(_ profile: ProfileEditVO) {
+        profileUsecase.postEditProfile(profile: profile)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
+            } receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                self.isShowModal = true
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func putEditProfile(_ profile: ProfileEditVO) {
         
         profileUsecase.putEditUserProfile(profile: profile)
-            .sink { error in
-                print(error)
-            } receiveValue: { value in
-                if value != -1 {
-                    self.isShowModal = true
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
                 }
-            }.store(in: &cancellables)
+            } receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                self.isShowModal = true
+            }
+            .store(in: &cancellables)
     }
     
     private func changeToImageStatus(_ image: Int) -> ImageStatus {

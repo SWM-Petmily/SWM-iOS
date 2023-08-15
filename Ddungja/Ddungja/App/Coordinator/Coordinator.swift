@@ -49,8 +49,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(MyPageScene.self)
         case .userProfileView:
             injector.resolve(UserProfileView.self)
-        case .editProfile:
-            injector.resolve(EditProfile.self)
+        case let .editProfile(isRegister):
+            injector.resolve(EditProfile.self, argument: isRegister)
         case .myPosts:
             injector.resolve(MyPostsScene.self)
         case .myApplyPosts:

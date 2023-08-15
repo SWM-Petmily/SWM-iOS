@@ -8,90 +8,95 @@
 import SwiftUI
 
 struct EditProfile: View {
-    
+    @StateObject private var viewModel: UserProfileViewModel
     @State private var isShowSheet = false
     
-    @StateObject private var viewModel: UserProfileViewModel
+    private let isRegister: Bool
     
-    init(viewModel: UserProfileViewModel) {
+    init(viewModel: UserProfileViewModel, isRegister: Bool) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.isRegister = isRegister
     }
     
     var body: some View {
-        
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Group {
-                    profileImageView
-                    
-                    personStatusTitle
-                    personStatusButton
-                    
-                    experienceTitle
-                    experienceButton
-                }
-                
-                if(viewModel.experience == .yes) {
-                    selectSpeciesTitle
-                    
-                    LazyVStack {
-                        ForEach(viewModel.experienceArray, id: \.id) { experience in
-                            ExperienceRow(id: experience.id,
-                                          species: experience.species,
-                                          year: String(experience.period / 12),
-                                          month: String(experience.period % 12),
-                                          viewModel: viewModel)
+        ZStack {
+            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
+                .isHidden(!viewModel.showAlert)
+            VStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Group {
+                            profileImageView
+                            
+                            personStatusTitle
+                            personStatusButton
+                            
+                            experienceTitle
+                            experienceButton
                         }
-                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                        
+                        if(viewModel.experience == .yes) {
+                            selectSpeciesTitle
+                            
+                            LazyVStack {
+                                ForEach(viewModel.experienceArray, id: \.id) { experience in
+                                    ExperienceRow(id: experience.id,
+                                                  species: experience.species,
+                                                  year: String(experience.period / 12),
+                                                  month: String(experience.period % 12),
+                                                  viewModel: viewModel)
+                                }
+                                .transition(AnyTransition.opacity.animation(.easeInOut))
+                            }
+                            
+                            Button {
+                                withAnimation {
+                                    viewModel.experienceArray.append((id: UUID().uuidString, species: "", period: 0))
+                                }
+                            } label: {
+                                Text("추가")
+                                    .applyInner(color: .white)
+                                    .frame(height: 52)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .background(Color.main)
+                            .cornerRadius(14)
+                        }
+                        
+                        Group {
+                            houseTitle
+                            houseButton
+                            
+                            personTitle
+                            personButton
+                            
+                            willTitle
+                            willTextfield
+                            
+                            openKakaoLink
+                            openKakaoTextfield
+                        }
                     }
-                    
-                    Button {
-                        withAnimation {
-                            viewModel.experienceArray.append((id: UUID().uuidString, species: "", period: 0))
+                    .navigationTitle("프로필 작성")
+                    .navigationBarBackButtonHidden()
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Text("프로필")
+                                .onTapGesture {
+                                    viewModel.pop()
+                                }
                         }
-                    } label: {
-                        Text("추가")
-                            .applyInner(color: .white)
-                            .frame(height: 52)
-                            .frame(maxWidth: .infinity)
                     }
-                    .background(Color.main)
-                    .cornerRadius(14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
                 }
-                
-                Group {
-                    houseTitle
-                    houseButton
-                    
-                    personTitle
-                    personButton
-                    
-                    willTitle
-                    willTextfield
-                    
-                    openKakaoLink
-                    openKakaoTextfield
-                }
+                registerButton
             }
-            .navigationTitle("프로필 작성")
-            .navigationBarBackButtonHidden()
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text("프로필")
-                        .onTapGesture {
-                            viewModel.pop()
-                        }
-                }
+            .onAppear {
+                viewModel.getProfile()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
         }
-        .onAppear {
-            viewModel.getProfile()
-        }
-        
-        registerButton
     }
 }
 
@@ -338,37 +343,17 @@ extension EditProfile {
     
     private var registerButton: some View {
         Button {
-            isShowSheet = true
-            //모달 sheet올리기
-            viewModel.putEditProfile(ProfileEditVO(job: viewModel.job.rawValue, environment: "집", people: viewModel.person, comment: viewModel.comment, openTalk: viewModel.openTalk, region: viewModel.profile.region, isExperience: true, profileImageId: 1, experiences: []))
-            
-            if viewModel.isShowModal {
-                
-                print("성공모달")
-                viewModel.profile = ProfileVO(job: viewModel.job.rawValue,
-                                              environment: viewModel.house.rawValue,
-                                              people: viewModel.person,
-                                              comment: viewModel.comment,
-                                              openTalk: viewModel.openTalk,
-                                              region: viewModel.profile.region,
-                                              isExperience: viewModel.experience.description,
-                                              nickname: "seunggi",
-                                              profileImageId: viewModel.image.rawValue,
-                                              profileImage: viewModel.image.description,
-                                              experiences: [(id: "1", species: viewModel.experienceArray[0].species, period: 1)])
-            } else {
-                print("실패모달")
-            }
-            
+            viewModel.registerProfile(isRegister)
         } label: {
             Text("등록")
                 .applyInner(color: viewModel.comment.isEmpty || viewModel.openTalk.isEmpty ? .disabledTextColor : .white)
                 .frame(height: 52)
                 .frame(maxWidth: .infinity)
         }
-        .sheet(isPresented: $isShowSheet, content: {
-            ModalView(isSuccess: viewModel.isShowModal)
+        .sheet(isPresented: $viewModel.isShowModal, content: {
+            CustomModalView(coordinator: viewModel.coordinator, title: "프로필 작성완료", message: "프로필 작성이 완료되었습니다.")
                 .presentationDetents([.height(200)])
+                .presentationBackgroundInteraction(.disabled)
         })
         .background(viewModel.comment.isEmpty || viewModel.openTalk.isEmpty ? Color.buttonBackground : Color.main)
         .disabled(viewModel.comment.isEmpty || viewModel.openTalk.isEmpty)

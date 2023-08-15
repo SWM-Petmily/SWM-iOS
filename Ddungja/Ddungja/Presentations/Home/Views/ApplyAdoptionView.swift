@@ -35,7 +35,7 @@ struct ApplyAdoptionView: View {
                                     Text("수정하기")
                                         .applyInner(color: .mainColor)
                                         .onTapGesture {
-                                            viewModel.push(.editProfile)
+                                            viewModel.push(.editProfile(isRegister: true))
                                         }
                                 }
                             }

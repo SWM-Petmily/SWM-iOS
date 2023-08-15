@@ -28,7 +28,7 @@ struct ExperienceForRequest: Encodable {
 
 enum UserProfileAPI {
     case detail(userId: String)
-    case register(userInfo: UserInfo)
+    case register(userInfo: ProfileEditReqiestDTO)
     case modify(userInfo: ProfileEditReqiestDTO)
 }
 
@@ -66,12 +66,7 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
             return .requestPlain
             
         case let .register(userInfo):
-            do {
-                let jsonData = try JSONEncoder().encode(userInfo)
-                return .requestJSONEncodable(jsonData)
-            } catch {
-                return .requestPlain
-            }
+            return .requestJSONEncodable(userInfo)
             
         case let .modify(userInfo):
             return .requestJSONEncodable(userInfo)

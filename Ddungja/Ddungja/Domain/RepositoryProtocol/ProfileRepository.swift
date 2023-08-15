@@ -10,4 +10,5 @@ import Combine
 protocol ProfileRepository {
     func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO>
     func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
+    func postEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
 }

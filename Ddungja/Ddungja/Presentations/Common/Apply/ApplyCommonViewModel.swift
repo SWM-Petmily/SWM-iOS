@@ -18,7 +18,7 @@ final class ApplyCommonViewModel: BaseViewModel {
     init(coordinator: CoordinatorProtocol,myPostsUsecase: MyApplyPostsUsecaseInterface,profileUsecase: ProfileUsecaseInterface) {
         self.myPostsUsecase = myPostsUsecase
         self.profileUsecase = profileUsecase
-        self.profile = ProfileVO(job: "", environment: "", people: -1, comment: "", openTalk: "", region: "", isExperience: false, nickname: "", profileImageId: 1, profileImage: "bulldog", experiences: [])
+        self.profile = ProfileVO(job: "", environment: "", people: -1, comment: "", openTalk: "", region: "", isExperience: false, nickname: "", profileImageId: 1, profileImage: "bulldog", experiences: [], isMyProfile: false)
         
         super.init(coordinator: coordinator)
     }
