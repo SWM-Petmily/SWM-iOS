@@ -112,6 +112,10 @@
 		754AB6F92A75311D00F2EBC8 /* CertificationVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */; };
 		754AB6FB2A7564E400F2EBC8 /* RegisterInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6FA2A7564E400F2EBC8 /* RegisterInfoVO.swift */; };
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
+		75532A9F2A8CAD8B00DEC825 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532A9E2A8CAD8B00DEC825 /* DropDownView.swift */; };
+		75532AA12A8CADB100DEC825 /* DropDownRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA02A8CADB100DEC825 /* DropDownRow.swift */; };
+		75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA22A8CAE3300DEC825 /* DropDownOption.swift */; };
+		75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462502A4498A300598268 /* ConfirmNumberDTO.swift */; };
@@ -296,6 +300,10 @@
 		754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationVO.swift; sourceTree = "<group>"; };
 		754AB6FA2A7564E400F2EBC8 /* RegisterInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoVO.swift; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
+		75532A9E2A8CAD8B00DEC825 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		75532AA02A8CADB100DEC825 /* DropDownRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRow.swift; sourceTree = "<group>"; };
+		75532AA22A8CAE3300DEC825 /* DropDownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownOption.swift; sourceTree = "<group>"; };
+		75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDogModel.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		755462502A4498A300598268 /* ConfirmNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberDTO.swift; sourceTree = "<group>"; };
@@ -509,6 +517,7 @@
 		7543D4B62A77C13900A0E9D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75532A9D2A8CACDD00DEC825 /* DropDown */,
 				753BA7122A7D244C0090EAE3 /* Apply */,
 				7543D4B72A77C15400A0E9D9 /* RadioButton.swift */,
 				753BA7182A7E3A2D0090EAE3 /* PopGesture.swift */,
@@ -687,6 +696,25 @@
 				754AB6FA2A7564E400F2EBC8 /* RegisterInfoVO.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		75532A9D2A8CACDD00DEC825 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				75532AA62A8CAFC100DEC825 /* Model */,
+				75532A9E2A8CAD8B00DEC825 /* DropDownView.swift */,
+				75532AA02A8CADB100DEC825 /* DropDownRow.swift */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		75532AA62A8CAFC100DEC825 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */,
+				75532AA22A8CAE3300DEC825 /* DropDownOption.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
@@ -1171,6 +1199,7 @@
 				753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsScene.swift in Sources */,
+				75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */,
 				7543D4C02A78C84F00A0E9D9 /* HomeRepository.swift in Sources */,
 				754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */,
 				753DF8CF2A7D1A61001D50AE /* ApplyCommonView.swift in Sources */,
@@ -1210,6 +1239,7 @@
 				759228F82A62D81400603FF4 /* MyPostsUsecase.swift in Sources */,
 				754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
+				75532AA12A8CADB100DEC825 /* DropDownRow.swift in Sources */,
 				753BA7282A7E80500090EAE3 /* RegisteredPetDTO.swift in Sources */,
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
@@ -1220,6 +1250,7 @@
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
 				753BA7512A8303C80090EAE3 /* PetCertificationRepository.swift in Sources */,
 				753BA7232A7E728C0090EAE3 /* RegisterAPIProvider.swift in Sources */,
+				75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */,
 				754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */,
 				754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
@@ -1238,6 +1269,7 @@
 				753BA7592A8352220090EAE3 /* RegisterPostIDVO.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
 				754AB6D52A6D522700F2EBC8 /* ApplyIDInfoVO.swift in Sources */,
+				75532A9F2A8CAD8B00DEC825 /* DropDownView.swift in Sources */,
 				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
 				754AB6F02A74CC7F00F2EBC8 /* SignUpViewModel.swift in Sources */,
 				754AB6E82A71713500F2EBC8 /* LoginResultVO.swift in Sources */,
