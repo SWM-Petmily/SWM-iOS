@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct MyPageScene: View {
-    @ObservedObject private(set) var viewModel: MyPageViewModel
+    @StateObject private var viewModel: MyPageViewModel
     
+    init(viewModel: MyPageViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack(alignment: .center,spacing: 14) {
-                        ZStack {
-                            Circle()
-                                .fill(.gray)
-                                .frame(width: 53, height: 53)
-                            Image("bulldog")
-                                .resizable()
-                                .frame(width: 34, height: 34)
+                        AsyncImage(url: URL(string: viewModel.imageURL)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
                         }
-                
-                        Text("아롱")
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                        
+                        Text(viewModel.nickName)
                             .font(.title)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -62,7 +64,7 @@ struct MyPageScene: View {
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 0)
                             
                             HStack {
-                                Text("프로필 보기")
+                                Text(viewModel.changeProfileText())
                                     .applySubtitle(color: .mainTextColor)
                                     .bold()
                                     .padding()
@@ -74,7 +76,7 @@ struct MyPageScene: View {
                                     .padding()
                             }
                             .onTapGesture {
-                                viewModel.push(.userProfileView)
+                                viewModel.push()
                             }
                         }
                     }
@@ -105,7 +107,7 @@ struct MyPageScene: View {
                                         
                                         Spacer()
                                         
-                                        Text("24")
+                                        Text("\(viewModel.likeCount)")
                                             .applyInner(color: .activeTextColor)
                                             .bold()
                                     }
@@ -134,7 +136,7 @@ struct MyPageScene: View {
                                         
                                         Spacer()
                                         
-                                        Text("24")
+                                        Text("\(viewModel.applyCount)")
                                             .applyInner(color: .activeTextColor)
                                             .bold()
                                     }
