@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct RegionView: View {
-    let viewModel: UserProfileViewModel
+    @StateObject private var viewModel: UserProfileViewModel
     @State private var region = ""
     @State private var isDropdownOpen = false
+    
+    init(viewModel: UserProfileViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -23,7 +27,7 @@ struct RegionView: View {
                         .frame(maxWidth: .infinity)
                     
                     HStack {
-                        TextField("지역을 선택해주세요", text: $region)
+                        TextField("지역을 선택해주세요", text: $viewModel.region)
                             .disabled(true)
                         
                         Spacer()
@@ -41,7 +45,6 @@ struct RegionView: View {
             
             if isDropdownOpen {
                 DropdownView(options: regionOptions) { option in
-                    region = option.value
                     viewModel.region = option.value
                 }
             }
