@@ -59,6 +59,7 @@ final class UserProfileViewModel: BaseViewModel {
     @Published var house: HouseStatus = .house
     @Published var person = 0
     @Published var comment = ""
+    @Published var region = ""
     @Published var openTalk = ""
     @Published var experienceArray = [(id: String, species: String, period: Int)]()
     @Published var isShowModal = false
@@ -99,7 +100,7 @@ final class UserProfileViewModel: BaseViewModel {
     }
     
     func registerProfile(_ isRegistered: Bool) {
-        let vo = ProfileEditVO(job: job.rawValue, environment: house.rawValue, people: person, comment: comment, openTalk: openTalk, region: "", isExperience: experience.description, profileImageId: image.rawValue, experiences: experienceArray)
+        let vo = ProfileEditVO(job: job.rawValue, environment: house.rawValue, people: person, comment: comment, openTalk: openTalk, region: region, isExperience: experience.description, profileImageId: image.rawValue, experiences: experienceArray)
         if isRegistered {
             putEditProfile(vo)
         } else  {

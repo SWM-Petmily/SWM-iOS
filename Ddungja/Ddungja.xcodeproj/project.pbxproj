@@ -116,6 +116,8 @@
 		75532AA12A8CADB100DEC825 /* DropDownRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA02A8CADB100DEC825 /* DropDownRow.swift */; };
 		75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA22A8CAE3300DEC825 /* DropDownOption.swift */; };
 		75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */; };
+		75532AA82A8CB9D300DEC825 /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA72A8CB9D300DEC825 /* RegionView.swift */; };
+		75532AAA2A8CBBB300DEC825 /* DropDownRegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462502A4498A300598268 /* ConfirmNumberDTO.swift */; };
@@ -304,6 +306,8 @@
 		75532AA02A8CADB100DEC825 /* DropDownRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRow.swift; sourceTree = "<group>"; };
 		75532AA22A8CAE3300DEC825 /* DropDownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownOption.swift; sourceTree = "<group>"; };
 		75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDogModel.swift; sourceTree = "<group>"; };
+		75532AA72A8CB9D300DEC825 /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
+		75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRegionModel.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		755462502A4498A300598268 /* ConfirmNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberDTO.swift; sourceTree = "<group>"; };
@@ -601,6 +605,7 @@
 				7546BDE32A52B60D0019A986 /* EditProfile.swift */,
 				75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */,
 				75FB2FE72A5A557100E4DDE8 /* ModalView.swift */,
+				75532AA72A8CB9D300DEC825 /* RegionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -713,6 +718,7 @@
 			children = (
 				75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */,
 				75532AA22A8CAE3300DEC825 /* DropDownOption.swift */,
+				75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1217,6 +1223,7 @@
 				753BA7312A7F5A910090EAE3 /* PetInfoView.swift in Sources */,
 				753BA7392A8076590090EAE3 /* PetAdvantageView.swift in Sources */,
 				753BA71B2A7E70770090EAE3 /* RegisterViewModel.swift in Sources */,
+				75532AAA2A8CBBB300DEC825 /* DropDownRegionModel.swift in Sources */,
 				753BA7252A7E72C80090EAE3 /* RegisterAPI.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
@@ -1277,6 +1284,7 @@
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
+				75532AA82A8CB9D300DEC825 /* RegionView.swift in Sources */,
 				7543D4B82A77C15400A0E9D9 /* RadioButton.swift in Sources */,
 				753BA7162A7D49A10090EAE3 /* PostApplyDTO.swift in Sources */,
 				75154E582A695A4D0083261A /* Text + Extension.swift in Sources */,

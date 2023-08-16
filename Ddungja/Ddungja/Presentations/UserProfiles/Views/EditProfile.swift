@@ -31,13 +31,14 @@ struct EditProfile: View {
                             personStatusTitle
                             personStatusButton
                             
+                            selectRegionTitle
+                            RegionView(viewModel: viewModel)
+                            
                             experienceTitle
                             experienceButton
                         }
                         
                         if(viewModel.experience == .yes) {
-                            selectSpeciesTitle
-                            
                             LazyVStack {
                                 ForEach(viewModel.experienceArray, id: \.id) { experience in
                                     ExperienceRow(id: experience.id,
@@ -233,8 +234,8 @@ extension EditProfile {
         }
     }
     
-    private var selectSpeciesTitle: some View {
-        Text("반려동물 종을 선택해주세요")
+    private var selectRegionTitle: some View {
+        Text("사는 지역")
             .applySubtitle(color: .mainTextColor)
     }
     
