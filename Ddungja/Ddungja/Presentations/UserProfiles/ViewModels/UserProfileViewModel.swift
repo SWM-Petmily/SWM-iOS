@@ -85,6 +85,7 @@ final class UserProfileViewModel: BaseViewModel {
                 self.job = self.changeToJobStatus(profileVo.job)
                 self.experience = self.changeToExperience(profileVo.isExperience)
                 self.house = self.changeToHomeStatus(profileVo.environment)
+                self.region = profileVo.region
                 self.person = profileVo.people
                 self.experienceArray = profileVo.experiences
                 self.comment = profileVo.comment
