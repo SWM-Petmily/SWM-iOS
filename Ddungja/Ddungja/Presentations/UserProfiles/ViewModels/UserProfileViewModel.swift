@@ -29,9 +29,9 @@ enum EmploymentStatus: String {
     case unemployed = "무직"
 }
 
-enum ExperienceStatus {
-    case yes
-    case no
+enum ExperienceStatus: String {
+    case yes = "있음"
+    case no = "없음"
     
     var description: Bool {
         switch self {
@@ -53,6 +53,7 @@ final class UserProfileViewModel: BaseViewModel {
     private var cancellables = Set<AnyCancellable>()
     @Published var profile: ProfileVO
     
+    @Published var nickname = ""
     @Published var image: ImageStatus = .bulldog
     @Published var job: EmploymentStatus = .student
     @Published var experience: ExperienceStatus = .no
@@ -80,7 +81,7 @@ final class UserProfileViewModel: BaseViewModel {
                 print("profileVoprofileVo \(profileVo)")
                 guard let self = self else { return }
                 self.profile = profileVo
-                
+                self.nickname = profileVo.nickname
                 self.image = self.changeToImageStatus(profileVo.profileImageId)
                 self.job = self.changeToJobStatus(profileVo.job)
                 self.experience = self.changeToExperience(profileVo.isExperience)
