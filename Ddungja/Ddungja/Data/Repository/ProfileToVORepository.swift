@@ -15,6 +15,12 @@ final class ProfileToVORepository: ProfileRepository {
         self.dataSource = dataSource
     }
     
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO> {
+        return dataSource.getMyPage()
+            .map { $0.toMyPageVO() }
+            .eraseToAnyPublisher()
+    }
+    
     func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {
         return dataSource.getUserProfile().map { $0.toDomain() }.eraseToAnyPublisher()
     }

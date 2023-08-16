@@ -8,6 +8,7 @@
 import Combine
 
 protocol ProfileUsecaseInterface {
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO>
     func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO>
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
     func postEditProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
@@ -19,6 +20,10 @@ final class ProfileUsecase: ProfileUsecaseInterface {
     
     init(repository: ProfileRepository) {
         self.repository = repository
+    }
+    
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO> {
+        return repository.getMyPage()
     }
     
     func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {

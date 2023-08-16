@@ -118,6 +118,8 @@
 		75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */; };
 		75532AA82A8CB9D300DEC825 /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA72A8CB9D300DEC825 /* RegionView.swift */; };
 		75532AAA2A8CBBB300DEC825 /* DropDownRegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */; };
+		75532AAC2A8CDF9700DEC825 /* MyPageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */; };
+		75532AAE2A8CE09900DEC825 /* MyPageVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAD2A8CE09900DEC825 /* MyPageVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462502A4498A300598268 /* ConfirmNumberDTO.swift */; };
@@ -308,6 +310,8 @@
 		75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDogModel.swift; sourceTree = "<group>"; };
 		75532AA72A8CB9D300DEC825 /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
 		75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRegionModel.swift; sourceTree = "<group>"; };
+		75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDTO.swift; sourceTree = "<group>"; };
+		75532AAD2A8CE09900DEC825 /* MyPageVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		755462502A4498A300598268 /* ConfirmNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberDTO.swift; sourceTree = "<group>"; };
@@ -567,6 +571,7 @@
 				7546BDB22A4C249F0019A986 /* ProfileModifyDTO.swift */,
 				7546BDB42A4C24C40019A986 /* ProfileDetailDTO.swift */,
 				7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */,
+				75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */,
 			);
 			path = UserProfileDTO;
 			sourceTree = "<group>";
@@ -989,6 +994,7 @@
 				754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */,
 				754AB6D42A6D522700F2EBC8 /* ApplyIDInfoVO.swift */,
 				756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */,
+				75532AAD2A8CE09900DEC825 /* MyPageVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -1200,10 +1206,12 @@
 				759228FE2A62E1F500603FF4 /* MyPostsAPIProvider.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
 				7543D4C42A78CE7D00A0E9D9 /* HomeAPI.swift in Sources */,
+				75532AAE2A8CE09900DEC825 /* MyPageVO.swift in Sources */,
 				753BA7142A7D37430090EAE3 /* ApplyAdoptionView.swift in Sources */,
 				7543D4BE2A78C80500A0E9D9 /* HomeRepositoryInterface.swift in Sources */,
 				753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
+				75532AAC2A8CDF9700DEC825 /* MyPageDTO.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsScene.swift in Sources */,
 				75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */,
 				7543D4C02A78C84F00A0E9D9 /* HomeRepository.swift in Sources */,

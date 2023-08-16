@@ -49,6 +49,11 @@ struct PresentationAssembly: Assembly {
             return PetCertificationViewModel(coordinator: coordinator, petCertificationUsecase: usecase)
         }
         
+        container.register(MyPageViewModel.self) { resolver in
+            let usecase = resolver.resolve(ProfileUsecaseInterface.self)!
+            return MyPageViewModel(coordinator: coordinator, profileUsecase: usecase)
+        }
+        
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
             return LoginScene(viewModel: viewModel)
@@ -65,7 +70,8 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(MyPageScene.self) { resolver in
-            return MyPageScene(viewModel: MyPageViewModel(coordinator: coordinator))
+            let viewModel = resolver.resolve(MyPageViewModel.self)!
+            return MyPageScene(viewModel: viewModel)
         }
         
         container.register(DdungjaTabScene.self) { resolver in

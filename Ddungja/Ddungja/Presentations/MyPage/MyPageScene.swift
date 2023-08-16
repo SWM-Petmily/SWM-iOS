@@ -216,5 +216,8 @@ struct MyPageScene: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.getMyPage()
+        }
     }
 }
