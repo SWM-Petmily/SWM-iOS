@@ -53,10 +53,36 @@ final class MyPostsViewModel: BaseViewModel {
         .store(in: &cancellables)
     }
     
+    func changeBirthToAge(_ birth: String) -> String {
+        let date = Date()
+        let currentDate = Calendar.current.dateComponents([.year, .month], from: date)
+        let birth = birth.split(separator: "-").map { Int($0)! }
+        
+        let age = (currentDate.year! - birth[0]) * 12 + currentDate.month! - birth[1]
+        
+        
+        
+        return age >= 12 ? "\(age / 12) 살" : "\(age) 개월"
+    }
+    
+    func genderType(_ type: String) -> String {
+        return type == "MALE" ? "남아" : "여아"
+    }
+    
     func getMyEditPosts(_ status: String, _ page: Int = 1) {
         myPostsUsecase.getMyEditPosts(status, page)
-            .sink { completion in
-                print("getMyEditPosts \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 self?.myEditPosts = vo.content
                 self?.pageInfo = vo.pageable.pageNumber + 1
@@ -124,8 +150,18 @@ final class MyPostsViewModel: BaseViewModel {
     func tapAcceptOrReject(id: Int, approval: String) {
         myPostsUsecase.postAcceptInfo(id: id, approval: approval)
             .sink { [weak self] completion in
-                print("tapAcceptOrReject \(completion)")
-                self?.isRequest = false
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.isRequest = false
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 self?.pop()
             }

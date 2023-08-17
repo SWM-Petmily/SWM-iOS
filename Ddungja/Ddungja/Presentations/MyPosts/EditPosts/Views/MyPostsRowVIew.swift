@@ -58,7 +58,7 @@ struct MyPostsRowVIew: View {
                     Spacer()
                     
                     VStack {
-                        Text("작성일 \(myPost.createdDate)")
+                        Text("\(myPost.createdDate)")
                         
                         Spacer()
                         
@@ -111,7 +111,7 @@ struct MyPostsRowVIew: View {
                     HStack(alignment: .center) {
                         Text("나이")
                             .applySubtitle(color: .disabledTextColor)
-                        Text("\(myPost.birth) 개월")
+                        Text(viewModel.changeBirthToAge(myPost.birth))
                             .applySubtitle(color: .mainTextColor)
                             .bold()
                     }
@@ -123,7 +123,7 @@ struct MyPostsRowVIew: View {
                     HStack(alignment: .center) {
                         Text("성별")
                             .applySubtitle(color: .disabledTextColor)
-                        Text(myPost.gender)
+                        Text(viewModel.genderType(myPost.gender))
                             .applySubtitle(color: .mainTextColor)
                             .bold()
                     }

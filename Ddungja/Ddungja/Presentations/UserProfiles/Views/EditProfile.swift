@@ -83,7 +83,7 @@ struct EditProfile: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            Text("프로필")
+                            Image(systemName: "chevron.backward")
                                 .onTapGesture {
                                     viewModel.pop()
                                 }

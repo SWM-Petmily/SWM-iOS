@@ -46,10 +46,6 @@ struct MyPostsScene: View {
             }
             .frame(height: 33)
             .frame(maxWidth: .infinity)
-            
-            Text("분양중")
-                .applyInner(color: .mainTextColor)
-                .bold()
         }
         .padding()
         
@@ -68,7 +64,7 @@ struct MyPostsScene: View {
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Text("프로필")
+                Image(systemName: "chevron.backward")
                     .onTapGesture {
                         viewModel.pop()
                     }

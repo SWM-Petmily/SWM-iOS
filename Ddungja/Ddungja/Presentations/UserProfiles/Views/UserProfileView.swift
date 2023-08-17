@@ -41,7 +41,7 @@ struct UserProfileView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Text("마이페이지")
+                Image(systemName: "chevron.backward")
                     .onTapGesture {
                         viewModel.pop()
                     }

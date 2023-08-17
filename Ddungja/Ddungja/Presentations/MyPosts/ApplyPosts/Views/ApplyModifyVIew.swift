@@ -26,7 +26,7 @@ struct ApplyModifyVIew: View {
                     .navigationBarBackButtonHidden()
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            Text("지원받은목록")
+                            Image(systemName: "chevron.backward")
                                 .onTapGesture {
                                     viewModel.pop()
                                 }

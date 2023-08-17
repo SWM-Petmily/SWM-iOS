@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ApplyListRowView: View {
-    var viewModel: MyPostsViewModel
-    var vo: ApplyListInfoVO
+    private let viewModel: MyPostsViewModel
+    private let vo: ApplyListInfoVO
+    
+    init(viewModel: MyPostsViewModel, vo: ApplyListInfoVO) {
+        self.viewModel = viewModel
+        self.vo = vo
+    }
     
     var body: some View {
         ZStack {
@@ -63,9 +68,13 @@ extension ApplyListRowView {
                 Circle()
                     .fill(.gray)
                     .frame(width: 68, height: 68)
-                Image("bulldog")
-                    .resizable()
-                    .frame(width: 50, height: 50)
+                AsyncImage(url: URL(string: vo.url)) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 50, height: 50)
+                .clipShape(Circle())
             }
             
             VStack(alignment: .leading, spacing: 4) {
