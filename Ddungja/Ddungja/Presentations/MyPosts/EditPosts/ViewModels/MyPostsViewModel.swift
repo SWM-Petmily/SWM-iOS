@@ -57,10 +57,7 @@ final class MyPostsViewModel: BaseViewModel {
         let date = Date()
         let currentDate = Calendar.current.dateComponents([.year, .month], from: date)
         let birth = birth.split(separator: "-").map { Int($0)! }
-        
         let age = (currentDate.year! - birth[0]) * 12 + currentDate.month! - birth[1]
-        
-        
         
         return age >= 12 ? "\(age / 12) 살" : "\(age) 개월"
     }
