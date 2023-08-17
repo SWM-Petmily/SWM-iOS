@@ -24,6 +24,7 @@ enum Page: Hashable {
     case applyAdaption(postId: Int)
     case petInfo(info: RegisteredPetVO)
     case adoptionReason
+    case registerScene
     case petAdvantage
     case petDisadvantage
     case petCost

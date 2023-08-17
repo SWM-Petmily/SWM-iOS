@@ -164,6 +164,9 @@ struct MyPageScene: View {
                             Text("등록한 반려동물 정보")
                                 .applyInner(color: .mainTextColor)
                         }
+                        .onTapGesture {
+                            viewModel.push(.registerScene)
+                        }
                         
                         HStack {
                             Image(systemName: "pencil")
