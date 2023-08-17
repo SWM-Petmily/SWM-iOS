@@ -47,7 +47,7 @@ struct ApplyModifyVIew: View {
                     }
                     
                     Button {
-                        
+                        viewModel.push(.editProfile(isRegister: true))
                     } label: {
                         Text("수정하기")
                             .applyInner(color: .white)
