@@ -54,6 +54,9 @@ struct MyPageScene: View {
                                     .padding()
                             }
                         }
+                        .onTapGesture {
+                            viewModel.push(.petRegistration(postId: nil))
+                        }
                         
                         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                             Rectangle()
@@ -75,9 +78,9 @@ struct MyPageScene: View {
                                     .foregroundColor(.main)
                                     .padding()
                             }
-                            .onTapGesture {
-                                viewModel.push()
-                            }
+                        }
+                        .onTapGesture {
+                            viewModel.push()
                         }
                     }
                     

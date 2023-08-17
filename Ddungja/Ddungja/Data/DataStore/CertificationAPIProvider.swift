@@ -12,6 +12,7 @@ import Combine
 
 protocol PetCertificationDataSourceInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, CustomErrorVO>
+    func registerPetNumber(_ dto: RegisterPetNumberDTO) -> AnyPublisher<RegisterPetIdDTO, CustomErrorVO>
     func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoDTO, CustomErrorVO>
     func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, CustomErrorVO>
     func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoDTO, CustomErrorVO>
@@ -26,6 +27,11 @@ final class CertificationAPIProvider: PetCertificationDataSourceInterface {
     
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, CustomErrorVO> {
         moyaProvider.requestPublisher(.getAdditionalPage(postId: 401))
+            .asResult()
+    }
+    
+    func registerPetNumber(_ dto: RegisterPetNumberDTO) -> AnyPublisher<RegisterPetIdDTO, CustomErrorVO> {
+        moyaProvider.requestPublisher(.registerUsersPetNumber(dto: dto))
             .asResult()
     }
     

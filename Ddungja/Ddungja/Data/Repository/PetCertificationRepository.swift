@@ -21,6 +21,12 @@ final class PetCertificationRepository: PetCertificationRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
+    func registerPetNumber(_ dto: RegisterPetNumberDTO) -> AnyPublisher<RegisterPetIdVO, CustomErrorVO> {
+        datasource.registerPetNumber(dto)
+            .map { $0.toRegisterPetIdVO() }
+            .eraseToAnyPublisher()
+    }
+    
     func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerPetNumber(postId, dto)
             .map { $0.toCertificationInfoVO() }

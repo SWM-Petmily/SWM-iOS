@@ -120,6 +120,8 @@
 		75532AAA2A8CBBB300DEC825 /* DropDownRegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */; };
 		75532AAC2A8CDF9700DEC825 /* MyPageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */; };
 		75532AAE2A8CE09900DEC825 /* MyPageVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAD2A8CE09900DEC825 /* MyPageVO.swift */; };
+		75532AB02A8DE15500DEC825 /* RegisterPetIdDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAF2A8DE15500DEC825 /* RegisterPetIdDTO.swift */; };
+		75532AB22A8DE1E000DEC825 /* RegisterPetIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AB12A8DE1E000DEC825 /* RegisterPetIdVO.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462502A4498A300598268 /* ConfirmNumberDTO.swift */; };
@@ -312,6 +314,8 @@
 		75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRegionModel.swift; sourceTree = "<group>"; };
 		75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDTO.swift; sourceTree = "<group>"; };
 		75532AAD2A8CE09900DEC825 /* MyPageVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVO.swift; sourceTree = "<group>"; };
+		75532AAF2A8DE15500DEC825 /* RegisterPetIdDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetIdDTO.swift; sourceTree = "<group>"; };
+		75532AB12A8DE1E000DEC825 /* RegisterPetIdVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetIdVO.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		755462502A4498A300598268 /* ConfirmNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberDTO.swift; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 				753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */,
 				753BA7562A834A390090EAE3 /* RegisterPostDTO.swift */,
 				753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */,
+				75532AAF2A8DE15500DEC825 /* RegisterPetIdDTO.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				753BA7582A8352220090EAE3 /* RegisterPostIDVO.swift */,
 				753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */,
 				753BA75E2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift */,
+				75532AB12A8DE1E000DEC825 /* RegisterPetIdVO.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1284,12 +1290,14 @@
 				753BA7592A8352220090EAE3 /* RegisterPostIDVO.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
 				754AB6D52A6D522700F2EBC8 /* ApplyIDInfoVO.swift in Sources */,
+				75532AB02A8DE15500DEC825 /* RegisterPetIdDTO.swift in Sources */,
 				75532A9F2A8CAD8B00DEC825 /* DropDownView.swift in Sources */,
 				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
 				754AB6F02A74CC7F00F2EBC8 /* SignUpViewModel.swift in Sources */,
 				754AB6E82A71713500F2EBC8 /* LoginResultVO.swift in Sources */,
 				753BA73B2A80783E0090EAE3 /* PetDisadvantageView.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
+				75532AB22A8DE1E000DEC825 /* RegisterPetIdVO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
 				75532AA82A8CB9D300DEC825 /* RegionView.swift in Sources */,

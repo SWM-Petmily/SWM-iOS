@@ -10,6 +10,7 @@ import Moya
 
 enum CertificationAPI {
     case getAdditionalPage(postId: Int)
+    case registerUsersPetNumber(dto: RegisterPetNumberDTO)
     case registerPetNumber(postId: Int, dto: RegisterPetNumberDTO)
     case registerHealthInfo(postId: Int, images: [UIImage])
     case registerVaccineInfo(postId: Int, images: [UIImage])
@@ -24,6 +25,8 @@ extension CertificationAPI: TargetType {
         switch self {
         case let .getAdditionalPage(postId):
             return "posts/certify/\(postId)"
+        case let .registerUsersPetNumber:
+            return "users/register"
         case let .registerPetNumber(postId, _):
             return "posts/certifyRegistration/\(postId)"
         case let .registerHealthInfo(postId, _):
@@ -37,7 +40,7 @@ extension CertificationAPI: TargetType {
         switch self {
         case .getAdditionalPage:
             return .get
-        case .registerPetNumber, .registerHealthInfo, .registerVaccineInfo:
+        case .registerUsersPetNumber, .registerPetNumber, .registerHealthInfo, .registerVaccineInfo:
             return .post
         }
     }
@@ -46,6 +49,8 @@ extension CertificationAPI: TargetType {
         switch self {
         case .getAdditionalPage:
             return .requestPlain
+        case let .registerUsersPetNumber(dto):
+            return .requestJSONEncodable(dto)
         case let .registerPetNumber(_, dto):
             return .requestJSONEncodable(dto)
         case let .registerHealthInfo(_, images):

@@ -10,6 +10,7 @@ import UIKit
 
 protocol PetCertificationUsecaseInterface {
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, CustomErrorVO>
+    func registerPetNumber(_ name: String, _ number: String) -> AnyPublisher<RegisterPetIdVO, CustomErrorVO>
     func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, CustomErrorVO>
     func registerPetHealthInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, CustomErrorVO>
     func registerVaccineInfo(_ postId: Int, _ images: [Data]) -> AnyPublisher<CertificationInfoVO, CustomErrorVO>
@@ -24,6 +25,11 @@ final class PetCertificationUsecase: PetCertificationUsecaseInterface {
     
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         return repository.getAdditionalPageInfo(postId)
+    }
+    
+    func registerPetNumber(_ name: String, _ number: String) -> AnyPublisher<RegisterPetIdVO, CustomErrorVO> {
+        let dto = RegisterPetNumberDTO(ownerName: name, dogRegistrationNumber: number)
+        return repository.registerPetNumber(dto)
     }
     
     func registerPetNumber(_ postId: Int, _ name: String, _ number: String) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {

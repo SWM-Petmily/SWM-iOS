@@ -21,6 +21,7 @@ final class PetCertificationViewModel: BaseViewModel {
     @Published var registrationNumber = ""
     @Published var healthInfoImages = Array(repeating: Data(), count: 5)
     @Published var vaccineInfoImages = Array(repeating: Data(), count: 5)
+    @Published var isShowModal = false
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
         self.petCertificationUsecase = petCertificationUsecase
@@ -41,7 +42,36 @@ final class PetCertificationViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
-    func registerPetNumber(_ postId: Int) {
+    func registerPetNumber(_ postId: Int?) {
+        if let postId = postId {
+            registerPetNumber(postId)
+        } else {
+            registerPetNumber()
+        }
+    }
+    
+    private func registerPetNumber() {
+        petCertificationUsecase.registerPetNumber(name, registrationNumber)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
+            } receiveValue: { [weak self] vo in
+                self?.isShowModal = true
+                print(vo)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func registerPetNumber(_ postId: Int) {
         petCertificationUsecase.registerPetNumber(postId, name, registrationNumber)
             .sink { completion in
                 print("getAdditionalPageInfo \(completion)")
