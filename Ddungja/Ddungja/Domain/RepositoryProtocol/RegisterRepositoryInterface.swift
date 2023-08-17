@@ -11,4 +11,5 @@ import UIKit
 protocol RegisterRepositoryInterface {
     func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], CustomErrorVO>
     func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostIDVO, CustomErrorVO>
+    func deleteRegisteredInfo(_ id: Int) -> AnyPublisher<Void, CustomErrorVO>
 }

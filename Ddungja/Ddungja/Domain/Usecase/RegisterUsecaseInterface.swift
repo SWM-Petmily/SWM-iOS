@@ -12,6 +12,7 @@ import UIKit
 protocol RegisterUsecaseInterface {
     func getRegisteredPet() -> AnyPublisher<[RegisteredPetVO], CustomErrorVO>
     func registerPost(_ vo: PetPostVO, _ images: [Data]) -> AnyPublisher<RegisterPostIDVO, CustomErrorVO>
+    func deleteRegisteredInfo(_ id: Int) -> AnyPublisher<Void, CustomErrorVO>
 }
 
 final class RegisterUsecase: RegisterUsecaseInterface {
@@ -34,5 +35,9 @@ final class RegisterUsecase: RegisterUsecaseInterface {
         }
         
         return repository.registerPost(vo, userImages)
+    }
+    
+    func deleteRegisteredInfo(_ id: Int) -> AnyPublisher<Void, CustomErrorVO> {
+        return repository.deleteRegisteredInfo(id)
     }
 }

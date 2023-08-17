@@ -58,14 +58,23 @@ final class RegisterViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
-    func registerPost() {
-        let vo = PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: reason, advantage: advantage, disadvantage: disAdvantage, averageCost: cost, adopter: adopter, status: "SAVE", diseases: [], isRegistered: isRegistered)
-
-        registerUsecase.registerPost(vo, images)
-            .sink { completion in
-                print("RegisterPost completion \(completion)")
+    func deleteRegisteredInfo(_ idx: Int) {
+        let id = registeredPetInfo[idx].id
+        registerUsecase.deleteRegisteredInfo(id)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] _ in
-                
+                self?.registeredPetInfo.remove(at: idx)
             }
             .store(in: &cancellables)
     }

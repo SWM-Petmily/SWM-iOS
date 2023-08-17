@@ -26,4 +26,8 @@ final class RegisterRepository: RegisterRepositoryInterface {
             .map { $0.toPostIdVO() }
             .eraseToAnyPublisher()
     }
+    
+    func deleteRegisteredInfo(_ id: Int) -> AnyPublisher<Void, CustomErrorVO> {
+        return datasource.deleteRegisteredInfo(id)
+    }
 }

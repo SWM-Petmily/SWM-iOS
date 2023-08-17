@@ -12,6 +12,7 @@ import UIKit
 enum RegisterAPI {
     case getRegiteredPet
     case registerPost(vo: PetPostVO, images: [UIImage])
+    case deleteRegisteredInfo(id: Int)
 }
 
 extension RegisterAPI: TargetType {
@@ -25,6 +26,8 @@ extension RegisterAPI: TargetType {
             return "users/register/myRegister"
         case .registerPost:
             return "posts"
+        case let .deleteRegisteredInfo(id):
+            return "users/register/\(id)"
         }
     }
     
@@ -34,6 +37,8 @@ extension RegisterAPI: TargetType {
             return .get
         case .registerPost:
             return .post
+        case .deleteRegisteredInfo:
+            return .delete
         }
     }
     
@@ -59,12 +64,14 @@ extension RegisterAPI: TargetType {
             }
             print(formDataArray)
             return .uploadMultipart(formDataArray)
+        case .deleteRegisteredInfo:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .getRegiteredPet:
+        case .getRegiteredPet, .deleteRegisteredInfo:
             if let accessToken = KeyChainManager.read(key: .accessToken) {
                 return ["Authorization" : accessToken]
             }

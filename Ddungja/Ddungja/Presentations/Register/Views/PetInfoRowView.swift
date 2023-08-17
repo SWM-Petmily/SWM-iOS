@@ -35,11 +35,13 @@ struct PetInfoRowView: View {
                         HStack(alignment: .center) {
                             Text("품종")
                                 .applySubtitle(color: .disabledTextColor)
+                                
                             Text(info.petType)
                                 .applySubtitle(color: .mainTextColor)
                                 .bold()
                         }
-                        .padding([.leading, .trailing])
+                        .padding(.leading, 15)
+                        Spacer()
                         
                         Divider()
                             .frame(width: 1, height: 35)
@@ -48,11 +50,12 @@ struct PetInfoRowView: View {
                         HStack(alignment: .center) {
                             Text("성별")
                                 .applySubtitle(color: .disabledTextColor)
-                            Text(info.petGender)
+                                
+                            Text(info.petGender == "MALE" ? "남아" : "여아")
                                 .applySubtitle(color: .mainTextColor)
                                 .bold()
                         }
-                        .padding([.leading, .trailing])
+                        .padding([.leading, .trailing], 15)
                         
                         Divider()
                             .frame(width: 1, height: 35)
@@ -60,11 +63,12 @@ struct PetInfoRowView: View {
                         HStack(alignment: .center) {
                             Text("중성화")
                                 .applySubtitle(color: .disabledTextColor)
-                            Text(info.petNeutered)
+                                
+                            Text(info.petNeutered == "YES" ? "O" : "X")
                                 .applySubtitle(color: .mainTextColor)
                                 .bold()
                         }
-                        .padding([.leading, .trailing])
+                        .padding([.leading, .trailing], 15)
                     }
                 }
                 
