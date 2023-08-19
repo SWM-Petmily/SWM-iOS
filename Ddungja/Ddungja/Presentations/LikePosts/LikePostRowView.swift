@@ -9,12 +9,12 @@ import SwiftUI
 
 struct LikePostRowView: View {
     var viewModel: LikeListViewModel
-    var myPost: LikeListInfoVO
+    var likePost: LikeListInfoVO
     
     var body: some View {
         VStack {
             HStack(spacing: 20) {
-                ProfileImgView(imageUrl: myPost.thumbnailImage)
+                ProfileImgView(imageUrl: likePost.thumbnailImage)
                     .padding(.leading)
                 
                 HStack {
@@ -26,16 +26,16 @@ struct LikePostRowView: View {
                                 .applySubtitle(color: .mainTextColor)
                             Image(systemName: "heart")
                                 .foregroundColor(.disabledText)
-                            Text("\(myPost.like)")
+                            Text("\(likePost.like)")
                                 .applySubtitle(color: .mainTextColor)
                         }
                         Spacer()
                         
-                        Text(myPost.subCategory)
+                        Text(likePost.subCategory)
                             .applyInner(color: .mainTextColor)
                             .bold()
                         Spacer()
-                        Text(myPost.name)
+                        Text(likePost.name)
                             .applyInner(color: .mainTextColor)
                             .bold()
                     }
@@ -43,7 +43,7 @@ struct LikePostRowView: View {
                     Spacer()
                     
                     VStack {
-                        Text("\(myPost.createdDate)")
+                        Text("\(likePost.createdDate)")
                         
                         Spacer()
                         
@@ -55,7 +55,7 @@ struct LikePostRowView: View {
                                 .cornerRadius(6)
                             
                             Button {
-//                                viewModel.push(.applyModify(id: myPost.postId))
+                                viewModel.cancelLike(likePost.id)
                             } label: {
                                 Text("취소")
                                     .applyInner(color: .mainColor)
@@ -83,7 +83,7 @@ struct LikePostRowView: View {
                     HStack(alignment: .center) {
                         Text("지역")
                             .applySubtitle(color: .disabledTextColor)
-                        Text(myPost.region)
+                        Text(likePost.region)
                             .applySubtitle(color: .mainTextColor)
                             .bold()
                     }
@@ -108,7 +108,7 @@ struct LikePostRowView: View {
                     HStack(alignment: .center) {
                         Text("성별")
                             .applySubtitle(color: .disabledTextColor)
-                        Text(myPost.gender)
+                        Text(likePost.gender)
                             .applySubtitle(color: .mainTextColor)
                             .bold()
                     }

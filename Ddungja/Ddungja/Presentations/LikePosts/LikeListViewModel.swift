@@ -18,6 +18,7 @@ enum LikeListButtonState: String {
 
 final class LikeListViewModel: BaseViewModel {
     private let likeListUsecase: LikeListUsecaseInterface
+    private let homeUsecase: HomeUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
     @Published var likeList = [LikeListInfoVO]()
@@ -28,9 +29,9 @@ final class LikeListViewModel: BaseViewModel {
     
     var fetchMoreActionSubject = PassthroughSubject<(), Never>()
     
-    init(coordinator: CoordinatorProtocol, likeListUsecase: LikeListUsecaseInterface) {
+    init(coordinator: CoordinatorProtocol, likeListUsecase: LikeListUsecaseInterface, homeUsecase: HomeUsecaseInterface) {
         self.likeListUsecase = likeListUsecase
-        
+        self.homeUsecase = homeUsecase
         super.init(coordinator: coordinator)
         
         fetchMoreActionSubject.sink { [weak self] _ in
@@ -40,6 +41,18 @@ final class LikeListViewModel: BaseViewModel {
             }
         }
         .store(in: &cancellables)
+    }
+    
+    func cancelLike(_ id: Int) {
+        homeUsecase.tappedLike(id, true)
+            .sink { error in
+                
+            } receiveValue: { [weak self] a in
+                if let idx = self?.likeList.firstIndex(where: { $0.id == id }) {
+                    self?.likeList.remove(at: idx)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func getLikeList(_ page: Int = 1) {

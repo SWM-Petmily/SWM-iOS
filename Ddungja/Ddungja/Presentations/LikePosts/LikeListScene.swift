@@ -47,7 +47,7 @@ struct LikeListScene: View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.likeList, id: \.id) { info in
-                    LikePostRowView(viewModel: viewModel, myPost: info)
+                    LikePostRowView(viewModel: viewModel, likePost: info)
                         .onAppear{
                             print(info)
                             fetchMoreData(info)

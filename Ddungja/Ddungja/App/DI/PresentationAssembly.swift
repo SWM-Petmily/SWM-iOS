@@ -128,7 +128,8 @@ struct PresentationAssembly: Assembly {
         
         container.register(LikeListViewModel.self) { resolver in
             let usecase = resolver.resolve(LikeListUsecaseInterface.self)!
-            return LikeListViewModel(coordinator: coordinator, likeListUsecase: usecase)
+            let homeUsecase = resolver.resolve(HomeUsecaseInterface.self)!
+            return LikeListViewModel(coordinator: coordinator, likeListUsecase: usecase, homeUsecase: homeUsecase)
         }
         
         container.register(HomeScene.self) { resolver in
