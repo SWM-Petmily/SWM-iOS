@@ -103,6 +103,10 @@ final class PetCertificationViewModel: BaseViewModel {
             }
             .store(in: &cancellables)
     }
+    
+    func popToRoot() {
+        coordinator.popToRoot()
+    }
 }
 
 extension PetCertificationViewModel {

@@ -26,9 +26,11 @@ final class LoginViewModel: BaseViewModel {
             } receiveValue: { vo in
                 switch vo {
                 case .certification:
+                    self.push(.tapBar)
                     print("certification")
                 case .nonCertification:
                     print("nonCertification")
+                    self.push(.signup)
                 }
             }
             .store(in: &cancellables)

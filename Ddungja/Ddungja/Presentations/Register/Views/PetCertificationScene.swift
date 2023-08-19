@@ -122,7 +122,7 @@ struct PetCertificationScene: View {
             
             
             Button {
-                //                viewModel.push(.adoptionReason)
+                viewModel.popToRoot()
             } label: {
                 Text("건너뛰기")
                     .applyInner(color: .white)
@@ -134,6 +134,7 @@ struct PetCertificationScene: View {
             .padding([.leading, .trailing, .bottom])
         }
         .padding()
+        .toolbar(.hidden)
         .onAppear {
             viewModel.getAdditionalPageInfo(postId)
         }
