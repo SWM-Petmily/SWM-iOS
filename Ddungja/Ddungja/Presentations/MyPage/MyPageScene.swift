@@ -117,6 +117,9 @@ struct MyPageScene: View {
                                 }
                                 .padding()
                             }
+                            .onTapGesture {
+                                viewModel.push(.likeList)
+                            }
                             
                             ZStack(alignment: .leading) {
                                 ZStack {
@@ -143,11 +146,11 @@ struct MyPageScene: View {
                                             .applyInner(color: .activeTextColor)
                                             .bold()
                                     }
-                                    .onTapGesture {
-                                        viewModel.push(.myApplyPosts)
-                                    }
                                 }
                                 .padding()
+                            }
+                            .onTapGesture {
+                                viewModel.push(.myApplyPosts)
                             }
                         }
                     }

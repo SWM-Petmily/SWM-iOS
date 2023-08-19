@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import Combine
+
+protocol LikeListRepositoryInterface {
+    func getLikeList(_ status: String, _ page: Int) -> AnyPublisher<LikeListVO, CustomErrorVO>
+}
