@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import Moya
 
 final class PetCertificationRepository: PetCertificationRepositoryInterface {
     private let datasource: PetCertificationDataSourceInterface
@@ -16,25 +15,31 @@ final class PetCertificationRepository: PetCertificationRepositoryInterface {
         self.datasource = datasource
     }
     
-    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.getAdditionalPageInfo(postId)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func registerPetNumber(_ dto: RegisterPetNumberDTO) -> AnyPublisher<RegisterPetIdVO, CustomErrorVO> {
+        datasource.registerPetNumber(dto)
+            .map { $0.toRegisterPetIdVO() }
+            .eraseToAnyPublisher()
+    }
+    
+    func registerPetNumber(_ postId: Int, _ dto: RegisterPetNumberDTO) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerPetNumber(postId, dto)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func registerPetHealthInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerPetHealthInfo(postId, images)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()
     }
     
-    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, MoyaError> {
+    func registerVaccineInfo(_ postId: Int, _ images: [UIImage]) -> AnyPublisher<CertificationInfoVO, CustomErrorVO> {
         datasource.registerVaccineInfo(postId, images)
             .map { $0.toCertificationInfoVO() }
             .eraseToAnyPublisher()

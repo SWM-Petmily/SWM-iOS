@@ -49,8 +49,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(MyPageScene.self)
         case .userProfileView:
             injector.resolve(UserProfileView.self)
-        case .editProfile:
-            injector.resolve(EditProfile.self)
+        case let .editProfile(isRegister):
+            injector.resolve(EditProfile.self, argument: isRegister)
         case .myPosts:
             injector.resolve(MyPostsScene.self)
         case .myApplyPosts:
@@ -77,6 +77,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(PetInfoView.self, argument: info)
         case .adoptionReason:
             injector.resolve(AdoptionReasonView.self)
+        case .registerScene:
+            injector.resolve(RegisterScene.self)
         case .petAdvantage:
             injector.resolve(PetAdvantageView.self)
         case .petDisadvantage:
@@ -93,6 +95,8 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
             injector.resolve(HealthScreeningView.self, argument: postId)
         case let .vaccination(postId):
             injector.resolve(VaccinationView.self, argument: postId)
+        case .likeList:
+            injector.resolve(LikeListScene.self)
         }
     }
 }

@@ -9,10 +9,8 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class DetailPostViewModel: ObservableObject {
-    private let coordinator: CoordinatorProtocol
+final class DetailPostViewModel: BaseViewModel {
     private let homeUsecase: HomeUsecaseInterface
-    private(set) var applyCommon: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
     
     @Published var detail: DetailPostVO?
@@ -27,10 +25,10 @@ final class DetailPostViewModel: ObservableObject {
     
     private var buttonActionSubject = PassthroughSubject<(isWriter: Bool, isApply: Bool, state: String), Never>()
     var likeActionSubject = PassthroughSubject<(), Never>()
-    init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface, applyCommon: ApplyCommonViewModel) {
-        self.coordinator = coordinator
+    init(coordinator: CoordinatorProtocol, homeUsecase: HomeUsecaseInterface) {
         self.homeUsecase = homeUsecase
-        self.applyCommon = applyCommon
+        
+        super.init(coordinator: coordinator)
         
         buttonActionSubject.sink { [weak self] (isWriter, isApply, state) in
             guard let self = self else { return }
@@ -108,8 +106,19 @@ final class DetailPostViewModel: ObservableObject {
     
     func getDetailPost(_ id: Int) {
         homeUsecase.getDetailPost(id)
-            .sink { error in
-                print("getDetailPost error \(error)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                    
+                }
             } receiveValue: { [weak self] vo in
                 print(vo)
                 self?.detail = vo
@@ -144,13 +153,5 @@ final class DetailPostViewModel: ObservableObject {
         if buttonText == "입양 신청하기" {
             coordinator.push(.applyAdaption(postId: id))
         }
-    }
-    
-    func moveToEditProfile() {
-        coordinator.push(.editProfile)
-    }
-    
-    func pop() {
-        coordinator.pop()
     }
 }

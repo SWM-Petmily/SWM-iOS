@@ -27,16 +27,19 @@ enum EmploymentStatus: String {
     case employed = "직장인"
     case student = "학생"
     case unemployed = "무직"
+    case unowned = "unowned"
 }
 
-enum ExperienceStatus {
-    case yes
-    case no
+enum ExperienceStatus: String {
+    case yes = "있음"
+    case no = "없음"
+    case none = "unowned"
     
     var description: Bool {
         switch self {
         case .yes: return true
         case .no: return false
+        case .none: return false
         }
     }
 }
@@ -48,58 +51,117 @@ enum HouseStatus: String {
     case house = "단독주택"
 }
 
-final class UserProfileViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class UserProfileViewModel: BaseViewModel {
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
-    @Published var profile: ProfileVO
-    @Published var experienceArray = [(id: UUID, species: String, period: Int)]()
+    
+    @Published var nickname = ""
+    @Published var image: ImageStatus = .bulldog
+    @Published var job: EmploymentStatus = .unowned
+    @Published var experience: ExperienceStatus = .none
+    @Published var house: HouseStatus = .house
+    @Published var person = 0
+    @Published var comment = ""
+    @Published var region = ""
+    @Published var openTalk = ""
+    @Published var experienceArray = [(id: String, species: String, period: Int)]()
     @Published var isShowModal = false
     
     init(coordinator: CoordinatorProtocol, profileUsecase: ProfileUsecaseInterface) {
-        self.coordinator = coordinator
         self.profileUsecase = profileUsecase
-//        getProfile()
-        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImage: "bulldog", experiences: [(id: 1, species: "불독", period: 16), (id: 2, species: "푸들", period: 13), (id: 3, species: "기타", period: 11)])
+        
+        super.init(coordinator: coordinator)
     }
     
-    private func getProfile() {
+    func getProfile() {
         profileUsecase.getUserProfile()
             .sink { errpr in
                 print("Cheeck \(errpr)")
-            } receiveValue: { profileVo in
-                print(profileVo)
-                self.profile = profileVo
+            } receiveValue: { [weak self] profileVo in
+                print("profileVoprofileVo \(profileVo)")
+                guard let self = self else { return }
+
+                self.nickname = profileVo.nickname
+                self.image = self.changeToImageStatus(profileVo.profileImageId)
+                self.job = self.changeToJobStatus(profileVo.job)
+                self.experience = self.changeToExperience(profileVo.isExperience)
+                self.house = self.changeToHomeStatus(profileVo.environment)
+                self.region = profileVo.region
+                self.person = profileVo.people
+                self.experienceArray = profileVo.experiences
+                self.comment = profileVo.comment
+                self.openTalk = profileVo.openTalk
             }
             .store(in: &cancellables)
     }
     
     private func makeExperienceArray() {
-        for v in profile.experiences {
-            experienceArray.append((id: UUID(),species: v.species, period: v.period))
+        for v in experienceArray {
+            experienceArray.append((id: v.id,species: v.species, period: v.period))
         }
     }
     
-    func moveToEditProfile() {
-        coordinator.push(.editProfile)
+    func registerProfile(_ isRegistered: Bool) {
+        let vo = ProfileEditVO(job: job.rawValue, environment: house.rawValue, people: person, comment: comment, openTalk: openTalk, region: region, isExperience: experience.description, profileImageId: image.rawValue, experiences: experienceArray)
+        if isRegistered {
+            putEditProfile(vo)
+        } else  {
+            postEditProfile(vo)
+        }
     }
     
-    func pop() {
-        coordinator.pop()
+    private func postEditProfile(_ profile: ProfileEditVO) {
+        profileUsecase.postEditProfile(profile: profile)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
+            } receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                self.isShowModal = true
+            }
+            .store(in: &cancellables)
     }
-    func putEditProfile(_ profile: ProfileEditVO) {
+    
+    private func putEditProfile(_ profile: ProfileEditVO) {
         
         profileUsecase.putEditUserProfile(profile: profile)
-            .sink { error in
-                print(error)
-            } receiveValue: { value in
-                if value != -1 {
-                    self.isShowModal = true
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
                 }
-            }.store(in: &cancellables)
+            } receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                self.isShowModal = true
+            }
+            .store(in: &cancellables)
     }
     
-    func changeToJobStatus(_ job: String) -> EmploymentStatus {
+    private func changeToImageStatus(_ image: Int) -> ImageStatus {
+        if let status = ImageStatus(rawValue: image) {
+            return status
+        } else {
+            return .bulldog
+        }
+    }
+    
+    private func changeToJobStatus(_ job: String) -> EmploymentStatus {
         if let status = EmploymentStatus(rawValue: job) {
             return status
         } else {
@@ -107,12 +169,12 @@ final class UserProfileViewModel: ObservableObject {
         }
     }
     
-    func changeToExperience(_ experience: Bool) -> ExperienceStatus {
+    private func changeToExperience(_ experience: Bool) -> ExperienceStatus {
         if !experience {  return .no }
         else { return .yes }
     }
     
-    func changeToHomeStatus(_ home: String) -> HouseStatus {
+    private func changeToHomeStatus(_ home: String) -> HouseStatus {
         if let status = HouseStatus(rawValue: home) {
             return status
         } else {

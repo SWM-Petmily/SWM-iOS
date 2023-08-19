@@ -11,8 +11,9 @@ import Combine
 import UIKit
 
 protocol RegisterDataSourceInterface {
-    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, MoyaError>
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, MoyaError>
+    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, CustomErrorVO>
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, CustomErrorVO>
+    func deleteRegisteredInfo(_ id: Int) -> AnyPublisher<Void, CustomErrorVO>
 }
 
 final class RegisterAPIProvider: RegisterDataSourceInterface {
@@ -22,17 +23,18 @@ final class RegisterAPIProvider: RegisterDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, MoyaError> {
+    func getRegisteredPet() -> AnyPublisher<RegisteredPetDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.getRegiteredPet)
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(RegisteredPetDTO.self)
+            .asResult()
     }
     
-    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, MoyaError> {
+    func registerPost(_ vo: PetPostVO, _ images: [UIImage]) -> AnyPublisher<RegisterPostDTO, CustomErrorVO> {
         moyaProvider.requestPublisher(.registerPost(vo: vo, images: images))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(RegisterPostDTO.self)
+            .asResult()
+    }
+    
+    func deleteRegisteredInfo(_ id: Int) -> AnyPublisher<Void, CustomErrorVO> {
+        moyaProvider.requestPublisher(.deleteRegisteredInfo(id: id))
+            .asResult()
     }
 }

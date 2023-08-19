@@ -8,6 +8,7 @@
 import Foundation
 
 struct LoginDTO: Decodable {
+    let userId: Int?
     let accessToken: String?
     let refreshToken: String?
     let isCertification: Bool?
@@ -16,6 +17,7 @@ struct LoginDTO: Decodable {
 extension LoginDTO {
     func toLoginVO() -> LoginVO {
         return LoginVO(
+            userId: userId ?? -1,
             accessToken: accessToken ?? "",
             refreshToken: refreshToken ?? "",
             isCertification: isCertification ?? false

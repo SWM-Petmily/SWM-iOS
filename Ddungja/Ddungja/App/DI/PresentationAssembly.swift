@@ -28,8 +28,9 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(ApplyCommonViewModel.self) { resolover in
-            let usecase = resolover.resolve(MyApplyPostsUsecaseInterface.self)!
-            return ApplyCommonViewModel(myPostsUsecase: usecase)
+            let postUsecase = resolover.resolve(MyApplyPostsUsecaseInterface.self)!
+            let usecase = resolover.resolve(ProfileUsecaseInterface.self)!
+            return ApplyCommonViewModel(coordinator: coordinator, myPostsUsecase: postUsecase, profileUsecase: usecase)
         }
         
         container.register(LoginViewModel.self) { resolver in
@@ -48,6 +49,11 @@ struct PresentationAssembly: Assembly {
             return PetCertificationViewModel(coordinator: coordinator, petCertificationUsecase: usecase)
         }
         
+        container.register(MyPageViewModel.self) { resolver in
+            let usecase = resolver.resolve(ProfileUsecaseInterface.self)!
+            return MyPageViewModel(coordinator: coordinator, profileUsecase: usecase)
+        }
+        
         container.register(LoginScene.self) { resolver in
             let viewModel = resolver.resolve(LoginViewModel.self)!
             return LoginScene(viewModel: viewModel)
@@ -58,13 +64,14 @@ struct PresentationAssembly: Assembly {
             return UserProfileView(viewModel: userProfileViewModel)
         }
         
-        container.register(EditProfile.self) { resolver in
+        container.register(EditProfile.self) { (resolver, isRegister: Bool) in
             let userProfileViemodel = resolver.resolve(UserProfileViewModel.self)!
-            return EditProfile(viewModel: userProfileViemodel)
+            return EditProfile(viewModel: userProfileViemodel, isRegister: isRegister)
         }
         
         container.register(MyPageScene.self) { resolver in
-            return MyPageScene(viewModel: MyPageViewModel(coordinator: coordinator))
+            let viewModel = resolver.resolve(MyPageViewModel.self)!
+            return MyPageScene(viewModel: viewModel)
         }
         
         container.register(DdungjaTabScene.self) { resolver in
@@ -116,8 +123,13 @@ struct PresentationAssembly: Assembly {
         
         container.register(DetailPostViewModel.self) { resolver in
             let usecase = resolver.resolve(HomeUsecaseInterface.self)!
-            let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
-            return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase, applyCommon: viewModel)
+            return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase)
+        }
+        
+        container.register(LikeListViewModel.self) { resolver in
+            let usecase = resolver.resolve(LikeListUsecaseInterface.self)!
+            let homeUsecase = resolver.resolve(HomeUsecaseInterface.self)!
+            return LikeListViewModel(coordinator: coordinator, likeListUsecase: usecase, homeUsecase: homeUsecase)
         }
         
         container.register(HomeScene.self) { resolver in
@@ -125,9 +137,9 @@ struct PresentationAssembly: Assembly {
             return HomeScene(viewModel: homeViewModel)
         }
         
-        container.register(ApplyCommonView.self) { resolver in
+        container.register(ApplyCommonView.self) { (resolver, id: Int) in
             let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
-            return ApplyCommonView(viewModel: viewModel)
+            return ApplyCommonView(viewModel: viewModel, postId: id)
         }
         
         container.register(DetailPostScene.self) { (resolver, id: Int) in
@@ -136,7 +148,7 @@ struct PresentationAssembly: Assembly {
         }
         
         container.register(ApplyAdoptionView.self) { (resolver, id: Int) in
-            let viewModel = resolver.resolve(DetailPostViewModel.self)!
+            let viewModel = resolver.resolve(ApplyCommonViewModel.self)!
             return ApplyAdoptionView(viewModel: viewModel, postId: id)
         }
         
@@ -180,7 +192,7 @@ struct PresentationAssembly: Assembly {
             return PetCertificationScene(viewModel: viewModel, postId: postId)
         }
         
-        container.register(PetRegistrationView.self) { (resolver, postId: Int) in
+        container.register(PetRegistrationView.self) { (resolver, postId: Int?) in
             let viewModel = resolver.resolve(PetCertificationViewModel.self)!
             return PetRegistrationView(viewModel: viewModel, postId: postId)
         }
@@ -193,6 +205,11 @@ struct PresentationAssembly: Assembly {
         container.register(VaccinationView.self) { (resolver, postId: Int) in
             let viewModel = resolver.resolve(PetCertificationViewModel.self)!
             return VaccinationView(viewModel: viewModel, postId: postId)
+        }
+        
+        container.register(LikeListScene.self) { resolver in
+            let viewModel = resolver.resolve(LikeListViewModel.self)!
+            return LikeListScene(viewModel: viewModel)
         }
     }
 }

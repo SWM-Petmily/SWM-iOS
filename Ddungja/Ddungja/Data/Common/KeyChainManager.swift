@@ -11,6 +11,7 @@ import Foundation
 final class KeyChainManager {
     
     enum Keys: String {
+        case userId
         case accessToken
         case refreshToken
     }

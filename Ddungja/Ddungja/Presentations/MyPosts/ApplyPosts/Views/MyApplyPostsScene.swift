@@ -74,7 +74,7 @@ struct MyApplyPostsScene: View {
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Text("프로필")
+                Image(systemName: "chevron.backward")
                     .onTapGesture {
                         viewModel.pop()
                     }

@@ -9,8 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class MyPostsViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class MyPostsViewModel: BaseViewModel {
     private let myPostsUsecase: MyPostsUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -28,10 +27,11 @@ final class MyPostsViewModel: ObservableObject {
     var touchEvent = PassthroughSubject<(id: Int, approval: String), Never>()
     
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyPostsUsecaseInterface) {
-        self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
         self.detailApply = DetailApplyVO(applyId: -1, nickname: "뚱자쓰", job: "-",environment: "-",people: 0,comment: "",region: "",isExperience: false,url: "", openTalk: "",approval: "",applyExperiences: [],isMyApply: false)
     
+        super.init(coordinator: coordinator)
+        
         touchEvent
             .throttle(for: 3, scheduler: RunLoop.main, latest: false)
             .sink{ [weak self] (id, approve) in
@@ -53,10 +53,33 @@ final class MyPostsViewModel: ObservableObject {
         .store(in: &cancellables)
     }
     
+    func changeBirthToAge(_ birth: String) -> String {
+        let date = Date()
+        let currentDate = Calendar.current.dateComponents([.year, .month], from: date)
+        let birth = birth.split(separator: "-").map { Int($0)! }
+        let age = (currentDate.year! - birth[0]) * 12 + currentDate.month! - birth[1]
+        
+        return age >= 12 ? "\(age / 12) 살" : "\(age) 개월"
+    }
+    
+    func genderType(_ type: String) -> String {
+        return type == "MALE" ? "남아" : "여아"
+    }
+    
     func getMyEditPosts(_ status: String, _ page: Int = 1) {
         myPostsUsecase.getMyEditPosts(status, page)
-            .sink { completion in
-                print("getMyEditPosts \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 self?.myEditPosts = vo.content
                 self?.pageInfo = vo.pageable.pageNumber + 1
@@ -124,24 +147,21 @@ final class MyPostsViewModel: ObservableObject {
     func tapAcceptOrReject(id: Int, approval: String) {
         myPostsUsecase.postAcceptInfo(id: id, approval: approval)
             .sink { [weak self] completion in
-                print("tapAcceptOrReject \(completion)")
-                self?.isRequest = false
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.isRequest = false
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 self?.pop()
             }
             .store(in: &cancellables)
-
-    }
-    
-    func moveToApplyList(id :Int) {
-        coordinator.push(.applyList(id: id))
-    }
-    
-    func moveToDetaionApply(id: Int) {
-        coordinator.push(.detailApply(id: id))
-    }
-    
-    func pop() {
-        coordinator.pop()
     }
 }

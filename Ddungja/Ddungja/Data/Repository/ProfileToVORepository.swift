@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Moya
 
 final class ProfileToVORepository: ProfileRepository {
     
@@ -16,12 +15,24 @@ final class ProfileToVORepository: ProfileRepository {
         self.dataSource = dataSource
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError> {
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO> {
+        return dataSource.getMyPage()
+            .map { $0.toMyPageVO() }
+            .eraseToAnyPublisher()
+    }
+    
+    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {
         return dataSource.getUserProfile().map { $0.toDomain() }.eraseToAnyPublisher()
     }
     
-    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, MoyaError>{
+    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
         dataSource.putEditUserProfile(profile: VO)
+            .map { $0.toDomain() }
+            .eraseToAnyPublisher()
+    }
+    
+    func postEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
+        return dataSource.postEditUserProfile(profile: VO)
             .map { $0.toDomain() }
             .eraseToAnyPublisher()
     }

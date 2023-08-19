@@ -11,70 +11,56 @@ import CombineMoya
 import Combine
 
 protocol MyPostsDataSourceInterface {
-    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, MoyaError>
-    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsDTO, MoyaError>
-    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListDTO, MoyaError>
-    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyDTO, MoyaError>
-    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseDTO, MoyaError>
-    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoDTO, MoyaError>
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<PostApplyDTO, MoyaError>
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, CustomErrorVO>
+    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsDTO, CustomErrorVO>
+    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListDTO, CustomErrorVO>
+    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyDTO, CustomErrorVO>
+    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseDTO, CustomErrorVO>
+    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoDTO, CustomErrorVO>
+    func postApply(_ postId: Int, _ info: ApplyDTO) -> AnyPublisher<PostApplyDTO, CustomErrorVO>
 }
 
 
 final class MyPostsAPIProvider: MyPostsDataSourceInterface {
-    let moyaProvider: MoyaProvider<MyPostsAPI>
+    private let moyaProvider: MoyaProvider<MyPostsAPI>
     
     init(moyaProvider: MoyaProvider<MyPostsAPI> = .init()) {
         self.moyaProvider = moyaProvider
     }
     
-    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, MoyaError> {
+    func getMyEditPosts(_ status: String, _ page: Int) -> AnyPublisher<MyEditPostsDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.myEditPosts(status: status, page: page))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(MyEditPostsDTO.self)
+            .asResult()
     }
     
-    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsDTO, MoyaError> {
+    func getMyApplyPosts(_ status: String, _ page: Int) -> AnyPublisher<MyApplyPostsDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.myApplyPosts(status: status, page: page))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(MyApplyPostsDTO.self)
+            .asResult()
     }
     
-    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListDTO, MoyaError> {
+    func getApplyList(id: Int, _ page: Int) -> AnyPublisher<ApplyListDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.applyList(id: id, page))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(ApplyListDTO.self)
+            .asResult()
     }
     
-    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyDTO, MoyaError> {
+    func getDetailApply(id: Int) -> AnyPublisher<DetailApplyDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.detailApply(id: id))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(DetailApplyDTO.self)
+            .asResult()
     }
     
-    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseDTO, MoyaError> {
+    func postAcceptInfo(id: Int, approval: String) -> AnyPublisher<AcceptInfoResponseDTO, CustomErrorVO> {
         let approval = AccpetInfoVO(approval: approval).toAccpetInfoDTO()
         return moyaProvider.requestPublisher(.acceptInfo(id: id, approval: approval))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(AcceptInfoResponseDTO.self)
+            .asResult()
     }
     
-    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoDTO, MoyaError> {
+    func deleteInfo(id: Int) -> AnyPublisher<DeleteInfoDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.deleteInfo(id: id))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(DeleteInfoDTO.self)
+            .asResult()
     }
     
-    func postApply(_ postId: Int, _ info: DetailApplyVO) -> AnyPublisher<PostApplyDTO, MoyaError> {
+    func postApply(_ postId: Int, _ info: ApplyDTO) -> AnyPublisher<PostApplyDTO, CustomErrorVO> {
         return moyaProvider.requestPublisher(.postApply(postId: postId, info: info))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(PostApplyDTO.self)
+            .asResult()
     }
 }

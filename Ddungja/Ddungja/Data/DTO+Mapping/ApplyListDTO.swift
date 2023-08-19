@@ -16,6 +16,7 @@ struct ApplyListDTO: Decodable {
 struct ApplyInfo: Decodable {
     let applyId: Int
     let approval: String
+    let url: String
     let job: String
     let environment: String
     let people: Int
@@ -43,6 +44,7 @@ extension ApplyListDTO {
                 ApplyListInfoVO(
                     applyId: content.applyId,
                     approval: content.approval,
+                    url: content.url,
                     job: content.job,
                     environment: content.environment,
                     people: content.people,

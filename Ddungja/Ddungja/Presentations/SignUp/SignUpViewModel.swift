@@ -8,8 +8,7 @@
 import Combine
 import SwiftUI
 
-final class SignUpViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class SignUpViewModel: BaseViewModel {
     private var signUpUsecase: SignUpUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -27,8 +26,9 @@ final class SignUpViewModel: ObservableObject {
     var registerBackgroundColor = Color.buttonBackground
     
     init(coordinator: CoordinatorProtocol, signUpUsecase: SignUpUsecaseInterface) {
-        self.coordinator = coordinator
         self.signUpUsecase = signUpUsecase
+        
+        super.init(coordinator: coordinator)
     }
     
     func requestPhoneNumberCertification(_ phoneNumber: String) {

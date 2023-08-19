@@ -8,6 +8,7 @@
 import Foundation
 
 struct LoginVO {
+    let userId: Int
     let accessToken: String
     let refreshToken: String
     let isCertification: Bool

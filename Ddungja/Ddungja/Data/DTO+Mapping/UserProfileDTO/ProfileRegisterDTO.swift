@@ -24,7 +24,6 @@ struct ProfileEditReqiestDTO: Encodable {
 }
 
 struct Experiences: Encodable {
-    let id: Int
     let species: String
     let period: Int
 }

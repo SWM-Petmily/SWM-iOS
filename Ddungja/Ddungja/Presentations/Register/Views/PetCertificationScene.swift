@@ -122,9 +122,9 @@ struct PetCertificationScene: View {
             
             
             Button {
-                //                viewModel.push(.adoptionReason)
+                viewModel.popToRoot()
             } label: {
-                Text("등록 1/6")
+                Text("건너뛰기")
                     .applyInner(color: .white)
                     .frame(height: 52)
                     .frame(maxWidth: .infinity)
@@ -134,14 +134,9 @@ struct PetCertificationScene: View {
             .padding([.leading, .trailing, .bottom])
         }
         .padding()
+        .toolbar(.hidden)
         .onAppear {
             viewModel.getAdditionalPageInfo(postId)
         }
-    }
-}
-
-struct PetCertificationScene_Previews: PreviewProvider {
-    static var previews: some View {
-        PetCertificationScene()
     }
 }

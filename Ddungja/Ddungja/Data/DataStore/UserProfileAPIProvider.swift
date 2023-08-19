@@ -11,8 +11,10 @@ import CombineMoya
 import Combine
 
 protocol UserProfileDataSourceInterface {
-    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, MoyaError>
-    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, MoyaError>
+    func getMyPage() -> AnyPublisher<MyPageDTO, CustomErrorVO>
+    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO>
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
+    func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
 }
     
 final class UserProfileAPIProvider: UserProfileDataSourceInterface {
@@ -22,18 +24,26 @@ final class UserProfileAPIProvider: UserProfileDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, MoyaError> {
-        return moyaProvider.requestPublisher(.detail(userId: "1"))
-            .retry(3)
-            .eraseToAnyPublisher()
-            .map(ProfileDetailDTO.self)
+    func getMyPage() -> AnyPublisher<MyPageDTO, CustomErrorVO> {
+        moyaProvider.requestPublisher(.myPage)
+            .asResult()
     }
     
-    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, MoyaError> {
+    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO> {
+        return moyaProvider.requestPublisher(.detail(userId: "1"))
+            .asResult()
+    }
+    
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO> {
         let profileDTO = profile.toData(profile: profile)
         
         return moyaProvider.requestPublisher(.modify(userInfo: profileDTO))
-            .eraseToAnyPublisher()
-            .map(ProfileRegisterDTO.self)
+            .asResult()
+    }
+    
+    func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO> {
+        let profileDTO = profile.toData(profile: profile)
+        return moyaProvider.requestPublisher(.register(userInfo: profileDTO))
+            .asResult()
     }
 }

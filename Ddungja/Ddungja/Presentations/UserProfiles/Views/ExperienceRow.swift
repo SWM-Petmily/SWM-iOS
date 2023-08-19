@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ExperienceRow: View {
     
-    let id: UUID
+    let id: String
 
-    @State var species: String
-    @State var year: String
-    @State var month: String
+    @State private(set) var species: String
+    @State private(set) var year: String
+    @State private(set) var month: String
+    @State private(set) var isDropdownOpen = false
     
     var viewModel: UserProfileViewModel
 
@@ -46,13 +47,28 @@ struct ExperienceRow: View {
                         .frame(maxWidth: .infinity)
                     
                     HStack {
-                        TextField("", text: $species)
-                            
+                        TextField("품종을 입력하세요", text: $species)
+                            .disabled(true)
+
                         Spacer()
                         
                         Image(systemName: "magnifyingglass")
                     }
                     .padding()
+                }
+            }
+            .onTapGesture {
+                withAnimation {
+                    isDropdownOpen.toggle()
+                }
+            }
+                        
+            if isDropdownOpen {
+                DropdownView(options: dogOptions) { option in
+                    if let index = viewModel.experienceArray.firstIndex(where: { $0.id == id }) {
+                        species = option.value
+                        viewModel.experienceArray[index].species = option.value
+                    }
                 }
             }
             
@@ -101,9 +117,3 @@ struct ExperienceRow: View {
         }
     }
 }
-
-//struct ExperienceRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExperienceRow()
-//    }
-//}

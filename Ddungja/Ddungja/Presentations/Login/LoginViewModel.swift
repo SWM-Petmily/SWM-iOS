@@ -9,14 +9,14 @@ import Foundation
 import Combine
 import KakaoSDKAuth
 
-final class LoginViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class LoginViewModel: BaseViewModel {
     private let loginUsecase: LoginUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
     init(coordinator: CoordinatorProtocol, loginUsecase: LoginUsecaseInterface) {
-        self.coordinator = coordinator
         self.loginUsecase = loginUsecase
+        
+        super.init(coordinator: coordinator)
     }
     
     func requestKakaoLogin() {
@@ -26,9 +26,11 @@ final class LoginViewModel: ObservableObject {
             } receiveValue: { vo in
                 switch vo {
                 case .certification:
+                    self.push(.tapBar)
                     print("certification")
                 case .nonCertification:
                     print("nonCertification")
+                    self.push(.signup)
                 }
             }
             .store(in: &cancellables)

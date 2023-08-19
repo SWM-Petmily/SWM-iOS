@@ -19,9 +19,8 @@ enum Neutered: String{
     case no = "NO"
 }
 
-final class RegisterViewModel: ObservableObject {
+final class RegisterViewModel: BaseViewModel {
     private var container: Container
-    private var coordinator: CoordinatorProtocol
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -44,8 +43,9 @@ final class RegisterViewModel: ObservableObject {
     
     init(container: Container, coordinator: CoordinatorProtocol, registerUsecase: RegisterUsecaseInterface) {
         self.container = container
-        self.coordinator = coordinator
         self.registerUsecase = registerUsecase
+        
+        super.init(coordinator: coordinator)
     }
     
     func getRegisteredPet() {
@@ -58,20 +58,37 @@ final class RegisterViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func registerPost() {
-        let vo = PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: reason, advantage: advantage, disadvantage: disAdvantage, averageCost: cost, adopter: adopter, status: "SAVE", diseases: [], isRegistered: isRegistered)
-
-        registerUsecase.registerPost(vo, images)
-            .sink { completion in
-                print("RegisterPost completion \(completion)")
+    func deleteRegisteredInfo(_ idx: Int) {
+        let id = registeredPetInfo[idx].id
+        registerUsecase.deleteRegisteredInfo(id)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] _ in
-                
+                self?.registeredPetInfo.remove(at: idx)
             }
             .store(in: &cancellables)
     }
     
-    func push(_ page: Page) {
-        coordinator.push(page)
+    func registerPost() {
+        let vo = PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: reason, advantage: advantage, disadvantage: disAdvantage, averageCost: cost, adopter: adopter, status: "SAVE", diseases: [], isRegistered: isRegistered)
+    
+        registerUsecase.registerPost(vo, images)
+            .sink { completion in
+                print("RegisterPost completion \(completion)")
+            } receiveValue: { [weak self] vo in
+                self?.push(.petCertification(postId: vo.postId))
+            }
+            .store(in: &cancellables)
     }
     
     func userExitPost() {

@@ -16,12 +16,12 @@ enum MyPostsAPI {
     case detailApply(id: Int)
     case acceptInfo(id: Int, approval: AcceptInfoDTO)
     case deleteInfo(id: Int)
-    case postApply(postId: Int, info: DetailApplyVO)
+    case postApply(postId: Int, info: ApplyDTO)
 }
 
 extension MyPostsAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://www.petmily.site")!
+        return URL(string: NetworkConfiguration.petmilyURL as! String)!
     }
     
     var path: String {
@@ -88,6 +88,9 @@ extension MyPostsAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqd3QiLCJpZCI6MSwiZXhwIjoxNjkwNjQ2MjMwfQ.1hGNP1_T0wxTQZcD0nBkYc1vEAqwXRbg3X1S4oa9af1ehlX8l4ivaJpp_Lat6B43RdUafS9b1LHXx5jVyqKp7A"]
+        if let accessToken = KeyChainManager.read(key: .accessToken) {
+            return ["Authorization" : accessToken]
+        }
+        return .none
     }
 }

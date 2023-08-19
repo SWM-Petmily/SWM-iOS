@@ -10,7 +10,7 @@ import SwiftUI
 enum Page: Hashable {
     case myPageView
     case userProfileView
-    case editProfile
+    case editProfile(isRegister: Bool)
     case myPosts
     case myApplyPosts
     case applyList(id: Int) //지원받은 목록보기
@@ -24,12 +24,14 @@ enum Page: Hashable {
     case applyAdaption(postId: Int)
     case petInfo(info: RegisteredPetVO)
     case adoptionReason
+    case registerScene
     case petAdvantage
     case petDisadvantage
     case petCost
     case petAdopter
     case petCertification(postId: Int)
-    case petRegistration(postId: Int)
+    case petRegistration(postId: Int?)
     case healthScreening(postId: Int)
     case vaccination(postId: Int)
+    case likeList
 }

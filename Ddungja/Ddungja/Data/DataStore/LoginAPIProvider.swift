@@ -11,7 +11,7 @@ import CombineMoya
 import Combine
 
 protocol LoginDataSourceInterface {
-    func requestLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, MoyaError>
+    func requestLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, CustomErrorVO>
 }
 
 final class LoginAPIProvider: LoginDataSourceInterface {
@@ -21,19 +21,15 @@ final class LoginAPIProvider: LoginDataSourceInterface {
         self.moyaProvider = moyaProvider
     }
     
-    func requestLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, MoyaError> {
+    func requestLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, CustomErrorVO> {
         switch oauth {
         case let .kakao(vo):
             return moyaProvider.requestPublisher(.kakaoLogin(vo: vo))
-                .retry(3)
-                .eraseToAnyPublisher()
-                .map(LoginDTO.self)
+                .asResult()
 
         case let .apple(vo):
             return moyaProvider.requestPublisher(.appleLogin(vo: vo))
-                .retry(3)
-                .eraseToAnyPublisher()
-                .map(LoginDTO.self)
+                .asResult()
         }
     }
 }

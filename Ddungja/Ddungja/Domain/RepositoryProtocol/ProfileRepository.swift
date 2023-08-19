@@ -6,9 +6,10 @@
 //
 
 import Combine
-import Moya
 
 protocol ProfileRepository {
-    func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError>
-    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, MoyaError>
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO>
+    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO>
+    func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
+    func postEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
 }

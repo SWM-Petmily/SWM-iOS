@@ -8,8 +8,7 @@
 import Combine
 import SwiftUI
 
-final class MyApplyPostsViewModel: ObservableObject {
-    private var coordinator: CoordinatorProtocol
+final class MyApplyPostsViewModel: BaseViewModel {
     private let myPostsUsecase: MyApplyPostsUsecaseInterface
     let applyViewModel: ApplyCommonViewModel
     private var cancellables = Set<AnyCancellable>()
@@ -25,9 +24,10 @@ final class MyApplyPostsViewModel: ObservableObject {
     var deleteEvent = PassthroughSubject<Int, Never>()
     
     init(coordinator: CoordinatorProtocol, myPostsUsecase: MyApplyPostsUsecaseInterface, applyViewModel: ApplyCommonViewModel) {
-        self.coordinator = coordinator
         self.myPostsUsecase = myPostsUsecase
         self.applyViewModel = applyViewModel
+        
+        super.init(coordinator: coordinator)
         
         deleteEvent
             .throttle(for: 3, scheduler: RunLoop.main, latest: false)
@@ -44,8 +44,18 @@ final class MyApplyPostsViewModel: ObservableObject {
     
     func getMyApplyPosts(_ status: String, _ page: Int = 1) {
         myPostsUsecase.getMyApplyPosts(status, page)
-            .sink { error in
-                print(error)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 self?.myApplyPosts = vo.content
                 self?.pageInfo = vo.pageable.pageNumber + 1
@@ -69,23 +79,25 @@ final class MyApplyPostsViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func deletInfo(id: Int) {
+    private func deletInfo(id: Int) {
         myPostsUsecase.deleteInfo(id: id)
             .sink { [weak self] completion in
-                print("tapAcceptOrReject \(completion)")
-                self?.isRequest = false
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                    self.isRequest = false
+                }
             } receiveValue: { [weak self] vo in
                 self?.pop()
                 print(vo)
             }
             .store(in: &cancellables)
-    }
-    
-    func moveToApplyModifyView(_ id: Int) {
-        coordinator.push(.applyModify(id: id))
-    }
-    
-    func pop() {
-        coordinator.pop()
     }
 }

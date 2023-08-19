@@ -16,6 +16,7 @@ struct ApplyListVO {
 struct ApplyListInfoVO {
     let applyId: Int
     let approval: String
+    let url: String
     let job: String
     let environment: String
     let people: Int

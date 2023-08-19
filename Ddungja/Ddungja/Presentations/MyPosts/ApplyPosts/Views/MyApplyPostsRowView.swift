@@ -43,7 +43,7 @@ struct MyApplyPostsRowView: View {
                     Spacer()
                     
                     VStack {
-                        Text("작성일 \(myPost.createdDate)")
+                        Text("\(myPost.createdDate)")
                         
                         Spacer()
                         
@@ -55,7 +55,7 @@ struct MyApplyPostsRowView: View {
                                 .cornerRadius(6)
                             
                             Button {
-                                viewModel.moveToApplyModifyView(myPost.applyId)
+                                viewModel.push(.applyModify(id: myPost.postId))
                             } label: {
                                 Text("수정")
                                     .applyInner(color: .mainColor)

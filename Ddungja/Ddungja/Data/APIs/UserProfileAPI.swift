@@ -27,18 +27,22 @@ struct ExperienceForRequest: Encodable {
 }
 
 enum UserProfileAPI {
+    case myPage
     case detail(userId: String)
-    case register(userInfo: UserInfo)
+    case register(userInfo: ProfileEditReqiestDTO)
     case modify(userInfo: ProfileEditReqiestDTO)
 }
 
-extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
+extension UserProfileAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://www.petmily.site")!
+        return URL(string: NetworkConfiguration.petmilyURL as! String)!
     }
     
     var path: String {
         switch self {
+        case .myPage:
+            return "users/myPage"
+            
         case let .detail(userId):
             return "users/profile/\(userId)"
             
@@ -49,7 +53,7 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
     
     var method: Moya.Method {
         switch self {
-        case .detail:
+        case .myPage, .detail:
             return .get
             
         case .register:
@@ -62,16 +66,11 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
-        case .detail:
+        case .myPage, .detail:
             return .requestPlain
             
         case let .register(userInfo):
-            do {
-                let jsonData = try JSONEncoder().encode(userInfo)
-                return .requestJSONEncodable(jsonData)
-            } catch {
-                return .requestPlain
-            }
+            return .requestJSONEncodable(userInfo)
             
         case let .modify(userInfo):
             return .requestJSONEncodable(userInfo)
@@ -79,17 +78,9 @@ extension UserProfileAPI: TargetType, AccessTokenAuthorizable {
     }
     
     var headers: [String : String]? {
+        if let accessToken = KeyChainManager.read(key: .accessToken) {
+            return ["Authorization" : accessToken]
+        }
         return .none
     }
-    
-    var authorizationType: AuthorizationType? {
-        switch self {
-        case .detail:
-            return .none
-            
-        case .modify, .register:
-            return .bearer
-        }
-    }
-
 }

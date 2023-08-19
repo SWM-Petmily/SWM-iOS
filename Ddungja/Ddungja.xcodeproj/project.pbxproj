@@ -59,6 +59,11 @@
 		753BA75B2A8355160090EAE3 /* CertificationInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */; };
 		753BA75D2A8355A80090EAE3 /* CertificationInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */; };
 		753BA75F2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA75E2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift */; };
+		753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */; };
+		753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */; };
+		753BA7712A85FB7C0090EAE3 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7702A85FB7C0090EAE3 /* CustomAlert.swift */; };
+		753BA7732A860D3D0090EAE3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */; };
+		753BA7752A86132B0090EAE3 /* CustomErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */; };
 		753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */; };
 		753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */; };
 		753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */; };
@@ -104,6 +109,26 @@
 		754AB6F92A75311D00F2EBC8 /* CertificationVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */; };
 		754AB6FB2A7564E400F2EBC8 /* RegisterInfoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6FA2A7564E400F2EBC8 /* RegisterInfoVO.swift */; };
 		7551D1D82A6AA81000615FE0 /* ApplyListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */; };
+		75532A9F2A8CAD8B00DEC825 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532A9E2A8CAD8B00DEC825 /* DropDownView.swift */; };
+		75532AA12A8CADB100DEC825 /* DropDownRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA02A8CADB100DEC825 /* DropDownRow.swift */; };
+		75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA22A8CAE3300DEC825 /* DropDownOption.swift */; };
+		75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */; };
+		75532AA82A8CB9D300DEC825 /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA72A8CB9D300DEC825 /* RegionView.swift */; };
+		75532AAA2A8CBBB300DEC825 /* DropDownRegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */; };
+		75532AAC2A8CDF9700DEC825 /* MyPageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */; };
+		75532AAE2A8CE09900DEC825 /* MyPageVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAD2A8CE09900DEC825 /* MyPageVO.swift */; };
+		75532AB02A8DE15500DEC825 /* RegisterPetIdDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AAF2A8DE15500DEC825 /* RegisterPetIdDTO.swift */; };
+		75532AB22A8DE1E000DEC825 /* RegisterPetIdVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AB12A8DE1E000DEC825 /* RegisterPetIdVO.swift */; };
+		75532AB52A8F13E300DEC825 /* LikeListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AB42A8F13E300DEC825 /* LikeListScene.swift */; };
+		75532AB72A8F14A800DEC825 /* LikeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AB62A8F14A800DEC825 /* LikeListViewModel.swift */; };
+		75532AB92A8F183200DEC825 /* LikeListUsecaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AB82A8F183200DEC825 /* LikeListUsecaseInterface.swift */; };
+		75532ABB2A8F189200DEC825 /* LikeListRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532ABA2A8F189200DEC825 /* LikeListRepositoryInterface.swift */; };
+		75532ABD2A8F18C100DEC825 /* LikeListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532ABC2A8F18C100DEC825 /* LikeListRepository.swift */; };
+		75532ABF2A8F18EF00DEC825 /* LikeListAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532ABE2A8F18EF00DEC825 /* LikeListAPIProvider.swift */; };
+		75532AC12A8F1AC700DEC825 /* LikeListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AC02A8F1AC700DEC825 /* LikeListAPI.swift */; };
+		75532AC32A8F204600DEC825 /* LikeListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AC22A8F204600DEC825 /* LikeListDTO.swift */; };
+		75532AC52A8F215B00DEC825 /* LikeListVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AC42A8F215B00DEC825 /* LikeListVO.swift */; };
+		75532AC72A8F703F00DEC825 /* LikePostRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75532AC62A8F703F00DEC825 /* LikePostRowView.swift */; };
 		755462462A446A1B00598268 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462452A446A1B00598268 /* SignUpAPI.swift */; };
 		7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462492A447ECF00598268 /* SignUpProvider.swift */; };
 		755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462502A4498A300598268 /* ConfirmNumberDTO.swift */; };
@@ -115,6 +140,9 @@
 		75618C712A54065B005FA31A /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C702A54065B005FA31A /* CustomText.swift */; };
 		75618C762A5424F2005FA31A /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C752A5424F2005FA31A /* CustomColor.swift */; };
 		75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */; };
+		756829AB2A87C35000DB38F0 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756829AA2A87C34F00DB38F0 /* Color + Extension.swift */; };
+		756829AD2A88E39D00DB38F0 /* ApplyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */; };
+		756829AF2A89244200DB38F0 /* CustomModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756829AE2A89244200DB38F0 /* CustomModalView.swift */; };
 		759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D22A5E575000603FF4 /* DdungjaTabScene.swift */; };
 		759228D82A5E724100603FF4 /* RegisterScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D72A5E724100603FF4 /* RegisterScene.swift */; };
 		759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228D92A5E724E00603FF4 /* InterestView.swift */; };
@@ -230,6 +258,11 @@
 		753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationInfoDTO.swift; sourceTree = "<group>"; };
 		753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationInfoVO.swift; sourceTree = "<group>"; };
 		753BA75E2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetNumberDTO.swift; sourceTree = "<group>"; };
+		753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Extension.swift"; sourceTree = "<group>"; };
+		753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		753BA7702A85FB7C0090EAE3 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorVO.swift; sourceTree = "<group>"; };
 		753DF8C02A7AAB8E001D50AE /* DetailPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostScene.swift; sourceTree = "<group>"; };
 		753DF8C42A7AEEDD001D50AE /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
 		753DF8C62A7AFDED001D50AE /* DetailPostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostDTO.swift; sourceTree = "<group>"; };
@@ -277,6 +310,26 @@
 		754AB6F82A75311D00F2EBC8 /* CertificationVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationVO.swift; sourceTree = "<group>"; };
 		754AB6FA2A7564E400F2EBC8 /* RegisterInfoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoVO.swift; sourceTree = "<group>"; };
 		7551D1D72A6AA81000615FE0 /* ApplyListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyListVO.swift; sourceTree = "<group>"; };
+		75532A9E2A8CAD8B00DEC825 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		75532AA02A8CADB100DEC825 /* DropDownRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRow.swift; sourceTree = "<group>"; };
+		75532AA22A8CAE3300DEC825 /* DropDownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownOption.swift; sourceTree = "<group>"; };
+		75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDogModel.swift; sourceTree = "<group>"; };
+		75532AA72A8CB9D300DEC825 /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
+		75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRegionModel.swift; sourceTree = "<group>"; };
+		75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDTO.swift; sourceTree = "<group>"; };
+		75532AAD2A8CE09900DEC825 /* MyPageVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVO.swift; sourceTree = "<group>"; };
+		75532AAF2A8DE15500DEC825 /* RegisterPetIdDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetIdDTO.swift; sourceTree = "<group>"; };
+		75532AB12A8DE1E000DEC825 /* RegisterPetIdVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetIdVO.swift; sourceTree = "<group>"; };
+		75532AB42A8F13E300DEC825 /* LikeListScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListScene.swift; sourceTree = "<group>"; };
+		75532AB62A8F14A800DEC825 /* LikeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewModel.swift; sourceTree = "<group>"; };
+		75532AB82A8F183200DEC825 /* LikeListUsecaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListUsecaseInterface.swift; sourceTree = "<group>"; };
+		75532ABA2A8F189200DEC825 /* LikeListRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListRepositoryInterface.swift; sourceTree = "<group>"; };
+		75532ABC2A8F18C100DEC825 /* LikeListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListRepository.swift; sourceTree = "<group>"; };
+		75532ABE2A8F18EF00DEC825 /* LikeListAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListAPIProvider.swift; sourceTree = "<group>"; };
+		75532AC02A8F1AC700DEC825 /* LikeListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListAPI.swift; sourceTree = "<group>"; };
+		75532AC22A8F204600DEC825 /* LikeListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListDTO.swift; sourceTree = "<group>"; };
+		75532AC42A8F215B00DEC825 /* LikeListVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListVO.swift; sourceTree = "<group>"; };
+		75532AC62A8F703F00DEC825 /* LikePostRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostRowView.swift; sourceTree = "<group>"; };
 		755462452A446A1B00598268 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		755462492A447ECF00598268 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		755462502A4498A300598268 /* ConfirmNumberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberDTO.swift; sourceTree = "<group>"; };
@@ -288,6 +341,9 @@
 		75618C702A54065B005FA31A /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		75618C752A5424F2005FA31A /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLazyVGrid.swift; sourceTree = "<group>"; };
+		756829AA2A87C34F00DB38F0 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyDTO.swift; sourceTree = "<group>"; };
+		756829AE2A89244200DB38F0 /* CustomModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalView.swift; sourceTree = "<group>"; };
 		759228D22A5E575000603FF4 /* DdungjaTabScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaTabScene.swift; sourceTree = "<group>"; };
 		759228D72A5E724100603FF4 /* RegisterScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScene.swift; sourceTree = "<group>"; };
 		759228D92A5E724E00603FF4 /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
@@ -402,6 +458,7 @@
 				753BA7272A7E80500090EAE3 /* RegisteredPetDTO.swift */,
 				753BA7562A834A390090EAE3 /* RegisterPostDTO.swift */,
 				753BA75A2A8355160090EAE3 /* CertificationInfoDTO.swift */,
+				75532AAF2A8DE15500DEC825 /* RegisterPetIdDTO.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -414,6 +471,7 @@
 				753BA7582A8352220090EAE3 /* RegisterPostIDVO.swift */,
 				753BA75C2A8355A80090EAE3 /* CertificationInfoVO.swift */,
 				753BA75E2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift */,
+				75532AB12A8DE1E000DEC825 /* RegisterPetIdVO.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -447,6 +505,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		753BA7692A850A880090EAE3 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				753BA7742A86132B0090EAE3 /* CustomErrorVO.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		753DF8C22A7AEE98001D50AE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,10 +535,15 @@
 		7543D4B62A77C13900A0E9D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75532A9D2A8CACDD00DEC825 /* DropDown */,
 				753BA7122A7D244C0090EAE3 /* Apply */,
 				7543D4B72A77C15400A0E9D9 /* RadioButton.swift */,
 				753BA7182A7E3A2D0090EAE3 /* PopGesture.swift */,
 				753BA7362A8074DC0090EAE3 /* KeyboardHandler.swift */,
+				753BA7702A85FB7C0090EAE3 /* CustomAlert.swift */,
+				753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */,
+				756829AA2A87C34F00DB38F0 /* Color + Extension.swift */,
+				756829AE2A89244200DB38F0 /* CustomModalView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -510,6 +581,7 @@
 				7546BDB22A4C249F0019A986 /* ProfileModifyDTO.swift */,
 				7546BDB42A4C24C40019A986 /* ProfileDetailDTO.swift */,
 				7546BDB62A4C24D40019A986 /* ProfileRegisterDTO.swift */,
+				75532AAB2A8CDF9700DEC825 /* MyPageDTO.swift */,
 			);
 			path = UserProfileDTO;
 			sourceTree = "<group>";
@@ -517,6 +589,7 @@
 		7546BDDA2A51A42F0019A986 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				75532AB32A8F13BF00DEC825 /* LikePosts */,
 				7543D4B62A77C13900A0E9D9 /* Common */,
 				754AB6EC2A73975000F2EBC8 /* SignUp */,
 				754AB6E92A72A53600F2EBC8 /* Login */,
@@ -548,6 +621,7 @@
 				7546BDE32A52B60D0019A986 /* EditProfile.swift */,
 				75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */,
 				75FB2FE72A5A557100E4DDE8 /* ModalView.swift */,
+				75532AA72A8CB9D300DEC825 /* RegionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -603,6 +677,8 @@
 			isa = PBXGroup;
 			children = (
 				754AB6D72A6F521700F2EBC8 /* KeyChainManager.swift */,
+				753BA76C2A850BC20090EAE3 /* AnyPublisher+Extension.swift */,
+				753BA76E2A851D770090EAE3 /* NetworkConfiguration.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -643,6 +719,36 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		75532A9D2A8CACDD00DEC825 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				75532AA62A8CAFC100DEC825 /* Model */,
+				75532A9E2A8CAD8B00DEC825 /* DropDownView.swift */,
+				75532AA02A8CADB100DEC825 /* DropDownRow.swift */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		75532AA62A8CAFC100DEC825 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75532AA42A8CAE6500DEC825 /* DropDownDogModel.swift */,
+				75532AA22A8CAE3300DEC825 /* DropDownOption.swift */,
+				75532AA92A8CBBB300DEC825 /* DropDownRegionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75532AB32A8F13BF00DEC825 /* LikePosts */ = {
+			isa = PBXGroup;
+			children = (
+				75532AB42A8F13E300DEC825 /* LikeListScene.swift */,
+				75532AB62A8F14A800DEC825 /* LikeListViewModel.swift */,
+				75532AC62A8F703F00DEC825 /* LikePostRowView.swift */,
+			);
+			path = LikePosts;
+			sourceTree = "<group>";
+		};
 		7554624D2A44984700598268 /* SignUpDTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +769,7 @@
 				7543D4C12A78C89C00A0E9D9 /* HomeAPIProvider.swift */,
 				753BA7222A7E728C0090EAE3 /* RegisterAPIProvider.swift */,
 				753BA7522A8304240090EAE3 /* CertificationAPIProvider.swift */,
+				75532ABE2A8F18EF00DEC825 /* LikeListAPIProvider.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -683,6 +790,7 @@
 				754AB6D22A6D51C200F2EBC8 /* DeleteInfoDTO.swift */,
 				754AB6E52A71590200F2EBC8 /* OAuthDTO.swift */,
 				753BA7152A7D49A10090EAE3 /* PostApplyDTO.swift */,
+				75532AC22A8F204600DEC825 /* LikeListDTO.swift */,
 			);
 			path = "DTO+Mapping";
 			sourceTree = "<group>";
@@ -697,6 +805,7 @@
 				7543D4C32A78CE7D00A0E9D9 /* HomeAPI.swift */,
 				753BA7242A7E72C80090EAE3 /* RegisterAPI.swift */,
 				753BA7542A8304BF0090EAE3 /* CertificationAPI.swift */,
+				75532AC02A8F1AC700DEC825 /* LikeListAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -721,6 +830,7 @@
 				7543D4BD2A78C80500A0E9D9 /* HomeRepositoryInterface.swift */,
 				753BA71E2A7E72380090EAE3 /* RegisterRepositoryInterface.swift */,
 				753BA74E2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift */,
+				75532ABA2A8F189200DEC825 /* LikeListRepositoryInterface.swift */,
 			);
 			path = RepositoryProtocol;
 			sourceTree = "<group>";
@@ -735,6 +845,7 @@
 				7543D4BF2A78C84F00A0E9D9 /* HomeRepository.swift */,
 				753BA7202A7E724E0090EAE3 /* RegisterRepository.swift */,
 				753BA7502A8303C80090EAE3 /* PetCertificationRepository.swift */,
+				75532ABC2A8F18C100DEC825 /* LikeListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -894,6 +1005,7 @@
 		75FB2FBE2A55B49100E4DDE8 /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				753BA7692A850A880090EAE3 /* Error */,
 				753BA7292A7E83C70090EAE3 /* Register */,
 				7543D4CD2A78D58A00A0E9D9 /* Home */,
 				7543D4CC2A78D58200A0E9D9 /* Login */,
@@ -906,6 +1018,9 @@
 				754AB6CA2A6BF56100F2EBC8 /* DetailApplyVO.swift */,
 				754AB6CC2A6C294C00F2EBC8 /* AccpetInfoVO.swift */,
 				754AB6D42A6D522700F2EBC8 /* ApplyIDInfoVO.swift */,
+				756829AC2A88E39D00DB38F0 /* ApplyDTO.swift */,
+				75532AAD2A8CE09900DEC825 /* MyPageVO.swift */,
+				75532AC42A8F215B00DEC825 /* LikeListVO.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -921,6 +1036,7 @@
 				7543D4BB2A78C75900A0E9D9 /* HomeUsecase.swift */,
 				753BA71C2A7E71F20090EAE3 /* RegisterUsecaseInterface.swift */,
 				753BA74C2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift */,
+				75532AB82A8F183200DEC825 /* LikeListUsecaseInterface.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -1102,6 +1218,7 @@
 			files = (
 				754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */,
 				759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */,
+				75532AB72A8F14A800DEC825 /* LikeListViewModel.swift in Sources */,
 				753DF8CD2A7CF690001D50AE /* ApplyCommonViewModel.swift in Sources */,
 				759228F22A6138C400603FF4 /* MyPostsScene.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
@@ -1114,12 +1231,17 @@
 				75FB2FD72A56C07E00E4DDE8 /* PresentationAssembly.swift in Sources */,
 				759228FE2A62E1F500603FF4 /* MyPostsAPIProvider.swift in Sources */,
 				7546BDB32A4C249F0019A986 /* ProfileModifyDTO.swift in Sources */,
+				75532ABF2A8F18EF00DEC825 /* LikeListAPIProvider.swift in Sources */,
 				7543D4C42A78CE7D00A0E9D9 /* HomeAPI.swift in Sources */,
+				75532AAE2A8CE09900DEC825 /* MyPageVO.swift in Sources */,
 				753BA7142A7D37430090EAE3 /* ApplyAdoptionView.swift in Sources */,
 				7543D4BE2A78C80500A0E9D9 /* HomeRepositoryInterface.swift in Sources */,
 				753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */,
+				75532AB52A8F13E300DEC825 /* LikeListScene.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
+				75532AAC2A8CDF9700DEC825 /* MyPageDTO.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsScene.swift in Sources */,
+				75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */,
 				7543D4C02A78C84F00A0E9D9 /* HomeRepository.swift in Sources */,
 				754AB6CD2A6C294C00F2EBC8 /* AccpetInfoVO.swift in Sources */,
 				753DF8CF2A7D1A61001D50AE /* ApplyCommonView.swift in Sources */,
@@ -1136,13 +1258,16 @@
 				753BA7312A7F5A910090EAE3 /* PetInfoView.swift in Sources */,
 				753BA7392A8076590090EAE3 /* PetAdvantageView.swift in Sources */,
 				753BA71B2A7E70770090EAE3 /* RegisterViewModel.swift in Sources */,
+				75532AAA2A8CBBB300DEC825 /* DropDownRegionModel.swift in Sources */,
 				753BA7252A7E72C80090EAE3 /* RegisterAPI.swift in Sources */,
 				75FB2FD92A56C36200E4DDE8 /* ViewResolver.swift in Sources */,
 				7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */,
 				754AB6E22A6FFEA600F2EBC8 /* LoginVO.swift in Sources */,
+				753BA7752A86132B0090EAE3 /* CustomErrorVO.swift in Sources */,
 				753BA7532A8304240090EAE3 /* CertificationAPIProvider.swift in Sources */,
 				75FB2FE52A597B5900E4DDE8 /* ExperienceRow.swift in Sources */,
 				7546BDDF2A51A52C0019A986 /* UserProfileView.swift in Sources */,
+				75532AC32A8F204600DEC825 /* LikeListDTO.swift in Sources */,
 				7543D4C22A78C89C00A0E9D9 /* HomeAPIProvider.swift in Sources */,
 				754AB6F92A75311D00F2EBC8 /* CertificationVO.swift in Sources */,
 				75FB2FE32A59783400E4DDE8 /* UserProfileViewModel.swift in Sources */,
@@ -1150,6 +1275,7 @@
 				75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */,
 				753BA7492A82782F0090EAE3 /* HealthScreeningView.swift in Sources */,
 				754AB6E42A712DB200F2EBC8 /* OAuthProvider.swift in Sources */,
+				75532ABB2A8F189200DEC825 /* LikeListRepositoryInterface.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
 				7543D4CB2A78D57200A0E9D9 /* HomeVO.swift in Sources */,
 				753BA7192A7E3A2D0090EAE3 /* PopGesture.swift in Sources */,
@@ -1157,18 +1283,23 @@
 				759228F82A62D81400603FF4 /* MyPostsUsecase.swift in Sources */,
 				754AB6D32A6D51C200F2EBC8 /* DeleteInfoDTO.swift in Sources */,
 				755462602A44B3E100598268 /* LoginRepository.swift in Sources */,
+				75532AA12A8CADB100DEC825 /* DropDownRow.swift in Sources */,
 				753BA7282A7E80500090EAE3 /* RegisteredPetDTO.swift in Sources */,
 				75FB2FD52A56BEE500E4DDE8 /* DomainAssembly.swift in Sources */,
 				755462622A44B40000598268 /* SignUpRepository.swift in Sources */,
 				754AB6F22A75001C00F2EBC8 /* SignUpUsecase.swift in Sources */,
 				75154E502A68FC230083261A /* MyApplyPostsVO.swift in Sources */,
+				756829AF2A89244200DB38F0 /* CustomModalView.swift in Sources */,
 				754AB6CF2A6C298B00F2EBC8 /* AcceptInfoDTO.swift in Sources */,
 				753511612A41DA2E008B0101 /* LoginAPI.swift in Sources */,
 				753BA7512A8303C80090EAE3 /* PetCertificationRepository.swift in Sources */,
 				753BA7232A7E728C0090EAE3 /* RegisterAPIProvider.swift in Sources */,
+				75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */,
+				75532AC72A8F703F00DEC825 /* LikePostRowView.swift in Sources */,
 				754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */,
 				754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
+				75532AB92A8F183200DEC825 /* LikeListUsecaseInterface.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
 				753BA74D2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift in Sources */,
 				759228F62A628E2500603FF4 /* MyPostsViewModel.swift in Sources */,
@@ -1176,6 +1307,7 @@
 				75FB2FD32A56B9F700E4DDE8 /* DataAssembly.swift in Sources */,
 				753BA7332A7F71180090EAE3 /* PhotoPickerView.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
+				753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */,
 				754AB6EE2A73977100F2EBC8 /* SignUpScene.swift in Sources */,
 				7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
@@ -1183,13 +1315,18 @@
 				753BA7592A8352220090EAE3 /* RegisterPostIDVO.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
 				754AB6D52A6D522700F2EBC8 /* ApplyIDInfoVO.swift in Sources */,
+				75532AB02A8DE15500DEC825 /* RegisterPetIdDTO.swift in Sources */,
+				75532A9F2A8CAD8B00DEC825 /* DropDownView.swift in Sources */,
 				75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */,
 				754AB6F02A74CC7F00F2EBC8 /* SignUpViewModel.swift in Sources */,
 				754AB6E82A71713500F2EBC8 /* LoginResultVO.swift in Sources */,
+				75532ABD2A8F18C100DEC825 /* LikeListRepository.swift in Sources */,
 				753BA73B2A80783E0090EAE3 /* PetDisadvantageView.swift in Sources */,
 				755462532A4498DA00598268 /* UserInfoDTO.swift in Sources */,
+				75532AB22A8DE1E000DEC825 /* RegisterPetIdVO.swift in Sources */,
 				75FB2FC72A564AC200E4DDE8 /* ProfileToVORepository.swift in Sources */,
 				759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */,
+				75532AA82A8CB9D300DEC825 /* RegionView.swift in Sources */,
 				7543D4B82A77C15400A0E9D9 /* RadioButton.swift in Sources */,
 				753BA7162A7D49A10090EAE3 /* PostApplyDTO.swift in Sources */,
 				75154E582A695A4D0083261A /* Text + Extension.swift in Sources */,
@@ -1197,6 +1334,7 @@
 				753BA74F2A827A3B0090EAE3 /* PetCertificationRepositoryInterface.swift in Sources */,
 				75FB2FEA2A5AFD8B00E4DDE8 /* View + Extension.swift in Sources */,
 				753BA7552A8304BF0090EAE3 /* CertificationAPI.swift in Sources */,
+				753BA7732A860D3D0090EAE3 /* BaseViewModel.swift in Sources */,
 				759228E12A5FDE6200603FF4 /* MyPageViewModel.swift in Sources */,
 				75154E542A68FF520083261A /* MyApplyPostsRowView.swift in Sources */,
 				753DF8C52A7AEEDD001D50AE /* DetailPostViewModel.swift in Sources */,
@@ -1207,11 +1345,14 @@
 				753BA73F2A80AB450090EAE3 /* PetAdopterView.swift in Sources */,
 				7554624A2A447ECF00598268 /* SignUpProvider.swift in Sources */,
 				753BA7212A7E724E0090EAE3 /* RegisterRepository.swift in Sources */,
+				753BA7712A85FB7C0090EAE3 /* CustomAlert.swift in Sources */,
 				753BA73D2A80A9F50090EAE3 /* PetCostView.swift in Sources */,
 				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
 				759228D82A5E724100603FF4 /* RegisterScene.swift in Sources */,
+				756829AD2A88E39D00DB38F0 /* ApplyDTO.swift in Sources */,
 				759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */,
 				753BA75F2A83E46C0090EAE3 /* RegisterPetNumberDTO.swift in Sources */,
+				756829AB2A87C35000DB38F0 /* Color + Extension.swift in Sources */,
 				753511A82A43427C008B0101 /* LoginDTO.swift in Sources */,
 				753BA71D2A7E71F20090EAE3 /* RegisterUsecaseInterface.swift in Sources */,
 				75154E5C2A6A87ED0083261A /* ApplyListRowView.swift in Sources */,
@@ -1220,6 +1361,7 @@
 				759228DA2A5E724E00603FF4 /* InterestView.swift in Sources */,
 				75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */,
 				753BA7472A8278240090EAE3 /* VaccinationView.swift in Sources */,
+				753BA76D2A850BC20090EAE3 /* AnyPublisher+Extension.swift in Sources */,
 				759228FA2A62DD0300603FF4 /* MyPostsRepositoryInterface.swift in Sources */,
 				755462512A4498A300598268 /* ConfirmNumberDTO.swift in Sources */,
 				759228DF2A5E8F3F00603FF4 /* MyPageScene.swift in Sources */,
@@ -1227,6 +1369,7 @@
 				753BA74B2A8278A10090EAE3 /* PetCertificationViewModel.swift in Sources */,
 				753BA7372A8074DC0090EAE3 /* KeyboardHandler.swift in Sources */,
 				753BA75D2A8355A80090EAE3 /* CertificationInfoVO.swift in Sources */,
+				75532AC12A8F1AC700DEC825 /* LikeListAPI.swift in Sources */,
 				753BA7572A834A390090EAE3 /* RegisterPostDTO.swift in Sources */,
 				75154E562A69336B0083261A /* ApplyListScene.swift in Sources */,
 				75FB2FDB2A57AC9700E4DDE8 /* ProfileEditVO.swift in Sources */,
@@ -1239,6 +1382,7 @@
 				753BA7412A80B02D0090EAE3 /* PetPostVO.swift in Sources */,
 				75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */,
 				753DF8C12A7AAB8E001D50AE /* DetailPostScene.swift in Sources */,
+				75532AC52A8F215B00DEC825 /* LikeListVO.swift in Sources */,
 				753BA75B2A8355160090EAE3 /* CertificationInfoDTO.swift in Sources */,
 				753BA72F2A7E92AC0090EAE3 /* PetInfoRowView.swift in Sources */,
 			);

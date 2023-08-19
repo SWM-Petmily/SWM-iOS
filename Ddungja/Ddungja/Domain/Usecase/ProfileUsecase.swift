@@ -6,11 +6,12 @@
 //
 
 import Combine
-import Moya
 
 protocol ProfileUsecaseInterface {
-    func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError>
-    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, MoyaError>
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO>
+    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO>
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
+    func postEditProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
 }
 
 final class ProfileUsecase: ProfileUsecaseInterface {
@@ -21,11 +22,19 @@ final class ProfileUsecase: ProfileUsecaseInterface {
         self.repository = repository
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileVO, MoyaError> {
+    func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO> {
+        return repository.getMyPage()
+    }
+    
+    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {
         return repository.getUserProfile()
     }
     
-    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, MoyaError>  {
+    func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>  {
         return repository.putEditUserProfile(VO: profile)
+    }
+    
+    func postEditProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
+        return repository.postEditUserProfile(VO: profile)
     }
 }

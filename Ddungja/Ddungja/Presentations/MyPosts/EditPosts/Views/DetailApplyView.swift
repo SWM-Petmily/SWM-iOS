@@ -18,51 +18,57 @@ struct DetailApplyView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                userTitle
-                
-                basicInfoTitle
-                basicInfoGrid
-                
-                willAndLinkTitle
-                willTextField
-                openChatLink
-                
-                Spacer()
-            }
-            .padding()
-        }
-        .navigationTitle("지원하기")
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("지원받은목록")
-                    .onTapGesture {
-                        viewModel.pop()
+        ZStack {
+            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
+                .isHidden(!viewModel.showAlert)
+            VStack {
+                ScrollView {
+                    VStack(spacing: 20) {
+                        userTitle
+                        
+                        basicInfoTitle
+                        basicInfoGrid
+                        
+                        willAndLinkTitle
+                        willTextField
+                        openChatLink
+                        
+                        Spacer()
                     }
+                    .padding()
+                }
+                .navigationTitle("지원하기")
+                .navigationBarBackButtonHidden()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Image(systemName: "chevron.backward")
+                            .onTapGesture {
+                                viewModel.pop()
+                            }
+                    }
+                }
+                .onAppear {
+                    viewModel.getDetailApply(id: id)
+                }
+                
+                CustomLazyVGrid(col: 2, spacing: 10) {
+                    Button {
+                        throttleButton(id: id, approval: "REJECTED")
+                    } label: {
+                        Text("거절")
+                            .makeRejectButton()
+                    }
+                    
+                    Button {
+                        throttleButton(id: id, approval: "APPROVED")
+                    } label: {
+                        Text("수락")
+                            .makeAcceptButton()
+                    }
+                }
+                .padding()
             }
         }
-        .onAppear {
-            viewModel.getDetailApply(id: id)
-        }
-        
-        CustomLazyVGrid(col: 2, spacing: 10) {
-            Button {
-                throttleButton(id: id, approval: "REJECTED")
-            } label: {
-                Text("거절")
-                    .makeRejectButton()
-            }
-            
-            Button {
-                throttleButton(id: id, approval: "APPROVED")
-            } label: {
-                Text("수락")
-                    .makeAcceptButton()
-            }
-        }
-        .padding()
     }
 }
 

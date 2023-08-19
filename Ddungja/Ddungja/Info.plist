@@ -12,6 +12,14 @@
 				<string>kakao${KAKAO_API_LOGIN_KEY}</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>server${SERVER_URL}</string>
+			</array>
+		</dict>
 	</array>
 	<key>KAKAO_API_LOGIN_KEY</key>
 	<string>${KAKAO_API_LOGIN_KEY}</string>
@@ -25,5 +33,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>SERVER_URL</key>
+	<string>${SERVER_URL}</string>
 </dict>
 </plist>

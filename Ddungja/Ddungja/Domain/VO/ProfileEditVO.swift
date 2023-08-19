@@ -16,25 +16,13 @@ struct ProfileEditVO {
     let region: String
     let isExperience: Bool
     let profileImageId: Int
-    let experiences: [(id: Int, species: String, period: Int)]
-
-    init(job: String, environment: String, people: Int, comment: String, openTalk: String, region: String, isExperience: Bool, profileImageId: Int, experiences: [(id: Int, species: String, period: Int)]) {
-        self.job = job
-        self.environment = environment
-        self.people = people
-        self.comment = comment
-        self.openTalk = openTalk
-        self.region = region
-        self.isExperience = isExperience
-        self.profileImageId = profileImageId
-        self.experiences = experiences
-    }
+    let experiences: [(id: String, species: String, period: Int)]
 }
 
 extension ProfileEditVO {
     func toData(profile: ProfileEditVO) -> ProfileEditReqiestDTO {
         let convertedExperiences = self.experiences.map { experience in
-            return Experiences(id: experience.id, species: experience.species, period: experience.period)
+            return Experiences(species: experience.species, period: experience.period)
         }
         
         return ProfileEditReqiestDTO(
