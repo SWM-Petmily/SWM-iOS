@@ -126,6 +126,11 @@ struct PresentationAssembly: Assembly {
             return DetailPostViewModel(coordinator: coordinator, homeUsecase: usecase)
         }
         
+        container.register(LikeListViewModel.self) { resolver in
+            let usecase = resolver.resolve(LikeListUsecaseInterface.self)!
+            return LikeListViewModel(coordinator: coordinator, likeListUsecase: usecase)
+        }
+        
         container.register(HomeScene.self) { resolver in
             let homeViewModel = resolver.resolve(HomeViewModel.self)!
             return HomeScene(viewModel: homeViewModel)
@@ -199,6 +204,11 @@ struct PresentationAssembly: Assembly {
         container.register(VaccinationView.self) { (resolver, postId: Int) in
             let viewModel = resolver.resolve(PetCertificationViewModel.self)!
             return VaccinationView(viewModel: viewModel, postId: postId)
+        }
+        
+        container.register(LikeListScene.self) { resolver in
+            let viewModel = resolver.resolve(LikeListViewModel.self)!
+            return LikeListScene(viewModel: viewModel)
         }
     }
 }
