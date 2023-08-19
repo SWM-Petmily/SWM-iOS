@@ -27,16 +27,19 @@ enum EmploymentStatus: String {
     case employed = "직장인"
     case student = "학생"
     case unemployed = "무직"
+    case unowned = "unowned"
 }
 
 enum ExperienceStatus: String {
     case yes = "있음"
     case no = "없음"
+    case none = "unowned"
     
     var description: Bool {
         switch self {
         case .yes: return true
         case .no: return false
+        case .none: return false
         }
     }
 }
@@ -51,12 +54,11 @@ enum HouseStatus: String {
 final class UserProfileViewModel: BaseViewModel {
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
-    @Published var profile: ProfileVO
     
     @Published var nickname = ""
     @Published var image: ImageStatus = .bulldog
-    @Published var job: EmploymentStatus = .student
-    @Published var experience: ExperienceStatus = .no
+    @Published var job: EmploymentStatus = .unowned
+    @Published var experience: ExperienceStatus = .none
     @Published var house: HouseStatus = .house
     @Published var person = 0
     @Published var comment = ""
@@ -68,8 +70,6 @@ final class UserProfileViewModel: BaseViewModel {
     init(coordinator: CoordinatorProtocol, profileUsecase: ProfileUsecaseInterface) {
         self.profileUsecase = profileUsecase
         
-        profile = ProfileVO(job: "직장인", environment: "집", people: 55, comment: "", openTalk: "https://www.figma.com/file/muKSM51SkedsMlS0YR70ZK/펫밀리?type=design&node-id=552-4601&mode=design&t=leWB2I2Rz6BHFCRj-0", region: "광주", isExperience: false, nickname: "seunggi", profileImageId: 1, profileImage: "dog1", experiences: [(id: "1", species: "불독", period: 16), (id: "2", species: "푸들", period: 13), (id: "3", species: "기타", period: 11)], isMyProfile: false)
-
         super.init(coordinator: coordinator)
     }
     
@@ -80,7 +80,7 @@ final class UserProfileViewModel: BaseViewModel {
             } receiveValue: { [weak self] profileVo in
                 print("profileVoprofileVo \(profileVo)")
                 guard let self = self else { return }
-                self.profile = profileVo
+
                 self.nickname = profileVo.nickname
                 self.image = self.changeToImageStatus(profileVo.profileImageId)
                 self.job = self.changeToJobStatus(profileVo.job)
