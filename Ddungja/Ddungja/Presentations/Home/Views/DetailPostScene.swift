@@ -33,57 +33,60 @@ struct DetailPostScene: View {
     }
     
     var body: some View {
-        ZStack {
-            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                .isHidden(!viewModel.showAlert)
-            GeometryReader { geo in
-                VStack {
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            TabView {
-                                ForEach(viewModel.imagesURLString, id: \.id) { image in
-                                    PetImageView(imageUrl: image.url)
-                                        .aspectRatio(contentMode: .fill)
-                                        .clipped()
-                                }
+        GeometryReader { geo in
+            VStack {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        TabView {
+                            ForEach(viewModel.imagesURLString, id: \.id) { image in
+                                PetImageView(imageUrl: image.url)
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipped()
                             }
-                            .frame(width: geo.size.width, height: 350)
-                            .tabViewStyle(.page)
-                            
-                            userTitle
-                            
-                            petInfo
-                            petPrice
-                            
-                            healthInfo
-                            diseaseInfo
-                            
-                            reason
-                            
-                            
-                            advantage
-                            
-                            disadvantage
                         }
-                    }
-                    .edgesIgnoringSafeArea(.all)
-                    
-                    HStack {
-                        likeButton
+                        .frame(width: geo.size.width, height: 350)
+                        .tabViewStyle(.page)
                         
-                        requsetButton
+                        userTitle
+                        
+                        petInfo
+                        petPrice
+                        
+                        healthInfo
+                        diseaseInfo
+                        
+                        reason
+                        
+                        
+                        advantage
+                        
+                        disadvantage
                     }
                 }
-                .navigationBarBackButtonHidden()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image(systemName: "chevron.backward")
-                            .onTapGesture {
-                                viewModel.pop()
-                            }
-                    }
+                .edgesIgnoringSafeArea(.all)
+                
+                HStack {
+                    likeButton
+                    
+                    requsetButton
                 }
             }
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: "chevron.backward")
+                        .onTapGesture {
+                            viewModel.pop()
+                        }
+                }
+            }
+        }
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
         }
         .onAppear {
             viewModel.getDetailPost(postId)
