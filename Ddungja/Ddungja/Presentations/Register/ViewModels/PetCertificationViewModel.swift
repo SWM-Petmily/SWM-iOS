@@ -84,8 +84,16 @@ final class PetCertificationViewModel: BaseViewModel {
     
     func registerPetHealthInfo(_ postId: Int) {
         petCertificationUsecase.registerPetHealthInfo(postId, healthInfoImages)
-            .sink { completion in
-                print("getAdditionalPageInfo \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
                 print("register number \(vo)")
@@ -95,8 +103,16 @@ final class PetCertificationViewModel: BaseViewModel {
     
     func registerVaccineInfo(_ postId: Int) {
         petCertificationUsecase.registerVaccineInfo(postId, vaccineInfoImages)
-            .sink { completion in
-                print("registerVaccineInfo \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
                 print("registerVaccineInfo \(vo)")

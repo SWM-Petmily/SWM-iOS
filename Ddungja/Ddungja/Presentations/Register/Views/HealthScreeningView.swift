@@ -44,6 +44,13 @@ struct HealthScreeningView: View {
             }
         }
         .padding()
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
+        }
         
         Spacer()
         
