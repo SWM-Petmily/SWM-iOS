@@ -75,8 +75,16 @@ final class UserProfileViewModel: BaseViewModel {
     
     func getProfile() {
         profileUsecase.getUserProfile()
-            .sink { errpr in
-                print("Cheeck \(errpr)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] profileVo in
                 print("profileVoprofileVo \(profileVo)")
                 guard let self = self else { return }
@@ -93,12 +101,6 @@ final class UserProfileViewModel: BaseViewModel {
                 self.openTalk = profileVo.openTalk
             }
             .store(in: &cancellables)
-    }
-    
-    private func makeExperienceArray() {
-        for v in experienceArray {
-            experienceArray.append((id: v.id,species: v.species, period: v.period))
-        }
     }
     
     func registerProfile(_ isRegistered: Bool) {
@@ -151,6 +153,12 @@ final class UserProfileViewModel: BaseViewModel {
                 self.isShowModal = true
             }
             .store(in: &cancellables)
+    }
+    
+    private func makeExperienceArray() {
+        for v in experienceArray {
+            experienceArray.append((id: v.id,species: v.species, period: v.period))
+        }
     }
     
     private func changeToImageStatus(_ image: Int) -> ImageStatus {
