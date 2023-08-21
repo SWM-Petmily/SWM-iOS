@@ -35,11 +35,13 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     }
     
     func pop() {
-        path.removeLast()
+        if path.count >= 2 {
+            path.removeLast()
+        }
     }
     
     func popToRoot() {
-        path.removeLast(path.count - 1)
+        path.removeLast(path.count)
     }
     
     @ViewBuilder
