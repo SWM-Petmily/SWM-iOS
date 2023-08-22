@@ -73,10 +73,21 @@ final class PetCertificationViewModel: BaseViewModel {
     
     private func registerPetNumber(_ postId: Int) {
         petCertificationUsecase.registerPetNumber(postId, name, registrationNumber)
-            .sink { completion in
-                print("getAdditionalPageInfo \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
+                self.isShowModal = true
                 print("register number \(vo)")
             }
             .store(in: &cancellables)

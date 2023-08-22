@@ -26,7 +26,7 @@ final class CertificationAPIProvider: PetCertificationDataSourceInterface {
     }
     
     func getAdditionalPageInfo(_ postId: Int) -> AnyPublisher<CertificationInfoDTO, CustomErrorVO> {
-        moyaProvider.requestPublisher(.getAdditionalPage(postId: 401))
+        moyaProvider.requestPublisher(.getAdditionalPage(postId: postId))
             .asResult()
     }
     
