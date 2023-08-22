@@ -7,11 +7,10 @@
 
 import Foundation
 import Combine
-import Moya
 
 protocol HomeUsecaseInterface {
     func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, CustomErrorVO>
-    func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Int, MoyaError>
+    func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Void, CustomErrorVO> 
     func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, CustomErrorVO>
 }
 
@@ -30,7 +29,7 @@ final class HomeUsecase: HomeUsecaseInterface {
      - currentCheck가 true일 경우 좋아요 취소 요청
      - currentCheck가 false일 경우 좋아요 누르기 요청
      */
-    func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Int, MoyaError> {
+    func tappedLike(_ id: Int, _ currentCheck: Bool) -> AnyPublisher<Void, CustomErrorVO> {
         if currentCheck {
             return repository.requestChangeDisLike(id)
         } else {

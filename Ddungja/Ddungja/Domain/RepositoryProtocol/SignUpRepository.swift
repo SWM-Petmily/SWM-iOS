@@ -6,10 +6,9 @@
 //
 
 import Combine
-import Moya
 
 protocol SignUpRepository {
-    func requestCertification(about: String) -> AnyPublisher<Int, MoyaError>
-    func checkCertification(_ certication: String) -> AnyPublisher<Int, MoyaError>
-    func registerUserInfo(_ nickname: String) -> AnyPublisher<Int, MoyaError>
+    func requestCertification(about: String) -> AnyPublisher<Void, CustomErrorVO>
+    func checkCertification(_ certication: String) -> AnyPublisher<Void, CustomErrorVO>
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Void, CustomErrorVO>
 }
