@@ -57,8 +57,10 @@ final class SignUpViewModel: BaseViewModel {
         signUpUsecase.registerUserInfo(nickname)
             .sink { error in
                 print("registere user Info \(error)")
-            } receiveValue: { bool in
+            } receiveValue: { [weak self] bool in
                 print("registerUserInfo response\(bool)")
+                self?.pop()
+                self?.push(.tapBar)
             }
             .store(in: &cancellables)
     }

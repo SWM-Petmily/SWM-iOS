@@ -150,6 +150,7 @@ struct SignUpScene: View {
             .disabled(viewModel.isActiveRegisterButton)
             .cornerRadius(14)
         }
+        .toolbar(.hidden)
         .padding()
     }
 }

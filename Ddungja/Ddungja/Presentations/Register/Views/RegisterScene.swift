@@ -44,9 +44,7 @@ struct RegisterScene: View {
             }
         }
         .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
-            Button("확인", role: .cancel) {
-                viewModel.pop()
-            }
+            Button("확인", role: .cancel) {}
         } message: {
             Text(viewModel.errorDetailMessage)
         }

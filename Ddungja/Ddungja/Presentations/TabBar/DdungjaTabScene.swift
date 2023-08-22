@@ -51,7 +51,7 @@ struct DdungjaTabScene: View {
                 }
         }
         .tint(Color.main)
-        .navigationBarBackButtonHidden()
+        .toolbar(.hidden)
     }
     
 }
