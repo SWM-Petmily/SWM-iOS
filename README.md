@@ -9,3 +9,4 @@
 |-|-|-|
 |<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/b40738a9-2e58-4943-9802-8a9c49790874.gif" width="250"/>|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/4c75eb6e-f028-4089-933d-75298e3b15b7.gif" width="250"/>|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/52bba269-771d-4817-a2e1-2be7be05b43a.gif" width="250"/>|
 
+![화면-기록-2023-08-20-오후-10 27 58](https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/65c30980-0091-49f7-b74c-5cc0790ce8fe)
