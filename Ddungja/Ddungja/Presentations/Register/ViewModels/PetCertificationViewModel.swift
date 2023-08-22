@@ -107,6 +107,7 @@ final class PetCertificationViewModel: BaseViewModel {
                 }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
+                self.isShowModal = true
                 print("register number \(vo)")
             }
             .store(in: &cancellables)
@@ -126,6 +127,7 @@ final class PetCertificationViewModel: BaseViewModel {
                 }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
+                self.isShowModal = true
                 print("registerVaccineInfo \(vo)")
             }
             .store(in: &cancellables)
