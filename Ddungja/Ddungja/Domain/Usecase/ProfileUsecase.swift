@@ -27,7 +27,8 @@ final class ProfileUsecase: ProfileUsecaseInterface {
     }
     
     func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {
-        return repository.getUserProfile()
+        let userId = KeyChainManager.read(key: .userId) ?? ""
+        return repository.getUserProfile(userId)
     }
     
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>  {

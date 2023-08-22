@@ -21,8 +21,8 @@ final class ProfileToVORepository: ProfileRepository {
             .eraseToAnyPublisher()
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO> {
-        return dataSource.getUserProfile().map { $0.toDomain() }.eraseToAnyPublisher()
+    func getUserProfile(_ userId: String) -> AnyPublisher<ProfileVO, CustomErrorVO> {
+        return dataSource.getUserProfile(userId).map { $0.toDomain() }.eraseToAnyPublisher()
     }
     
     func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
