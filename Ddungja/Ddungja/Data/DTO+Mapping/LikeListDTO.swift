@@ -40,13 +40,12 @@ extension LikeListDTO {
         var infoVO = [LikeListInfoVO]()
         
         for content in contents {
-            let imageURL = URL(string: content.thumbnailImage ?? "")!
             
             infoVO.append(
                 LikeListInfoVO(
                     id: content.id ?? -1,
                     name: content.name ?? "unknown",
-                    thumbnailImage: imageURL,
+                    thumbnailImage: content.thumbnailImage ?? "",
                     subCategory: content.subCategory ?? "Unknown",
                     region: content.region ?? "서울",
                     gender: content.gender ?? "MALE",

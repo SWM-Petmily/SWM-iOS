@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-struct PetImageView: View {
-    var imageUrl: String
-
-    var body: some View {
-        if let url = URL(string: imageUrl) {
-            AsyncImage(url: url) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-        } else {
-            EmptyView()
-        }
-    }
-}
-
 struct DetailPostScene: View {
     @StateObject private var viewModel: DetailPostViewModel
     private var postId: Int
@@ -39,7 +23,7 @@ struct DetailPostScene: View {
                     VStack(alignment: .leading) {
                         TabView {
                             ForEach(viewModel.imagesURLString, id: \.id) { image in
-                                PetImageView(imageUrl: image.url)
+                                RemoteImage(url: image.url)
                                     .aspectRatio(contentMode: .fill)
                                     .clipped()
                             }

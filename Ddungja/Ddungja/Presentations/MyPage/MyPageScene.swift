@@ -18,13 +18,10 @@ struct MyPageScene: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack(alignment: .center,spacing: 14) {
-                        AsyncImage(url: URL(string: viewModel.imageURL)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
+                        
+                        RemoteImage(url: viewModel.imageURL)
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
                         
                         Text(viewModel.nickName)
                             .font(.title)

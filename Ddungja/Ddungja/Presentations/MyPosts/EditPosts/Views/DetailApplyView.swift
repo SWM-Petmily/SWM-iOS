@@ -78,14 +78,9 @@ struct DetailApplyView: View {
 extension DetailApplyView {
     private var userTitle: some View {
         HStack(spacing: 14) {
-            
-            AsyncImage(url: URL(string: viewModel.detailApply.url)) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 50, height: 50)
-            .clipShape(Circle())
+            RemoteImage(url: viewModel.detailApply.url)
+                .frame(width: 50, height: 50)
+                .clipShape(Circle())
             
             
             VStack(alignment: .leading, spacing: 4) {

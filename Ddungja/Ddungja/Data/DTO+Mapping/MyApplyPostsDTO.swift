@@ -40,13 +40,12 @@ extension MyApplyPostsDTO {
         
         var postInfoVO: [ApplyPostsInfoVO] = []
         for content in contents {
-            let imageURL = URL(string: content.thumbnailImage)!
             postInfoVO.append(
                 ApplyPostsInfoVO(
                     applyId: content.applyId,
                     postId: content.postId,
                     name: content.name,
-                    thumbnailImage: imageURL,
+                    thumbnailImage: content.thumbnailImage ?? "",
                     subCategory: content.subCategory,
                     region: content.region,
                     gender: content.gender,

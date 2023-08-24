@@ -14,7 +14,7 @@ struct LikePostRowView: View {
     var body: some View {
         VStack {
             HStack(spacing: 20) {
-                ProfileImgView(imageUrl: likePost.thumbnailImage)
+                RemoteImage(url: likePost.thumbnailImage)
                     .padding(.leading)
                 
                 HStack {
