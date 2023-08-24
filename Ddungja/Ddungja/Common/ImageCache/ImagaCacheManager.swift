@@ -10,7 +10,7 @@ import SwiftUI
 final class ImageCacheManager {
     static let shared = ImageCacheManager()
     
-    var cache = NSCache<NSString, UIImage>()
+    private var cache = NSCache<NSString, UIImage>()
     
     func get(forKey key: String) -> UIImage? {
         return cache.object(forKey: NSString(string: key))
@@ -28,24 +28,7 @@ extension ImageCacheManager {
     }
 }
 
-struct RemoteImage: View {
-    @ObservedObject var imageLoader: ImageLoader
-
-    init(url: String) {
-        imageLoader = ImageLoader(url: url)
-    }
-
-    var body: some View {
-        if let image = imageLoader.image {
-            Image(uiImage: image)
-                .resizable()
-        } else {
-            ProgressView()
-        }
-    }
-}
-
-class ImageLoader: ObservableObject {
+final class ImageLoader: ObservableObject {
     @Published var image: UIImage?
 
     private var url: String

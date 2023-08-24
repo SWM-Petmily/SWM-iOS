@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75042D282A97403100E0409E /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75042D272A97403100E0409E /* RemoteImage.swift */; };
 		75154E402A6558B60083261A /* MyPostsRowVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */; };
 		75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */; };
 		75154E4C2A66DBCD0083261A /* MyApplyPostsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */; };
@@ -209,6 +210,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75042D272A97403100E0409E /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		75154E3F2A6558B60083261A /* MyPostsRowVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsRowVIew.swift; sourceTree = "<group>"; };
 		75154E472A66D7230083261A /* MyApplyPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsViewModel.swift; sourceTree = "<group>"; };
 		75154E4B2A66DBCD0083261A /* MyApplyPostsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplyPostsUsecase.swift; sourceTree = "<group>"; };
@@ -424,6 +426,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75042D262A97401100E0409E /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				754BC8462A949277006D96DD /* ImagaCacheManager.swift */,
+				75042D272A97403100E0409E /* RemoteImage.swift */,
+			);
+			path = ImageCache;
+			sourceTree = "<group>";
+		};
 		75154E452A66D7010083261A /* ApplyPosts */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,13 +866,13 @@
 		75618C6F2A54063C005FA31A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75042D262A97401100E0409E /* ImageCache */,
 				75618C702A54065B005FA31A /* CustomText.swift */,
 				75618C752A5424F2005FA31A /* CustomColor.swift */,
 				75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */,
 				75FB2FE92A5AFD8B00E4DDE8 /* View + Extension.swift */,
 				75154E572A695A4D0083261A /* Text + Extension.swift */,
 				754AB6F32A75168400F2EBC8 /* CustomPlaceHolder.swift */,
-				754BC8462A949277006D96DD /* ImagaCacheManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1300,6 +1311,7 @@
 				753BA7232A7E728C0090EAE3 /* RegisterAPIProvider.swift in Sources */,
 				75532AA52A8CAE6500DEC825 /* DropDownDogModel.swift in Sources */,
 				75532AC72A8F703F00DEC825 /* LikePostRowView.swift in Sources */,
+				75042D282A97403100E0409E /* RemoteImage.swift in Sources */,
 				754AB6F42A75168400F2EBC8 /* CustomPlaceHolder.swift in Sources */,
 				754AB6D12A6D3BD300F2EBC8 /* ApplyModifyVIew.swift in Sources */,
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
