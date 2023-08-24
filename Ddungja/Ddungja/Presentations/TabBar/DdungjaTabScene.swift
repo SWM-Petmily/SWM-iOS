@@ -27,14 +27,14 @@ struct DdungjaTabScene: View {
                     Text("홈")
                 }
             
-            InterestView()
-                .tabItem {
-                    
-                    Image(systemName: "heart")
-                        .environment(\.symbolVariants, .none)
-                    Text("관심")
-                    
-                }
+//            InterestView()
+//                .tabItem {
+//
+//                    Image(systemName: "heart")
+//                        .environment(\.symbolVariants, .none)
+//                    Text("관심")
+//
+//                }
             
             register
                 .tabItem {
