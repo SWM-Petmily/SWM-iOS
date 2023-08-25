@@ -51,7 +51,12 @@ enum HouseStatus: String {
     case house = "단독주택"
 }
 
-final class UserProfileViewModel: BaseViewModel {
+protocol RegionInterface: ObservableObject {
+    var region: String { get set }
+    func updateRegion(_ newRegion: String)
+}
+
+final class UserProfileViewModel: BaseViewModel, RegionInterface {
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -110,6 +115,10 @@ final class UserProfileViewModel: BaseViewModel {
         } else  {
             postEditProfile(vo)
         }
+    }
+    
+    func updateRegion(_ newRegion: String) {
+        region = newRegion
     }
     
     private func postEditProfile(_ profile: ProfileEditVO) {
