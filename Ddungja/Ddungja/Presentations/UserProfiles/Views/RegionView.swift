@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct RegionView: View {
-    @StateObject private var viewModel: UserProfileViewModel
-    @State private var region = ""
+struct RegionView<T: RegionInterface>: View {
+    @StateObject private var viewModel: T
     @State private var isDropdownOpen = false
     
-    init(viewModel: UserProfileViewModel) {
+    init(viewModel: T) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -45,7 +44,7 @@ struct RegionView: View {
             
             if isDropdownOpen {
                 DropdownView(options: regionOptions) { option in
-                    viewModel.region = option.value
+                    viewModel.updateRegion(option.value)
                 }
             }
         }
