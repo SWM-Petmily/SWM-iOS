@@ -8,8 +8,9 @@
 import Foundation
 import Combine
 import SwiftUI
+import PhotosUI
 
-final class PetCertificationViewModel: BaseViewModel {
+final class PetCertificationViewModel: BaseViewModel, PhotoPickerInterface {
     private let petCertificationUsecase: PetCertificationUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -19,8 +20,8 @@ final class PetCertificationViewModel: BaseViewModel {
     
     @Published var name = ""
     @Published var registrationNumber = ""
-    @Published var healthInfoImages = Array(repeating: Data(), count: 5)
-    @Published var vaccineInfoImages = Array(repeating: Data(), count: 5)
+    @Published var selectedPhotoItem: [PhotosPickerItem] = []
+    @Published var image = Array(repeating: Data(), count: 5)
     @Published var isShowModal = false
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
@@ -94,7 +95,7 @@ final class PetCertificationViewModel: BaseViewModel {
     }
     
     func registerPetHealthInfo(_ postId: Int) {
-        petCertificationUsecase.registerPetHealthInfo(postId, healthInfoImages)
+        petCertificationUsecase.registerPetHealthInfo(postId, image)
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
@@ -114,7 +115,7 @@ final class PetCertificationViewModel: BaseViewModel {
     }
     
     func registerVaccineInfo(_ postId: Int) {
-        petCertificationUsecase.registerVaccineInfo(postId, vaccineInfoImages)
+        petCertificationUsecase.registerVaccineInfo(postId, image)
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
@@ -132,7 +133,9 @@ final class PetCertificationViewModel: BaseViewModel {
             }
             .store(in: &cancellables)
     }
-    
+    func updateImage(_ data: Data, index: Int) {
+        image[index] = data
+    }
     func popToRoot() {
         coordinator.popToRoot()
     }

@@ -28,9 +28,9 @@ struct HealthScreeningView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    PhotoPickerView1(viewModel: viewModel)
+                    PhotoPickerView(viewModel: viewModel)
                         .frame(width: 108, height: 108)
-                    ForEach(viewModel.healthInfoImages, id: \.self) { imageData in
+                    ForEach(viewModel.image, id: \.self) { imageData in
                         if let image = UIImage(data: imageData) {
                             Image(uiImage: image)
                                 .resizable()
@@ -72,46 +72,5 @@ struct HealthScreeningView: View {
         })
         .background(Color.sub)
         .cornerRadius(10)
-    }
-}
-
-/*
- BaseViewModel을 채택해서 PhotoPickerView재사용하도록 수정할 예정
- */
-struct PhotoPickerView1: View {
-    @ObservedObject private var viewModel: PetCertificationViewModel
-    @State private var selectedItem: [PhotosPickerItem] = []
-    
-    init(viewModel: PetCertificationViewModel) {
-        self.viewModel = viewModel
-    }
-    
-    var body: some View {
-        PhotosPicker(selection: $selectedItem, maxSelectionCount: 5, selectionBehavior: .ordered, matching: .images, photoLibrary: .shared()) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .strokeBorder(Color.main, lineWidth: 1)
-                    .background(.white)
-                
-                VStack {
-                    Image(systemName: "photo")
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(Color.mainText)
-                    
-                    Text("사진등록하기")
-                        .bold()
-                        .applySubtitle(color: .mainTextColor)
-                }
-            }
-        }
-        .onChange(of: selectedItem) { selectedItems in
-            for (idx, item) in selectedItems.enumerated() {
-                Task {
-                    if let data = try? await item.loadTransferable(type: Data.self) {
-                        viewModel.healthInfoImages.insert(data, at: idx)
-                    }
-                }
-            }
-        }
     }
 }

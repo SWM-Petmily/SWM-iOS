@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 import Swinject
+import SwiftUI
+import PhotosUI
 
 enum Gender: String {
     case male = "MALE"
@@ -19,7 +21,8 @@ enum Neutered: String{
     case no = "NO"
 }
 
-final class RegisterViewModel: BaseViewModel, RegionInterface {
+final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterface {
+    
     private var container: Container
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
@@ -27,6 +30,7 @@ final class RegisterViewModel: BaseViewModel, RegionInterface {
     private(set) var isRegistered = true
     @Published var registeredPetInfo = [RegisteredPetVO]()
     @Published var images = Array(repeating: Data(), count: 5)
+    @Published var selectedPhotoItem: [PhotosPickerItem] = []
     
     @Published var petType = ""
     @Published var petName = ""
@@ -93,6 +97,10 @@ final class RegisterViewModel: BaseViewModel, RegionInterface {
     
     func updateRegion(_ newRegion: String) {
         region = newRegion
+    }
+    
+    func updateImage(_ data: Data, index: Int) {
+        images[index] = data
     }
     
     func userExitPost() {
