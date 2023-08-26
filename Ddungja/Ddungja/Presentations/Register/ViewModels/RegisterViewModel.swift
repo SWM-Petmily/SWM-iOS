@@ -91,6 +91,10 @@ final class RegisterViewModel: BaseViewModel, RegionInterface {
             .store(in: &cancellables)
     }
     
+    func updateRegion(_ newRegion: String) {
+        region = newRegion
+    }
+    
     func userExitPost() {
         container.resetObjectScope(.exitSalePost)
     }
