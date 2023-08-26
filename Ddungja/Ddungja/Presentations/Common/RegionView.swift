@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+protocol RegionInterface: ObservableObject {
+    var region: String { get set }
+    func updateRegion(_ newRegion: String)
+}
+
 struct RegionView<T: RegionInterface>: View {
     @StateObject private var viewModel: T
     @State private var isDropdownOpen = false

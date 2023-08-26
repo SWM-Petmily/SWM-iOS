@@ -557,6 +557,7 @@
 				753BA7722A860D3D0090EAE3 /* BaseViewModel.swift */,
 				756829AA2A87C34F00DB38F0 /* Color + Extension.swift */,
 				756829AE2A89244200DB38F0 /* CustomModalView.swift */,
+				75532AA72A8CB9D300DEC825 /* RegionView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -634,7 +635,6 @@
 				7546BDE32A52B60D0019A986 /* EditProfile.swift */,
 				75FB2FE42A597B5900E4DDE8 /* ExperienceRow.swift */,
 				75FB2FE72A5A557100E4DDE8 /* ModalView.swift */,
-				75532AA72A8CB9D300DEC825 /* RegionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
