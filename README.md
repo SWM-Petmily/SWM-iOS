@@ -7,8 +7,7 @@
 
 |** 홈 - 상세게시글 & 좋아요**|** 회원가입 **|** 프로필 수정 **|
 |-|-|-|
-|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/b40738a9-2e58-4943-9802-8a9c49790874" width="250"/>|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/4c75eb6e-f028-4089-933d-75298e3b15b7" width="250"/>|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/52bba269-771d-4817-a2e1-2be7be05b43a" width="250"/>|
-
+|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/b40738a9-2e58-4943-9802-8a9c49790874" width="250"/>|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/87852b7c-91e1-4de2-9203-68d938b8ae9b" width="250"/>|<img src="https://github.com/SWM-Petmily/SWM-iOS/assets/65723901/9a32240a-5748-4f29-b7cd-1225dabdfdf1" width="250"/>|
 
 # 사용 기술
 - **아키텍쳐** : Clean Architercutre
@@ -17,5 +16,3 @@
 - **의존성 주입** : Swinject
 - **비동기 처리** : Combine
 - **이미지 처리** : NSCache
-
-
