@@ -45,6 +45,9 @@ struct RegionView<T: RegionInterface>: View {
             if isDropdownOpen {
                 DropdownView(options: regionOptions) { option in
                     viewModel.updateRegion(option.value)
+                    withAnimation {
+                        isDropdownOpen.toggle()
+                    }
                 }
             }
         }

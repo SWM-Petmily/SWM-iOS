@@ -19,7 +19,7 @@ enum Neutered: String{
     case no = "NO"
 }
 
-final class RegisterViewModel: BaseViewModel {
+final class RegisterViewModel: BaseViewModel, RegionInterface {
     private var container: Container
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
