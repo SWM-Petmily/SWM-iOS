@@ -39,6 +39,15 @@ struct PetInfoView: View {
             viewModel.gender = info.petGender
             viewModel.neutered = info.petNeutered
         }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Image(systemName: "chevron.backward")
+                    .onTapGesture {
+                        viewModel.pop()
+                    }
+            }
+        }
         
         registerButton
     }

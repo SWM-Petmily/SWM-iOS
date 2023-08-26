@@ -42,6 +42,15 @@ struct PetCostView: View {
             }
             .padding()
         }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Image(systemName: "chevron.backward")
+                    .onTapGesture {
+                        viewModel.pop()
+                    }
+            }
+        }
         
         Button {
             viewModel.push(.petAdopter)
