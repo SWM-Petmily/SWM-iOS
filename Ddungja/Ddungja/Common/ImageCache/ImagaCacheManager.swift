@@ -21,13 +21,6 @@ final class ImageCacheManager {
     }
 }
 
-extension ImageCacheManager {
-    private static var imageCache = ImageCacheManager()
-    static func getImageCache() -> ImageCacheManager {
-        return imageCache
-    }
-}
-
 final class ImageLoader: ObservableObject {
     @Published var image: UIImage?
 
