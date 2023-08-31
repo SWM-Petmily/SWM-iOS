@@ -18,56 +18,59 @@ struct DetailApplyView: View {
     }
     
     var body: some View {
-        ZStack {
-            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                .isHidden(!viewModel.showAlert)
-            VStack {
-                ScrollView {
-                    VStack(spacing: 20) {
-                        userTitle
-                        
-                        basicInfoTitle
-                        basicInfoGrid
-                        
-                        willAndLinkTitle
-                        willTextField
-                        openChatLink
-                        
-                        Spacer()
-                    }
-                    .padding()
-                }
-                .navigationTitle("지원하기")
-                .navigationBarBackButtonHidden()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image(systemName: "chevron.backward")
-                            .onTapGesture {
-                                viewModel.pop()
-                            }
-                    }
-                }
-                .onAppear {
-                    viewModel.getDetailApply(id: id)
-                }
-                
-                CustomLazyVGrid(col: 2, spacing: 10) {
-                    Button {
-                        throttleButton(id: id, approval: "REJECTED")
-                    } label: {
-                        Text("거절")
-                            .makeRejectButton()
-                    }
+        VStack {
+            ScrollView {
+                VStack(spacing: 20) {
+                    userTitle
                     
-                    Button {
-                        throttleButton(id: id, approval: "APPROVED")
-                    } label: {
-                        Text("수락")
-                            .makeAcceptButton()
-                    }
+                    basicInfoTitle
+                    basicInfoGrid
+                    
+                    willAndLinkTitle
+                    willTextField
+                    openChatLink
+                    
+                    Spacer()
                 }
                 .padding()
             }
+            .navigationTitle("지원하기")
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: "chevron.backward")
+                        .onTapGesture {
+                            viewModel.pop()
+                        }
+                }
+            }
+            .onAppear {
+                viewModel.getDetailApply(id: id)
+            }
+            
+            CustomLazyVGrid(col: 2, spacing: 10) {
+                Button {
+                    throttleButton(id: id, approval: "REJECTED")
+                } label: {
+                    Text("거절")
+                        .makeRejectButton()
+                }
+                
+                Button {
+                    throttleButton(id: id, approval: "APPROVED")
+                } label: {
+                    Text("수락")
+                        .makeAcceptButton()
+                }
+            }
+            .padding()
+        }
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
         }
     }
 }
@@ -75,14 +78,9 @@ struct DetailApplyView: View {
 extension DetailApplyView {
     private var userTitle: some View {
         HStack(spacing: 14) {
-            
-            AsyncImage(url: URL(string: viewModel.detailApply.url)) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 50, height: 50)
-            .clipShape(Circle())
+            RemoteImage(url: viewModel.detailApply.url)
+                .frame(width: 50, height: 50)
+                .clipShape(Circle())
             
             
             VStack(alignment: .leading, spacing: 4) {

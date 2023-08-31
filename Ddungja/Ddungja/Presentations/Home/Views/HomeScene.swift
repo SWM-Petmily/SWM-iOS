@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-struct BackgroundImage: View {
-    let imageURL: String
-    
-    var body: some View {
-        AsyncImage(url: URL(string: imageURL)!) { image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
-        }
-    }
-}
 struct HomeScene: View {
     @StateObject private var viewModel: HomeViewModel
 
@@ -32,12 +21,12 @@ struct HomeScene: View {
                     ForEach(viewModel.info, id: \.id) { info in
                         VStack(alignment: .leading) {
                             ZStack {
-                                BackgroundImage(imageURL: info.thumbnailImage)
+                                RemoteImage(url: info.thumbnailImage)
                                     .scaledToFill()
                                     .frame(minWidth: 160, maxWidth: .infinity)
                                     .frame(height: 215)
                                     .cornerRadius(14)
-                            
+                                
                                 VStack {
                                     HStack(alignment: .center) {
                                         

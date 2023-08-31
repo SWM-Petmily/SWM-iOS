@@ -16,49 +16,47 @@ struct ApplyAdoptionView: View {
     }
     
     var body: some View {
-        ZStack {
-            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                .isHidden(!viewModel.showAlert)
-            VStack {
-                ApplyCommonView(viewModel: viewModel, postId: postId)
-                    .navigationBarBackButtonHidden()
-                    .toolbar {
-                        if !viewModel.showAlert {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                Image(systemName: "chevron.backward")
-                                    .onTapGesture {
-                                        viewModel.pop()
-                                    }
+        VStack {
+            ApplyCommonView(viewModel: viewModel, postId: postId)
+                .navigationBarBackButtonHidden()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Image(systemName: "chevron.backward")
+                            .onTapGesture {
+                                viewModel.pop()
                             }
-                            if viewModel.showEditButton {
-                                ToolbarItem(placement: .navigationBarTrailing) {
-                                    Text("수정하기")
-                                        .applyInner(color: .mainColor)
-                                        .onTapGesture {
-                                            viewModel.push(.editProfile(isRegister: true))
-                                        }
+                    }
+                    if viewModel.showEditButton {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Text("수정하기")
+                                .applyInner(color: .mainColor)
+                                .onTapGesture {
+                                    viewModel.push(.editProfile(isRegister: true))
                                 }
-                            }
                         }
                     }
-                
-                Button {
-                    viewModel.postApply(postId)
-                } label: {
-                    Text("입양 신청하기")
-                        .applyInner(color: .white)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 52)
-                        .background(Color.main)
-                        .cornerRadius(15)
+                    
                 }
-                .padding()
-            }
             
-            Color.black.opacity(0.75)
-                .edgesIgnoringSafeArea(.all)
-                .isHidden(!viewModel.isSucceedPost)
+            Button {
+                viewModel.postApply(postId)
+            } label: {
+                Text("입양 신청하기")
+                    .applyInner(color: .white)
+                    .bold()
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .background(Color.main)
+                    .cornerRadius(15)
+            }
+            .padding()
+        }
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
         }
         .sheet(isPresented: $viewModel.isSucceedPost) {
             CustomModalView(coordinator: viewModel.coordinator, title: "지원 요청완료", message: "성공적으로 지원을 완료하였습니다.")

@@ -28,9 +28,9 @@ struct VaccinationView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    PhotoPickerView2(viewModel: viewModel)
+                    PhotoPickerView(viewModel: viewModel)
                         .frame(width: 108, height: 108)
-                    ForEach(viewModel.vaccineInfoImages, id: \.self) { imageData in
+                    ForEach(viewModel.image, id: \.self) { imageData in
                         if let image = UIImage(data: imageData) {
                             Image(uiImage: image)
                                 .resizable()
@@ -44,6 +44,13 @@ struct VaccinationView: View {
             }
         }
         .padding()
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
+        }
         
         Spacer()
         
@@ -55,46 +62,16 @@ struct VaccinationView: View {
                 .frame(height: 52)
                 .frame(maxWidth: .infinity)
         }
+        
         .background(Color.main)
         .cornerRadius(14)
         .padding([.leading, .trailing, .bottom])
-    }
-}
-
-struct PhotoPickerView2: View {
-    @ObservedObject private var viewModel: PetCertificationViewModel
-    @State private var selectedItem: [PhotosPickerItem] = []
-    
-    init(viewModel: PetCertificationViewModel) {
-        self.viewModel = viewModel
-    }
-    
-    var body: some View {
-        PhotosPicker(selection: $selectedItem, maxSelectionCount: 5, selectionBehavior: .ordered, matching: .images, photoLibrary: .shared()) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .strokeBorder(Color.main, lineWidth: 1)
-                    .background(.white)
-                
-                VStack {
-                    Image(systemName: "photo")
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(Color.mainText)
-                    
-                    Text("사진등록하기")
-                        .bold()
-                        .applySubtitle(color: .mainTextColor)
-                }
-            }
-        }
-        .onChange(of: selectedItem) { selectedItems in
-            for (idx, item) in selectedItems.enumerated() {
-                Task {
-                    if let data = try? await item.loadTransferable(type: Data.self) {
-                        viewModel.vaccineInfoImages.insert(data, at: idx)
-                    }
-                }
-            }
-        }
+        .sheet(isPresented: $viewModel.isShowModal, content: {
+            CustomModalView(coordinator: viewModel.coordinator, title: "프로필 작성완료", message: "프로필 작성이 완료되었습니다.")
+                .presentationDetents([.height(200)])
+                .presentationBackgroundInteraction(.disabled)
+        })
+        .background(Color.sub)
+        .cornerRadius(10)
     }
 }

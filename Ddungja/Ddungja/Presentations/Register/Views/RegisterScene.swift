@@ -15,28 +15,23 @@ struct RegisterScene: View {
     }
     
     var body: some View {
-        ZStack {
-            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                .isHidden(!viewModel.showAlert)
-            
-            List {
-                ForEach(viewModel.registeredPetInfo, id: \.id) { info in
-                    PetInfoRowView(info: info)
-                        .onTapGesture {
-                            viewModel.push(.petInfo(info: info))
-                        }
-                }
-                .onDelete(perform: { indexSet in
-                    let index = indexSet[indexSet.startIndex]
-                    viewModel.deleteRegisteredInfo(index)
-                })
-                .listRowSeparator(.hidden)
+        List {
+            ForEach(viewModel.registeredPetInfo, id: \.id) { info in
+                PetInfoRowView(info: info)
+                    .onTapGesture {
+                        viewModel.push(.petInfo(info: info))
+                    }
             }
-            .listStyle(.plain)
-            .onAppear {
-                viewModel.userExitPost()
-                viewModel.getRegisteredPet()
-            }
+            .onDelete(perform: { indexSet in
+                let index = indexSet[indexSet.startIndex]
+                viewModel.deleteRegisteredInfo(index)
+            })
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+        .onAppear {
+            viewModel.userExitPost()
+            viewModel.getRegisteredPet()
         }
         .navigationBarBackButtonHidden()
         .navigationTitle("등록한 반려동물")
@@ -47,6 +42,11 @@ struct RegisterScene: View {
                         viewModel.pop()
                     }
             }
+        }
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(viewModel.errorDetailMessage)
         }
     }
 }

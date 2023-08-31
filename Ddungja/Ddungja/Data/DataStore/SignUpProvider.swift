@@ -11,9 +11,9 @@ import CombineMoya
 import Combine
 
 protocol SignUpDataSourceInterface {
-    func requestCertification(about phoneNumber: String) -> AnyPublisher<Response, MoyaError>
-    func checkCertification(_ certication: String) -> AnyPublisher<Response, MoyaError>
-    func registerUserInfo(_ nickname: String) -> AnyPublisher<Response, MoyaError>
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Void, CustomErrorVO>
+    func checkCertification(_ certication: String) -> AnyPublisher<Void, CustomErrorVO>
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Void, CustomErrorVO>
 }
 
 final class SignUpProvider: SignUpDataSourceInterface {
@@ -25,21 +25,21 @@ final class SignUpProvider: SignUpDataSourceInterface {
     }
     
     //휴대폰 인증번호 요청
-    func requestCertification(about phoneNumber: String) -> AnyPublisher<Response, MoyaError> {
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Void, CustomErrorVO> {
         let a = ReqeustCertificationDTO(phoneNumber: phoneNumber)
         return moyaProvider.requestPublisher(.requestCertificationNumber(phoneNumber: a))
-            .eraseToAnyPublisher()
+            .asResult()
     }
     
-    func checkCertification(_ certication: String) -> AnyPublisher<Response, MoyaError>  {
+    func checkCertification(_ certication: String) -> AnyPublisher<Void, CustomErrorVO> {
         let info = CertificationRequestVO(certificationNumber: certication)
         return moyaProvider.requestPublisher(.checkCertificationNumber(info: info))
-            .eraseToAnyPublisher()
+            .asResult()
     }
     
-    func registerUserInfo(_ nickname: String) -> AnyPublisher<Response, MoyaError> {
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Void, CustomErrorVO> {
         let info = RegisterVO(nickname: nickname)
         return moyaProvider.requestPublisher(.userInfo(user: info))
-            .eraseToAnyPublisher()
+            .asResult()
     }
 }

@@ -12,7 +12,7 @@ import Combine
 
 protocol UserProfileDataSourceInterface {
     func getMyPage() -> AnyPublisher<MyPageDTO, CustomErrorVO>
-    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO>
+    func getUserProfile(_ userId: String) -> AnyPublisher<ProfileDetailDTO, CustomErrorVO>
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
     func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
 }
@@ -29,8 +29,8 @@ final class UserProfileAPIProvider: UserProfileDataSourceInterface {
             .asResult()
     }
     
-    func getUserProfile() -> AnyPublisher<ProfileDetailDTO, CustomErrorVO> {
-        return moyaProvider.requestPublisher(.detail(userId: "1"))
+    func getUserProfile(_ userId: String) -> AnyPublisher<ProfileDetailDTO, CustomErrorVO> {
+        return moyaProvider.requestPublisher(.detail(userId: userId))
             .asResult()
     }
     

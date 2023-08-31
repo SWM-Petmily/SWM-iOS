@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Moya
 
 final class SignUpToVORepository: SignUpRepository {
     
@@ -16,21 +15,18 @@ final class SignUpToVORepository: SignUpRepository {
         self.dataSource = dataSource
     }
     
-    func requestCertification(about phoneNumber: String) -> AnyPublisher<Int, MoyaError> {
+    func requestCertification(about phoneNumber: String) -> AnyPublisher<Void, CustomErrorVO> {
         return dataSource.requestCertification(about: phoneNumber)
-            .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
     
-    func checkCertification(_ certication: String) -> AnyPublisher<Int, MoyaError> {
+    func checkCertification(_ certication: String) -> AnyPublisher<Void, CustomErrorVO> {
         return dataSource.checkCertification(certication)
-            .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
     
-    func registerUserInfo(_ nickname: String) -> AnyPublisher<Int, MoyaError> {
+    func registerUserInfo(_ nickname: String) -> AnyPublisher<Void, CustomErrorVO> {
         return dataSource.registerUserInfo(nickname)
-            .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
 }

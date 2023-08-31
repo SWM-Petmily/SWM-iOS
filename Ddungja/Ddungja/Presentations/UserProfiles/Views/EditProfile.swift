@@ -19,86 +19,89 @@ struct EditProfile: View {
     }
     
     var body: some View {
-        ZStack {
-            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                .isHidden(!viewModel.showAlert)
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Group {
-                            profileImageView
-                            
-                            personStatusTitle
-                            personStatusButton
-                            
-                            selectRegionTitle
-                            RegionView(viewModel: viewModel)
-                            
-                            experienceTitle
-                            experienceButton
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Group {
+                        profileImageView
+                        
+                        personStatusTitle
+                        personStatusButton
+                        
+                        selectRegionTitle
+                        RegionView(viewModel: viewModel)
+                        
+                        experienceTitle
+                        experienceButton
+                    }
+                    
+                    if(viewModel.experience == .yes) {
+                        LazyVStack {
+                            ForEach(viewModel.experienceArray, id: \.id) { experience in
+                                ExperienceRow(id: experience.id,
+                                              species: experience.species,
+                                              year: String(experience.period / 12),
+                                              month: String(experience.period % 12),
+                                              viewModel: viewModel)
+                            }
+                            .transition(AnyTransition.opacity.animation(.easeInOut))
                         }
                         
-                        if(viewModel.experience == .yes) {
-                            LazyVStack {
-                                ForEach(viewModel.experienceArray, id: \.id) { experience in
-                                    ExperienceRow(id: experience.id,
-                                                  species: experience.species,
-                                                  year: String(experience.period / 12),
-                                                  month: String(experience.period % 12),
-                                                  viewModel: viewModel)
-                                }
-                                .transition(AnyTransition.opacity.animation(.easeInOut))
+                        Button {
+                            withAnimation {
+                                viewModel.experienceArray.append((id: UUID().uuidString, species: "", period: 0))
                             }
-                            
-                            Button {
-                                withAnimation {
-                                    viewModel.experienceArray.append((id: UUID().uuidString, species: "", period: 0))
-                                }
-                            } label: {
-                                Text("추가")
-                                    .applyInner(color: .white)
-                                    .frame(height: 52)
-                                    .frame(maxWidth: .infinity)
-                            }
-                            .background(Color.main)
-                            .cornerRadius(14)
+                        } label: {
+                            Text("추가")
+                                .applyInner(color: .white)
+                                .frame(height: 52)
+                                .frame(maxWidth: .infinity)
                         }
+                        .background(Color.main)
+                        .cornerRadius(14)
+                    }
+                    
+                    Group {
+                        houseTitle
+                        houseButton
                         
-                        Group {
-                            houseTitle
-                            houseButton
-                            
-                            personTitle
-                            personButton
-                            
-                            willTitle
-                            willTextfield
-                            
-                            openKakaoLink
-                            openKakaoTextfield
-                        }
+                        personTitle
+                        personButton
+                        
+                        willTitle
+                        willTextfield
+                        
+                        openKakaoLink
+                        openKakaoTextfield
                     }
-                    .navigationTitle("프로필 작성")
-                    .navigationBarBackButtonHidden()
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Image(systemName: "chevron.backward")
-                                .onTapGesture {
-                                    viewModel.pop()
-                                }
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
                 }
-                registerButton
+                .navigationTitle("프로필 작성")
+                .navigationBarBackButtonHidden()
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Image(systemName: "chevron.backward")
+                            .onTapGesture {
+                                viewModel.pop()
+                            }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
             }
-            .onAppear {
-                viewModel.getProfile()
-            }
+            registerButton
+        }
+        .onAppear {
+            viewModel.getProfile()
         }
         .onTapGesture { endTextEditing() }
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
+        }
     }
 }
 

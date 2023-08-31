@@ -6,11 +6,10 @@
 //
 
 import Combine
-import Moya
 
 protocol HomeRepositoryInterface {
     func getMainPost(_ page: Int) -> AnyPublisher<HomeVO, CustomErrorVO>
-    func requestChangeDisLike(_ id: Int) -> AnyPublisher<Int, MoyaError> 
-    func requestChangeLike(_ id: Int) -> AnyPublisher<Int, MoyaError>
+    func requestChangeDisLike(_ id: Int) -> AnyPublisher<Void, CustomErrorVO>
+    func requestChangeLike(_ id: Int) -> AnyPublisher<Void, CustomErrorVO> 
     func getDetailPost(_ id: Int) -> AnyPublisher<DetailPostVO, CustomErrorVO>
 }

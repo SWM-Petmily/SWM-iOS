@@ -14,7 +14,9 @@ struct MyApplyPostsRowView: View {
     var body: some View {
         VStack {
             HStack(spacing: 20) {
-                ProfileImgView(imageUrl: myPost.thumbnailImage)
+                RemoteImage(url: myPost.thumbnailImage)
+                    .frame(width: 90, height: 90)
+                    .cornerRadius(6)
                     .padding(.leading)
                 
                 HStack {

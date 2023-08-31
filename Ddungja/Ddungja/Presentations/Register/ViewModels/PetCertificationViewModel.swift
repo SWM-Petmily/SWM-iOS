@@ -8,8 +8,9 @@
 import Foundation
 import Combine
 import SwiftUI
+import PhotosUI
 
-final class PetCertificationViewModel: BaseViewModel {
+final class PetCertificationViewModel: BaseViewModel, PhotoPickerInterface {
     private let petCertificationUsecase: PetCertificationUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -19,8 +20,8 @@ final class PetCertificationViewModel: BaseViewModel {
     
     @Published var name = ""
     @Published var registrationNumber = ""
-    @Published var healthInfoImages = Array(repeating: Data(), count: 5)
-    @Published var vaccineInfoImages = Array(repeating: Data(), count: 5)
+    @Published var selectedPhotoItem: [PhotosPickerItem] = []
+    @Published var image = Array(repeating: Data(), count: 5)
     @Published var isShowModal = false
     
     init(coordinator: CoordinatorProtocol, petCertificationUsecase: PetCertificationUsecaseInterface) {
@@ -73,37 +74,68 @@ final class PetCertificationViewModel: BaseViewModel {
     
     private func registerPetNumber(_ postId: Int) {
         petCertificationUsecase.registerPetNumber(postId, name, registrationNumber)
-            .sink { completion in
-                print("getAdditionalPageInfo \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
+                self.isShowModal = true
                 print("register number \(vo)")
             }
             .store(in: &cancellables)
     }
     
     func registerPetHealthInfo(_ postId: Int) {
-        petCertificationUsecase.registerPetHealthInfo(postId, healthInfoImages)
-            .sink { completion in
-                print("getAdditionalPageInfo \(completion)")
+        petCertificationUsecase.registerPetHealthInfo(postId, image)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
+                self.isShowModal = true
                 print("register number \(vo)")
             }
             .store(in: &cancellables)
     }
     
     func registerVaccineInfo(_ postId: Int) {
-        petCertificationUsecase.registerVaccineInfo(postId, vaccineInfoImages)
-            .sink { completion in
-                print("registerVaccineInfo \(completion)")
+        petCertificationUsecase.registerVaccineInfo(postId, image)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
+                self.isShowModal = true
                 print("registerVaccineInfo \(vo)")
             }
             .store(in: &cancellables)
     }
-    
+    func updateImage(_ data: Data, index: Int) {
+        image[index] = data
+    }
     func popToRoot() {
         coordinator.popToRoot()
     }

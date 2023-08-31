@@ -38,12 +38,11 @@ extension MyEditPostsDTO {
         
         var postInfoVO: [EditPostsInfoVO] = []
         for content in contents {
-            let imageURL = URL(string: content.thumbnailImage)!
             postInfoVO.append(
                 EditPostsInfoVO(
                     postId: content.postId,
                     name: content.name,
-                    thumbnailImage: imageURL,
+                    thumbnailImage: content.thumbnailImage,
                     subCategory: content.subCategory,
                     region: content.region,
                     gender: content.gender,

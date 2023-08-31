@@ -16,7 +16,7 @@ struct MyEditPostsVO {
 struct EditPostsInfoVO {
     let postId: Int
     let name: String
-    let thumbnailImage: URL
+    let thumbnailImage: String
     let subCategory: String
     let region: String
     let gender: String

@@ -18,87 +18,90 @@ struct PetRegistrationView: View {
     
     var body: some View {
         ScrollView {
-            ZStack {
-                CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                    .isHidden(!viewModel.showAlert)
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("반려동물 분양 등록번호 인증 TIP!")
-                        .bold()
-                        .applyTitle(color: .mainTextColor)
-                    
-                    Text("**반려동물 등록 시 보호자의 성명을 입력해주세요")
-                        .applySubhead(color: .mainTextColor)
-                    
-                    Text("** 동물 등록번호는 410으로 시작하는 15자리의 숫자입니다.")
-                        .applySubhead(color: .mainTextColor)
-                    
-                    Text("ex) 예시 이미지")
-                        .applySubtitle(color: .mainTextColor)
-                    
-                    ZStack(alignment: .topTrailing) {
-                        Image("RegisterCard")
-                        Image("bulldog")
-                            .padding(.top)
-                            .padding(.trailing, 60)
-                    }
-                    
-                    Text("성명")
-                        .applySubtitle(color: .mainTextColor)
-                        .bold()
-                    
-                    HStack(spacing: 20) {
-                        ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                            TextField("", text: $viewModel.name, axis: .horizontal)
-                                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.name.isEmpty, placeholder: "입력해주세요"))
-                                .font(.system(size: 16))
-                                .lineLimit(1)
-                                .frame(height: 30)
-                                .padding()
-                                .background(Color.mainBackground)
-                                .cornerRadius(10)
-                                .onTapGesture { endTextEditing() }
-                        }
-                    }
-                    
-                    Text("동물등록번호")
-                        .applySubtitle(color: .mainTextColor)
-                        .bold()
-                    
-                    HStack(spacing: 20) {
-                        ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                            TextField("", text: $viewModel.registrationNumber, axis: .horizontal)
-                                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.registrationNumber.isEmpty, placeholder: "입력해주세요"))
-                                .font(.system(size: 16))
-                                .lineLimit(1)
-                                .frame(height: 30)
-                                .padding()
-                                .background(Color.mainBackground)
-                                .keyboardType(.numberPad)
-                                .cornerRadius(10)
-                                .onTapGesture { endTextEditing() }
-                        }
-                        
-                        Button {
-                            viewModel.registerPetNumber(postId)
-                        } label: {
-                            Text("확인")
-                                .bold()
-                                .applyInner(color: .mainColor)
-                                .frame(height: 60)
-                                .padding([.leading, .trailing], 20)
-                        }
-                        .sheet(isPresented: $viewModel.isShowModal, content: {
-                            CustomModalView(coordinator: viewModel.coordinator, title: "프로필 작성완료", message: "프로필 작성이 완료되었습니다.")
-                                .presentationDetents([.height(200)])
-                                .presentationBackgroundInteraction(.disabled)
-                        })
-                        .background(Color.sub)
-                        .cornerRadius(10)
-                    }
-                    Spacer()
+            VStack(alignment: .leading, spacing: 20) {
+                Text("반려동물 분양 등록번호 인증 TIP!")
+                    .bold()
+                    .applyTitle(color: .mainTextColor)
+                
+                Text("**반려동물 등록 시 보호자의 성명을 입력해주세요")
+                    .applySubhead(color: .mainTextColor)
+                
+                Text("** 동물 등록번호는 410으로 시작하는 15자리의 숫자입니다.")
+                    .applySubhead(color: .mainTextColor)
+                
+                Text("ex) 예시 이미지")
+                    .applySubtitle(color: .mainTextColor)
+                
+                ZStack(alignment: .topTrailing) {
+                    Image("RegisterCard")
+                    Image("bulldog")
+                        .padding(.top)
+                        .padding(.trailing, 60)
                 }
-                .padding()
+                
+                Text("성명")
+                    .applySubtitle(color: .mainTextColor)
+                    .bold()
+                
+                HStack(spacing: 20) {
+                    ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
+                        TextField("", text: $viewModel.name, axis: .horizontal)
+                            .modifier(PlaceholderStyle(showPlaceHolder: viewModel.name.isEmpty, placeholder: "입력해주세요"))
+                            .font(.system(size: 16))
+                            .lineLimit(1)
+                            .frame(height: 30)
+                            .padding()
+                            .background(Color.mainBackground)
+                            .cornerRadius(10)
+                            .onTapGesture { endTextEditing() }
+                    }
+                }
+                
+                Text("동물등록번호")
+                    .applySubtitle(color: .mainTextColor)
+                    .bold()
+                
+                HStack(spacing: 20) {
+                    ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
+                        TextField("", text: $viewModel.registrationNumber, axis: .horizontal)
+                            .modifier(PlaceholderStyle(showPlaceHolder: viewModel.registrationNumber.isEmpty, placeholder: "입력해주세요"))
+                            .font(.system(size: 16))
+                            .lineLimit(1)
+                            .frame(height: 30)
+                            .padding()
+                            .background(Color.mainBackground)
+                            .keyboardType(.numberPad)
+                            .cornerRadius(10)
+                            .onTapGesture { endTextEditing() }
+                    }
+                    
+                    Button {
+                        viewModel.registerPetNumber(postId)
+                    } label: {
+                        Text("확인")
+                            .bold()
+                            .applyInner(color: .mainColor)
+                            .frame(height: 60)
+                            .padding([.leading, .trailing], 20)
+                    }
+                    .sheet(isPresented: $viewModel.isShowModal, content: {
+                        CustomModalView(coordinator: viewModel.coordinator, title: "프로필 작성완료", message: "프로필 작성이 완료되었습니다.")
+                            .presentationDetents([.height(200)])
+                            .presentationBackgroundInteraction(.disabled)
+                    })
+                    .background(Color.sub)
+                    .cornerRadius(10)
+                }
+                Spacer()
             }
+            .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+                Button("확인", role: .cancel) {
+                    viewModel.pop()
+                }
+            } message: {
+                Text(viewModel.errorDetailMessage)
+            }
+            .padding()
         }
     }
 }

@@ -7,21 +7,6 @@
 
 import SwiftUI
 
-struct ProfileImgView : View {
-
-    var imageUrl: URL
-
-    var body: some View {
-        AsyncImage(url: imageUrl) { image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
-        }
-        .frame(width: 90, height: 90)
-        .cornerRadius(6)
-    }
-}
-
 struct MyPostsRowVIew: View {
     var viewModel: MyPostsViewModel
     var myPost: EditPostsInfoVO
@@ -29,7 +14,9 @@ struct MyPostsRowVIew: View {
     var body: some View {
         VStack {
             HStack(spacing: 20) {
-                ProfileImgView(imageUrl: myPost.thumbnailImage)
+                RemoteImage(url: myPost.thumbnailImage)
+                    .frame(width: 90, height: 90)
+                    .cornerRadius(6)
                     .padding(.leading)
                 
                 HStack {

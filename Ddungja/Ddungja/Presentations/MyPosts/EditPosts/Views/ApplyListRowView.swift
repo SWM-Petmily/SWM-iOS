@@ -68,13 +68,10 @@ extension ApplyListRowView {
                 Circle()
                     .fill(.gray)
                     .frame(width: 68, height: 68)
-                AsyncImage(url: URL(string: vo.url)) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 50, height: 50)
-                .clipShape(Circle())
+
+                RemoteImage(url: vo.url)
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
             }
             
             VStack(alignment: .leading, spacing: 4) {

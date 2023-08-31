@@ -8,16 +8,20 @@
 import SwiftUI
 import PhotosUI
 
-struct PhotoPickerView: View {
-    @ObservedObject private var viewModel: RegisterViewModel
-    @State private var selectedItem: [PhotosPickerItem] = []
+protocol PhotoPickerInterface: ObservableObject {
+    var selectedPhotoItem: [PhotosPickerItem] { get set }
+    func updateImage(_ data: Data, index: Int)
+}
+
+struct PhotoPickerView<T: PhotoPickerInterface>: View {
+    @ObservedObject private var viewModel: T
     
-    init(viewModel: RegisterViewModel) {
+    init(viewModel: T) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        PhotosPicker(selection: $selectedItem, maxSelectionCount: 5, selectionBehavior: .ordered, matching: .images, photoLibrary: .shared()) {
+        PhotosPicker(selection: $viewModel.selectedPhotoItem, maxSelectionCount: 5, selectionBehavior: .ordered, matching: .images, photoLibrary: .shared()) {
             ZStack {
                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                     .strokeBorder(Color.main, lineWidth: 1)
@@ -34,11 +38,11 @@ struct PhotoPickerView: View {
                 }
             }
         }
-        .onChange(of: selectedItem) { selectedItems in
+        .onChange(of: viewModel.selectedPhotoItem) { selectedItems in
             for (idx, item) in selectedItems.enumerated() {
                 Task {
                     if let data = try? await item.loadTransferable(type: Data.self) {
-                        viewModel.images.insert(data, at: idx)
+                        viewModel.updateImage(data, index: idx)
                     }
                 }
             }

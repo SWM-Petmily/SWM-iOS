@@ -52,7 +52,7 @@ extension RegisterAPI: TargetType {
             // Append images to formDataArray
             for image in images {
                 if let imageData = image.jpegData(compressionQuality: 0.1) {
-                    let formData = MultipartFormData(provider: .data(imageData), name: "postImage", fileName: "image.jpg", mimeType: "image/jpeg")
+                    let formData = MultipartFormData(provider: .data(imageData), name: "postImage", fileName: "image.jpeg", mimeType: "image/jpeg")
                     formDataArray.append(formData)
                 }
             }

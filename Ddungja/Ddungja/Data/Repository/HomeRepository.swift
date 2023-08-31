@@ -21,15 +21,13 @@ final class HomeRepository: HomeRepositoryInterface {
             .eraseToAnyPublisher()
     }
     
-    func requestChangeDisLike(_ id: Int) -> AnyPublisher<Int, MoyaError>  {
+    func requestChangeDisLike(_ id: Int) -> AnyPublisher<Void, CustomErrorVO> {
         return datasource.requestChangeDislike(id)
-            .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
     
-    func requestChangeLike(_ id: Int) -> AnyPublisher<Int, MoyaError> {
+    func requestChangeLike(_ id: Int) -> AnyPublisher<Void, CustomErrorVO> {
         return datasource.requestChangeLike(id)
-            .map { $0.statusCode }
             .eraseToAnyPublisher()
     }
     

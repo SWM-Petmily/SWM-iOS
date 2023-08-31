@@ -38,14 +38,9 @@ struct ApplyCommonView: View {
 extension ApplyCommonView {
     private var userTitle: some View {
         HStack(spacing: 14) {
-            
-            AsyncImage(url: URL(string: viewModel.profile.profileImage)) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 50, height: 50)
-            .clipShape(Circle())
+            RemoteImage(url: viewModel.profile.profileImage)
+                .frame(width: 50, height: 50)
+                .clipShape(Circle())
             
             
             VStack(alignment: .leading, spacing: 4) {

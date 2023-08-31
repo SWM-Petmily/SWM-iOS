@@ -39,8 +39,16 @@ struct PetAdopterView: View {
                             .applySubtitle(color: .disabledTextColor)
                     }
                 }
-                
             }.padding()
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Image(systemName: "chevron.backward")
+                    .onTapGesture {
+                        viewModel.pop()
+                    }
+            }
         }
         
         Button {

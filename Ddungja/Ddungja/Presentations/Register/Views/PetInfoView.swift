@@ -39,6 +39,15 @@ struct PetInfoView: View {
             viewModel.gender = info.petGender
             viewModel.neutered = info.petNeutered
         }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Image(systemName: "chevron.backward")
+                    .onTapGesture {
+                        viewModel.pop()
+                    }
+            }
+        }
         
         registerButton
     }
@@ -112,18 +121,7 @@ extension PetInfoView {
                 .applySubtitle(color: .mainTextColor)
                 .bold()
             
-            TextField("", text: $viewModel.region)
-                .modifier(PlaceholderStyle(showPlaceHolder: viewModel.region.isEmpty, placeholder: "지역을 입력해주세요."))
-                .font(.system(size: 16))
-                .foregroundColor(Color.mainText)
-                .bold()
-                .frame(maxWidth: .infinity)
-                .lineLimit(1)
-                .frame(height: 30)
-                .padding()
-                .background(Color.mainBackground)
-                .cornerRadius(10)
-                .onTapGesture { endTextEditing() }
+            RegionView(viewModel: viewModel)
         }
     }
     

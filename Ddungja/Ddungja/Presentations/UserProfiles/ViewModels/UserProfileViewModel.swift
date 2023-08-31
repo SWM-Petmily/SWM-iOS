@@ -51,7 +51,7 @@ enum HouseStatus: String {
     case house = "단독주택"
 }
 
-final class UserProfileViewModel: BaseViewModel {
+final class UserProfileViewModel: BaseViewModel, RegionInterface {
     private let profileUsecase: ProfileUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
     
@@ -75,8 +75,16 @@ final class UserProfileViewModel: BaseViewModel {
     
     func getProfile() {
         profileUsecase.getUserProfile()
-            .sink { errpr in
-                print("Cheeck \(errpr)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] profileVo in
                 print("profileVoprofileVo \(profileVo)")
                 guard let self = self else { return }
@@ -95,12 +103,6 @@ final class UserProfileViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
-    private func makeExperienceArray() {
-        for v in experienceArray {
-            experienceArray.append((id: v.id,species: v.species, period: v.period))
-        }
-    }
-    
     func registerProfile(_ isRegistered: Bool) {
         let vo = ProfileEditVO(job: job.rawValue, environment: house.rawValue, people: person, comment: comment, openTalk: openTalk, region: region, isExperience: experience.description, profileImageId: image.rawValue, experiences: experienceArray)
         if isRegistered {
@@ -108,6 +110,10 @@ final class UserProfileViewModel: BaseViewModel {
         } else  {
             postEditProfile(vo)
         }
+    }
+    
+    func updateRegion(_ newRegion: String) {
+        region = newRegion
     }
     
     private func postEditProfile(_ profile: ProfileEditVO) {
@@ -151,6 +157,12 @@ final class UserProfileViewModel: BaseViewModel {
                 self.isShowModal = true
             }
             .store(in: &cancellables)
+    }
+    
+    private func makeExperienceArray() {
+        for v in experienceArray {
+            experienceArray.append((id: v.id,species: v.species, period: v.period))
+        }
     }
     
     private func changeToImageStatus(_ image: Int) -> ImageStatus {

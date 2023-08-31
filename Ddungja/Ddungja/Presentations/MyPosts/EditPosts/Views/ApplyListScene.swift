@@ -17,38 +17,40 @@ struct ApplyListScene: View {
     }
     
     var body: some View {
-        ZStack {
-            CustomAlert(presentAlert: $viewModel.showAlert, alertType: .error(title: viewModel.errorTitle, message: viewModel.errorDetailMessage, icon: viewModel.errorIcon, iconColor: viewModel.errorIconColor), coordinator: viewModel.coordinator)
-                .isHidden(!viewModel.showAlert)
-                
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.applyLists, id: \.applyId) { info in
-                        ApplyListRowView(viewModel: viewModel, vo: info)
-                            .onAppear {
-                                fetchMoreApplyListData(info, postId)
-                            }
-                            .onTapGesture {
-                                viewModel.push(.detailApply(id: info.applyId))
-                            }
-                    }
-                }
-            }
-            .navigationTitle("지원 받은 목록")
-            .navigationBarBackButtonHidden()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "chevron.backward")
+        ScrollView {
+            LazyVStack {
+                ForEach(viewModel.applyLists, id: \.applyId) { info in
+                    ApplyListRowView(viewModel: viewModel, vo: info)
+                        .onAppear {
+                            fetchMoreApplyListData(info, postId)
+                        }
                         .onTapGesture {
-                            viewModel.pop()
+                            viewModel.push(.detailApply(id: info.applyId))
                         }
                 }
             }
-            .onAppear {
-                viewModel.getApplyList(id: postId)
-            }
-            .padding()
         }
+        .navigationTitle("지원 받은 목록")
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Image(systemName: "chevron.backward")
+                    .onTapGesture {
+                        viewModel.pop()
+                    }
+            }
+        }
+        .onAppear {
+            viewModel.getApplyList(id: postId)
+        }
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {
+                viewModel.pop()
+            }
+        } message: {
+            Text(viewModel.errorDetailMessage)
+        }
+        .padding()
     }
 }
 

@@ -18,13 +18,10 @@ struct MyPageScene: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack(alignment: .center,spacing: 14) {
-                        AsyncImage(url: URL(string: viewModel.imageURL)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
+                        
+                        RemoteImage(url: viewModel.imageURL)
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
                         
                         Text(viewModel.nickName)
                             .font(.title)
@@ -191,11 +188,9 @@ struct MyPageScene: View {
                         .frame(height: 4)
                     
                     VStack(alignment: .leading, spacing: 15) {
-                        Text("고객센터")
-                            .applySubtitle(color: .mainTextColor)
                         HStack {
                             Image(systemName: "pencil")
-                            Text("고객센터")
+                            Text("이용약관")
                                 .applyInner(color: .mainTextColor)
                         }
                         
@@ -213,7 +208,7 @@ struct MyPageScene: View {
                         
                         HStack {
                             Image(systemName: "pencil")
-                            Text("개인전보 처리방침")
+                            Text("개인정보 처리방침")
                                 .applyInner(color: .mainTextColor)
                         }
                     }

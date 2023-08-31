@@ -30,6 +30,8 @@ struct DdungjaApp: App {
     
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+        
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color.main)
     }
     
     var body: some Scene {

@@ -105,8 +105,16 @@ final class MyPostsViewModel: BaseViewModel {
     
     func getApplyList(id: Int, _ page: Int = 1) {
         myPostsUsecase.getApplyList(id: id, page)
-            .sink { completion in
-                print("getApplyList \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                }
             } receiveValue: { [weak self] vo in
                 self?.applyLists += vo.content
                 self?.pageInfo = vo.pageable.pageNumber + 1
