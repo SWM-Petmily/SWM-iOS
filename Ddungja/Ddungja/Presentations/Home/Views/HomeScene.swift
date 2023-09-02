@@ -99,9 +99,6 @@ struct HomeScene: View {
                     Image("Title")
                         .resizable()
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "gearshape")
-                }
             }
             
             .onAppear {
