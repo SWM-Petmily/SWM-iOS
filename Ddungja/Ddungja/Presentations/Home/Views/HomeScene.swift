@@ -95,6 +95,10 @@ struct HomeScene: View {
                 .padding([.leading, .trailing])
             }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image("Title")
+                        .resizable()
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Image(systemName: "gearshape")
                 }
