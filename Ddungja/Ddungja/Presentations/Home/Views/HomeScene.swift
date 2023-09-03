@@ -92,7 +92,7 @@ struct HomeScene: View {
                         }
                     }
                 }
-                .padding([.leading, .trailing])
+                .padding([.leading, .trailing, .top])
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
