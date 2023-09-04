@@ -90,6 +90,9 @@ struct HomeScene: View {
                                     .background(RoundedRectangle(cornerRadius: 75).fill(Color.homeSubFilter))
                             }
                         }
+                        .onAppear {
+                            fetchMoreData(info)
+                        }
                     }
                 }
                 .padding([.leading, .trailing, .top])
@@ -104,6 +107,15 @@ struct HomeScene: View {
             .onAppear {
                 viewModel.getMainPost()
             }
+        }
+    }
+}
+
+extension HomeScene {
+    private func fetchMoreData(_ postInfo: PostsInfoVO){
+        if self.viewModel.info.last == postInfo {
+            viewModel
+                .fetchMoreActionSubject.send()
         }
     }
 }
