@@ -9,6 +9,11 @@ import SwiftUI
 
 struct MyPageScene: View {
     @StateObject private var viewModel: MyPageViewModel
+    @State private var isPrivacyShow = false
+    @State private var isTermShow = false
+    
+    private let privacySite = "https://infrequent-pufferfish-1f5.notion.site/b0dc22030a114742bc39fe0c3855f556"
+    private let termsSite = "https://infrequent-pufferfish-1f5.notion.site/5c4181dc55cd4a039a671c0b24734d83"
     
     init(viewModel: MyPageViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -193,6 +198,12 @@ struct MyPageScene: View {
                             Text("이용약관")
                                 .applyInner(color: .mainTextColor)
                         }
+                        .onTapGesture {
+                            isTermShow = true
+                        }
+                        .sheet(isPresented: $isTermShow) {
+                            WebView(url: termsSite)
+                        }
                         
                         HStack {
                             Image(systemName: "pencil")
@@ -210,6 +221,12 @@ struct MyPageScene: View {
                             Image(systemName: "pencil")
                             Text("개인정보 처리방침")
                                 .applyInner(color: .mainTextColor)
+                        }
+                        .onTapGesture {
+                            isPrivacyShow = true
+                        }
+                        .sheet(isPresented: $isPrivacyShow) {
+                            WebView(url: privacySite)
                         }
                     }
                 }
