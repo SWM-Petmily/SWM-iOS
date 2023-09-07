@@ -16,6 +16,7 @@ struct DdungjaApp: App {
     private let injector: Injector
     private let viewResolver: ViewResolver
     @ObservedObject private var coordinator: Coordinator
+    @State private var showLaunchView = true
     
     init() {
         injector = DependencyInjector(container: Container())
@@ -48,11 +49,20 @@ struct DdungjaApp: App {
 //                LoginView()
 //                    .navigationBarHidden(true)
 //            }
-            NavigationStack(path: $coordinator.path) {
-                coordinator.initScene()
-                    .navigationDestination(for: Page.self) { page in
-                        coordinator.make(page)
+            ZStack {
+                NavigationStack(path: $coordinator.path) {
+                    coordinator.initScene()
+                        .navigationDestination(for: Page.self) { page in
+                            coordinator.make(page)
+                        }
+                }
+                ZStack {
+                    if showLaunchView {
+                        LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .leading))
                     }
+                }
+                .zIndex(2)
             }
 //            viewResolver.resolveView(LoginView.self)
 //            DdungjaTabView(coordinator: Coordinator.instance, viewResolver: viewResolver)
