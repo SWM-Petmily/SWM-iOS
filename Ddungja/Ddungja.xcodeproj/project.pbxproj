@@ -178,6 +178,7 @@
 		759A65AF2A403BA900E6AD07 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 759A65AE2A403BA900E6AD07 /* KakaoSDKUser */; };
 		759A65B32A40574E00E6AD07 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A65B22A40574E00E6AD07 /* LoginViewModel.swift */; };
 		75BCC52C2AA9945A00CFF172 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BCC52B2AA9945A00CFF172 /* WebViewController.swift */; };
+		75BCC52E2AA9A52B00CFF172 /* BalooDa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */; };
 		75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */; };
 		75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */; };
 		75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */; };
@@ -384,6 +385,7 @@
 		759A65B02A403E3800E6AD07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		759A65B22A40574E00E6AD07 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		75BCC52B2AA9945A00CFF172 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooDa-Regular.ttf"; sourceTree = "<group>"; };
 		75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVO.swift; sourceTree = "<group>"; };
 		75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
@@ -984,6 +986,7 @@
 				7535115E2A41D9B6008B0101 /* Data */,
 				7546BDDA2A51A42F0019A986 /* Presentations */,
 				759A65812A4037E700E6AD07 /* Assets.xcassets */,
+				75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */,
 				759A65B02A403E3800E6AD07 /* Info.plist */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
 				754AB6DA2A6F9FE100F2EBC8 /* Config.xcconfig */,
@@ -1213,6 +1216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75BCC52E2AA9A52B00CFF172 /* BalooDa-Regular.ttf in Resources */,
 				75308A232A9F1722008254ED /* LaunchScreen.storyboard in Resources */,
 				759A65852A4037E700E6AD07 /* Preview Assets.xcassets in Resources */,
 				759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */,
