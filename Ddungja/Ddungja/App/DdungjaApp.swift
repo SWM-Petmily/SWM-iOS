@@ -37,18 +37,6 @@ struct DdungjaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            // onOpenURL()을 사용해 커스텀 URL 스킴 처리
-//            LoginView().onOpenURL(perform: { url in
-//                print("url is here: \(url)")
-//                if (AuthApi.isKakaoTalkLoginUrl(url)) {
-//                    AuthController.handleOpenUrl(url: url)
-//                }
-//            })
-//            NavigationStack {
-//                UserProfileView(viewModel: injector.resolve(UserProfileViewModel.self))
-//                LoginView()
-//                    .navigationBarHidden(true)
-//            }
             ZStack {
                 NavigationStack(path: $coordinator.path) {
                     coordinator.initScene()
@@ -64,14 +52,6 @@ struct DdungjaApp: App {
                 }
                 .zIndex(2)
             }
-//            viewResolver.resolveView(LoginView.self)
-//            DdungjaTabView(coordinator: Coordinator.instance, viewResolver: viewResolver)
-//            NavigationView {
-//                List {
-//                    NavigationLink("프로필", destination: UserProfileView(viewModel: injector.resolve(UserProfileViewModel.self)))
-//                        .toolbarRole(.editor)
-//                }
-//            }
         }
     }
 }
