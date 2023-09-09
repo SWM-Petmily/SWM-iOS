@@ -23,3 +23,9 @@ struct PostsInfoVO {
     var isLike: Bool
     let createdDate: String
 }
+
+extension PostsInfoVO: Equatable {
+    static func == (lhs: PostsInfoVO, rhs: PostsInfoVO) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

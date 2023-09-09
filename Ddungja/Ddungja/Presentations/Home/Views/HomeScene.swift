@@ -90,19 +90,32 @@ struct HomeScene: View {
                                     .background(RoundedRectangle(cornerRadius: 75).fill(Color.homeSubFilter))
                             }
                         }
+                        .onAppear {
+                            fetchMoreData(info)
+                        }
                     }
                 }
-                .padding([.leading, .trailing])
+                .padding([.leading, .trailing, .top])
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "gearshape")
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image("Title")
+                        .resizable()
                 }
             }
             
             .onAppear {
                 viewModel.getMainPost()
             }
+        }
+    }
+}
+
+extension HomeScene {
+    private func fetchMoreData(_ postInfo: PostsInfoVO){
+        if self.viewModel.info.last == postInfo {
+            viewModel
+                .fetchMoreActionSubject.send()
         }
     }
 }

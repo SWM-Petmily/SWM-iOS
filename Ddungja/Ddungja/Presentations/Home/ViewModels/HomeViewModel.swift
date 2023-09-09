@@ -11,8 +11,13 @@ import Combine
 final class HomeViewModel: BaseViewModel {
     private let homeUsecase: HomeUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
+    @State private var isLoading = false
     
     @Published var info = [PostsInfoVO]()
+    @Published var pageInfo = 0
+    @Published var totalPage = 0
+    
+    var fetchMoreActionSubject = PassthroughSubject<(), Never>()
     
     struct LikeButton {
         let imageName: String
@@ -23,6 +28,14 @@ final class HomeViewModel: BaseViewModel {
         self.homeUsecase = homeUsecase
         
         super.init(coordinator: coordinator)
+        
+        fetchMoreActionSubject.sink { [weak self] _ in
+            guard let self = self else { return }
+            if !self.isLoading {
+                self.fetchMoreHomePosts()
+            }
+        }
+        .store(in: &cancellables)
     }
     
     func changeMonthToAge(_ month: Int) -> String {
@@ -40,6 +53,7 @@ final class HomeViewModel: BaseViewModel {
             } receiveValue: { [weak self] vo in
                 print(vo)
                 self?.info = vo.postsInfo
+                self?.totalPage = vo.totalPages
             }
             .store(in: &cancellables)
     }
@@ -64,5 +78,18 @@ final class HomeViewModel: BaseViewModel {
         let imageName = state ? "heart.fill" : "heart"
         let color = state ? Color.main : Color.white
         return LikeButton(imageName: imageName, color: color)
+    }
+    
+    private func fetchMoreHomePosts() {
+        if(pageInfo == totalPage) { return }
+        let next = pageInfo + 1
+        homeUsecase.getMainPost(next)
+            .sink { [weak self] _ in
+                self?.isLoading = false
+            } receiveValue: { [weak self] vo in
+                self?.info += vo.postsInfo
+                self?.pageInfo = next
+            }
+            .store(in: &cancellables)
     }
 }

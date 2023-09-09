@@ -35,5 +35,9 @@
 	</dict>
 	<key>SERVER_URL</key>
 	<string>${SERVER_URL}</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BalooDa-Regular.ttf</string>
+	</array>
 </dict>
 </plist>
