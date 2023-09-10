@@ -17,7 +17,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>server${SERVER_URL}</string>
+				<string>${SERVER_URL}</string>
 			</array>
 		</dict>
 	</array>
