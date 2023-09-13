@@ -181,6 +181,7 @@
 		75BCC52C2AA9945A00CFF172 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BCC52B2AA9945A00CFF172 /* WebViewController.swift */; };
 		75BCC52E2AA9A52B00CFF172 /* BalooDa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */; };
 		75BCC5302AA9B45B00CFF172 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BCC52F2AA9B45B00CFF172 /* LaunchView.swift */; };
+		75E4FDFE2AB19A0B00F271DD /* MockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E4FDFD2AB19A0B00F271DD /* MockCoordinator.swift */; };
 		75FB2FC02A55B4A200E4DDE8 /* ProfileVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */; };
 		75FB2FC22A56444800E4DDE8 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */; };
 		75FB2FC52A56450400E4DDE8 /* ProfileUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */; };
@@ -390,6 +391,7 @@
 		75BCC52B2AA9945A00CFF172 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooDa-Regular.ttf"; sourceTree = "<group>"; };
 		75BCC52F2AA9B45B00CFF172 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		75E4FDFD2AB19A0B00F271DD /* MockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinator.swift; sourceTree = "<group>"; };
 		75FB2FBF2A55B4A200E4DDE8 /* ProfileVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVO.swift; sourceTree = "<group>"; };
 		75FB2FC12A56444800E4DDE8 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		75FB2FC42A56450400E4DDE8 /* ProfileUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUsecase.swift; sourceTree = "<group>"; };
@@ -1012,6 +1014,7 @@
 			children = (
 				759A658E2A4037E700E6AD07 /* DdungjaTests.swift */,
 				757E038A2AB09B3F00744570 /* MockProfileUsecaseInterface.swift */,
+				75E4FDFD2AB19A0B00F271DD /* MockCoordinator.swift */,
 			);
 			path = DdungjaTests;
 			sourceTree = "<group>";
@@ -1433,6 +1436,7 @@
 			files = (
 				759A658F2A4037E700E6AD07 /* DdungjaTests.swift in Sources */,
 				757E038B2AB09B4000744570 /* MockProfileUsecaseInterface.swift in Sources */,
+				75E4FDFE2AB19A0B00F271DD /* MockCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
