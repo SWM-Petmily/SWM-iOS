@@ -59,4 +59,38 @@ class UserProfileViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.errorTitle, "Error") // 예상된 에러 타이틀
         XCTAssertEqual(viewModel.errorDetailMessage, "Failed to retrieve user profile")
     }
+    
+    // isRegistered가 true일 경우
+    // putEditProfile 메소드가 호출되어야한다.
+    func test_isRegistered_is_True_putEditProfile_is_Called() {
+        //Give
+        let isResgistered = true
+        profileUsecaseMock.putEditUserProfileReturnValue = .success(200)
+
+        //When
+        viewModel.registerProfile(isResgistered)
+        let putEditProfileCalled = profileUsecaseMock.putEditProfileCalled
+        let postEditProfileCalled = profileUsecaseMock.postEditProfileCalled
+        
+        //Then
+        XCTAssertTrue(putEditProfileCalled)
+        XCTAssertFalse(postEditProfileCalled)
+    }
+    
+    // isRegistered가 false일 경우
+    // postEditProfile 메소드가 호출되어야한다.
+    func test_isRegistered_is_False_postEditProfile_is_Called() {
+        //Give
+        let isResgistered = false
+        profileUsecaseMock.postEditProfileReturnValue = .success(200)
+        
+        //When
+        viewModel.registerProfile(isResgistered)
+        let putEditProfileCalled = profileUsecaseMock.putEditProfileCalled
+        let postEditProfileCalled = profileUsecaseMock.postEditProfileCalled
+       
+        //Then
+        XCTAssertTrue(postEditProfileCalled)
+        XCTAssertFalse(putEditProfileCalled)
+    }
 }

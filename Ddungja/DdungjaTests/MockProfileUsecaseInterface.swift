@@ -13,7 +13,9 @@ final class MockProfileUsecaseInterface: ProfileUsecaseInterface {
     var getUserProfileReturnValue: Result<ProfileVO, CustomErrorVO>?
     var putEditUserProfileReturnValue: Result<Int, CustomErrorVO>?
     var postEditProfileReturnValue: Result<Int, CustomErrorVO>?
-
+    var putEditProfileCalled = false
+    var postEditProfileCalled = false
+    
     func getMyPage() -> AnyPublisher<MyPageVO, CustomErrorVO> {
         if let returnValue = getMyPageReturnValue {
             return Result.Publisher(returnValue)
@@ -33,6 +35,7 @@ final class MockProfileUsecaseInterface: ProfileUsecaseInterface {
     }
 
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
+        putEditProfileCalled.toggle()
         if let returnValue = putEditUserProfileReturnValue {
             return Result.Publisher(returnValue)
                 .eraseToAnyPublisher()
@@ -42,6 +45,7 @@ final class MockProfileUsecaseInterface: ProfileUsecaseInterface {
     }
 
     func postEditProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
+        postEditProfileCalled.toggle()
         if let returnValue = postEditProfileReturnValue {
             return Result.Publisher(returnValue)
                 .eraseToAnyPublisher()
