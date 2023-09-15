@@ -40,4 +40,4 @@ jobs:
         env: 
           FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
         run: |
-          xcodebuild clean test -project Ddungja/Ddungja.xcodeproj -scheme Ddungja -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
+          xcodebuild clean test -project Ddungja/Ddungja.xcodeproj -scheme Ddungja CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
