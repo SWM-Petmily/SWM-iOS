@@ -34,7 +34,7 @@ final class MyApplyPostsViewModel: BaseViewModel {
             .sink{ [weak self] id in
                 guard let self = self else { return }
 
-                if(!isRequest) {
+                if(!self.isRequest) {
                     self.isRequest = true
                     self.deletInfo(id: id)
                 }

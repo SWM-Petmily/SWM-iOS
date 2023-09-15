@@ -93,7 +93,7 @@ final class DetailPostViewModel: BaseViewModel {
                 
             } receiveValue: { [weak self] vo in
                 guard let self = self else { return }
-                self.like = !like
+                self.like = !self.like
             }
             .store(in: &cancellables)
     }
