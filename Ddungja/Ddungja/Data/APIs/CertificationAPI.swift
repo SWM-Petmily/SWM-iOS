@@ -25,7 +25,7 @@ extension CertificationAPI: TargetType {
         switch self {
         case let .getAdditionalPage(postId):
             return "posts/certify/\(postId)"
-        case let .registerUsersPetNumber:
+        case .registerUsersPetNumber:
             return "users/register"
         case let .registerPetNumber(postId, _):
             return "posts/certifyRegistration/\(postId)"

@@ -58,11 +58,6 @@ extension AnyPublisher<Response, MoyaError> {
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     throw MoyaError.statusCode(response)
                 }
-                do {
-                    return 
-                } catch {
-                    throw MoyaError.objectMapping(error, response)
-                }
             }
             .catch { error -> AnyPublisher<Void, CustomErrorVO> in
                 let cutom = CustomErrorVO(code: -1, status: "", message: "", title: "오류가 발생했습니다", detailMessage: "다시 접속해주세요", icon: "", iconColor: "")

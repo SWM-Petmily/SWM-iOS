@@ -45,7 +45,7 @@ extension MyApplyPostsDTO {
                     applyId: content.applyId,
                     postId: content.postId,
                     name: content.name,
-                    thumbnailImage: content.thumbnailImage ?? "",
+                    thumbnailImage: content.thumbnailImage,
                     subCategory: content.subCategory,
                     region: content.region,
                     gender: content.gender,
