@@ -37,7 +37,7 @@ final class MyPostsViewModel: BaseViewModel {
             .sink{ [weak self] (id, approve) in
                 guard let self = self else { return }
 
-                if(!isRequest) {
+                if(!self.isRequest) {
                     self.isRequest = true
                     self.tapAcceptOrReject(id: id, approval: approve)
                 }
