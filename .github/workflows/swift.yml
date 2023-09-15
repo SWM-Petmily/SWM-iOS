@@ -37,5 +37,7 @@ jobs:
           
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
+        env: 
+          FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
         run: |
           xcodebuild clean test -project Ddungja/Ddungja.xcodeproj -scheme Ddungja -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
