@@ -32,10 +32,10 @@ jobs:
       - name: Use xcconfig file
         env:
           XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }}
-        run:
+        run: |
           echo "$XC_CONFIG_FILE" > Config.xcconfig
           
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
         run: | 
-          xcodebuild build -project Ddungja/Ddungja.xcodeproj -scheme Ddungja -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
+          xcodebuild clean test -project Ddungja/Ddungja.xcodeproj -scheme Ddungja -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
