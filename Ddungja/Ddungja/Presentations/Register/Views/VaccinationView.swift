@@ -69,7 +69,6 @@ struct VaccinationView: View {
         .sheet(isPresented: $viewModel.isShowModal, content: {
             CustomModalView(coordinator: viewModel.coordinator, title: "프로필 작성완료", message: "프로필 작성이 완료되었습니다.")
                 .presentationDetents([.height(200)])
-                .presentationBackgroundInteraction(.disabled)
         })
         .background(Color.sub)
         .cornerRadius(10)

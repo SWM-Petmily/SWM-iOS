@@ -61,7 +61,6 @@ struct ApplyAdoptionView: View {
         .sheet(isPresented: $viewModel.isSucceedPost) {
             CustomModalView(coordinator: viewModel.coordinator, title: "지원 요청완료", message: "성공적으로 지원을 완료하였습니다.")
                 .presentationDetents([.height(200)])
-                .presentationBackgroundInteraction(.disabled)
         }
     }
 }
