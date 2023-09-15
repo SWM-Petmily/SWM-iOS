@@ -32,14 +32,14 @@ final class DetailPostViewModel: BaseViewModel {
         
         buttonActionSubject.sink { [weak self] (isWriter, isApply, state) in
             guard let self = self else { return }
-            self.buttonText = changeButtonText(isWriter, isApply, state)
-            self.buttonDisabled = changeButtonAbled(isWriter, isApply, state)
+            self.buttonText = self.changeButtonText(isWriter, isApply, state)
+            self.buttonDisabled = self.changeButtonAbled(isWriter, isApply, state)
         }
         .store(in: &cancellables)
         
         likeActionSubject.sink { [weak self] _ in
             guard let self = self else { return }
-            likeCount = like ? likeCount - 1 : likeCount + 1
+            self.likeCount = self.like ? self.likeCount - 1 : self.likeCount + 1
         }
         .store(in: &cancellables)
     }
