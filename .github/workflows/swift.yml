@@ -19,6 +19,18 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+  sonarscan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: SonarSource/sonarqube-scan-action@v1.1.0
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  
+        
   build:
     # The type of runner that the job will run on
     runs-on: macos-latest
@@ -34,7 +46,7 @@ jobs:
           XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }}
         run: |
           echo "$XC_CONFIG_FILE" > Ddungja/Ddungja/Config.xcconfig
-          
+
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
         run: | 
