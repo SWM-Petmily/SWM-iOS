@@ -24,6 +24,7 @@
 		751F097C2AB817CD00EA3FD0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 751F097B2AB817CD00EA3FD0 /* FirebaseAnalytics */; };
 		751F097E2AB817CD00EA3FD0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 751F097D2AB817CD00EA3FD0 /* FirebaseAnalyticsSwift */; };
 		751F09802AB817CD00EA3FD0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 751F097F2AB817CD00EA3FD0 /* FirebaseCrashlytics */; };
+		751F09882AB986B300EA3FD0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 751F09872AB986B300EA3FD0 /* FirebaseAnalytics */; };
 		75308A232A9F1722008254ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75308A222A9F1722008254ED /* LaunchScreen.storyboard */; };
 		7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115A2A41D7E8008B0101 /* CombineMoya */; };
 		7535115D2A41D7E8008B0101 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115C2A41D7E8008B0101 /* Moya */; };
@@ -435,6 +436,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751F09882AB986B300EA3FD0 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +466,13 @@
 				754AB6C42A6BE6A800F2EBC8 /* ViewModels */,
 			);
 			path = ApplyPosts;
+			sourceTree = "<group>";
+		};
+		751F09842AB9622C00EA3FD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7535115E2A41D9B6008B0101 /* Data */ = {
@@ -978,6 +987,7 @@
 				759A658D2A4037E700E6AD07 /* DdungjaTests */,
 				759A65972A4037E700E6AD07 /* DdungjaUITests */,
 				759A657B2A4037E500E6AD07 /* Products */,
+				751F09842AB9622C00EA3FD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1163,6 +1173,9 @@
 				759A658C2A4037E700E6AD07 /* PBXTargetDependency */,
 			);
 			name = DdungjaTests;
+			packageProductDependencies = (
+				751F09872AB986B300EA3FD0 /* FirebaseAnalytics */,
+			);
 			productName = DdungjaTests;
 			productReference = 759A658A2A4037E700E6AD07 /* DdungjaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1702,6 +1715,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V823Y836DV;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.soma.DdungjaTests;
@@ -1722,6 +1736,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V823Y836DV;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.soma.DdungjaTests;
@@ -1864,6 +1879,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 751F097A2AB817CC00EA3FD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		751F09872AB986B300EA3FD0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 751F097A2AB817CC00EA3FD0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		7535115A2A41D7E8008B0101 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
