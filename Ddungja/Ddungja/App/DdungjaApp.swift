@@ -9,7 +9,6 @@ import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
 import Swinject
-import Firebase
 
 @main
 struct DdungjaApp: App {
@@ -34,7 +33,6 @@ struct DdungjaApp: App {
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color.main)
-        FirebaseApp.configure()
     }
     
     var body: some Scene {
