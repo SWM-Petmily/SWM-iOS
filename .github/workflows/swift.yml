@@ -31,11 +31,9 @@ jobs:
           xcode-version: latest-stable
       - name: Use xcconfig file
         env: 
-          XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }},
-          Analytics: ${{ secrets.Analytics }}
+          XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }}
         run: |
-          echo "$XC_CONFIG_FILE" > Ddungja/Ddungja/Config.xcconfig,
-          echo "$Analytics" > Ddungja/Ddungja/GoogleService-Info.plist
+          echo "$XC_CONFIG_FILE" > Ddungja/Ddungja/Config.xcconfig
 
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
