@@ -30,7 +30,7 @@ jobs:
         with:
           xcode-version: latest-stable
       - name: Use xcconfig file
-        env:
+        env: 
           XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }}
         run: |
           echo "$XC_CONFIG_FILE" > Ddungja/Ddungja/Config.xcconfig
