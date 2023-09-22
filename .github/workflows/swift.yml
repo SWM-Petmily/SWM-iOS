@@ -34,12 +34,6 @@ jobs:
           XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }}
         run: |
           echo "$XC_CONFIG_FILE" > Ddungja/Ddungja/Config.xcconfig
-      
-      - name: Use GoogleService-Info
-        env:
-          ANALYTICS: ${{ secrets.ANALYTICS }} 
-        run: |
-          echo "$ANALYTICS" > Ddungja/Ddungja/GoogleService-Info.plist
 
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
