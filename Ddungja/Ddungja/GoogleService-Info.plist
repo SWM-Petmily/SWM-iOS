@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>${API_KEY}</string>
+	<string>AIzaSyAtOaPXT9wMuDQvZPqj5G1LwpkD-BgZ7VI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>${GCM_SENDER_ID}</string>
+	<string>216144681942</string>
 	<key>PLIST_VERSION</key>
-	<string>${PLIST_VERSION}</string>
+	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>${BUNDLE_ID}</string>
+	<string>org.soma.Ddungja</string>
 	<key>PROJECT_ID</key>
-	<string>${PROJECT_ID}</string>
+	<string>petmily-19ffc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>${STORAGE_BUCKET}</string>
+	<string>petmily-19ffc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>${GOOGLE_APP_ID}</string>
+	<string>1:216144681942:ios:90b9802736fa13bfd4e277</string>
 </dict>
 </plist>
