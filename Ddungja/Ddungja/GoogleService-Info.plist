@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAtOaPXT9wMuDQvZPqj5G1LwpkD-BgZ7VI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>216144681942</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.soma.Ddungja</string>
+	<key>PROJECT_ID</key>
+	<string>petmily-19ffc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>petmily-19ffc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:216144681942:ios:90b9802736fa13bfd4e277</string>
+</dict>
+</plist>
