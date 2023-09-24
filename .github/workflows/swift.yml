@@ -34,7 +34,7 @@ jobs:
           XC_CONFIG_FILE: ${{ secrets.XC_CONFIG_FILE }}
         run: |
           echo "$XC_CONFIG_FILE" > Ddungja/Ddungja/Config.xcconfig
-
+          
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
         run: | 
