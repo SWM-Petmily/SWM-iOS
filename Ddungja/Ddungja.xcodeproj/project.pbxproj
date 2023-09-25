@@ -170,6 +170,7 @@
 		759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759228FF2A62E63B00603FF4 /* MyPostsAPI.swift */; };
 		759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */; };
 		759229042A63BBBD00603FF4 /* MyEditPostsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */; };
+		75956ECB2AC17500004C2ED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */; };
 		759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657D2A4037E500E6AD07 /* DdungjaApp.swift */; };
 		759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657F2A4037E500E6AD07 /* LoginScene.swift */; };
 		759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759A65812A4037E700E6AD07 /* Assets.xcassets */; };
@@ -382,6 +383,7 @@
 		759228FF2A62E63B00603FF4 /* MyPostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsAPI.swift; sourceTree = "<group>"; };
 		759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEditPostsDTO.swift; sourceTree = "<group>"; };
 		759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEditPostsVO.swift; sourceTree = "<group>"; };
+		75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		759A657A2A4037E500E6AD07 /* Ddungja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ddungja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759A657D2A4037E500E6AD07 /* DdungjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaApp.swift; sourceTree = "<group>"; };
 		759A657F2A4037E500E6AD07 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
@@ -983,6 +985,14 @@
 			path = MyPosts;
 			sourceTree = "<group>";
 		};
+		75956EC92AC17500004C2ED2 /* GoogleServiceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */,
+			);
+			path = GoogleServiceInfo;
+			sourceTree = "<group>";
+		};
 		759A65712A4037E500E6AD07 = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1027,7 @@
 				75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */,
 				759ADF552ABEB30F0065F10B /* GoogleService-Info.plist */,
 				759A65B02A403E3800E6AD07 /* Info.plist */,
+				75956EC92AC17500004C2ED2 /* GoogleServiceInfo */,
 				759A65832A4037E700E6AD07 /* Preview Content */,
 				754AB6DA2A6F9FE100F2EBC8 /* Config.xcconfig */,
 			);
@@ -1265,7 +1276,7 @@
 			files = (
 				75BCC52E2AA9A52B00CFF172 /* BalooDa-Regular.ttf in Resources */,
 				75308A232A9F1722008254ED /* LaunchScreen.storyboard in Resources */,
-				759ADF562ABEB30F0065F10B /* GoogleService-Info.plist in Resources */,
+				75956ECB2AC17500004C2ED2 /* GoogleService-Info.plist in Resources */,
 				759A65852A4037E700E6AD07 /* Preview Assets.xcassets in Resources */,
 				759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */,
 			);
