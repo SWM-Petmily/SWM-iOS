@@ -1,0 +1,3 @@
+[submodule "Ddungja/Ddungja/GoogleServiceInfo"]
+	path = Ddungja/Ddungja/GoogleServiceInfo
+	url = https://github.com/ohsg0226/GoogleServiceInfo.git
