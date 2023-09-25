@@ -28,6 +28,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
+          submodules: true
           xcode-version: latest-stable
       - name: Use xcconfig file
         env: 
@@ -37,6 +38,5 @@ jobs:
           
       # Runs a single command using the runners shell
       - name: Start Xcode Project!!
-        submodules: true
         run: | 
           xcodebuild clean test -project Ddungja/Ddungja.xcodeproj -scheme Ddungja -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
