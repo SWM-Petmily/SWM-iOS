@@ -28,7 +28,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          submodules: true
+          submodules: recursive
+          token: ${{ secrets.SECRET_KEY }}
           xcode-version: latest-stable
       - name: Use xcconfig file
         env: 
