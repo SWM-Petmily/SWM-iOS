@@ -102,5 +102,6 @@ struct PetRegistrationView: View {
             }
             .padding()
         }
+        .analyticsScreen(name: "PetRegistrationView")
     }
 }

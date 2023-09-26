@@ -43,6 +43,7 @@ struct VaccinationView: View {
                 }
             }
         }
+        .analyticsScreen(name: "VaccinationView")
         .padding()
         .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
             Button("확인", role: .cancel) {

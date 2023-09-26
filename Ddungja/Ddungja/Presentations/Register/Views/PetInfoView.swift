@@ -39,6 +39,7 @@ struct PetInfoView: View {
             viewModel.gender = info.petGender
             viewModel.neutered = info.petNeutered
         }
+        .analyticsScreen(name: "PetInfoView")
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

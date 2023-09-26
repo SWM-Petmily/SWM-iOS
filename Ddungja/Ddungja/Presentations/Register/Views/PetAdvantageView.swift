@@ -41,6 +41,7 @@ struct PetAdvantageView: View {
                 }
             }.padding()
         }
+        .analyticsScreen(name: "PetAdvantageView")
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
