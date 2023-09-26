@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FirebaseAnalyticsSwift
 
 struct HomeScene: View {
     @StateObject private var viewModel: HomeViewModel

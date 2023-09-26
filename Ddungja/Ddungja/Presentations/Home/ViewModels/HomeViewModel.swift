@@ -59,7 +59,6 @@ final class HomeViewModel: BaseViewModel {
     }
     
     func tappedLike(_ postId: Int, _ currentCheck: Bool) {
-        GoogleAnalyticsUtil.shared.logScreenEvent("TappedLike", parameters: ["postId": postId])
         homeUsecase.tappedLike(postId, currentCheck)
             .sink { error in
                 
@@ -82,7 +81,6 @@ final class HomeViewModel: BaseViewModel {
     }
     
     private func fetchMoreHomePosts() {
-        GoogleAnalyticsUtil.shared.logScreenEvent("fetchMoreHomePosts", parameters: ["Request_Page": pageInfo + 1])
         if(pageInfo == totalPage) { return }
         let next = pageInfo + 1
         homeUsecase.getMainPost(next)
