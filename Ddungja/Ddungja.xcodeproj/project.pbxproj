@@ -171,6 +171,7 @@
 		759229022A63AFD700603FF4 /* MyEditPostsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */; };
 		759229042A63BBBD00603FF4 /* MyEditPostsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */; };
 		75956ECB2AC17500004C2ED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */; };
+		75956ECF2AC4075C004C2ED2 /* CertificationCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75956ECE2AC4075C004C2ED2 /* CertificationCommonView.swift */; };
 		759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657D2A4037E500E6AD07 /* DdungjaApp.swift */; };
 		759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657F2A4037E500E6AD07 /* LoginScene.swift */; };
 		759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759A65812A4037E700E6AD07 /* Assets.xcassets */; };
@@ -183,7 +184,6 @@
 		759A65AD2A403BA900E6AD07 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 759A65AC2A403BA900E6AD07 /* KakaoSDKCommon */; };
 		759A65AF2A403BA900E6AD07 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 759A65AE2A403BA900E6AD07 /* KakaoSDKUser */; };
 		759A65B32A40574E00E6AD07 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A65B22A40574E00E6AD07 /* LoginViewModel.swift */; };
-		759ADF562ABEB30F0065F10B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 759ADF552ABEB30F0065F10B /* GoogleService-Info.plist */; };
 		75BCC52C2AA9945A00CFF172 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BCC52B2AA9945A00CFF172 /* WebViewController.swift */; };
 		75BCC52E2AA9A52B00CFF172 /* BalooDa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75BCC52D2AA9A52B00CFF172 /* BalooDa-Regular.ttf */; };
 		75BCC5302AA9B45B00CFF172 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BCC52F2AA9B45B00CFF172 /* LaunchView.swift */; };
@@ -384,6 +384,7 @@
 		759229012A63AFD700603FF4 /* MyEditPostsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEditPostsDTO.swift; sourceTree = "<group>"; };
 		759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEditPostsVO.swift; sourceTree = "<group>"; };
 		75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75956ECE2AC4075C004C2ED2 /* CertificationCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationCommonView.swift; sourceTree = "<group>"; };
 		759A657A2A4037E500E6AD07 /* Ddungja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ddungja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759A657D2A4037E500E6AD07 /* DdungjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaApp.swift; sourceTree = "<group>"; };
 		759A657F2A4037E500E6AD07 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
@@ -549,6 +550,7 @@
 				753BA7442A8278140090EAE3 /* PetRegistrationView.swift */,
 				753BA7462A8278240090EAE3 /* VaccinationView.swift */,
 				753BA7482A82782F0090EAE3 /* HealthScreeningView.swift */,
+				75956ECE2AC4075C004C2ED2 /* CertificationCommonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1424,6 +1426,7 @@
 				753BA7332A7F71180090EAE3 /* PhotoPickerView.swift in Sources */,
 				7546BDB72A4C24D40019A986 /* ProfileRegisterDTO.swift in Sources */,
 				753BA76F2A851D770090EAE3 /* NetworkConfiguration.swift in Sources */,
+				75956ECF2AC4075C004C2ED2 /* CertificationCommonView.swift in Sources */,
 				754AB6EE2A73977100F2EBC8 /* SignUpScene.swift in Sources */,
 				7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
