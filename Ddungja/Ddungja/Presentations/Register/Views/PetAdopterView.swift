@@ -41,6 +41,7 @@ struct PetAdopterView: View {
                 }
             }.padding()
         }
+        .analyticsScreen(name: "PetAdopterView")
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

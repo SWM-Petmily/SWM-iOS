@@ -33,6 +33,7 @@ struct RegisterScene: View {
             viewModel.userExitPost()
             viewModel.getRegisteredPet()
         }
+        .analyticsScreen(name: "RegisterScene")
         .navigationBarBackButtonHidden()
         .navigationTitle("등록한 반려동물")
         .toolbar {

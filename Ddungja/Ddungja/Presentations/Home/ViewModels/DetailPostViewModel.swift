@@ -88,6 +88,7 @@ final class DetailPostViewModel: BaseViewModel {
     }
     
     func tappedLike(_ postId: Int) {
+        GoogleAnalyticsUtil.shared.logScreenEvent("TappedLike", parameters: ["postId": postId])
         homeUsecase.tappedLike(postId, like)
             .sink { error in
                 
@@ -151,6 +152,7 @@ final class DetailPostViewModel: BaseViewModel {
 
     func push(_ id: Int) {
         if buttonText == "입양 신청하기" {
+            GoogleAnalyticsUtil.shared.logScreenEvent("ApplyAdoption_push", parameters: ["postId": id])
             coordinator.push(.applyAdaption(postId: id))
         }
     }

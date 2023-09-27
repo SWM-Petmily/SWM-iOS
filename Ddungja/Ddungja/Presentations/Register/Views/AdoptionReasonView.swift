@@ -41,6 +41,7 @@ struct AdoptionReasonView: View {
                 }
             }.padding()
         }
+        .analyticsScreen(name: "AdoptionReasonView")
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

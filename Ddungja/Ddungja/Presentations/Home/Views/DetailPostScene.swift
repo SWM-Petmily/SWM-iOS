@@ -75,6 +75,7 @@ struct DetailPostScene: View {
         .onAppear {
             viewModel.getDetailPost(postId)
         }
+        .analyticsScreen(name: "DetailPostScene")
     }
 }
 

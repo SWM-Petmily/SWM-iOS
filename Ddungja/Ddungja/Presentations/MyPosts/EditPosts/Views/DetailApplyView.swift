@@ -34,6 +34,7 @@ struct DetailApplyView: View {
                 }
                 .padding()
             }
+            .analyticsScreen(name: "DetailApplyView")
             .navigationTitle("지원하기")
             .navigationBarBackButtonHidden()
             .toolbar {

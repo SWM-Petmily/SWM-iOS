@@ -138,5 +138,6 @@ struct PetCertificationScene: View {
         .onAppear {
             viewModel.getAdditionalPageInfo(postId)
         }
+        .analyticsScreen(name: "PetCertificationScene")
     }
 }

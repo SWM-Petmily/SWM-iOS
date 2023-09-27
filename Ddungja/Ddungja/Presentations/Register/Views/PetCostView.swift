@@ -43,6 +43,7 @@ struct PetCostView: View {
             .padding()
         }
         .navigationBarBackButtonHidden()
+        .analyticsScreen(name: "PetCostView")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Image(systemName: "chevron.backward")

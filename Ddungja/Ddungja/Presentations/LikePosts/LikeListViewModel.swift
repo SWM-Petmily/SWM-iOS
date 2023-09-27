@@ -44,6 +44,7 @@ final class LikeListViewModel: BaseViewModel {
     }
     
     func cancelLike(_ id: Int) {
+        GoogleAnalyticsUtil.shared.logScreenEvent("cacelLike", parameters: ["id": id])
         homeUsecase.tappedLike(id, true)
             .sink { error in
                 
@@ -81,6 +82,7 @@ final class LikeListViewModel: BaseViewModel {
     func fetchMoreLikeList() {
         if(pageInfo == totalPage) { return }
         let next = pageInfo + 1
+        GoogleAnalyticsUtil.shared.logScreenEvent("fetchMoreLikeList", parameters: ["page":next])
         likeListUsecase.getLikeList(status, next)
             .sink { completion in
                 print("getLikeList \(completion)")

@@ -67,6 +67,7 @@ final class MyApplyPostsViewModel: BaseViewModel {
     func fetchMoreMyApplyPosts() {
         if(pageInfo == totalPage) { return }
         let next = pageInfo + 1
+        GoogleAnalyticsUtil.shared.logScreenEvent("fetchMoreMyApplyPosts", parameters: ["page": next])
         myPostsUsecase.getMyApplyPosts(status, next)
             .sink { completion in
                 print(completion)
@@ -80,6 +81,7 @@ final class MyApplyPostsViewModel: BaseViewModel {
     }
     
     private func deletInfo(id: Int) {
+        GoogleAnalyticsUtil.shared.logScreenEvent("deletInfo", parameters: ["id": id])
         myPostsUsecase.deleteInfo(id: id)
             .sink { [weak self] completion in
                 guard let self = self else { return }

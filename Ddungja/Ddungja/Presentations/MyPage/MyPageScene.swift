@@ -239,6 +239,7 @@ struct MyPageScene: View {
                 }
             }
         }
+        .analyticsScreen(name: "MyPageScene")
         .onAppear {
             viewModel.getMyPage()
         }

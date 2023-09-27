@@ -55,6 +55,7 @@ struct LikeListScene: View {
                 }
             }
         }
+        .analyticsScreen(name: "LikeListScene")
         .navigationTitle("관심 분양글")
         .navigationBarBackButtonHidden()
         .toolbar {

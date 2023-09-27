@@ -47,6 +47,7 @@ struct MyPostsScene: View {
             .frame(height: 33)
             .frame(maxWidth: .infinity)
         }
+        .analyticsScreen(name: "MyPostsScene")
         .padding()
         
         ScrollView {
