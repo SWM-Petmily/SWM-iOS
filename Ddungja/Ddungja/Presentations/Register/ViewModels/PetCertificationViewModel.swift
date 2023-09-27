@@ -10,6 +10,11 @@ import Combine
 import SwiftUI
 import PhotosUI
 
+enum PetHealthData {
+    case healtInfo
+    case vaccineInfo
+}
+
 final class PetCertificationViewModel: BaseViewModel, PhotoPickerInterface {
     private let petCertificationUsecase: PetCertificationUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
@@ -94,7 +99,15 @@ final class PetCertificationViewModel: BaseViewModel, PhotoPickerInterface {
             .store(in: &cancellables)
     }
     
-    func registerPetHealthInfo(_ postId: Int) {
+    func registerPetInfo(_ type: PetHealthData, _ postId: Int) {
+        if type == .healtInfo {
+            registerPetHealthInfo(postId)
+        } else {
+            registerVaccineInfo(postId)
+        }
+    }
+    
+    private func registerPetHealthInfo(_ postId: Int) {
         petCertificationUsecase.registerPetHealthInfo(postId, image)
             .sink { [weak self] completion in
                 guard let self = self else { return }
@@ -114,7 +127,7 @@ final class PetCertificationViewModel: BaseViewModel, PhotoPickerInterface {
             .store(in: &cancellables)
     }
     
-    func registerVaccineInfo(_ postId: Int) {
+    private func registerVaccineInfo(_ postId: Int) {
         petCertificationUsecase.registerVaccineInfo(postId, image)
             .sink { [weak self] completion in
                 guard let self = self else { return }
@@ -133,9 +146,11 @@ final class PetCertificationViewModel: BaseViewModel, PhotoPickerInterface {
             }
             .store(in: &cancellables)
     }
+    
     func updateImage(_ data: Data, index: Int) {
         image[index] = data
     }
+    
     func popToRoot() {
         coordinator.popToRoot()
     }
