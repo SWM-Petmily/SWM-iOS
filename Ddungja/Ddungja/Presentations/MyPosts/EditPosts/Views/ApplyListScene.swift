@@ -30,6 +30,7 @@ struct ApplyListScene: View {
                 }
             }
         }
+        .analyticsScreen(name: "ApplyListScene")
         .navigationTitle("지원 받은 목록")
         .navigationBarBackButtonHidden()
         .toolbar {

@@ -67,6 +67,7 @@ final class MyPostsViewModel: BaseViewModel {
     }
     
     func getMyEditPosts(_ status: String, _ page: Int = 1) {
+        GoogleAnalyticsUtil.shared.logScreenEvent("getMyEditPosts", parameters: ["page": page, "status": status])
         myPostsUsecase.getMyEditPosts(status, page)
             .sink { [weak self] completion in
                 guard let self = self else { return }
@@ -91,6 +92,7 @@ final class MyPostsViewModel: BaseViewModel {
     func fetchMoreMyEditPosts() {
         if(pageInfo == totalPage) { return }
         let next = pageInfo + 1
+        GoogleAnalyticsUtil.shared.logScreenEvent("fetchMoreMyEditPosts", parameters: ["page": next])
         myPostsUsecase.getMyEditPosts(status, next)
             .sink { completion in
                 print("fetchMoreMyEditPosts \(completion)")
@@ -126,6 +128,7 @@ final class MyPostsViewModel: BaseViewModel {
     func fetchMoreApplyList(id: Int) {
         if(pageInfo == totalPage) { return }
         let next = pageInfo + 1
+        GoogleAnalyticsUtil.shared.logScreenEvent("fetchMoreApplyList", parameters: ["page": next])
         myPostsUsecase.getApplyList(id: id, next)
             .sink { completion in
                 print("fetchMoreApplyList \(completion)")
