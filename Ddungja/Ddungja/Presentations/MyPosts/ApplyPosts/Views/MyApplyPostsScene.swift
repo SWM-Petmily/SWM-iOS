@@ -70,6 +70,7 @@ struct MyApplyPostsScene: View {
                 }
             }
         }
+        .analyticsScreen(name: "MyApplyPostsScene")
         .navigationTitle("지원한 분양글")
         .navigationBarBackButtonHidden()
         .toolbar {

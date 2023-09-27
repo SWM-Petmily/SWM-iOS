@@ -57,6 +57,7 @@ struct ApplyModifyVIew: View {
             }
             .padding([.leading, .trailing, .bottom])
         }
+        .analyticsScreen(name: "MyApplyPostsScene")
         .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
             Button("확인", role: .cancel) {
                 viewModel.pop()
