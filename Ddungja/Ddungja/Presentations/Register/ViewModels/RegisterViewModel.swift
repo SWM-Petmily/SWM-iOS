@@ -87,7 +87,7 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
             .store(in: &cancellables)
     }
     
-    func registerPost() {
+    private func registerPost() {
         let vo = PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: reason, advantage: advantage, disadvantage: disAdvantage, averageCost: cost, adopter: adopter, status: "SAVE", diseases: [], isRegistered: isRegistered)
     
         registerUsecase.registerPost(vo, images)
@@ -159,6 +159,15 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
             return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
         } else {
             push(.petAdopter)
+            return nil
+        }
+    }
+    
+    func registerAdopter() -> Toast? {
+        if adopter.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            registerPost()
             return nil
         }
     }
