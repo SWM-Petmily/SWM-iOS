@@ -11,7 +11,7 @@ import PhotosUI
 struct PetInfoView: View {
     @StateObject private var viewModel: RegisterViewModel
     @StateObject private var keyboardHandler = KeyboardHandler()
-    
+    @State private var toast: Toast? = nil
     private let info: RegisteredPetVO
     
     init(viewModel: RegisterViewModel, info: RegisteredPetVO) {
@@ -32,6 +32,7 @@ struct PetInfoView: View {
             }
             .padding(.bottom, keyboardHandler.keyboardHeight)
         }
+        .toastView(toast: $toast)
         .padding()
         .onAppear {
             viewModel.petType = info.petType
@@ -222,7 +223,7 @@ extension PetInfoView {
     
     private var registerButton: some View {
         Button {
-            viewModel.push(.adoptionReason)
+            toast = viewModel.registerPetInfo()
         } label: {
             Text("등록 1/6")
                 .applyInner(color: .white)

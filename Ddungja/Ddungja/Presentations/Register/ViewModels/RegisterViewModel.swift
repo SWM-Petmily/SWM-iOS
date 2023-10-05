@@ -26,7 +26,7 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
     private var container: Container
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
-    
+    private let date = DateFormatter()
     private(set) var isRegistered = true
     @Published var registeredPetInfo = [RegisteredPetVO]()
     @Published var images = Array(repeating: Data(), count: 5)
@@ -109,5 +109,21 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
     
     func userExitPost() {
         container.resetObjectScope(.exitSalePost)
+    }
+    
+    func registerPetInfo() -> Toast? {
+        date.dateFormat = "yyyy"
+        if region.isEmpty || month.isEmpty || year.isEmpty {
+            return Toast(type: .error, title: "유효하지 않은 값", message: "빠짐없이 작성해주세요")
+        } else if year.count != 4 {
+            return Toast(type: .error, title: "년을 확인해주세요", message: "yyyy 형식으로 입력해주세요")
+        } else if year > date.string(from: Date()) {
+            return Toast(type: .error, title: "년을 확인해주세요", message: "현재 년도보다 클 수 없습니다.")
+        } else if Int(month)! < 1 || Int(month)! > 12 {
+            return Toast(type: .error, title: "월을 확인해주세요", message: "입력된 월이 잘못되었습니다.")
+        } else {
+            push(.adoptionReason)
+            return nil
+        }
     }
 }
