@@ -126,4 +126,13 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
             return nil
         }
     }
+    
+    func registerAdoptionReason() -> Toast? {
+        if reason.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            push(.petAdvantage)
+            return nil
+        }
+    }
 }

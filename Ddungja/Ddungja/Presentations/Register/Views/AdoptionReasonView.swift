@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AdoptionReasonView: View {
     @StateObject private var viewModel: RegisterViewModel
-    
+    @State private var toast: Toast? = nil
     init(viewModel: RegisterViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -41,6 +41,7 @@ struct AdoptionReasonView: View {
                 }
             }.padding()
         }
+        .toastView(toast: $toast)
         .analyticsScreen(name: "AdoptionReasonView")
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -53,7 +54,7 @@ struct AdoptionReasonView: View {
         }
         
         Button {
-            viewModel.push(.petAdvantage)
+            toast = viewModel.registerAdoptionReason()
         } label: {
             Text("등록 2/6")
                 .applyInner(color: .white)
