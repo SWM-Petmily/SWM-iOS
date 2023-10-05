@@ -153,4 +153,13 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
             return nil
         }
     }
+    
+    func registerCost() -> Toast? {
+        if cost.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            push(.petAdopter)
+            return nil
+        }
+    }
 }
