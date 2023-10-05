@@ -37,8 +37,12 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
     @Published var region = ""
     @Published var gender = Gender.male.rawValue
     @Published var neutered = Neutered.yes.rawValue
-    @Published var year = ""
-    @Published var month = ""
+    @Published var year = "" {
+        didSet { if !year.isEmpty && Int(year) == nil { year = oldValue } }
+    }
+    @Published var month = "" {
+        didSet { if !month.isEmpty && Int(month) == nil { month = oldValue } }
+    }
     @Published var reason = ""
     @Published var advantage = ""
     @Published var disAdvantage = ""
