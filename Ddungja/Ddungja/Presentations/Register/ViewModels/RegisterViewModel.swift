@@ -26,7 +26,7 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
     private var container: Container
     private let registerUsecase: RegisterUsecaseInterface
     private var cancellables = Set<AnyCancellable>()
-    
+    private let date = DateFormatter()
     private(set) var isRegistered = true
     @Published var registeredPetInfo = [RegisteredPetVO]()
     @Published var images = Array(repeating: Data(), count: 5)
@@ -37,8 +37,12 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
     @Published var region = ""
     @Published var gender = Gender.male.rawValue
     @Published var neutered = Neutered.yes.rawValue
-    @Published var year = ""
-    @Published var month = ""
+    @Published var year = "" {
+        didSet { if !year.isEmpty && Int(year) == nil { year = oldValue } }
+    }
+    @Published var month = "" {
+        didSet { if !month.isEmpty && Int(month) == nil { month = oldValue } }
+    }
     @Published var reason = ""
     @Published var advantage = ""
     @Published var disAdvantage = ""
@@ -83,7 +87,7 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
             .store(in: &cancellables)
     }
     
-    func registerPost() {
+    private func registerPost() {
         let vo = PetPostVO(mainCategory: "강아지", subCategory: petType, name: petName, region: region, gender: gender, birth: "\(year)-\(month)", neutered: neutered, money: 0, reason: reason, advantage: advantage, disadvantage: disAdvantage, averageCost: cost, adopter: adopter, status: "SAVE", diseases: [], isRegistered: isRegistered)
     
         registerUsecase.registerPost(vo, images)
@@ -105,5 +109,66 @@ final class RegisterViewModel: BaseViewModel, RegionInterface, PhotoPickerInterf
     
     func userExitPost() {
         container.resetObjectScope(.exitSalePost)
+    }
+    
+    func registerPetInfo() -> Toast? {
+        date.dateFormat = "yyyy"
+        if region.isEmpty || month.isEmpty || year.isEmpty {
+            return Toast(type: .error, title: "유효하지 않은 값", message: "빠짐없이 작성해주세요")
+        } else if year.count != 4 {
+            return Toast(type: .error, title: "년을 확인해주세요", message: "yyyy 형식으로 입력해주세요")
+        } else if year > date.string(from: Date()) {
+            return Toast(type: .error, title: "년을 확인해주세요", message: "현재 년도보다 클 수 없습니다.")
+        } else if Int(month)! < 1 || Int(month)! > 12 {
+            return Toast(type: .error, title: "월을 확인해주세요", message: "입력된 월이 잘못되었습니다.")
+        } else {
+            push(.adoptionReason)
+            return nil
+        }
+    }
+    
+    func registerAdoptionReason() -> Toast? {
+        if reason.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            push(.petAdvantage)
+            return nil
+        }
+    }
+    
+    func registerAdvantage() -> Toast? {
+        if advantage.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            push(.petDisadvantage)
+            return nil
+        }
+    }
+    
+    func registerDisadvantage() -> Toast? {
+        if disAdvantage.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            push(.petCost)
+            return nil
+        }
+    }
+    
+    func registerCost() -> Toast? {
+        if cost.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            push(.petAdopter)
+            return nil
+        }
+    }
+    
+    func registerAdopter() -> Toast? {
+        if adopter.count < 20 {
+            return Toast(type: .error, title: "내용이 부족합니다.", message: "20자 이상 작성해주세요")
+        } else {
+            registerPost()
+            return nil
+        }
     }
 }

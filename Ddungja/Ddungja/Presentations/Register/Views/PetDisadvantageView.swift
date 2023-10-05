@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PetDisadvantageView: View {
     @StateObject private var viewModel: RegisterViewModel
+    @State private var toast: Toast? = nil
     
     init(viewModel: RegisterViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -41,6 +42,7 @@ struct PetDisadvantageView: View {
                 }
             }.padding()
         }
+        .toastView(toast: $toast)
         .analyticsScreen(name: "PetDisadvantageView")
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -53,7 +55,7 @@ struct PetDisadvantageView: View {
         }
         
         Button {
-            viewModel.push(.petCost)
+            toast = viewModel.registerDisadvantage()
         } label: {
             Text("등록 4/6")
                 .applyInner(color: .white)

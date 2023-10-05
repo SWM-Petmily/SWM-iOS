@@ -19,7 +19,7 @@ struct DropdownRow: View {
         }) {
             HStack {
                 Text(option.value)
-                    .font(.system(size: 25))
+                    .font(.custom("BalooDa-Regular", size: 20))
                     .foregroundColor(.mainText)
                 Spacer()
             }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PetAdopterView: View {
     @StateObject private var viewModel: RegisterViewModel
+    @State private var toast: Toast? = nil
     
     init(viewModel: RegisterViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -41,6 +42,7 @@ struct PetAdopterView: View {
                 }
             }.padding()
         }
+        .toastView(toast: $toast)
         .analyticsScreen(name: "PetAdopterView")
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -53,7 +55,7 @@ struct PetAdopterView: View {
         }
         
         Button {
-            viewModel.registerPost()
+            toast = viewModel.registerAdopter()
         } label: {
             Text("작성완료")
                 .applyInner(color: .white)
