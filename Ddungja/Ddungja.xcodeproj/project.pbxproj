@@ -172,6 +172,9 @@
 		759229042A63BBBD00603FF4 /* MyEditPostsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */; };
 		75956ECB2AC17500004C2ED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */; };
 		75956ECF2AC4075C004C2ED2 /* CertificationCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75956ECE2AC4075C004C2ED2 /* CertificationCommonView.swift */; };
+		75956EF62ACED929004C2ED2 /* ToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75956EF52ACED929004C2ED2 /* ToastStyle.swift */; };
+		75956EF82ACED9C3004C2ED2 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75956EF72ACED9C3004C2ED2 /* ToastModifier.swift */; };
+		75956EFA2ACEDA1A004C2ED2 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75956EF92ACEDA1A004C2ED2 /* ToastView.swift */; };
 		759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657D2A4037E500E6AD07 /* DdungjaApp.swift */; };
 		759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A657F2A4037E500E6AD07 /* LoginScene.swift */; };
 		759A65822A4037E700E6AD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759A65812A4037E700E6AD07 /* Assets.xcassets */; };
@@ -385,6 +388,9 @@
 		759229032A63BBBD00603FF4 /* MyEditPostsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEditPostsVO.swift; sourceTree = "<group>"; };
 		75956ECA2AC17500004C2ED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75956ECE2AC4075C004C2ED2 /* CertificationCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationCommonView.swift; sourceTree = "<group>"; };
+		75956EF52ACED929004C2ED2 /* ToastStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastStyle.swift; sourceTree = "<group>"; };
+		75956EF72ACED9C3004C2ED2 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		75956EF92ACEDA1A004C2ED2 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		759A657A2A4037E500E6AD07 /* Ddungja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ddungja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759A657D2A4037E500E6AD07 /* DdungjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdungjaApp.swift; sourceTree = "<group>"; };
 		759A657F2A4037E500E6AD07 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
@@ -585,6 +591,7 @@
 		7543D4B62A77C13900A0E9D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75956EF42ACED88A004C2ED2 /* Toast */,
 				75BCC52A2AA9944A00CFF172 /* WebView */,
 				75532A9D2A8CACDD00DEC825 /* DropDown */,
 				753BA7122A7D244C0090EAE3 /* Apply */,
@@ -995,6 +1002,16 @@
 			path = GoogleServiceInfo;
 			sourceTree = "<group>";
 		};
+		75956EF42ACED88A004C2ED2 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				75956EF52ACED929004C2ED2 /* ToastStyle.swift */,
+				75956EF72ACED9C3004C2ED2 /* ToastModifier.swift */,
+				75956EF92ACEDA1A004C2ED2 /* ToastView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		759A65712A4037E500E6AD07 = {
 			isa = PBXGroup;
 			children = (
@@ -1355,6 +1372,7 @@
 				753DF8C72A7AFDED001D50AE /* DetailPostDTO.swift in Sources */,
 				75532AB52A8F13E300DEC825 /* LikeListScene.swift in Sources */,
 				75618C762A5424F2005FA31A /* CustomColor.swift in Sources */,
+				75956EFA2ACEDA1A004C2ED2 /* ToastView.swift in Sources */,
 				75532AAC2A8CDF9700DEC825 /* MyPageDTO.swift in Sources */,
 				75154E4E2A66DE940083261A /* MyApplyPostsScene.swift in Sources */,
 				75532AA32A8CAE3300DEC825 /* DropDownOption.swift in Sources */,
@@ -1392,6 +1410,7 @@
 				75154E522A68FCC70083261A /* MyApplyPostsDTO.swift in Sources */,
 				753BA7492A82782F0090EAE3 /* HealthScreeningView.swift in Sources */,
 				754AB6E42A712DB200F2EBC8 /* OAuthProvider.swift in Sources */,
+				75956EF82ACED9C3004C2ED2 /* ToastModifier.swift in Sources */,
 				75532ABB2A8F189200DEC825 /* LikeListRepositoryInterface.swift in Sources */,
 				755462462A446A1B00598268 /* SignUpAPI.swift in Sources */,
 				7543D4CB2A78D57200A0E9D9 /* HomeVO.swift in Sources */,
@@ -1430,6 +1449,7 @@
 				754AB6EE2A73977100F2EBC8 /* SignUpScene.swift in Sources */,
 				7543D4BA2A78C2DB00A0E9D9 /* HomeViewModel.swift in Sources */,
 				754AB6D82A6F521700F2EBC8 /* KeyChainManager.swift in Sources */,
+				75956EF62ACED929004C2ED2 /* ToastStyle.swift in Sources */,
 				759228D32A5E575000603FF4 /* DdungjaTabScene.swift in Sources */,
 				753BA7592A8352220090EAE3 /* RegisterPostIDVO.swift in Sources */,
 				754AB6E62A71590200F2EBC8 /* OAuthDTO.swift in Sources */,
