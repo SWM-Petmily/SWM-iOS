@@ -13,27 +13,26 @@ struct LoginScene: View {
     
     var body: some View {
         VStack(spacing: 10) {
+        VStack(spacing: 15) {
             Button {
                 viewModel.requestAppleLogin()
             } label: {
                 Image("AppleButton")
                     .resizable()
-                    .frame(height: 60)
+                    .frame(height: 50)
                     .frame(maxWidth: .infinity)
             }
-            .padding(10)
 
             Button {
                 viewModel.requestKakaoLogin()
             } label: {
                 Image("KakaoButton")
                     .resizable()
-                    .frame(height: 60)
+                    .frame(height: 50)
                     .frame(maxWidth: .infinity)
             }
-            .padding(10)
         }
-        .padding()
+        .padding(20)
         .onOpenURL { url in
             viewModel.isKakaoTalkLoginUrl(url)
         }
