@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "Info.svg",
-      "idiom" : "universal"
+      "filename" : "Group 8004.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Group 8004-2.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Group 8004-3.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "Negative.svg",
-      "idiom" : "universal"
+      "filename" : "Group 8003.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Group 8003-2.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Group 8003-3.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

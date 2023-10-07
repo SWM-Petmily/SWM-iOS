@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "Privacy.svg",
-      "idiom" : "universal"
+      "filename" : "Group 8005.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Group 8005-2.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Group 8005-3.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

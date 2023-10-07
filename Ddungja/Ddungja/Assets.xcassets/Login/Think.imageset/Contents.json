@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "Think.svg",
-      "idiom" : "universal"
+      "filename" : "그림1.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "그림1-2.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "그림1-3.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
