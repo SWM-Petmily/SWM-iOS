@@ -12,7 +12,10 @@ struct LoginScene: View {
     @StateObject var viewModel:LoginViewModel
     
     var body: some View {
-        VStack(spacing: 10) {
+        CarouselScene()
+        
+        Spacer()
+        
         VStack(spacing: 15) {
             Button {
                 viewModel.requestAppleLogin()
