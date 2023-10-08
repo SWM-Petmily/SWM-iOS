@@ -15,13 +15,7 @@ struct CarouselScene: View {
             let size = $0.size
             TabView(selection: $viewModel.currentPage, content: {
                 ForEach(viewModel.fakedPages) { page in
-                    
-//                        Image(page.name)
-                    
                     ImageTextContentView(imageName: page.name, title: page.title, sub: page.subTitle,size: size)
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 300, height: size.height)
                             .tag(page.id.uuidString)
                             .offsetX(viewModel.currentPage == page.id.uuidString) { rect in
                                 viewModel.calculate(rect: rect, size: size, page: page)
@@ -29,12 +23,12 @@ struct CarouselScene: View {
                 }
             })
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .overlay(alignment: .bottom) {
-                PageControl(totalPage: viewModel.listOfPages.count, currentPage: viewModel.originalIndex())
-                    .offset(y: -5)
-            }
         }
         .frame(height: 500)
+        .overlay(alignment: .bottom) {
+            PageControl(totalPage: viewModel.listOfPages.count, currentPage: viewModel.originalIndex())
+                .offset(y: -50)
+        }
     }
 }
 
@@ -45,19 +39,22 @@ struct ImageTextContentView: View {
     var size: CGSize
     
     var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: 15) {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: size.width, height: size.height / 2)
-            VStack(alignment: .leading) {
+                .frame(width: size.width, height: size.height / 3)
+            
+            VStack(spacing: 10) {
                 Text(title)
+                    .font(.custom("BalooDa-Regular", size: 16))
+                    .multilineTextAlignment(.center)
                     .bold()
-                    .padding()
                 
                 Text(sub)
-                    .padding()
+                    .font(.custom("BalooDa-Regular", size: 14))
             }
+            .padding([.leading, .trailing])
         }
     }
 }
