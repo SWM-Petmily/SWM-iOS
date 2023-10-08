@@ -16,8 +16,8 @@ struct PageControl: UIViewRepresentable {
         control.numberOfPages = totalPage
         control.currentPage = currentPage
         control.backgroundStyle = .automatic
-        control.currentPageIndicatorTintColor = .blue
-        control.pageIndicatorTintColor = .gray
+        control.currentPageIndicatorTintColor = UIColor(Color.main)
+        control.pageIndicatorTintColor = UIColor(Color.disabledText)
         control.allowsContinuousInteraction = false
         
         return control
