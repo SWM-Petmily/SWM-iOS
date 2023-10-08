@@ -146,6 +146,11 @@
 		7554625E2A44B24100598268 /* SignUpToVORepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554625D2A44B24100598268 /* SignUpToVORepository.swift */; };
 		755462602A44B3E100598268 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554625F2A44B3E100598268 /* LoginRepository.swift */; };
 		755462622A44B40000598268 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755462612A44B40000598268 /* SignUpRepository.swift */; };
+		755AAE0F2AD0006600718557 /* OffsetReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755AAE0E2AD0006600718557 /* OffsetReader.swift */; };
+		755AAE112AD0007900718557 /* CarouselPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755AAE102AD0007900718557 /* CarouselPage.swift */; };
+		755AAE132AD000B600718557 /* CarouselScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755AAE122AD000B600718557 /* CarouselScene.swift */; };
+		755AAE152AD01CD400718557 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755AAE142AD01CD400718557 /* PageControl.swift */; };
+		755AAE172AD01EF500718557 /* CarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755AAE162AD01EF500718557 /* CarouselViewModel.swift */; };
 		75618C712A54065B005FA31A /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C702A54065B005FA31A /* CustomText.swift */; };
 		75618C762A5424F2005FA31A /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C752A5424F2005FA31A /* CustomColor.swift */; };
 		75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */; };
@@ -362,6 +367,11 @@
 		7554625D2A44B24100598268 /* SignUpToVORepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpToVORepository.swift; sourceTree = "<group>"; };
 		7554625F2A44B3E100598268 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		755462612A44B40000598268 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
+		755AAE0E2AD0006600718557 /* OffsetReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetReader.swift; sourceTree = "<group>"; };
+		755AAE102AD0007900718557 /* CarouselPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPage.swift; sourceTree = "<group>"; };
+		755AAE122AD000B600718557 /* CarouselScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselScene.swift; sourceTree = "<group>"; };
+		755AAE142AD01CD400718557 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		755AAE162AD01EF500718557 /* CarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewModel.swift; sourceTree = "<group>"; };
 		75618C702A54065B005FA31A /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		75618C752A5424F2005FA31A /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		75618C772A543BEA005FA31A /* CustomLazyVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLazyVGrid.swift; sourceTree = "<group>"; };
@@ -648,6 +658,7 @@
 		7546BDDA2A51A42F0019A986 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				755AAE0D2AD0004E00718557 /* Carousel */,
 				75532AB32A8F13BF00DEC825 /* LikePosts */,
 				7543D4B62A77C13900A0E9D9 /* Common */,
 				754AB6EC2A73975000F2EBC8 /* SignUp */,
@@ -909,6 +920,18 @@
 				75532ABC2A8F18C100DEC825 /* LikeListRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		755AAE0D2AD0004E00718557 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				755AAE0E2AD0006600718557 /* OffsetReader.swift */,
+				755AAE102AD0007900718557 /* CarouselPage.swift */,
+				755AAE122AD000B600718557 /* CarouselScene.swift */,
+				755AAE142AD01CD400718557 /* PageControl.swift */,
+				755AAE162AD01EF500718557 /* CarouselViewModel.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		75618C6F2A54063C005FA31A /* Common */ = {
@@ -1350,13 +1373,16 @@
 				754AB6C92A6BF1D300F2EBC8 /* DetailApplyDTO.swift in Sources */,
 				759A65802A4037E500E6AD07 /* LoginScene.swift in Sources */,
 				75532AB72A8F14A800DEC825 /* LikeListViewModel.swift in Sources */,
+				755AAE112AD0007900718557 /* CarouselPage.swift in Sources */,
 				753DF8CD2A7CF690001D50AE /* ApplyCommonViewModel.swift in Sources */,
 				759228F22A6138C400603FF4 /* MyPostsScene.swift in Sources */,
+				755AAE132AD000B600718557 /* CarouselScene.swift in Sources */,
 				7554625C2A44B23600598268 /* LoginToVORepository.swift in Sources */,
 				754BC8472A949277006D96DD /* ImagaCacheManager.swift in Sources */,
 				759228E72A5FF29C00603FF4 /* Page.swift in Sources */,
 				759228E42A5FF0E600603FF4 /* Coordinator.swift in Sources */,
 				75618C782A543BEA005FA31A /* CustomLazyVGrid.swift in Sources */,
+				755AAE172AD01EF500718557 /* CarouselViewModel.swift in Sources */,
 				754AB6C72A6BE84600F2EBC8 /* DetailApplyView.swift in Sources */,
 				759229042A63BBBD00603FF4 /* MyEditPostsVO.swift in Sources */,
 				753DF8C92A7B015E001D50AE /* DetailPostVO.swift in Sources */,
@@ -1438,6 +1464,7 @@
 				75FB2FE82A5A557100E4DDE8 /* ModalView.swift in Sources */,
 				75532AB92A8F183200DEC825 /* LikeListUsecaseInterface.swift in Sources */,
 				75FB2FD12A56B59F00E4DDE8 /* DependencyInjector.swift in Sources */,
+				755AAE0F2AD0006600718557 /* OffsetReader.swift in Sources */,
 				753BA74D2A8279FB0090EAE3 /* PetCertificationUsecaseInterface.swift in Sources */,
 				759228F62A628E2500603FF4 /* MyPostsViewModel.swift in Sources */,
 				759A657E2A4037E500E6AD07 /* DdungjaApp.swift in Sources */,
@@ -1487,6 +1514,7 @@
 				753BA7712A85FB7C0090EAE3 /* CustomAlert.swift in Sources */,
 				753BA73D2A80A9F50090EAE3 /* PetCostView.swift in Sources */,
 				75154E482A66D7230083261A /* MyApplyPostsViewModel.swift in Sources */,
+				755AAE152AD01CD400718557 /* PageControl.swift in Sources */,
 				759228D82A5E724100603FF4 /* RegisterScene.swift in Sources */,
 				756829AD2A88E39D00DB38F0 /* ApplyDTO.swift in Sources */,
 				759229002A62E63B00603FF4 /* MyPostsAPI.swift in Sources */,
