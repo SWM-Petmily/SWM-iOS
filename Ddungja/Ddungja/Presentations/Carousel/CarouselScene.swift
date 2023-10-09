@@ -47,7 +47,7 @@ struct ImageTextContentView: View {
             
             VStack(spacing: 10) {
                 Text(title)
-                    .font(.custom("BalooDa-Regular", size: 16))
+                    .font(.system(size: 16))
                     .multilineTextAlignment(.center)
                     .bold()
                 
