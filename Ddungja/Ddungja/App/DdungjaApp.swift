@@ -34,6 +34,9 @@ struct DdungjaApp: App {
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color.main)
+        if KeyChainManager.isPossibleAutoLogin {
+            coordinator.push(.tapBar)
+                }
         FirebaseApp.configure()
     }
     

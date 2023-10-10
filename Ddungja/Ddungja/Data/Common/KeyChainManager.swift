@@ -53,4 +53,11 @@ final class KeyChainManager {
         ]
         SecItemDelete(query)
     }
+
+    static var isPossibleAutoLogin: Bool {
+        if KeyChainManager.read(key: .accessToken) == nil || KeyChainManager.read(key: .refreshToken) == nil {
+            return false
+        }
+        return true
+    }
 }
