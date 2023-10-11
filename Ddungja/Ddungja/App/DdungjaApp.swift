@@ -36,7 +36,7 @@ struct DdungjaApp: App {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color.main)
         if KeyChainManager.isPossibleAutoLogin {
             coordinator.push(.tapBar)
-                }
+        }
         FirebaseApp.configure()
     }
     
