@@ -31,6 +31,7 @@ enum UserProfileAPI {
     case detail(userId: String)
     case register(userInfo: ProfileEditReqiestDTO)
     case modify(userInfo: ProfileEditReqiestDTO)
+    case deleteUserInfo
 }
 
 extension UserProfileAPI: TargetType {
@@ -48,6 +49,9 @@ extension UserProfileAPI: TargetType {
             
         case .register, .modify:
             return "users/profile"
+            
+        case .deleteUserInfo:
+            return "users"
         }
     }
     
@@ -61,6 +65,9 @@ extension UserProfileAPI: TargetType {
             
         case .modify:
             return .put
+            
+        case .deleteUserInfo:
+            return .delete
         }
     }
     
@@ -74,6 +81,9 @@ extension UserProfileAPI: TargetType {
             
         case let .modify(userInfo):
             return .requestJSONEncodable(userInfo)
+            
+        case .deleteUserInfo:
+            return .requestPlain
         }
     }
     

@@ -73,34 +73,36 @@ final class UserProfileViewModel: BaseViewModel, RegionInterface {
         super.init(coordinator: coordinator)
     }
     
-    func getProfile() {
-        profileUsecase.getUserProfile()
-            .sink { [weak self] completion in
-                guard let self = self else { return }
-                switch completion {
-                case .finished:
-                    break
-                case let .failure(error):
-                    self.showAlert = true
-                    self.errorTitle = error.title
-                    self.errorDetailMessage = error.detailMessage
+    func getProfile(_ isRegistered: Bool = true) {
+        if isRegistered {
+            profileUsecase.getUserProfile()
+                .sink { [weak self] completion in
+                    guard let self = self else { return }
+                    switch completion {
+                    case .finished:
+                        break
+                    case let .failure(error):
+                        self.showAlert = true
+                        self.errorTitle = error.title
+                        self.errorDetailMessage = error.detailMessage
+                    }
+                } receiveValue: { [weak self] profileVo in
+                    print("profileVoprofileVo \(profileVo)")
+                    guard let self = self else { return }
+                    
+                    self.nickname = profileVo.nickname
+                    self.image = self.changeToImageStatus(profileVo.profileImageId)
+                    self.job = self.changeToJobStatus(profileVo.job)
+                    self.experience = self.changeToExperience(profileVo.isExperience)
+                    self.house = self.changeToHomeStatus(profileVo.environment)
+                    self.region = profileVo.region
+                    self.person = profileVo.people
+                    self.experienceArray = profileVo.experiences
+                    self.comment = profileVo.comment
+                    self.openTalk = profileVo.openTalk
                 }
-            } receiveValue: { [weak self] profileVo in
-                print("profileVoprofileVo \(profileVo)")
-                guard let self = self else { return }
-
-                self.nickname = profileVo.nickname
-                self.image = self.changeToImageStatus(profileVo.profileImageId)
-                self.job = self.changeToJobStatus(profileVo.job)
-                self.experience = self.changeToExperience(profileVo.isExperience)
-                self.house = self.changeToHomeStatus(profileVo.environment)
-                self.region = profileVo.region
-                self.person = profileVo.people
-                self.experienceArray = profileVo.experiences
-                self.comment = profileVo.comment
-                self.openTalk = profileVo.openTalk
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
     }
     
     func registerProfile(_ isRegistered: Bool) {

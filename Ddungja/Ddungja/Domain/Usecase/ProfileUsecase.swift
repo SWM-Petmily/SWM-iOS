@@ -12,6 +12,7 @@ protocol ProfileUsecaseInterface {
     func getUserProfile() -> AnyPublisher<ProfileVO, CustomErrorVO>
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
     func postEditProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO>
 }
 
 final class ProfileUsecase: ProfileUsecaseInterface {
@@ -37,5 +38,9 @@ final class ProfileUsecase: ProfileUsecaseInterface {
     
     func postEditProfile(profile: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO> {
         return repository.postEditUserProfile(VO: profile)
+    }
+    
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO> {
+        return repository.deleteUserInfo()
     }
 }

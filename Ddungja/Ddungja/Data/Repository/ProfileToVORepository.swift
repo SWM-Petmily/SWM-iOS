@@ -36,4 +36,9 @@ final class ProfileToVORepository: ProfileRepository {
             .map { $0.toDomain() }
             .eraseToAnyPublisher()
     }
+    
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO> {
+        return dataSource.deleteUserInfo()
+            .eraseToAnyPublisher()
+    }
 }

@@ -92,7 +92,7 @@ struct EditProfile: View {
             registerButton
         }
         .onAppear {
-            viewModel.getProfile()
+            viewModel.getProfile(isRegister)
         }
         .onTapGesture { endTextEditing() }
         .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {

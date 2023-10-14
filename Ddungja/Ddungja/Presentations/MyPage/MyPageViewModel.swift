@@ -56,6 +56,29 @@ final class MyPageViewModel: BaseViewModel {
         return isProfile ? "프로필 보기" : "프로필 작성하기"
     }
     
+    func deleteUserInfo() {
+        profileUsecase.deleteUserInfo()
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
+            } receiveValue: { _ in
+                KeyChainManager.delete(key: .accessToken)
+                KeyChainManager.delete(key: .refreshToken)
+                self.coordinator.popToRoot()
+                print("deleteUserInfo success")
+            }
+            .store(in: &cancellables)
+    }
+    
     func push() {
         if isProfile {
             coordinator.push(.userProfileView)
