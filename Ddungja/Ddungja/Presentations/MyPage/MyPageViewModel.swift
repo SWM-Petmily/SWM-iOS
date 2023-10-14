@@ -58,8 +58,18 @@ final class MyPageViewModel: BaseViewModel {
     
     func deleteUserInfo() {
         profileUsecase.deleteUserInfo()
-            .sink { _ in
-                print("deleteUserInfo failed")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.showAlert = true
+                    self.errorTitle = error.title
+                    self.errorDetailMessage = error.detailMessage
+                    self.errorIcon = error.icon
+                    self.errorIconColor = error.iconColor
+                }
             } receiveValue: { _ in
                 KeyChainManager.delete(key: .accessToken)
                 KeyChainManager.delete(key: .refreshToken)

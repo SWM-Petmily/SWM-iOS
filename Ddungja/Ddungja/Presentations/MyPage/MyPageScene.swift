@@ -243,6 +243,11 @@ struct MyPageScene: View {
             }
         }
         .analyticsScreen(name: "MyPageScene")
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(viewModel.errorDetailMessage)
+        }
         .onAppear {
             viewModel.getMyPage()
         }
