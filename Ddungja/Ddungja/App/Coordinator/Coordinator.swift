@@ -39,7 +39,7 @@ final class Coordinator: ObservableObject, CoordinatorProtocol {
     }
     
     func popToRoot() {
-        path.removeLast(path.count-1)
+        path = NavigationPath()
     }
     
     @ViewBuilder
