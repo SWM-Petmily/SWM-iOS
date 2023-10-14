@@ -13,6 +13,7 @@ final class MockProfileUsecaseInterface: ProfileUsecaseInterface {
     var getUserProfileReturnValue: Result<ProfileVO, CustomErrorVO>?
     var putEditUserProfileReturnValue: Result<Int, CustomErrorVO>?
     var postEditProfileReturnValue: Result<Int, CustomErrorVO>?
+    var deleteUserInfoReturnValue: Result<Void, CustomErrorVO>?
     var putEditProfileCalled = false
     var postEditProfileCalled = false
     
@@ -51,6 +52,15 @@ final class MockProfileUsecaseInterface: ProfileUsecaseInterface {
                 .eraseToAnyPublisher()
         } else {
             fatalError("postEditProfileReturnValue not set in the mock")
+        }
+    }
+    
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO> {
+        if let returnValue = deleteUserInfoReturnValue {
+            return Result.Publisher(returnValue)
+                .eraseToAnyPublisher()
+        } else {
+            fatalError("deleteUserInfo not set in the mock")
         }
     }
 }
