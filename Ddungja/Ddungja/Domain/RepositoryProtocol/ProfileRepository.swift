@@ -12,4 +12,5 @@ protocol ProfileRepository {
     func getUserProfile(_ userId: String) -> AnyPublisher<ProfileVO, CustomErrorVO>
     func putEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
     func postEditUserProfile(VO: ProfileEditVO) -> AnyPublisher<Int, CustomErrorVO>
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO>
 }

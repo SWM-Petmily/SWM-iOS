@@ -213,8 +213,11 @@ struct MyPageScene: View {
                         
                         HStack {
                             Image(systemName: "questionmark.circle")
-                            Text("자주 물어보는 질문")
+                            Text("회원 탈퇴")
                                 .applyInner(color: .mainTextColor)
+                        }
+                        .onTapGesture {
+                            viewModel.deleteUserInfo()
                         }
                         
                         HStack {
@@ -240,6 +243,11 @@ struct MyPageScene: View {
             }
         }
         .analyticsScreen(name: "MyPageScene")
+        .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(viewModel.errorDetailMessage)
+        }
         .onAppear {
             viewModel.getMyPage()
         }

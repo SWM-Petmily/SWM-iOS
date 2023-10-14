@@ -15,6 +15,7 @@ protocol UserProfileDataSourceInterface {
     func getUserProfile(_ userId: String) -> AnyPublisher<ProfileDetailDTO, CustomErrorVO>
     func putEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
     func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO>
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO>
 }
     
 final class UserProfileAPIProvider: UserProfileDataSourceInterface {
@@ -44,6 +45,11 @@ final class UserProfileAPIProvider: UserProfileDataSourceInterface {
     func postEditUserProfile(profile: ProfileEditVO) -> AnyPublisher<ProfileRegisterDTO, CustomErrorVO> {
         let profileDTO = profile.toData(profile: profile)
         return moyaProvider.requestPublisher(.register(userInfo: profileDTO))
+            .asResult()
+    }
+    
+    func deleteUserInfo() -> AnyPublisher<Void, CustomErrorVO> {
+        return moyaProvider.requestPublisher(.deleteUserInfo)
             .asResult()
     }
 }
