@@ -216,6 +216,9 @@ struct MyPageScene: View {
                             Text("회원 탈퇴")
                                 .applyInner(color: .mainTextColor)
                         }
+                        .onTapGesture {
+                            viewModel.deleteUserInfo()
+                        }
                         
                         HStack {
                             Image(systemName: "pencil")
