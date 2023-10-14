@@ -213,7 +213,7 @@ struct MyPageScene: View {
                         
                         HStack {
                             Image(systemName: "questionmark.circle")
-                            Text("자주 물어보는 질문")
+                            Text("회원 탈퇴")
                                 .applyInner(color: .mainTextColor)
                         }
                         
