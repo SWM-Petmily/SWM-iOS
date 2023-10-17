@@ -32,14 +32,16 @@ final class SignUpViewModel: BaseViewModel {
     }
     
     func requestPhoneNumberCertification(_ phoneNumber: String) {
-        signUpUsecase.requestCertification(about: phoneNumber)
-            .sink { error in
-                print(error)
-            } receiveValue: { [weak self] vo in
-                print("vo is \(vo)")
-                self?.showCertificationNumber = true
-            }
-            .store(in: &cancellables)
+        if isValidPhoneNumber() {
+            signUpUsecase.requestCertification(about: phoneNumber)
+                .sink { error in
+                    print(error)
+                } receiveValue: { [weak self] vo in
+                    print("vo is \(vo)")
+                    self?.showCertificationNumber = true
+                }
+                .store(in: &cancellables)
+        }
     }
     
     func checkCertificationNumber(_ certification: String) {
@@ -54,20 +56,21 @@ final class SignUpViewModel: BaseViewModel {
     }
         
     func registerUserInfo(_ nickname: String) {
-        signUpUsecase.registerUserInfo(nickname)
-            .sink { error in
-                print("registere user Info \(error)")
-            } receiveValue: { [weak self] bool in
-                print("registerUserInfo response\(bool)")
-                self?.pop()
-                self?.push(.tapBar)
-            }
-            .store(in: &cancellables)
+        if isValidRegisterButton() {
+            signUpUsecase.registerUserInfo(nickname)
+                .sink { error in
+                    print("registere user Info \(error)")
+                } receiveValue: { [weak self] bool in
+                    print("registerUserInfo response\(bool)")
+                    self?.pop()
+                    self?.push(.tapBar)
+                }
+                .store(in: &cancellables)
+        }
     }
     
     func checkPhoneNumber() {
-        let pattern = "^01[0-1, 7][0-9]{7,8}$"
-        if let _ = phoneNumber.range(of: pattern, options: .regularExpression) {
+        if isValidPhoneNumber() {
             isActiveRequestButton = false
             requestTextColor = .mainColor
             requestBackgroundColor = .sub
@@ -79,7 +82,7 @@ final class SignUpViewModel: BaseViewModel {
     }
     
     func register() {
-        if isSuccessVerify && !nickName.isEmpty {
+        if isValidRegisterButton() {
             registerTextColor = .white
             registerBackgroundColor = .main
             isActiveRegisterButton = false
@@ -88,5 +91,18 @@ final class SignUpViewModel: BaseViewModel {
             registerBackgroundColor = .buttonBackground
             isActiveRegisterButton = true
         }
+    }
+    
+    private func isValidPhoneNumber() -> Bool {
+        let phoneNumberPattern = "^01[0-1, 7][0-9]{7,8}$"
+        if let _ = phoneNumber.range(of: phoneNumberPattern, options: .regularExpression) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func isValidRegisterButton() -> Bool {
+        return isSuccessVerify && !nickName.isEmpty
     }
 }
