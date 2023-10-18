@@ -14,7 +14,9 @@ final class ApplyCommonViewModel: BaseViewModel {
     
     @Published var isSucceedPost = false
     @Published var showEditButton = true
+    @Published var isPossibleAdoption = true
     @Published var profile: ProfileVO
+    
     init(coordinator: CoordinatorProtocol,myPostsUsecase: MyApplyPostsUsecaseInterface,profileUsecase: ProfileUsecaseInterface) {
         self.myPostsUsecase = myPostsUsecase
         self.profileUsecase = profileUsecase
@@ -36,15 +38,25 @@ final class ApplyCommonViewModel: BaseViewModel {
                     self.errorDetailMessage = error.detailMessage
                     self.errorIcon = error.icon
                     self.errorIconColor = error.iconColor
+                    self.isPossibleAdoption = false
                 }
             } receiveValue: { profileVo in
                 print(profileVo)
                 self.profile = profileVo
+                self.isPossibleAdoption = true
             }
             .store(in: &cancellables)
     }
     
-    func postApply(_ postId: Int) {
+    func requestAdoption(_ postId: Int) {
+        if isPossibleAdoption {
+            postApply(postId)
+        } else {
+            push(.editProfile(isRegister: false))
+        }
+    }
+
+    private func postApply(_ postId: Int) {
         myPostsUsecase.postApply(postId, profile)
             .sink { [weak self] completion in
                 guard let self = self else { return }
