@@ -26,7 +26,7 @@ struct ApplyAdoptionView: View {
                                 viewModel.pop()
                             }
                     }
-                    if viewModel.showEditButton {
+                    if viewModel.showEditButton && viewModel.isPossibleAdoption {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Text("수정하기")
                                 .applyInner(color: .mainColor)
@@ -39,7 +39,7 @@ struct ApplyAdoptionView: View {
                 }
             
             Button {
-                viewModel.postApply(postId)
+                viewModel.requestAdoption(postId)
             } label: {
                 Text("입양 신청하기")
                     .applyInner(color: .white)
@@ -52,9 +52,7 @@ struct ApplyAdoptionView: View {
             .padding()
         }
         .alert(viewModel.errorTitle, isPresented: $viewModel.showAlert) {
-            Button("확인", role: .cancel) {
-                viewModel.pop()
-            }
+            Button("확인", role: .cancel) { }
         } message: {
             Text(viewModel.errorDetailMessage)
         }
