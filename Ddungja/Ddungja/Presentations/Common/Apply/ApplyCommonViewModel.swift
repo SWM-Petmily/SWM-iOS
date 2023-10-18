@@ -38,10 +38,12 @@ final class ApplyCommonViewModel: BaseViewModel {
                     self.errorDetailMessage = error.detailMessage
                     self.errorIcon = error.icon
                     self.errorIconColor = error.iconColor
+                    self.isPossibleAdoption = false
                 }
             } receiveValue: { profileVo in
                 print(profileVo)
                 self.profile = profileVo
+                self.isPossibleAdoption = true
             }
             .store(in: &cancellables)
     }
