@@ -18,6 +18,7 @@ struct DdungjaApp: App {
     private let viewResolver: ViewResolver
     @ObservedObject private var coordinator: Coordinator
     @State private var showLaunchView = true
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     init() {
         injector = DependencyInjector(container: Container())
@@ -37,7 +38,6 @@ struct DdungjaApp: App {
         if KeyChainManager.isPossibleAutoLogin {
             coordinator.push(.tapBar)
         }
-        FirebaseApp.configure()
     }
     
     var body: some Scene {
