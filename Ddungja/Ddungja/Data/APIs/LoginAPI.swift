@@ -11,6 +11,7 @@ import Moya
 enum LoginAPI {
     case kakaoLogin(vo: OAuth.KakaoVO)
     case appleLogin(vo: OAuth.AppleVO)
+    case saveToken(token: String)
 }
 
 extension LoginAPI: TargetType {
@@ -25,12 +26,15 @@ extension LoginAPI: TargetType {
             
         case .appleLogin:
             return "users/apple"
+            
+        case .saveToken:
+            return "users/fcm"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .kakaoLogin, .appleLogin:
+        case .kakaoLogin, .appleLogin, .saveToken:
             return .post
         }
     }
@@ -41,6 +45,8 @@ extension LoginAPI: TargetType {
             return .requestParameters(parameters: ["accessToken": vo.accessToken, "tokenType": vo.tokenType], encoding: JSONEncoding.default)
         case let .appleLogin(vo):
             return .requestParameters(parameters: ["accessToken": vo.accessToken, "idToken": vo.idToken], encoding: JSONEncoding.default)
+        case let .saveToken(token):
+            return .requestParameters(parameters: ["fcmToken": token], encoding: JSONEncoding.default)
         }
     }
     
@@ -48,6 +54,9 @@ extension LoginAPI: TargetType {
         switch self {
         case .kakaoLogin, .appleLogin:
             return .none
+        case .saveToken:
+            let accessToken = KeyChainManager.read(key: .accessToken) ?? ""
+            return ["Authorization" : accessToken]
         }
     }
 }

@@ -32,6 +32,7 @@ final class LoginViewModel: BaseViewModel {
                     print("nonCertification")
                     self.push(.signup)
                 }
+                self.saveFCMToken()
             }
             .store(in: &cancellables)
     }
@@ -49,6 +50,17 @@ final class LoginViewModel: BaseViewModel {
                     print("Apple nonCertification")
                     self.push(.signup)
                 }
+                self.saveFCMToken()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func saveFCMToken() {
+        loginUsecase.saveFCMToken()
+            .sink { error in
+                print("failed save FCM TOKEN \(error)")
+            } receiveValue: { _ in
+                print("success save FCM TOKEN")
             }
             .store(in: &cancellables)
     }

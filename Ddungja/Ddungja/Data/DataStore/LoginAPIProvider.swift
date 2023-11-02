@@ -12,6 +12,7 @@ import Combine
 
 protocol LoginDataSourceInterface {
     func requestLogin(_ oauth: OAuth) -> AnyPublisher<LoginDTO, CustomErrorVO>
+    func saveFCMToken(_ token: String) -> AnyPublisher<Void, CustomErrorVO>
 }
 
 final class LoginAPIProvider: LoginDataSourceInterface {
@@ -31,5 +32,10 @@ final class LoginAPIProvider: LoginDataSourceInterface {
             return moyaProvider.requestPublisher(.appleLogin(vo: vo))
                 .asResult()
         }
+    }
+    
+    func saveFCMToken(_ token: String) -> AnyPublisher<Void, CustomErrorVO> {
+        return moyaProvider.requestPublisher(.saveToken(token: token))
+            .asResult()
     }
 }

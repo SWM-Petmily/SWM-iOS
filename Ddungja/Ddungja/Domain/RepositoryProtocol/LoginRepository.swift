@@ -11,4 +11,5 @@ protocol LoginRepository {
     func requestKakaoLogin() -> AnyPublisher<OAuth.KakaoVO, Error>
     func requestAppleLogin() -> AnyPublisher<OAuth.AppleVO, Error>
     func postLogin(_ oauth: OAuth) -> AnyPublisher<LoginVO, CustomErrorVO>
+    func saveFCMToken(_ token: String) -> AnyPublisher<Void, CustomErrorVO>
 }
