@@ -26,6 +26,7 @@
 		751AAFC22AEB7BB700C1531C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 751AAFC12AEB7BB700C1531C /* FirebaseFirestore */; };
 		751AAFC42AEB7BB700C1531C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 751AAFC32AEB7BB700C1531C /* FirebaseMessaging */; };
 		751AAFC62AEB9C4700C1531C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AAFC52AEB9C4700C1531C /* AppDelegate.swift */; };
+		751AAFE82AF4851100C1531C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 751AAFE72AF4851100C1531C /* FirebaseMessaging */; };
 		75308A232A9F1722008254ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75308A222A9F1722008254ED /* LaunchScreen.storyboard */; };
 		7535115B2A41D7E8008B0101 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115A2A41D7E8008B0101 /* CombineMoya */; };
 		7535115D2A41D7E8008B0101 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7535115C2A41D7E8008B0101 /* Moya */; };
@@ -463,6 +464,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751AAFE82AF4851100C1531C /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,6 +1249,7 @@
 			);
 			name = DdungjaTests;
 			packageProductDependencies = (
+				751AAFE72AF4851100C1531C /* FirebaseMessaging */,
 			);
 			productName = DdungjaTests;
 			productReference = 759A658A2A4037E700E6AD07 /* DdungjaTests.xctest */;
@@ -1975,6 +1978,11 @@
 			productName = FirebaseFirestore;
 		};
 		751AAFC32AEB7BB700C1531C /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 751AAFBA2AEB7BB700C1531C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		751AAFE72AF4851100C1531C /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 751AAFBA2AEB7BB700C1531C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
