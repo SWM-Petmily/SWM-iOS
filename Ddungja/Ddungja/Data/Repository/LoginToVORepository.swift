@@ -30,5 +30,9 @@ class LoginToVORepository: LoginRepository {
             .map { $0.toLoginVO() }
             .eraseToAnyPublisher()
     }
-
+    
+    func saveFCMToken(_ token: String) -> AnyPublisher<Void, CustomErrorVO> {
+        return loginDataSource.saveFCMToken(token)
+            .eraseToAnyPublisher()
+    }
 }

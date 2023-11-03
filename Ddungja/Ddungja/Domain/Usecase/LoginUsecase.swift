@@ -11,6 +11,7 @@ import Moya
 protocol LoginUsecaseInterface {
     func requestKakaoLogin() -> AnyPublisher<LoginResultVO, Error>
     func requestAppleLogin() -> AnyPublisher<LoginResultVO, Error>
+    func saveFCMToken() -> AnyPublisher<Void, CustomErrorVO>
 }
 
 final class LoginUsecase: LoginUsecaseInterface {
@@ -55,5 +56,10 @@ final class LoginUsecase: LoginUsecaseInterface {
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
+    }
+    
+    func saveFCMToken() -> AnyPublisher<Void, CustomErrorVO> {
+        let firebaseToken = KeyChainManager.read(key: .firebaseToken) ?? ""
+        return repository.saveFCMToken(firebaseToken)
     }
 }

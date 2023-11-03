@@ -14,6 +14,7 @@ final class KeyChainManager {
         case userId
         case accessToken
         case refreshToken
+        case firebaseToken
     }
 
     static func create(key: Keys, token: String) {
